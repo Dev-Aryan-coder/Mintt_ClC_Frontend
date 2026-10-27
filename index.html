@@ -181,6 +181,35 @@
         .btn-sketch-stateful.is-success .slot-success {
             display: inline-flex;
         }
+
+        /* ==============================================================
+           ACETERNITY INFINITE MOVING CARDS (MARQUEE SHOWCASE)
+           ============================================================== */
+        @keyframes infiniteCardsScroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .animate-infinite-cards {
+            display: flex;
+            width: max-content;
+            animation: infiniteCardsScroll 32s linear infinite;
+        }
+
+        .animate-infinite-cards:hover {
+            animation-play-state: paused;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .animate-infinite-cards {
+                animation: none;
+                overflow-x: auto;
+            }
+        }
     </style>
 </head>
 
@@ -371,6 +400,280 @@
                             <i class="fa-solid fa-circle-check text-emerald-600 text-xs sm:text-sm shrink-0"></i>
                             <span>Connect with a senior therapist in under 24 hours &bull; 6 Centres across Mumbai, Pune &amp; Online</span>
                         </p>
+                    </div>
+
+                    <!-- ACETERNITY INFINITE MOVING CARDS (Real CLC Clinic & Therapy Showcase) -->
+                    <div class="pt-2 sm:pt-3 w-full">
+                        <div class="flex items-center justify-between mb-1.5 sm:mb-2">
+                            <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-stone-600 font-mono-nav flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                                Inside CLC Centres &bull; Real Clinical Therapy
+                            </span>
+                            <span class="text-[10px] sm:text-xs text-stone-400 font-medium hidden sm:inline font-mono-nav">
+                                Pause on hover &bull; Click to book
+                            </span>
+                        </div>
+                        
+                        <!-- Infinite Marquee Viewport with Aceternity Edge Fade Mask -->
+                        <div class="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_4%,white_96%,transparent)] py-1">
+                            <div class="animate-infinite-cards flex gap-3 sm:gap-3.5 py-1">
+                                
+                                <!-- SET 1: 6 Real CLC Cards -->
+                                <!-- Card 1 -->
+                                <div onclick="openBookingModal()"
+                                    class="w-[190px] sm:w-[220px] md:w-[240px] shrink-0 bg-white/95 hover:bg-white backdrop-blur-md border border-stone-200/90 hover:border-stone-400 rounded-2xl p-2 sm:p-2.5 shadow-sm hover:shadow-lg transition-all duration-300 group cursor-pointer text-left">
+                                    <div class="overflow-hidden rounded-xl h-20 sm:h-24 md:h-28 w-full mb-2 bg-stone-100">
+                                        <img src="pics/showcase/center-1.jpg" alt="Child Learning Centre Sensory Integration Suite"
+                                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                    </div>
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#C8232C] bg-rose-50 px-2 py-0.5 rounded-md font-mono-nav">
+                                            Sensory Gym
+                                        </span>
+                                        <span class="text-[9px] text-stone-400 font-mono-nav">Nerul HQ</span>
+                                    </div>
+                                    <h4 class="text-xs sm:text-sm font-bold text-[#16244F] line-clamp-1 group-hover:text-[#C8232C] transition-colors">
+                                        Sensory Integration Suite
+                                    </h4>
+                                    <p class="text-[10px] sm:text-[11px] text-stone-600 line-clamp-1 mt-0.5">
+                                        Vestibular swings &amp; tactile therapy
+                                    </p>
+                                </div>
+
+                                <!-- Card 2 -->
+                                <div onclick="openBookingModal()"
+                                    class="w-[190px] sm:w-[220px] md:w-[240px] shrink-0 bg-white/95 hover:bg-white backdrop-blur-md border border-stone-200/90 hover:border-stone-400 rounded-2xl p-2 sm:p-2.5 shadow-sm hover:shadow-lg transition-all duration-300 group cursor-pointer text-left">
+                                    <div class="overflow-hidden rounded-xl h-20 sm:h-24 md:h-28 w-full mb-2 bg-stone-100">
+                                        <img src="pics/showcase/therapy-1.jpg" alt="Child Learning Centre Speech & Language Therapy"
+                                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                    </div>
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#C8232C] bg-rose-50 px-2 py-0.5 rounded-md font-mono-nav">
+                                            Speech Therapy
+                                        </span>
+                                        <span class="text-[9px] text-stone-400 font-mono-nav">Clinical Cabin</span>
+                                    </div>
+                                    <h4 class="text-xs sm:text-sm font-bold text-[#16244F] line-clamp-1 group-hover:text-[#C8232C] transition-colors">
+                                        1:1 Communication Pod
+                                    </h4>
+                                    <p class="text-[10px] sm:text-[11px] text-stone-600 line-clamp-1 mt-0.5">
+                                        Phonetics &amp; expressive language coaching
+                                    </p>
+                                </div>
+
+                                <!-- Card 3 -->
+                                <div onclick="openBookingModal()"
+                                    class="w-[190px] sm:w-[220px] md:w-[240px] shrink-0 bg-white/95 hover:bg-white backdrop-blur-md border border-stone-200/90 hover:border-stone-400 rounded-2xl p-2 sm:p-2.5 shadow-sm hover:shadow-lg transition-all duration-300 group cursor-pointer text-left">
+                                    <div class="overflow-hidden rounded-xl h-20 sm:h-24 md:h-28 w-full mb-2 bg-stone-100">
+                                        <img src="pics/showcase/center-2.jpg" alt="Child Learning Centre Occupational Therapy"
+                                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                    </div>
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#C8232C] bg-rose-50 px-2 py-0.5 rounded-md font-mono-nav">
+                                            Motor Skills
+                                        </span>
+                                        <span class="text-[9px] text-stone-400 font-mono-nav">Thane Branch</span>
+                                    </div>
+                                    <h4 class="text-xs sm:text-sm font-bold text-[#16244F] line-clamp-1 group-hover:text-[#C8232C] transition-colors">
+                                        Fine Motor Skills Studio
+                                    </h4>
+                                    <p class="text-[10px] sm:text-[11px] text-stone-600 line-clamp-1 mt-0.5">
+                                        Hand-eye coordination &amp; posture training
+                                    </p>
+                                </div>
+
+                                <!-- Card 4 -->
+                                <div onclick="openBookingModal()"
+                                    class="w-[190px] sm:w-[220px] md:w-[240px] shrink-0 bg-white/95 hover:bg-white backdrop-blur-md border border-stone-200/90 hover:border-stone-400 rounded-2xl p-2 sm:p-2.5 shadow-sm hover:shadow-lg transition-all duration-300 group cursor-pointer text-left">
+                                    <div class="overflow-hidden rounded-xl h-20 sm:h-24 md:h-28 w-full mb-2 bg-stone-100">
+                                        <img src="pics/showcase/therapy-2.jpg" alt="Child Learning Centre Developmental Play"
+                                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                    </div>
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#C8232C] bg-rose-50 px-2 py-0.5 rounded-md font-mono-nav">
+                                            Play Therapy
+                                        </span>
+                                        <span class="text-[9px] text-stone-400 font-mono-nav">Sion Centre</span>
+                                    </div>
+                                    <h4 class="text-xs sm:text-sm font-bold text-[#16244F] line-clamp-1 group-hover:text-[#C8232C] transition-colors">
+                                        Developmental Play Zone
+                                    </h4>
+                                    <p class="text-[10px] sm:text-[11px] text-stone-600 line-clamp-1 mt-0.5">
+                                        Attention stamina &amp; memory puzzles
+                                    </p>
+                                </div>
+
+                                <!-- Card 5 -->
+                                <div onclick="openBookingModal()"
+                                    class="w-[190px] sm:w-[220px] md:w-[240px] shrink-0 bg-white/95 hover:bg-white backdrop-blur-md border border-stone-200/90 hover:border-stone-400 rounded-2xl p-2 sm:p-2.5 shadow-sm hover:shadow-lg transition-all duration-300 group cursor-pointer text-left">
+                                    <div class="overflow-hidden rounded-xl h-20 sm:h-24 md:h-28 w-full mb-2 bg-stone-100">
+                                        <img src="pics/showcase/center-3.jpg" alt="Child Learning Centre Multi-Sensory Activity Space"
+                                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                    </div>
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#C8232C] bg-rose-50 px-2 py-0.5 rounded-md font-mono-nav">
+                                            Behavioral
+                                        </span>
+                                        <span class="text-[9px] text-stone-400 font-mono-nav">Vashi Centre</span>
+                                    </div>
+                                    <h4 class="text-xs sm:text-sm font-bold text-[#16244F] line-clamp-1 group-hover:text-[#C8232C] transition-colors">
+                                        Multi-Sensory Activity Room
+                                    </h4>
+                                    <p class="text-[10px] sm:text-[11px] text-stone-600 line-clamp-1 mt-0.5">
+                                        Calming sensory tools &amp; regulation play
+                                    </p>
+                                </div>
+
+                                <!-- Card 6 -->
+                                <div onclick="openBookingModal()"
+                                    class="w-[190px] sm:w-[220px] md:w-[240px] shrink-0 bg-white/95 hover:bg-white backdrop-blur-md border border-stone-200/90 hover:border-stone-400 rounded-2xl p-2 sm:p-2.5 shadow-sm hover:shadow-lg transition-all duration-300 group cursor-pointer text-left">
+                                    <div class="overflow-hidden rounded-xl h-20 sm:h-24 md:h-28 w-full mb-2 bg-stone-100">
+                                        <img src="pics/showcase/activity-1.jpg" alt="Child Learning Centre Remedial Education"
+                                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                    </div>
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#C8232C] bg-rose-50 px-2 py-0.5 rounded-md font-mono-nav">
+                                            Academic
+                                        </span>
+                                        <span class="text-[9px] text-stone-400 font-mono-nav">All Centres</span>
+                                    </div>
+                                    <h4 class="text-xs sm:text-sm font-bold text-[#16244F] line-clamp-1 group-hover:text-[#C8232C] transition-colors">
+                                        Remedial Education Lab
+                                    </h4>
+                                    <p class="text-[10px] sm:text-[11px] text-stone-600 line-clamp-1 mt-0.5">
+                                        Dyslexia assistance &amp; reading mastery
+                                    </p>
+                                </div>
+
+                                <!-- SET 2 (Exact Duplicate for 100% Seamless Infinite Marquee Loop) -->
+                                <!-- Card 1 Duplicate -->
+                                <div onclick="openBookingModal()"
+                                    class="w-[190px] sm:w-[220px] md:w-[240px] shrink-0 bg-white/95 hover:bg-white backdrop-blur-md border border-stone-200/90 hover:border-stone-400 rounded-2xl p-2 sm:p-2.5 shadow-sm hover:shadow-lg transition-all duration-300 group cursor-pointer text-left">
+                                    <div class="overflow-hidden rounded-xl h-20 sm:h-24 md:h-28 w-full mb-2 bg-stone-100">
+                                        <img src="pics/showcase/center-1.jpg" alt="Child Learning Centre Sensory Integration Suite"
+                                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                    </div>
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#C8232C] bg-rose-50 px-2 py-0.5 rounded-md font-mono-nav">
+                                            Sensory Gym
+                                        </span>
+                                        <span class="text-[9px] text-stone-400 font-mono-nav">Nerul HQ</span>
+                                    </div>
+                                    <h4 class="text-xs sm:text-sm font-bold text-[#16244F] line-clamp-1 group-hover:text-[#C8232C] transition-colors">
+                                        Sensory Integration Suite
+                                    </h4>
+                                    <p class="text-[10px] sm:text-[11px] text-stone-600 line-clamp-1 mt-0.5">
+                                        Vestibular swings &amp; tactile therapy
+                                    </p>
+                                </div>
+
+                                <!-- Card 2 Duplicate -->
+                                <div onclick="openBookingModal()"
+                                    class="w-[190px] sm:w-[220px] md:w-[240px] shrink-0 bg-white/95 hover:bg-white backdrop-blur-md border border-stone-200/90 hover:border-stone-400 rounded-2xl p-2 sm:p-2.5 shadow-sm hover:shadow-lg transition-all duration-300 group cursor-pointer text-left">
+                                    <div class="overflow-hidden rounded-xl h-20 sm:h-24 md:h-28 w-full mb-2 bg-stone-100">
+                                        <img src="pics/showcase/therapy-1.jpg" alt="Child Learning Centre Speech & Language Therapy"
+                                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                    </div>
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#C8232C] bg-rose-50 px-2 py-0.5 rounded-md font-mono-nav">
+                                            Speech Therapy
+                                        </span>
+                                        <span class="text-[9px] text-stone-400 font-mono-nav">Clinical Cabin</span>
+                                    </div>
+                                    <h4 class="text-xs sm:text-sm font-bold text-[#16244F] line-clamp-1 group-hover:text-[#C8232C] transition-colors">
+                                        1:1 Communication Pod
+                                    </h4>
+                                    <p class="text-[10px] sm:text-[11px] text-stone-600 line-clamp-1 mt-0.5">
+                                        Phonetics &amp; expressive language coaching
+                                    </p>
+                                </div>
+
+                                <!-- Card 3 Duplicate -->
+                                <div onclick="openBookingModal()"
+                                    class="w-[190px] sm:w-[220px] md:w-[240px] shrink-0 bg-white/95 hover:bg-white backdrop-blur-md border border-stone-200/90 hover:border-stone-400 rounded-2xl p-2 sm:p-2.5 shadow-sm hover:shadow-lg transition-all duration-300 group cursor-pointer text-left">
+                                    <div class="overflow-hidden rounded-xl h-20 sm:h-24 md:h-28 w-full mb-2 bg-stone-100">
+                                        <img src="pics/showcase/center-2.jpg" alt="Child Learning Centre Occupational Therapy"
+                                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                    </div>
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#C8232C] bg-rose-50 px-2 py-0.5 rounded-md font-mono-nav">
+                                            Motor Skills
+                                        </span>
+                                        <span class="text-[9px] text-stone-400 font-mono-nav">Thane Branch</span>
+                                    </div>
+                                    <h4 class="text-xs sm:text-sm font-bold text-[#16244F] line-clamp-1 group-hover:text-[#C8232C] transition-colors">
+                                        Fine Motor Skills Studio
+                                    </h4>
+                                    <p class="text-[10px] sm:text-[11px] text-stone-600 line-clamp-1 mt-0.5">
+                                        Hand-eye coordination &amp; posture training
+                                    </p>
+                                </div>
+
+                                <!-- Card 4 Duplicate -->
+                                <div onclick="openBookingModal()"
+                                    class="w-[190px] sm:w-[220px] md:w-[240px] shrink-0 bg-white/95 hover:bg-white backdrop-blur-md border border-stone-200/90 hover:border-stone-400 rounded-2xl p-2 sm:p-2.5 shadow-sm hover:shadow-lg transition-all duration-300 group cursor-pointer text-left">
+                                    <div class="overflow-hidden rounded-xl h-20 sm:h-24 md:h-28 w-full mb-2 bg-stone-100">
+                                        <img src="pics/showcase/therapy-2.jpg" alt="Child Learning Centre Developmental Play"
+                                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                    </div>
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#C8232C] bg-rose-50 px-2 py-0.5 rounded-md font-mono-nav">
+                                            Play Therapy
+                                        </span>
+                                        <span class="text-[9px] text-stone-400 font-mono-nav">Sion Centre</span>
+                                    </div>
+                                    <h4 class="text-xs sm:text-sm font-bold text-[#16244F] line-clamp-1 group-hover:text-[#C8232C] transition-colors">
+                                        Developmental Play Zone
+                                    </h4>
+                                    <p class="text-[10px] sm:text-[11px] text-stone-600 line-clamp-1 mt-0.5">
+                                        Attention stamina &amp; memory puzzles
+                                    </p>
+                                </div>
+
+                                <!-- Card 5 Duplicate -->
+                                <div onclick="openBookingModal()"
+                                    class="w-[190px] sm:w-[220px] md:w-[240px] shrink-0 bg-white/95 hover:bg-white backdrop-blur-md border border-stone-200/90 hover:border-stone-400 rounded-2xl p-2 sm:p-2.5 shadow-sm hover:shadow-lg transition-all duration-300 group cursor-pointer text-left">
+                                    <div class="overflow-hidden rounded-xl h-20 sm:h-24 md:h-28 w-full mb-2 bg-stone-100">
+                                        <img src="pics/showcase/center-3.jpg" alt="Child Learning Centre Multi-Sensory Activity Space"
+                                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                    </div>
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#C8232C] bg-rose-50 px-2 py-0.5 rounded-md font-mono-nav">
+                                            Behavioral
+                                        </span>
+                                        <span class="text-[9px] text-stone-400 font-mono-nav">Vashi Centre</span>
+                                    </div>
+                                    <h4 class="text-xs sm:text-sm font-bold text-[#16244F] line-clamp-1 group-hover:text-[#C8232C] transition-colors">
+                                        Multi-Sensory Activity Room
+                                    </h4>
+                                    <p class="text-[10px] sm:text-[11px] text-stone-600 line-clamp-1 mt-0.5">
+                                        Calming sensory tools &amp; regulation play
+                                    </p>
+                                </div>
+
+                                <!-- Card 6 Duplicate -->
+                                <div onclick="openBookingModal()"
+                                    class="w-[190px] sm:w-[220px] md:w-[240px] shrink-0 bg-white/95 hover:bg-white backdrop-blur-md border border-stone-200/90 hover:border-stone-400 rounded-2xl p-2 sm:p-2.5 shadow-sm hover:shadow-lg transition-all duration-300 group cursor-pointer text-left">
+                                    <div class="overflow-hidden rounded-xl h-20 sm:h-24 md:h-28 w-full mb-2 bg-stone-100">
+                                        <img src="pics/showcase/activity-1.jpg" alt="Child Learning Centre Remedial Education"
+                                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                                    </div>
+                                    <div class="flex items-center justify-between mb-1">
+                                        <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[#C8232C] bg-rose-50 px-2 py-0.5 rounded-md font-mono-nav">
+                                            Academic
+                                        </span>
+                                        <span class="text-[9px] text-stone-400 font-mono-nav">All Centres</span>
+                                    </div>
+                                    <h4 class="text-xs sm:text-sm font-bold text-[#16244F] line-clamp-1 group-hover:text-[#C8232C] transition-colors">
+                                        Remedial Education Lab
+                                    </h4>
+                                    <p class="text-[10px] sm:text-[11px] text-stone-600 line-clamp-1 mt-0.5">
+                                        Dyslexia assistance &amp; reading mastery
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
 
                 </div>
