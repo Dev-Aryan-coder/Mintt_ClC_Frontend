@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Child Learning Centre &bull; 1:1 Parent & Children Coaching</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: {
+                            50: '#FDFBF7',
+                            100: '#FAF6EE',
+                            200: '#F3EBDD',
+                        },
+                        coral: {
+                            400: '#FF6B6B',
+                            500: '#FA5252',
+                        },
+                        mint: {
+                            100: '#E6FCF5',
+                            200: '#C3FAE8',
+                            300: '#96F2D7',
+                        }
+                    },
+                    borderRadius: {
+                        '4xl': '2rem',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Roboto+Mono:wght@500;600;700&display=swap');
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .font-mono-nav {
+            font-family: 'Roboto Mono', monospace;
+            letter-spacing: 0.04em;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Smooth Modal transitions */
+        .modal-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+        }
+
+        .modal-overlay.is-open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-card {
+            transform: scale(0.96) translateY(12px);
+            transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .modal-overlay.is-open .modal-card {
+            transform: scale(1) translateY(0);
+        }
+
+        /* ==============================================================
+           SKETCH-STYLE STATEFUL BUTTON (Tailwind + Aceternity Hybrid)
+           ============================================================== */
+        .btn-sketch-stateful {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.625rem;
+            padding: 0.875rem 2rem;
+            font-size: 0.9375rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: #1c1917;
+            background-color: #FAF6EE;
+            border: 2px solid #1c1917;
+            border-radius: 1rem;
+            box-shadow: 3px 3px 0px 0px #1c1917;
+            cursor: pointer;
+            outline: none;
+            user-select: none;
+            min-width: 190px;
+            min-height: 50px;
+            transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+                background-color 0.25s ease,
+                color 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        /* Hover: tactile lift with deeper sketch shadow */
+        .btn-sketch-stateful:hover:not(:disabled):not(.is-loading):not(.is-success) {
+            transform: translate(-1.5px, -1.5px);
+            box-shadow: 5px 5px 0px 0px #1c1917;
+            background-color: #F3EBDD;
+        }
+
+        /* Active click: pressed into surface */
+        .btn-sketch-stateful:active:not(:disabled):not(.is-loading):not(.is-success) {
+            transform: translate(2px, 2px);
+            box-shadow: 1px 1px 0px 0px #1c1917;
+        }
+
+        /* Focus accessibility ring */
+        .btn-sketch-stateful:focus-visible {
+            outline: 2px dashed #1c1917;
+            outline-offset: 4px;
+        }
+
+        /* State 2: Loading State */
+        .btn-sketch-stateful.is-loading {
+            background-color: #FEF3C7;
+            border-color: #1c1917;
+            color: #78350F;
+            box-shadow: 2px 2px 0px 0px #1c1917;
+            cursor: wait;
+            transform: translate(1px, 1px);
+        }
+
+        /* State 3: Success State */
+        .btn-sketch-stateful.is-success {
+            background-color: #A7F3D0;
+            border-color: #064E3B;
+            color: #064E3B;
+            box-shadow: 3px 3px 0px 0px #064E3B;
+            transform: translate(0, 0);
+        }
+
+        /* Stateful icon & text slots */
+        .btn-sketch-stateful .state-slot {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        .btn-sketch-stateful .slot-loading,
+        .btn-sketch-stateful .slot-success {
+            display: none;
+        }
+
+        .btn-sketch-stateful.is-loading .slot-idle {
+            display: none;
+        }
+
+        .btn-sketch-stateful.is-loading .slot-loading {
+            display: inline-flex;
+        }
+
+        .btn-sketch-stateful.is-loading .slot-success {
+            display: none;
+        }
+
+        .btn-sketch-stateful.is-success .slot-idle {
+            display: none;
+        }
+
+        .btn-sketch-stateful.is-success .slot-loading {
+            display: none;
+        }
+
+        .btn-sketch-stateful.is-success .slot-success {
+            display: inline-flex;
+        }
+    </style>
+</head>
+
+<body class="bg-stone-50 min-h-screen pb-16 sm:pb-0 text-stone-800 antialiased selection:bg-rose-100 selection:text-rose-600 overflow-x-hidden">
+
+    <!-- 1. TOP ANNOUNCEMENT BANNER (Mobile-tuned px) -->
+    <aside
+        class="sticky top-0 left-0 w-full bg-[#C2E1FF] text-stone-800 py-2 sm:py-[13px] px-3 sm:px-6 z-40 border-b border-black/8 shadow-sm flex items-center justify-center text-center">
+        <div
+            class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2.5 text-xs sm:text-base leading-snug">
+            <span class="font-medium text-stone-800 tracking-tight">1:1 Parent and Children Coaching is here. Talk to
+                someone who gets it.</span>
+            <button type="button" onclick="openBookingModal()"
+                class="font-bold text-stone-950 underline underline-offset-4 hover:opacity-80 transition-opacity cursor-pointer focus:outline-none focus:ring-2 focus:ring-stone-800 rounded px-1.5 py-0.5 whitespace-nowrap">
+                Book my session
+            </button>
+        </div>
+    </aside>
+
+    <!-- HERO CONTAINER (Relative wrapper holding Hero Image & Transparent Overlay Navbar) -->
+    <div class="relative w-full">
+
+        <!-- TRANSPARENT NAVBAR (Directly below blue section, over hero banner, zero black borders) -->
+        <header class="absolute top-0 left-0 w-full z-30 bg-transparent border-none">
+            <div class="max-w-[1500px] mx-auto px-3.5 sm:px-6 lg:px-12 pt-2 sm:pt-3 pb-2 sm:pb-3 flex items-center justify-between">
+
+                <!-- Left: Official CLC Brand Logo (Compact & Crisp on Mobile px, Steady on Hover) -->
+                <a href="#" class="flex items-center gap-2 focus:outline-none" aria-label="Child Learning Centre">
+                    <img src="pics/clc-logo.png" alt="Child Learning Centre Logo"
+                        class="h-7 sm:h-10 md:h-12 lg:h-16 w-auto object-contain drop-shadow-sm" />
+                </a>
+
+                <!-- Center: CLC Navigation Links with Aceternity Sliding Hover Pill (Desktop 1024px+) -->
+                <nav id="desktopNav"
+                    class="relative hidden lg:flex items-center gap-1 xl:gap-2 font-mono-nav text-[15px] xl:text-[17px] font-bold tracking-wide uppercase text-stone-900">
+                    
+                    <!-- Aceternity Moving Hover Pill -->
+                    <div id="navHoverPill"
+                        class="absolute pointer-events-none rounded-full bg-stone-900/[0.07] backdrop-blur-[1px] transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] opacity-0 z-0">
+                    </div>
+
+                    <a href="#home"
+                        class="nav-pill-item relative z-10 px-3.5 py-1.5 rounded-full group flex items-center gap-1.5 font-extrabold text-[#16244F] transition-colors hover:text-[#C8232C]">
+                        <span class="text-[#C8232C] font-black text-lg transition-transform group-hover:scale-125">&mdash;</span>
+                        <span>HOME</span>
+                    </a>
+                    <a href="#about" class="nav-pill-item relative z-10 px-3.5 py-1.5 rounded-full transition-colors hover:text-[#C8232C]">
+                        ABOUT US
+                    </a>
+                    <a href="#services" class="nav-pill-item relative z-10 px-3.5 py-1.5 rounded-full transition-colors hover:text-[#C8232C]">
+                        SERVICES
+                    </a>
+                    <a href="#testimonials" class="nav-pill-item relative z-10 px-3.5 py-1.5 rounded-full transition-colors hover:text-[#C8232C]">
+                        TESTIMONIALS
+                    </a>
+
+                    <!-- Branches Dropdown with Caret -->
+                    <div class="nav-pill-item relative z-10 group cursor-pointer">
+                        <button type="button"
+                            class="px-3.5 py-1.5 rounded-full flex items-center gap-1.5 uppercase transition-colors hover:text-[#C8232C] focus:outline-none cursor-pointer">
+                            <span>BRANCHES</span>
+                            <i class="fa-solid fa-chevron-down text-xs transition-transform duration-200 group-hover:rotate-180"></i>
+                        </button>
+                        <!-- Dropdown Menu (No harsh black border, smooth rounded-2xl shadow) -->
+                        <div
+                            class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 bg-white/95 backdrop-blur-md rounded-2xl shadow-2xl border border-stone-200/50 p-2.5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-40">
+                            <a href="#dadar"
+                                class="flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-semibold text-stone-700 hover:bg-stone-50 hover:text-[#C8232C] transition-colors">
+                                <span>Dadar (Main Centre)</span>
+                                <i class="fa-solid fa-arrow-right text-xs opacity-40"></i>
+                            </a>
+                            <a href="#borivali"
+                                class="flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-semibold text-stone-700 hover:bg-stone-50 hover:text-[#C8232C] transition-colors">
+                                <span>Borivali</span>
+                                <i class="fa-solid fa-arrow-right text-xs opacity-40"></i>
+                            </a>
+                            <a href="#vashi"
+                                class="flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-semibold text-stone-700 hover:bg-stone-50 hover:text-[#C8232C] transition-colors">
+                                <span>Vashi (Navi Mumbai)</span>
+                                <i class="fa-solid fa-arrow-right text-xs opacity-40"></i>
+                            </a>
+                            <a href="#thane"
+                                class="flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-semibold text-stone-700 hover:bg-stone-50 hover:text-[#C8232C] transition-colors">
+                                <span>Thane</span>
+                                <i class="fa-solid fa-arrow-right text-xs opacity-40"></i>
+                            </a>
+                            <a href="#pune"
+                                class="flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-semibold text-stone-700 hover:bg-stone-50 hover:text-[#C8232C] transition-colors">
+                                <span>Pune</span>
+                                <i class="fa-solid fa-arrow-right text-xs opacity-40"></i>
+                            </a>
+                            <div class="h-px bg-stone-100 my-1.5"></div>
+                            <a href="#online-therapy"
+                                class="flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-semibold text-stone-700 hover:bg-stone-50 hover:text-[#C8232C] transition-colors">
+                                <span>Online Consultation</span>
+                                <span class="text-[10px] uppercase font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">Live</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="nav-pill-item relative z-10 px-3.5 py-1.5 rounded-full transition-colors hover:text-[#C8232C]">
+                        CONTACT US
+                    </a>
+                </nav>
+
+                <!-- Right: Action CTA Buttons (Desktop) -->
+                <div class="hidden sm:flex items-center gap-2.5 lg:gap-3.5">
+                    <a href="tel:+919820000000"
+                        class="hidden md:inline-flex items-center gap-2 px-3.5 lg:px-4 py-2 lg:py-2.5 rounded-xl font-mono-nav text-xs lg:text-[14px] font-bold uppercase tracking-wider text-stone-800 hover:text-[#16244F] bg-white/40 hover:bg-white/70 backdrop-blur-xs transition-all border border-stone-300/40 shadow-xs">
+                        <i class="fa-solid fa-phone text-stone-600 text-xs"></i>
+                        <span>Call Us</span>
+                    </a>
+                    <button type="button" onclick="openBookingModal()"
+                        class="inline-flex items-center justify-center px-4 lg:px-5 py-2 lg:py-2.5 rounded-xl font-mono-nav text-xs lg:text-sm font-bold uppercase tracking-wider text-stone-950 bg-[#FFD000] hover:bg-[#FACC15] active:scale-98 transition-all shadow-sm hover:shadow-md cursor-pointer">
+                        Book Consultation
+                    </button>
+                </div>
+
+                <!-- Mobile Action Group (< 1024px: Mobile & Tablet) -->
+                <div class="flex items-center gap-2 lg:hidden">
+                    <button type="button" onclick="openBookingModal()"
+                        class="sm:hidden inline-flex items-center justify-center px-3 py-1.5 rounded-xl font-mono-nav text-xs font-bold uppercase tracking-wider text-stone-950 bg-[#FFD000] active:scale-95 shadow-xs cursor-pointer">
+                        Book
+                    </button>
+                    <button type="button" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Toggle navigation"
+                        class="p-2 sm:p-2.5 rounded-xl text-stone-800 hover:bg-white/50 backdrop-blur-xs transition-colors focus:outline-none cursor-pointer flex items-center justify-center min-w-[38px] min-h-[38px]">
+                        <i class="fa-solid fa-bars text-xl sm:text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- HERO BANNER IMAGE (100% Full Screen Width, 100% of image visible with zero cropping, 15px bottom rounded corners) -->
+        <div class="relative w-full overflow-hidden rounded-b-[15px] shadow-sm">
+            <img src="pics/hero.avif" alt="Parent and child coaching - Child Learning Centre Hero Banner"
+                class="w-full h-auto block" />
+
+            <!-- TWO SEMICIRCULAR ARCS (Good Inside Architectural Style) ON THE RIGHT SIDE -->
+            <!-- Responsively tuned: Starts below navbar line to keep 'Book Consultation' button & mobile hamburger 100% visible, with generous clearance from the child -->
+            <svg class="absolute inset-y-0 right-0 h-full w-[54%] sm:w-[50%] md:w-[48%] lg:w-[46%] pointer-events-none z-10 select-none transition-all duration-300"
+                viewBox="0 0 600 780" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Outer Semicircular Arc (Soft Warm Sand / Cream #F7ECCB) -->
+                <path id="heroArcOuter"
+                    d="M 600,50 C 380,60 110,240 110,430 C 110,590 270,720 460,780 L 600,780 Z"
+                    fill="#F7ECCB" fill-opacity="0.95" />
+                <!-- Inner Semicircular Arc (Vibrant Sunshine Yellow / Brand Gold #FFD000) -->
+                <path id="heroArcInner"
+                    d="M 600,150 C 470,170 270,290 270,470 C 270,620 400,720 520,780 L 600,780 Z"
+                    fill="#FFD000" />
+            </svg>
+        </div>
+    </div>
+
+    <!-- MOBILE FULL-HEIGHT DRAWER (Exact 1:1 Session Form Wireframe Aesthetic + Aceternity Gliding Pill Physics) -->
+    <div id="mobileMenu"
+        class="fixed inset-0 z-50 bg-stone-900/60 backdrop-blur-sm hidden flex items-center justify-center p-3 sm:p-6 overflow-y-auto transition-all duration-300"
+        role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
+
+        <!-- Outer Wireframe Frame Layer (Card 1) - matches 1:1 Session Form -->
+        <div class="relative w-full max-w-lg my-auto bg-white rounded-4xl p-2.5 sm:p-4 border-2 border-stone-800/80 shadow-[0_12px_40px_-15px_rgba(0,0,0,0.15)] overflow-hidden">
+
+            <!-- Top-Right Coral Accent Circle -->
+            <div class="absolute -top-12 -right-12 w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-rose-400/80 border border-stone-800/10 mix-blend-multiply filter blur-[0.5px] pointer-events-none z-10"></div>
+
+            <!-- Bottom-Left Mint Accent Circle -->
+            <div class="absolute -bottom-10 -left-10 w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-emerald-100/90 border border-stone-800/10 shadow-sm pointer-events-none z-10"></div>
+
+            <!-- Close Button (Matching 1:1 Form) -->
+            <button type="button" onclick="toggleMobileMenu()" aria-label="Close menu"
+                class="absolute top-4 right-4 sm:top-5 sm:right-5 w-9 h-9 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-600 hover:text-stone-900 flex items-center justify-center border border-stone-300 transition-all z-30 cursor-pointer">
+                <i class="fa-solid fa-xmark text-sm"></i>
+            </button>
+
+            <!-- Middle Inner Border Layer (Card 2 - Warm Cream Background) -->
+            <div class="rounded-[1.4rem] sm:rounded-[1.65rem] border border-stone-400/60 p-4 sm:p-6 bg-cream-50/70 relative z-20 flex flex-col max-h-[82vh] overflow-y-auto">
+
+                <!-- Header: Logo + Clinical Heritage -->
+                <div class="flex items-center gap-2.5 pb-3.5 mb-2 border-b border-stone-300/70 pr-8">
+                    <img src="pics/clc-logo.png" alt="Child Learning Centre Logo" class="h-8 sm:h-9 w-auto object-contain" />
+                    <div>
+                        <div class="font-bold text-stone-900 text-sm tracking-tight leading-tight">Child Learning Centre</div>
+                        <div class="text-[11px] text-stone-500 font-medium">13+ Years Pediatric Excellence</div>
+                    </div>
+                </div>
+
+                <!-- Navigation Links with Aceternity Gliding Pill Physics -->
+                <nav id="mobileDrawerNav" class="relative flex flex-col gap-1 py-1 font-mono-nav text-sm sm:text-base font-bold tracking-wider uppercase text-stone-800">
+                    
+                    <!-- Aceternity Moving Gliding Pill Indicator inside Drawer -->
+                    <div id="drawerGlidingPill"
+                        class="absolute pointer-events-none rounded-xl bg-stone-900/[0.08] border border-stone-800/10 transition-all duration-300 ease-[cubic-bezier(0.2,0,0,1)] z-0">
+                    </div>
+
+                    <a href="#home" class="drawer-pill-item relative z-10 flex items-center gap-2 text-[#16244F] font-extrabold py-2.5 px-3.5 rounded-xl transition-colors">
+                        <span class="active-dash text-[#C8232C] font-black text-base">&mdash;</span>
+                        <span>HOME</span>
+                    </a>
+                    <a href="#about" class="drawer-pill-item relative z-10 flex items-center gap-2 text-stone-800 hover:text-[#C8232C] py-2.5 px-3.5 rounded-xl transition-colors">
+                        <span class="active-dash hidden text-[#C8232C] font-black text-base">&mdash;</span>
+                        <span>ABOUT US</span>
+                    </a>
+                    <a href="#services" class="drawer-pill-item relative z-10 flex items-center gap-2 text-stone-800 hover:text-[#C8232C] py-2.5 px-3.5 rounded-xl transition-colors">
+                        <span class="active-dash hidden text-[#C8232C] font-black text-base">&mdash;</span>
+                        <span>SERVICES</span>
+                    </a>
+                    <a href="#testimonials" class="drawer-pill-item relative z-10 flex items-center gap-2 text-stone-800 hover:text-[#C8232C] py-2.5 px-3.5 rounded-xl transition-colors">
+                        <span class="active-dash hidden text-[#C8232C] font-black text-base">&mdash;</span>
+                        <span>TESTIMONIALS</span>
+                    </a>
+
+                    <!-- Branches Card (Styled like Form Fields Box) -->
+                    <div class="my-2 p-3 bg-cream-100/90 border border-stone-300 rounded-2xl relative z-10">
+                        <div class="flex items-center justify-between text-xs font-semibold text-stone-600 uppercase tracking-wider mb-2">
+                            <span>Branches</span>
+                            <span class="text-[10px] text-stone-500 font-bold px-2 py-0.5 rounded-full bg-white border border-stone-200">6 Centres</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 text-xs font-semibold">
+                            <a href="#dadar" onclick="toggleMobileMenu()" class="p-2 rounded-xl bg-white text-stone-800 hover:text-[#C8232C] border border-stone-200 shadow-2xs text-center transition-all">Dadar (HQ)</a>
+                            <a href="#borivali" onclick="toggleMobileMenu()" class="p-2 rounded-xl bg-white text-stone-800 hover:text-[#C8232C] border border-stone-200 shadow-2xs text-center transition-all">Borivali</a>
+                            <a href="#vashi" onclick="toggleMobileMenu()" class="p-2 rounded-xl bg-white text-stone-800 hover:text-[#C8232C] border border-stone-200 shadow-2xs text-center transition-all">Vashi</a>
+                            <a href="#thane" onclick="toggleMobileMenu()" class="p-2 rounded-xl bg-white text-stone-800 hover:text-[#C8232C] border border-stone-200 shadow-2xs text-center transition-all">Thane</a>
+                            <a href="#pune" onclick="toggleMobileMenu()" class="p-2 rounded-xl bg-white text-stone-800 hover:text-[#C8232C] border border-stone-200 shadow-2xs text-center transition-all">Pune</a>
+                            <a href="#online-therapy" onclick="toggleMobileMenu()" class="p-2 rounded-xl bg-emerald-50 text-emerald-800 font-bold border border-emerald-200 shadow-2xs text-center transition-all flex items-center justify-center gap-1.5">
+                                <span>Online</span>
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="drawer-pill-item relative z-10 flex items-center gap-2 text-stone-800 hover:text-[#C8232C] py-2.5 px-3.5 rounded-xl transition-colors">
+                        <span class="active-dash hidden text-[#C8232C] font-black text-base">&mdash;</span>
+                        <span>CONTACT US</span>
+                    </a>
+                </nav>
+
+                <!-- Bottom Quick Action Buttons (Styled like Form Buttons) -->
+                <div class="pt-3.5 mt-2 border-t border-stone-300/70 flex flex-col gap-2">
+                    <a href="tel:+919820000000"
+                        class="flex items-center justify-center gap-2 py-2.5 rounded-xl border border-stone-400 bg-white hover:bg-stone-50 text-stone-800 font-mono-nav text-xs sm:text-sm font-bold uppercase tracking-wider transition-all shadow-2xs">
+                        <i class="fa-solid fa-phone text-stone-600 text-xs"></i>
+                        <span>Call +91 98200 00000</span>
+                    </a>
+                    <button type="button" onclick="toggleMobileMenu(); openBookingModal();"
+                        class="py-3 rounded-xl bg-[#FFD000] hover:bg-[#FACC15] text-stone-950 font-mono-nav text-xs sm:text-sm font-bold uppercase tracking-wider shadow-sm active:scale-98 transition-all cursor-pointer">
+                        Book Consultation
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MOBILE STICKY BOTTOM ACTION BAR (Instant 2-Click Access for Parents on Mobile Devices) -->
+    <div class="sm:hidden fixed bottom-0 left-0 w-full z-40 bg-white/95 backdrop-blur-md border-t border-stone-200/80 px-3 py-2 flex items-center justify-between gap-2 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
+        <a href="tel:+919820000000"
+            class="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl border border-stone-200 text-stone-800 font-mono-nav text-xs font-bold uppercase tracking-wider bg-stone-50 hover:bg-stone-100 transition-colors">
+            <i class="fa-solid fa-phone text-stone-600 text-xs"></i>
+            <span>Call</span>
+        </a>
+        <a href="https://wa.me/919820000000?text=Hello%20Child%20Learning%20Centre,%20I%20would%20like%20to%20know%20more%20about%20your%20coaching%20sessions."
+            target="_blank" rel="noopener noreferrer"
+            class="flex-1 flex items-center justify-center gap-1.5 py-2.5 rounded-xl border border-emerald-200 text-emerald-700 font-mono-nav text-xs font-bold uppercase tracking-wider bg-emerald-50 hover:bg-emerald-100 transition-colors">
+            <i class="fa-brands fa-whatsapp text-emerald-600 text-sm"></i>
+            <span>WhatsApp</span>
+        </a>
+        <button type="button" onclick="openBookingModal()"
+            class="flex-[1.3] flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-[#FFD000] hover:bg-[#FACC15] text-stone-950 font-mono-nav text-xs font-bold uppercase tracking-wider shadow-sm active:scale-95 transition-all cursor-pointer">
+            <i class="fa-regular fa-calendar-check text-xs"></i>
+            <span>Book Now</span>
+        </button>
+    </div>
+
+    <!-- 2. SENSORY-FRIENDLY BOOKING MODAL (EXACT WIREFRAME LAYERED DESIGN) -->
+    <div id="bookingModalOverlay"
+        class="modal-overlay fixed inset-0 bg-stone-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-2.5 sm:p-8 overflow-y-auto"
+        role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+
+        <!-- Clean Form Container (Self-Contained with No Outer Circles) -->
+        <div class="modal-card relative w-full max-w-2xl my-auto">
+
+            <!-- Outer Wireframe Frame Layer (Card 1) - overflow-hidden keeps circles strictly inside the form -->
+            <div
+                class="relative bg-white rounded-3xl sm:rounded-4xl p-2 sm:p-4 border-2 border-stone-800/80 shadow-[0_12px_40px_-15px_rgba(0,0,0,0.12)] overflow-hidden">
+
+                <!-- Top-Right Red/Coral Accent Circle (Clipped strictly inside Card 1) -->
+                <div
+                    class="absolute -top-12 -right-12 w-44 h-44 sm:w-56 sm:h-56 rounded-full bg-rose-400/80 border border-stone-800/10 mix-blend-multiply filter blur-[0.5px] pointer-events-none z-10 transition-transform duration-700 hover:scale-105">
+                </div>
+
+                <!-- Bottom-Left Mint/Teal Accent Circle with Child Illustration (Clipped strictly inside Card 1, Hidden on Mobile PX) -->
+                <div
+                    class="absolute -bottom-10 -left-10 w-36 h-36 sm:w-48 sm:h-48 rounded-full bg-emerald-100/90 border border-stone-800/10 shadow-sm pointer-events-none z-20 hidden sm:flex items-center justify-center overflow-hidden p-2 transition-transform duration-700 hover:scale-105">
+                    <img src="pics/form_ch_img.avif" alt="Child learning, reading and imagination illustration"
+                        class="w-full h-full object-contain drop-shadow-sm pointer-events-none" />
+                </div>
+
+                <!-- Close Button -->
+                <button type="button" onclick="closeBookingModal()" aria-label="Close dialog"
+                    class="absolute top-4 right-4 sm:top-6 sm:right-6 w-9 h-9 rounded-full bg-stone-100 hover:bg-stone-200 text-stone-600 hover:text-stone-900 flex items-center justify-center border border-stone-300 transition-all z-30 cursor-pointer">
+                    <i class="fa-solid fa-xmark text-sm"></i>
+                </button>
+
+                <!-- Middle Inner Border Layer (Card 2) -->
+                <div class="rounded-[1.3rem] sm:rounded-[1.65rem] border border-stone-400/60 p-3.5 sm:p-8 bg-cream-50/60 relative z-20">
+
+                    <header class="mb-4 sm:mb-6 pr-8">
+                        <span
+                            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-stone-100 text-stone-600 mb-2 border border-stone-200">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> 1:1 Parent &
+                            Child Coaching
+                        </span>
+                        <h2 id="modalTitle" class="text-xl sm:text-3xl font-bold tracking-tight text-stone-800">
+                            Book your coaching session
+                        </h2>
+                        <p class="text-xs sm:text-sm text-stone-500 mt-1">
+                            Talk to someone who gets it. Fill out the fields below and our clinical team will connect
+                            within 24 hours.
+                        </p>
+                    </header>
+
+                    <form id="contactForm" onsubmit="handleSubmit(event)" class="space-y-5">
+
+                        <!-- Main Content Box: "here are the field to fill the form okay" -->
+                        <div
+                            class="bg-cream-100/80 border border-stone-300 rounded-2xl p-4 sm:p-6 space-y-4 transition-colors focus-within:border-stone-500 focus-within:bg-cream-100">
+
+                            <!-- Row 1: Child Name & Parent Name -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="childName"
+                                        class="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1.5">
+                                        Child's Name
+                                    </label>
+                                    <div class="relative">
+                                        <div
+                                            class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-stone-400">
+                                            <i class="fa-regular fa-user text-sm"></i>
+                                        </div>
+                                        <input type="text" id="childName" name="childName" placeholder="e.g. Reyansh"
+                                            class="w-full pl-10 pr-3.5 py-2.5 bg-white border border-stone-200 rounded-xl text-stone-800 placeholder-stone-400 text-sm focus:outline-none focus:ring-2 focus:ring-stone-400 focus:border-transparent transition-all">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="parentName"
+                                        class="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1.5">
+                                        Parent's Name
+                                    </label>
+                                    <div class="relative">
+                                        <div
+                                            class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-stone-400">
+                                            <i class="fa-regular fa-user text-sm"></i>
+                                        </div>
+                                        <input type="text" id="parentName" name="parentName" placeholder="e.g. Pooja M."
+                                            class="w-full pl-10 pr-3.5 py-2.5 bg-white border border-stone-200 rounded-xl text-stone-800 placeholder-stone-400 text-sm focus:outline-none focus:ring-2 focus:ring-stone-400 focus:border-transparent transition-all">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Row 2: Email Address & Phone Number (Both Mandatory) -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="email"
+                                        class="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1.5">
+                                        Email Address <span class="text-rose-500">*</span>
+                                    </label>
+                                    <div class="relative">
+                                        <div
+                                            class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-stone-400">
+                                            <i class="fa-regular fa-envelope text-sm"></i>
+                                        </div>
+                                        <input type="email" id="email" name="email" required
+                                            placeholder="name@example.com"
+                                            class="w-full pl-10 pr-3.5 py-2.5 bg-white border border-stone-200 rounded-xl text-stone-800 placeholder-stone-400 text-sm focus:outline-none focus:ring-2 focus:ring-stone-400 focus:border-transparent transition-all">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="phone"
+                                        class="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1.5">
+                                        Phone Number <span class="text-rose-500">*</span>
+                                    </label>
+                                    <div class="relative">
+                                        <div
+                                            class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-stone-400">
+                                            <i class="fa-solid fa-phone text-sm"></i>
+                                        </div>
+                                        <input type="tel" id="phone" name="phone" required placeholder="+91 98200 00000"
+                                            class="w-full pl-10 pr-3.5 py-2.5 bg-white border border-stone-200 rounded-xl text-stone-800 placeholder-stone-400 text-sm focus:outline-none focus:ring-2 focus:ring-stone-400 focus:border-transparent transition-all">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Row 3: Inquiry Topic -->
+                            <div>
+                                <label for="topic"
+                                    class="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1.5">
+                                    Coaching Focus Area
+                                </label>
+                                <select id="topic" name="topic"
+                                    class="w-full px-3.5 py-2.5 bg-white border border-stone-200 rounded-xl text-stone-700 text-sm focus:outline-none focus:ring-2 focus:ring-stone-400 focus:border-transparent transition-all">
+                                    <option value="speech">Speech & Language Milestone Delay</option>
+                                    <option value="occupational">Occupational & Sensory Integration</option>
+                                    <option value="behavioral">Attention, Focus & ADHD Support</option>
+                                    <option value="parenting">1:1 Gentle Parenting & Emotional Coaching</option>
+                                    <option value="general">Comprehensive Clinical Assessment</option>
+                                </select>
+                            </div>
+
+                            <!-- Row 4: Message / Query -->
+                            <div>
+                                <label for="message"
+                                    class="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1.5">
+                                    Your Query / Notes <span class="text-rose-500">*</span>
+                                </label>
+                                <textarea id="message" name="message" rows="3" required
+                                    placeholder="Tell us about your child's age, milestones, or questions you would like help with..."
+                                    class="w-full p-3.5 bg-white border border-stone-200 rounded-xl text-stone-800 placeholder-stone-400 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-stone-400 focus:border-transparent transition-all"></textarea>
+                            </div>
+
+                        </div>
+
+                        <!-- Bottom Action Area: Privacy Note (Left) & Submit Button (Right) -->
+                        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+                            <!-- Left Status/Privacy note (Offset on desktop to balance with the bottom-left corner circle) -->
+                            <div class="text-xs text-stone-500 font-medium inline-flex items-center gap-1.5 sm:pl-20">
+                                <i class="fa-solid fa-lock text-[11px] text-emerald-600"></i>
+                                <span>100% Confidential Clinical Care</span>
+                            </div>
+
+                            <!-- Sketch-Style Stateful Submit Button -->
+                            <button type="submit" id="submitBtn"
+                                class="btn-sketch-stateful w-full sm:w-auto sm:ml-auto group">
+                                <!-- State 1: Idle -->
+                                <span class="state-slot slot-idle">
+                                    <span>Submit Request</span>
+                                    <i
+                                        class="fa-solid fa-arrow-right text-xs transition-transform duration-200 group-hover:translate-x-1"></i>
+                                </span>
+
+                                <!-- State 2: Loading -->
+                                <span class="state-slot slot-loading">
+                                    <i class="fa-solid fa-circle-notch fa-spin text-sm"></i>
+                                    <span>Scheduling...</span>
+                                </span>
+
+                                <!-- State 3: Success -->
+                                <span class="state-slot slot-success">
+                                    <i class="fa-solid fa-check text-sm"></i>
+                                    <span>Session Booked!</span>
+                                </span>
+                            </button>
+                        </div>
+
+                    </form>
+
+                    <!-- Success Confirmation Message (Initially Hidden) -->
+                    <div id="successMsg"
+                        class="hidden mt-4 p-4 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-800 text-sm flex items-center gap-3">
+                        <i class="fa-solid fa-circle-check text-emerald-500 text-lg"></i>
+                        <div>
+                            <p class="font-semibold">Coaching request submitted successfully!</p>
+                            <p class="text-xs text-emerald-700">Thank you. One of our senior pediatric coaches will call
+                                you within 24 hours.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Interactive script -->
+    <script>
+        const modalOverlay = document.getElementById('bookingModalOverlay');
+
+        // Aceternity Simple Navbar with Physics Sliding Hover Pill Indicator
+        const desktopNav = document.getElementById('desktopNav');
+        const navHoverPill = document.getElementById('navHoverPill');
+        const navPillItems = document.querySelectorAll('.nav-pill-item');
+
+        if (desktopNav && navHoverPill && navPillItems.length > 0) {
+            navPillItems.forEach(item => {
+                item.addEventListener('mouseenter', () => {
+                    const navRect = desktopNav.getBoundingClientRect();
+                    const itemRect = item.getBoundingClientRect();
+
+                    navHoverPill.style.left = `${itemRect.left - navRect.left}px`;
+                    navHoverPill.style.top = `${itemRect.top - navRect.top}px`;
+                    navHoverPill.style.width = `${itemRect.width}px`;
+                    navHoverPill.style.height = `${itemRect.height}px`;
+                    navHoverPill.style.opacity = '1';
+                });
+            });
+
+            desktopNav.addEventListener('mouseleave', () => {
+                navHoverPill.style.opacity = '0';
+            });
+        }
+
+        // Aceternity Gliding Pill Physics inside Mobile Menu Drawer
+        const mobileDrawerNav = document.getElementById('mobileDrawerNav');
+        const drawerGlidingPill = document.getElementById('drawerGlidingPill');
+        const drawerPillItems = document.querySelectorAll('.drawer-pill-item');
+
+        function setDrawerPill(item) {
+            if (!mobileDrawerNav || !drawerGlidingPill || !item) return;
+            const navRect = mobileDrawerNav.getBoundingClientRect();
+            const itemRect = item.getBoundingClientRect();
+
+            drawerGlidingPill.style.left = `${itemRect.left - navRect.left}px`;
+            drawerGlidingPill.style.top = `${itemRect.top - navRect.top}px`;
+            drawerGlidingPill.style.width = `${itemRect.width}px`;
+            drawerGlidingPill.style.height = `${itemRect.height}px`;
+            drawerGlidingPill.style.opacity = '1';
+
+            // Update active red dash indicator
+            drawerPillItems.forEach(el => {
+                const dash = el.querySelector('.active-dash');
+                if (dash) {
+                    if (el === item) {
+                        dash.classList.remove('hidden');
+                        el.classList.add('text-[#16244F]', 'font-extrabold');
+                    } else {
+                        dash.classList.add('hidden');
+                        el.classList.remove('text-[#16244F]', 'font-extrabold');
+                    }
+                }
+            });
+        }
+
+        if (mobileDrawerNav && drawerGlidingPill && drawerPillItems.length > 0) {
+            drawerPillItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    setDrawerPill(item);
+                    setTimeout(() => {
+                        toggleMobileMenu();
+                    }, 240);
+                });
+            });
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu) {
+                const isHidden = menu.classList.contains('hidden');
+                if (isHidden) {
+                    menu.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                    // Smoothly initialize pill on active link (HOME)
+                    setTimeout(() => {
+                        if (drawerPillItems.length > 0) {
+                            setDrawerPill(drawerPillItems[0]);
+                        }
+                    }, 80);
+                } else {
+                    menu.classList.add('hidden');
+                    document.body.style.overflow = '';
+                }
+            }
+        }
+
+        const mobileMenuEl = document.getElementById('mobileMenu');
+        if (mobileMenuEl) {
+            mobileMenuEl.addEventListener('click', (e) => {
+                if (e.target === mobileMenuEl) {
+                    toggleMobileMenu();
+                }
+            });
+        }
+
+        function openBookingModal() {
+            modalOverlay.classList.add('is-open');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => {
+                const firstInput = document.getElementById('childName');
+                if (firstInput) firstInput.focus();
+            }, 100);
+        }
+
+        function closeBookingModal() {
+            modalOverlay.classList.remove('is-open');
+            document.body.style.overflow = '';
+        }
+
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                closeBookingModal();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modalOverlay.classList.contains('is-open')) {
+                closeBookingModal();
+            }
+        });
+
+        function handleSubmit(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const success = document.getElementById('successMsg');
+
+            // 1. Transition: Idle -> Loading State
+            btn.classList.remove('is-success');
+            btn.classList.add('is-loading');
+            btn.disabled = true;
+
+            setTimeout(() => {
+                // 2. Transition: Loading -> Success State
+                btn.classList.remove('is-loading');
+                btn.classList.add('is-success');
+                success.classList.remove('hidden');
+                document.getElementById('contactForm').reset();
+
+                // 3. Smooth Reset: Success -> Idle State after 3.2s
+                setTimeout(() => {
+                    btn.classList.remove('is-success');
+                    btn.disabled = false;
+                }, 3200);
+            }, 1100);
+        }
+    </script>
+</body>
+
+</html>

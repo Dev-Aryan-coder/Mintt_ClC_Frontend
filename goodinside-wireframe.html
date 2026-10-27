@@ -1,0 +1,1963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireframe (1:1 B&W Clone) • Good Inside by Dr. Becky</title>
+    
+    <!-- Google Fonts for crisp structural typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==============================================================
+           BLACK & WHITE WIREFRAME DESIGN SYSTEM
+           100% Dittoe Clone of Good Inside (goodinside.com)
+           ============================================================== */
+        :root {
+            /* === COLOR STRUCTURE TOKENS === */
+            /* Default: High-Fidelity Black & White Wireframe Mode */
+            --bg-canvas: #ffffff;
+            --bg-warm-tint: #f5f5f5;         /* In Wireframe: Light Gray | In Brand: Warm Buttercream #FEFAEE */
+            --bg-card: #fafafa;
+            --bg-card-contrast: #000000;     /* In Wireframe: Solid Black | In Brand: Marigold Yellow #FACD06 */
+            --text-card-contrast: #ffffff;
+            --btn-primary-bg: #000000;       /* In Wireframe: Black | In Brand: Sunshine Yellow #FACD06 */
+            --btn-primary-text: #ffffff;
+            --border-color: #d4d4d4;
+            --border-light: #e5e5e5;
+            
+            --wf-black: #000000;
+            --wf-dark: #121212;
+            --wf-charcoal: #2d2d2d;
+            --wf-slate: #5a5a5a;
+            --wf-muted: #888888;
+            --wf-border: var(--border-color);
+            --wf-border-light: var(--border-light);
+            --wf-surface-gray: var(--bg-warm-tint);
+            --wf-surface-card: var(--bg-card);
+            --wf-white: var(--bg-canvas);
+            
+            --font-serif: 'Playfair Display', Georgia, serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            
+            --max-width: 1240px;
+        }
+
+        /*  AUTHENTIC GOOD INSIDE BRAND COLOR STRUCTURE (Toggled by Button) */
+        [data-color-mode="brand"] {
+            --bg-canvas: #ffffff;
+            --bg-warm-tint: #fefaee;         /* Authentic Good Inside signature Warm Buttercream */
+            --bg-card: #ffffff;
+            --bg-card-contrast: #facd06;     /* Authentic Good Inside Marigold / Sunshine Yellow */
+            --text-card-contrast: #000000;
+            --btn-primary-bg: #facd06;
+            --btn-primary-text: #000000;
+            --border-color: #e8e3d5;
+            --border-light: #efebe0;
+            --wf-surface-card: #ffffff;
+            --wf-surface-gray: #fefaee;
+            --wf-charcoal: #1c1917;
+            --wf-slate: #44403c;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--wf-white);
+            color: var(--wf-black);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Wireframe Blueprint Banner */
+        .wf-banner {
+            background: var(--wf-black);
+            color: var(--wf-white);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            padding: 8px 16px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            position: sticky;
+            top: 0;
+            z-index: 200;
+            border-bottom: 1px solid var(--wf-charcoal);
+        }
+
+        .wf-badge {
+            background: var(--wf-white);
+            color: var(--wf-black);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+        }
+
+        /* 1. HEADER & TOP NAVIGATION */
+        
+        /* COLOR STRUCTURE EXPLANATION PANEL */
+        .color-structure-panel {
+            background: var(--wf-white);
+            border-bottom: 2px solid var(--border-color);
+            padding: 32px 0 36px;
+        }
+
+        .cs-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .cs-token-card {
+            background: #ffffff;
+            border: 1.5px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .cs-swatch {
+            height: 72px;
+            width: 100%;
+            display: flex;
+            align-items: flex-end;
+            padding: 8px 12px;
+            font-family: monospace;
+            font-size: 11px;
+            font-weight: 700;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .cs-info {
+            padding: 14px;
+        }
+
+        .cs-info h4 {
+            font-size: 14px;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .cs-info p {
+            font-size: 12px;
+            color: var(--wf-slate);
+            line-height: 1.45;
+        }
+
+        .cs-role-badge {
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--wf-muted);
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        @media (max-width: 900px) {
+            .cs-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .site-header {
+            position: sticky;
+            top: 33px;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--wf-border-light);
+            z-index: 100;
+            height: 72px;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .brand-logo-wf {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-serif);
+            font-weight: 800;
+            font-size: 22px;
+            letter-spacing: -0.02em;
+        }
+
+        .brand-logo-icon {
+            width: 32px;
+            height: 32px;
+            border: 2px solid var(--wf-black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-sans);
+            font-size: 13px;
+            font-weight: 900;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--wf-charcoal);
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--wf-black);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn-wf {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-wf-primary {
+            background: var(--wf-black);
+            color: var(--wf-white);
+            border: 2px solid var(--wf-black);
+        }
+
+        .btn-wf-primary:hover {
+            background: var(--wf-white);
+            color: var(--wf-black);
+        }
+
+        .btn-wf-outline {
+            background: transparent;
+            color: var(--wf-black);
+            border: 2px solid var(--wf-black);
+        }
+
+        .btn-wf-outline:hover {
+            background: var(--wf-black);
+            color: var(--wf-white);
+        }
+
+        .btn-link-login {
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 12px;
+        }
+
+        /* 2. HERO SECTION */
+        .hero-section {
+            background-color: var(--wf-surface-gray);
+            border-bottom: 1px solid var(--wf-border);
+            padding: 80px 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .hero-eyebrow {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--wf-slate);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-eyebrow::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            background: var(--wf-black);
+            border-radius: 50%;
+        }
+
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: clamp(38px, 4.5vw, 62px);
+            font-weight: 700;
+            line-height: 1.12;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+        }
+
+        .hero-desc {
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--wf-slate);
+            max-width: 480px;
+            margin-bottom: 32px;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .hero-subtext {
+            font-size: 13px;
+            color: var(--wf-muted);
+            font-weight: 500;
+        }
+
+        /* Image Placeholder Box with Wireframe Diagonal Cross */
+        .wf-image-box {
+            position: relative;
+            background: #ffffff;
+            border: 2px dashed var(--wf-border);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 440px;
+            text-align: center;
+            padding: 32px;
+        }
+
+        .wf-image-box::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top right, transparent calc(50% - 1px), var(--wf-border-light) 50%, transparent calc(50% + 1px)),
+                        linear-gradient(to bottom right, transparent calc(50% - 1px), var(--wf-border-light) 50%, transparent calc(50% + 1px));
+            pointer-events: none;
+        }
+
+        .wf-image-label {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid var(--wf-border);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--wf-slate);
+        }
+
+        .wf-image-dim {
+            font-size: 11px;
+            color: var(--wf-muted);
+            margin-top: 4px;
+        }
+
+        /* 3. LOGO MARQUEE (Featured In) */
+        .marquee-section {
+            border-bottom: 1px solid var(--wf-border-light);
+            padding: 32px 0;
+            text-align: center;
+            background: var(--wf-white);
+        }
+
+        .marquee-label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--wf-muted);
+            margin-bottom: 20px;
+        }
+
+        .marquee-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+            opacity: 0.7;
+        }
+
+        .logo-placeholder {
+            border: 1.5px solid var(--wf-border);
+            border-radius: 6px;
+            padding: 8px 20px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--wf-slate);
+            background: var(--wf-surface-card);
+        }
+
+        /* 4. VALUE PROPOSITION: APP PREVIEW / DR. BECKY IN YOUR POCKET */
+        .pocket-section {
+            padding: 96px 0;
+            border-bottom: 1px solid var(--wf-border);
+            background: var(--wf-white);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 64px;
+        }
+
+        .section-tag {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--wf-slate);
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .section-h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(32px, 3.8vw, 48px);
+            font-weight: 700;
+            line-height: 1.18;
+            margin-bottom: 16px;
+        }
+
+        .section-p {
+            font-size: 17px;
+            color: var(--wf-slate);
+            line-height: 1.6;
+        }
+
+        .pocket-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 56px;
+            align-items: center;
+        }
+
+        .pocket-features {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 20px;
+            padding: 24px;
+            border: 1.5px solid var(--wf-border);
+            border-radius: 14px;
+            background: var(--wf-surface-card);
+            transition: border-color 0.2s;
+        }
+
+        .feature-item:hover {
+            border-color: var(--wf-black);
+        }
+
+        .feature-icon-box {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background: var(--wf-black);
+            color: var(--wf-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .feature-text h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .feature-text p {
+            font-size: 14px;
+            color: var(--wf-slate);
+            line-height: 1.5;
+        }
+
+        /* 5. FIND YOUR STAGE (Age Tabs) */
+        .stage-section {
+            background-color: var(--wf-surface-gray);
+            padding: 96px 0;
+            border-bottom: 1px solid var(--wf-border);
+        }
+
+        .stage-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .stage-card {
+            background: var(--wf-white);
+            border: 2px solid var(--wf-border);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.25s ease;
+        }
+
+        .stage-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--wf-black);
+            box-shadow: 0 16px 32px rgba(0,0,0,0.06);
+        }
+
+        .stage-card-img {
+            height: 220px;
+            background: var(--wf-surface-card);
+            border-bottom: 1.5px solid var(--wf-border);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stage-card-img::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top right, transparent calc(50% - 1px), var(--wf-border-light) 50%, transparent calc(50% + 1px)),
+                        linear-gradient(to bottom right, transparent calc(50% - 1px), var(--wf-border-light) 50%, transparent calc(50% + 1px));
+        }
+
+        .stage-card-body {
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .stage-pill {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            background: var(--wf-black);
+            color: var(--wf-white);
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 14px;
+            align-self: flex-start;
+        }
+
+        .stage-card-body h3 {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stage-card-body p {
+            font-size: 14px;
+            color: var(--wf-slate);
+            margin-bottom: 24px;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .stage-link {
+            font-size: 13px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            border-top: 1px solid var(--wf-border-light);
+            padding-top: 16px;
+        }
+
+        /* 6. A PARENTING APPROACH THAT CHANGES EVERYTHING (Founder Story) */
+        .founder-section {
+            padding: 96px 0;
+            border-bottom: 1px solid var(--wf-border);
+            background: var(--wf-white);
+        }
+
+        .founder-grid {
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .quote-box {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            font-style: italic;
+            line-height: 1.45;
+            margin: 24px 0;
+            border-left: 3px solid var(--wf-black);
+            padding-left: 20px;
+        }
+
+        
+        /* 6.5. DUAL INTERLOCKING ARCHITECTURAL ARCS SECTION */
+        /* Exact layout from user's screenshot: Top Color Arc meets Bottom Color Arc */
+        .experts-section {
+            position: relative;
+            background-color: var(--bg-warm-tint); /* Top color layer (Buttercream in Brand, Light Gray in WF) */
+            padding: 90px 0 110px;
+            overflow: hidden;
+            border-bottom: 1px solid var(--wf-border);
+        }
+
+        /* SVG Semicircular Interlocking Arc Divider */
+        .arc-divider-svg {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 480px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .arc-fill-bottom {
+            fill: #ede8d5; /* In Brand mode: Sandy Gold / In WF: #e5e5e5 */
+            transition: fill 0.3s ease;
+        }
+
+        [data-color-mode="brand"] .arc-fill-bottom {
+            fill: #f2edd9; /* Exactly matched to the darker warm golden sand arc in screenshot */
+        }
+
+        .experts-container-relative {
+            position: relative;
+            z-index: 2; /* Sits above the background arc */
+        }
+
+        .experts-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 64px;
+        }
+
+        .expert-card {
+            background: #ffffff;
+            border: 1.5px solid var(--wf-border);
+            border-radius: 18px;
+            padding: 0 24px 28px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .expert-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 36px rgba(0,0,0,0.1);
+            border-color: var(--wf-black);
+        }
+
+        /* Circular protruding avatar overlapping top border */
+        .expert-avatar-box {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--wf-surface-gray);
+            border: 4px solid #ffffff;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+            margin-top: -60px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .expert-avatar-box::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top right, transparent calc(50% - 1px), var(--wf-border) 50%, transparent calc(50% + 1px)),
+                        linear-gradient(to bottom right, transparent calc(50% - 1px), var(--wf-border) 50%, transparent calc(50% + 1px));
+        }
+
+        .expert-avatar-label {
+            position: relative;
+            z-index: 1;
+            font-size: 10px;
+            font-weight: 800;
+            background: rgba(255,255,255,0.95);
+            padding: 3px 8px;
+            border-radius: 4px;
+            border: 1px solid var(--wf-border);
+            text-transform: uppercase;
+        }
+
+        .expert-card h3 {
+            font-family: var(--font-sans);
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 4px;
+            line-height: 1.25;
+            color: var(--wf-black);
+        }
+
+        .expert-role {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--wf-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 16px;
+            border-bottom: 1px dotted var(--wf-border);
+            padding-bottom: 12px;
+            width: 100%;
+        }
+
+        .expert-bio {
+            font-size: 13px;
+            line-height: 1.55;
+            color: var(--wf-slate);
+            margin-bottom: 24px;
+            flex: 1;
+        }
+
+        .expert-tags-row {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: auto;
+        }
+
+        .expert-tag-pill {
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: var(--wf-surface-gray);
+            border: 1px solid var(--wf-border-light);
+            color: var(--wf-charcoal);
+        }
+
+        @media (max-width: 1100px) {
+            .experts-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 60px 24px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .experts-grid {
+                grid-template-columns: 1fr;
+                gap: 70px 0;
+            }
+        }
+
+        /* 7. EVERYTHING'S INCLUDED (Grid of 6 Features) */
+        .included-section {
+            background-color: var(--wf-surface-gray);
+            padding: 96px 0;
+            border-bottom: 1px solid var(--wf-border);
+        }
+
+        .included-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .included-card {
+            background: var(--wf-white);
+            border: 1.5px solid var(--wf-border);
+            border-radius: 14px;
+            padding: 32px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .included-number {
+            font-family: var(--font-sans);
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--wf-muted);
+            border-bottom: 1px solid var(--wf-border-light);
+            padding-bottom: 10px;
+        }
+
+        .included-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            font-family: var(--font-serif);
+        }
+
+        .included-card p {
+            font-size: 14px;
+            color: var(--wf-slate);
+            line-height: 1.5;
+        }
+
+        
+        /* 7.5. HOW THIS SHOWS UP IN YOUR HOME (3-Step Progression Chevron Block) */
+        .progression-section {
+            padding: 96px 0;
+            background: var(--wf-white);
+            border-bottom: 1px solid var(--wf-border);
+        }
+
+        .progression-wrapper {
+            background: #ffffff;
+            border: 2px solid var(--wf-border);
+            border-radius: 20px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .progression-card {
+            padding: 48px 40px 44px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 380px;
+            position: relative;
+            background: #fbfbf9;
+            border-right: 1.5px solid var(--wf-border-light);
+        }
+
+        .progression-card:nth-child(2) {
+            background: #f5f5f0;
+        }
+
+        .progression-card:last-child {
+            border-right: none;
+            background: var(--bg-card-contrast);
+            color: var(--text-card-contrast);
+        }
+
+        .btn-wf-primary {
+            background: var(--btn-primary-bg);
+            color: var(--btn-primary-text);
+            border: 2px solid var(--btn-primary-bg);
+        }
+
+        /* Forward-pointing arrow chevron divider between cards */
+        .progression-card:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -13px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-top: 14px solid transparent;
+            border-bottom: 14px solid transparent;
+            border-left: 13px solid var(--wf-border);
+            z-index: 10;
+        }
+
+        .progression-step-num {
+            font-family: var(--font-sans);
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 20px;
+            color: var(--wf-black);
+            opacity: 0.18;
+        }
+
+        .progression-card:last-child .progression-step-num {
+            opacity: 0.4;
+            color: var(--wf-white);
+        }
+
+        .progression-title {
+            font-family: var(--font-sans);
+            font-size: 24px;
+            font-weight: 800;
+            line-height: 1.25;
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+            color: var(--wf-black);
+        }
+
+        .progression-card:last-child .progression-title {
+            color: var(--wf-white);
+        }
+
+        .progression-desc {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--wf-slate);
+            margin-bottom: 32px;
+        }
+
+        .progression-card:last-child .progression-desc {
+            color: #d1d5db;
+        }
+
+        .progression-stage-tag {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--wf-muted);
+            margin-top: auto;
+            text-transform: capitalize;
+        }
+
+        .progression-card:last-child .progression-stage-tag {
+            color: #9ca3af;
+        }
+
+        .progression-footer-cta {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .progression-footer-tagline {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--wf-slate);
+        }
+
+        @media (max-width: 992px) {
+            .progression-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .progression-card {
+                border-right: none;
+                border-bottom: 1.5px solid var(--wf-border-light);
+            }
+            .progression-card:not(:last-child)::after {
+                display: none;
+            }
+        }
+
+        /* 8. TESTIMONIALS & CLINICAL PROOF */
+        .testimonials-section {
+            padding: 96px 0;
+            border-bottom: 1px solid var(--wf-border);
+            background: var(--wf-white);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .review-box {
+            background: var(--wf-surface-card);
+            border: 1.5px solid var(--wf-border);
+            border-radius: 14px;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .review-stars-wf {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 16px;
+            color: var(--wf-black);
+        }
+
+        .review-text {
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: var(--wf-charcoal);
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-top: 1px solid var(--wf-border-light);
+            padding-top: 14px;
+        }
+
+        .author-avatar-wf {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--wf-black);
+            color: var(--wf-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .author-meta h4 {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .author-meta span {
+            font-size: 12px;
+            color: var(--wf-muted);
+        }
+
+        /* 9. FAQ ACCORDION */
+        .faq-section {
+            padding: 96px 0;
+            background-color: var(--wf-surface-gray);
+            border-bottom: 1px solid var(--wf-border);
+        }
+
+        .faq-accordion {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .faq-item {
+            background: var(--wf-white);
+            border: 1.5px solid var(--wf-border);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            font-family: var(--font-serif);
+            font-size: 18px;
+            font-weight: 700;
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+        }
+
+        .faq-question:hover {
+            background: var(--wf-surface-card);
+        }
+
+        .faq-toggle-icon {
+            font-family: var(--font-sans);
+            font-size: 20px;
+            font-weight: 400;
+            transition: transform 0.2s ease;
+        }
+
+        .faq-item.active .faq-toggle-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0 24px;
+            font-size: 15px;
+            color: var(--wf-slate);
+            line-height: 1.6;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 0 24px 20px;
+            border-top: 1px solid var(--wf-border-light);
+        }
+
+        /* 10. FINAL BOTTOM CTA BANNER */
+        .final-cta-section {
+            background: var(--wf-black);
+            color: var(--wf-white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .final-cta-section h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(32px, 4vw, 48px);
+            margin-bottom: 16px;
+        }
+
+        .final-cta-section p {
+            color: var(--wf-muted);
+            max-width: 520px;
+            margin: 0 auto 32px;
+            font-size: 16px;
+        }
+
+        /* 11. FOOTER */
+        .site-footer {
+            background: var(--wf-white);
+            border-top: 1px solid var(--wf-border);
+            padding: 64px 0 32px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-col h4 {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 18px;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-links a {
+            font-size: 14px;
+            color: var(--wf-slate);
+        }
+
+        .footer-links a:hover {
+            color: var(--wf-black);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--wf-border-light);
+            padding-top: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--wf-muted);
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 992px) {
+            .hero-grid, .pocket-grid, .founder-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .stage-cards-grid, .included-grid, .reviews-grid, .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BLUEPRINT WIREFRAME BANNER -->
+    <div class="wf-banner">
+        <span class="wf-badge">100% DITTO WIREFRAME ARCHITECTURE</span>
+        <span>Reference: https://www.goodinside.com/ &bull; Interactive Color Structure Viewer</span>
+        
+        <!-- Toggle button to see B&W Wireframe vs Authentic Good Inside Colors -->
+        <div style="display: inline-flex; align-items: center; gap: 8px; margin-left: 16px;">
+            <button id="btnWfMode" onclick="toggleColorMode('wireframe')" style="background: #ffffff; color: #000000; border: none; padding: 4px 12px; border-radius: 999px; font-size: 11px; font-weight: 800; cursor: pointer;">B&amp;W Wireframe</button>
+            <button id="btnBrandMode" onclick="toggleColorMode('brand')" style="background: transparent; color: #ffffff; border: 1px solid #ffffff; padding: 4px 12px; border-radius: 999px; font-size: 11px; font-weight: 800; cursor: pointer;">Reveal Brand Colors (#FEFAEE / #FACD06)</button>
+        </div>
+    </div>
+
+    <!-- COLOR STRUCTURE ARCHITECTURE BREAKDOWN (Visual Guide) -->
+    <section class="color-structure-panel">
+        <div class="container">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+                <div>
+                    <span style="font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: var(--wf-muted);">Design Anatomy</span>
+                    <h2 style="font-family: var(--font-serif); font-size: 22px; font-weight: 700;">How the Good Inside Background Color Structure is Made</h2>
+                </div>
+                <div style="font-size: 13px; color: var(--wf-slate);">Alternating rhythmic section layers: <strong>Canvas White &rarr; Buttercream Tint &rarr; White &rarr; Marigold Accent</strong></div>
+            </div>
+
+            <div class="cs-grid">
+                <!-- Layer 1 -->
+                <div class="cs-token-card">
+                    <div class="cs-swatch" style="background-color: #fefaee; color: #5a5a5a;">#FEFAEE (Warm Buttercream)</div>
+                    <div class="cs-info">
+                        <span class="cs-role-badge">Layer 1 &bull; Signature Brand Tint</span>
+                        <h4>Warm Buttercream</h4>
+                        <p>Applied to <strong>Hero Section</strong>, <strong>Age Stages (01-03)</strong>, and <strong>FAQ Section</strong> to give organic, soothing warmth that prevents digital glare for tired parents.</p>
+                    </div>
+                </div>
+
+                <!-- Layer 2 -->
+                <div class="cs-token-card">
+                    <div class="cs-swatch" style="background-color: #ffffff; color: #000000;">#FFFFFF (Pure Canvas White)</div>
+                    <div class="cs-info">
+                        <span class="cs-role-badge">Layer 2 &bull; Breathable Contrast</span>
+                        <h4>Canvas White</h4>
+                        <p>Applied to <strong>Header</strong>, <strong>Pocket Section</strong>, <strong>Founder Section</strong>, and <strong>Testimonials</strong> to create rhythm and keep content scannable.</p>
+                    </div>
+                </div>
+
+                <!-- Layer 3 -->
+                <div class="cs-token-card">
+                    <div class="cs-swatch" style="background-color: #facd06; color: #000000;">#FACD06 (Sunshine Marigold)</div>
+                    <div class="cs-info">
+                        <span class="cs-role-badge">Layer 3 &bull; Climax / Action Anchor</span>
+                        <h4>Sunshine Marigold</h4>
+                        <p>Used as the <strong>Primary Action CTA</strong> and the <strong>Step 03 ("The Arrival") card background</strong> in the progression block to reward parent transformation.</p>
+                    </div>
+                </div>
+
+                <!-- Layer 4 -->
+                <div class="cs-token-card">
+                    <div class="cs-swatch" style="background-color: #121212; color: #ffffff;">#121212 / #000000 (Grounded Black)</div>
+                    <div class="cs-info">
+                        <span class="cs-role-badge">Layer 4 &bull; Bottom Anchor</span>
+                        <h4>Grounded Obsidian</h4>
+                        <p>Anchors the <strong>Final CTA Banner</strong> to create a definitive, high-confidence concluding statement before the footer.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 1. HEADER & NAVIGATION -->
+    <header class="site-header" role="banner">
+        <div class="container">
+            <div class="header-inner">
+                
+                <!-- Logo -->
+                <a href="#" class="brand-logo-wf">
+                    <div class="brand-logo-icon">G</div>
+                    <span>Good Inside</span>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <ul class="nav-links">
+                    <li><a href="#baby" class="nav-link">Baby</a></li>
+                    <li><a href="#kid" class="nav-link">Kid</a></li>
+                    <li><a href="#teen" class="nav-link">Teen</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#gift" class="nav-link">Gift</a></li>
+                    <li><a href="#books" class="nav-link">Books</a></li>
+                </ul>
+
+                <!-- Actions -->
+                <div class="header-actions">
+                    <a href="#login" class="btn-link-login">Log In</a>
+                    <a href="#quiz" class="btn-wf btn-wf-primary">GET STARTED</a>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- 2. HERO SECTION -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-grid">
+                    
+                    <!-- Left: Headline & CTAs -->
+                    <div>
+                        <div class="hero-eyebrow">From pregnancy through age 18</div>
+                        <h1 class="hero-title">Parenting gets a lot clearer from here.</h1>
+                        <p class="hero-desc">The only parenting app built on one consistent science-backed approach &mdash; not random tips &mdash; from pregnancy through the teen years.</p>
+                        
+                        <div class="hero-cta-group">
+                            <a href="#get-started" class="btn-wf btn-wf-primary" style="padding: 16px 36px; font-size: 15px;">GET STARTED</a>
+                            <span class="hero-subtext">Get started in under 3 minutes</span>
+                        </div>
+                    </div>
+
+                    <!-- Right: Hero Visual Placeholder (Dr. Becky + App Graphic) -->
+                    <div class="wf-image-box">
+                        <div class="wf-image-label">Hero Media Box &bull; Dr. Becky &amp; App Interactive Preview</div>
+                        <div class="wf-image-dim">[ 560px &times; 440px &bull; 100% Aspect Match ]</div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. FEATURED IN / LOGO MARQUEE -->
+        <section class="marquee-section">
+            <div class="container">
+                <div class="marquee-label">Featured In Major Publications &amp; Media</div>
+                <div class="marquee-row">
+                    <div class="logo-placeholder">The New York Times</div>
+                    <div class="logo-placeholder">TIME Magazine</div>
+                    <div class="logo-placeholder">TODAY Show</div>
+                    <div class="logo-placeholder">Good Morning America</div>
+                    <div class="logo-placeholder">Forbes</div>
+                    <div class="logo-placeholder">Wall Street Journal</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. VALUE PROPOSITION: DR. BECKY IN YOUR POCKET -->
+        <section class="pocket-section">
+            <div class="container">
+                
+                <div class="section-header">
+                    <span class="section-tag">24/7 Practical Parenting</span>
+                    <h2 class="section-h2">Dr. Becky in your pocket</h2>
+                    <p class="section-p">Instant access to actionable scripts, bite-sized workshops, and real-time guidance when tantrums and meltdowns happen.</p>
+                </div>
+
+                <div class="pocket-grid">
+                    
+                    <!-- Left: Mobile App Prototype Wireframe Box -->
+                    <div class="wf-image-box" style="min-height: 480px;">
+                        <div class="wf-image-label">Mobile App UI Wireframe &bull; Real-Time Scripts Screen</div>
+                        <div class="wf-image-dim">[ 420px &times; 520px &bull; Interactive Chatbot &amp; Audio Player ]</div>
+                    </div>
+
+                    <!-- Right: Feature Cards -->
+                    <div class="pocket-features">
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon-box">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                            </div>
+                            <div class="feature-text">
+                                <h3>Talk to GiGi (AI Parenting Assistant)</h3>
+                                <p>Type what's happening right now &mdash; from bedtime battles to grocery store screaming &mdash; and get exact word-for-word scripts in seconds.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon-box">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            </div>
+                            <div class="feature-text">
+                                <h3>Loop in your partner or co-parent</h3>
+                                <p>Every subscription includes a second free account so both caregivers stay on the same page with consistent strategies.</p>
+                            </div>
+                        </div>
+
+                        <div class="feature-item">
+                            <div class="feature-icon-box">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            </div>
+                            <div class="feature-text">
+                                <h3>5 Minutes a Day</h3>
+                                <p>Designed specifically for exhausted parents. No 200-page textbooks &mdash; just quick audio guides and actionable takeaways.</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 5. FIND YOUR STAGE (AGE BREAKDOWN) -->
+        <section class="stage-section" id="stages">
+            <div class="container">
+                
+                <div class="section-header">
+                    <span class="section-tag">Age-Appropriate Architecture</span>
+                    <h2 class="section-h2">Find your stage</h2>
+                    <p class="section-p">Evidence-backed strategies tailored to the exact neurodevelopmental milestones of your child.</p>
+                </div>
+
+                <div class="stage-cards-grid">
+                    
+                    <!-- Stage 1 -->
+                    <div class="stage-card">
+                        <div class="stage-card-img">
+                            <span class="wf-image-label">Baby &amp; Toddler Media</span>
+                        </div>
+                        <div class="stage-card-body">
+                            <span class="stage-pill">Stage 01</span>
+                            <h3>Pregnancy &ndash; Age 2</h3>
+                            <p>Sleep regressions, milestone anxiety, separation anxiety, feeding struggles, and emotional regulation from the very start.</p>
+                            <a href="#baby" class="stage-link">Explore Stage 1 <span>&rarr;</span></a>
+                        </div>
+                    </div>
+
+                    <!-- Stage 2 -->
+                    <div class="stage-card">
+                        <div class="stage-card-img">
+                            <span class="wf-image-label">Young Child Media</span>
+                        </div>
+                        <div class="stage-card-body">
+                            <span class="stage-pill">Stage 02</span>
+                            <h3>Ages 2 &ndash; 10</h3>
+                            <p>Tantrums, defiance, sibling rivalry, listening struggles, lying, and boundary setting while staying deeply connected.</p>
+                            <a href="#kid" class="stage-link">Explore Stage 2 <span>&rarr;</span></a>
+                        </div>
+                    </div>
+
+                    <!-- Stage 3 -->
+                    <div class="stage-card">
+                        <div class="stage-card-img">
+                            <span class="wf-image-label">Tween &amp; Teen Media</span>
+                        </div>
+                        <div class="stage-card-body">
+                            <span class="stage-pill">Stage 03</span>
+                            <h3>Ages 8 &ndash; 18</h3>
+                            <p>Puberty shifts, screen time battles, friendship drama, motivation hurdles, and navigating independence with trust.</p>
+                            <a href="#teen" class="stage-link">Explore Stage 3 <span>&rarr;</span></a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 6. A PARENTING APPROACH THAT CHANGES EVERYTHING (Founder Section) -->
+        <section class="founder-section">
+            <div class="container">
+                <div class="founder-grid">
+                    
+                    <!-- Left: Founder Media Box -->
+                    <div class="wf-image-box" style="min-height: 480px;">
+                        <div class="wf-image-label">Founder Portrait &bull; Dr. Becky Kennedy, Ph.D.</div>
+                        <div class="wf-image-dim">[ Clinical Psychologist &bull; #1 NYT Bestseller ]</div>
+                    </div>
+
+                    <!-- Right: Story Copy -->
+                    <div>
+                        <span class="section-tag">The Philosophy</span>
+                        <h2 class="section-h2">Why I built this approach</h2>
+                        
+                        <div class="quote-box">
+                            &ldquo;You are not a bad parent. Your child is not a bad kid. You are both good people having a hard time.&rdquo;
+                        </div>
+
+                        <p class="section-p" style="margin-bottom: 20px;">Traditional parenting focuses entirely on behavior modification &mdash; rewards, timeouts, and punishments. Good Inside flips this script by looking at the emotion *underneath* the behavior.</p>
+
+                        <p class="section-p" style="margin-bottom: 32px;">When parents learn to hold boundaries firmly without shaming or disconnecting, kids naturally build emotional regulation that lasts for life.</p>
+
+                        <a href="#about" class="btn-wf btn-wf-outline">Read Dr. Becky's Full Story</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+                <!-- 6.5. EXPERTS FOR EVERY AGE AND STAGE (Dual Interlocking Arc Structure) -->
+        <section class="experts-section" id="experts">
+            
+            <!-- Exact Dual Interlocking Curved Arc Divider (Semicircular boundary between the two background colors) -->
+            <svg class="arc-divider-svg" viewBox="0 0 1440 480" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Bottom completing arc path matching the exact gentle hill curvature in the screenshot -->
+                <path class="arc-fill-bottom" d="M0,280 C360,200 1080,200 1440,280 L1440,480 L0,480 Z" />
+            </svg>
+
+            <div class="container experts-container-relative">
+                
+                <div class="section-header">
+                    <span class="section-tag">Your support team</span>
+                    <h2 class="section-h2">Experts for every age and stage</h2>
+                    <p class="section-p">One team, one approach. No contradiction, no overwhelm, and no starting over at every stage.</p>
+                </div>
+
+                <div class="experts-grid">
+                    
+                    <!-- Expert 1: Dr. Becky Kennedy -->
+                    <div class="expert-card">
+                        <div class="expert-avatar-box">
+                            <span class="expert-avatar-label">Dr. Becky</span>
+                        </div>
+                        <h3>Dr. Becky Kennedy</h3>
+                        <div class="expert-role">CEO &amp; Founder of Good Inside</div>
+                        <p class="expert-bio">Creator of the Good Inside Method. #1 NYT bestselling author. The approach that changed how millions of parents see their kids &mdash; and themselves.</p>
+                        <div class="expert-tags-row">
+                            <span class="expert-tag-pill">Kid</span>
+                            <span class="expert-tag-pill">Tween &amp; Teen</span>
+                            <span class="expert-tag-pill">Baby</span>
+                        </div>
+                    </div>
+
+                    <!-- Expert 2: Dr. Sheryl Ziegler -->
+                    <div class="expert-card">
+                        <div class="expert-avatar-box">
+                            <span class="expert-avatar-label">Dr. Sheryl</span>
+                        </div>
+                        <h3>Dr. Sheryl Ziegler</h3>
+                        <div class="expert-role">Tween &amp; Teen Expert</div>
+                        <p class="expert-bio">Clinical psychologist specializing in the in-between years &mdash; when everything shifts and connection matters most.</p>
+                        <div class="expert-tags-row">
+                            <span class="expert-tag-pill">Tween &amp; Teen</span>
+                            <span class="expert-tag-pill">Puberty</span>
+                            <span class="expert-tag-pill">Social Media</span>
+                        </div>
+                    </div>
+
+                    <!-- Expert 3: Jilly Blankenship -->
+                    <div class="expert-card">
+                        <div class="expert-avatar-box">
+                            <span class="expert-avatar-label">Jilly B.</span>
+                        </div>
+                        <h3>Jilly Blankenship, RN, CLC</h3>
+                        <div class="expert-role">Baby Sleep Expert</div>
+                        <p class="expert-bio">Sleep help that meets you where you are &mdash; practical, flexible, and grounded in the Good Inside approach.</p>
+                        <div class="expert-tags-row">
+                            <span class="expert-tag-pill">Baby Sleep</span>
+                        </div>
+                    </div>
+
+                    <!-- Expert 4: Dominique Weiss -->
+                    <div class="expert-card">
+                        <div class="expert-avatar-box">
+                            <span class="expert-avatar-label">Dominique</span>
+                        </div>
+                        <h3>Dominique Weiss, RN, IBCLC</h3>
+                        <div class="expert-role">Baby Feeding &amp; Care Expert</div>
+                        <p class="expert-bio">Real guidance for feeding, recovery, and the physical side of new parenthood &mdash; with warmth, not judgment.</p>
+                        <div class="expert-tags-row">
+                            <span class="expert-tag-pill">Baby Feeding</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 7. EVERYTHING'S INCLUDED (Feature Grid) -->
+        <section class="included-section">
+            <div class="container">
+                
+                <div class="section-header">
+                    <span class="section-tag">All-In-One Membership</span>
+                    <h2 class="section-h2">Everything's included</h2>
+                    <p class="section-p">One single membership unlocks full access across desktop and mobile apps.</p>
+                </div>
+
+                <div class="included-grid">
+                    
+                    <div class="included-card">
+                        <span class="included-number">01 / SUPPORT</span>
+                        <h3>Personalized support</h3>
+                        <p>Weekly tailored recommendations based on your child's age, temperament, and current family challenges.</p>
+                    </div>
+
+                    <div class="included-card">
+                        <span class="included-number">02 / AI COMPANION</span>
+                        <h3>GiGi Instant Chat</h3>
+                        <p>24/7 AI-trained assistant with Dr. Becky's complete clinical library for on-the-spot script delivery.</p>
+                    </div>
+
+                    <div class="included-card">
+                        <span class="included-number">03 / WORKSHOPS</span>
+                        <h3>Live &amp; On-Demand</h3>
+                        <p>Over 100+ deep-dive clinical workshops covering sensory meltdowns, sleep, anxiety, and ADHD.</p>
+                    </div>
+
+                    <div class="included-card">
+                        <span class="included-number">04 / INTERACTION</span>
+                        <h3>Live Q&amp;A Events</h3>
+                        <p>Ask questions directly to Dr. Becky and pediatric specialists in live weekly community coaching calls.</p>
+                    </div>
+
+                    <div class="included-card">
+                        <span class="included-number">05 / COMMUNITY</span>
+                        <h3>Parent Community</h3>
+                        <p>Judgment-free, moderated discussion spaces where parents connect, share wins, and support each other.</p>
+                    </div>
+
+                    <div class="included-card">
+                        <span class="included-number">06 / GROUP SESSIONS</span>
+                        <h3>Support Circles</h3>
+                        <p>Specialized sub-groups for neurodiverse families, single parents, multiple children, and blended families.</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+                <!-- 7.5. HOW THIS SHOWS UP IN YOUR HOME (Exact 3-Card Progression Chevron) -->
+        <section class="progression-section" id="how-it-works">
+            <div class="container">
+                
+                <div class="section-header">
+                    <span class="section-tag">Transformation Journey</span>
+                    <h2 class="section-h2">How this shows up in your home</h2>
+                    <p class="section-p">The challenges change. Your approach doesn't.</p>
+                </div>
+
+                <!-- 3-Step Wireframe Card Wrapper with Chevrons -->
+                <div class="progression-wrapper">
+                    
+                    <!-- Card 01: The Beginning -->
+                    <div class="progression-card">
+                        <div>
+                            <div class="progression-step-num">01</div>
+                            <h3 class="progression-title">The hard moments don&rsquo;t make you spiral</h3>
+                            <p class="progression-desc">You have a framework &mdash; not a random tip. When chaos hits, you know what to do next.</p>
+                        </div>
+                        <div class="progression-stage-tag">The Beginning</div>
+                    </div>
+
+                    <!-- Card 02: The Shift -->
+                    <div class="progression-card">
+                        <div>
+                            <div class="progression-step-num">02</div>
+                            <h3 class="progression-title">Your kid starts building the skills</h3>
+                            <p class="progression-desc">Resilience, accountability, independence &mdash; not because you went soft, but because you held the boundary and the connection.</p>
+                        </div>
+                        <div class="progression-stage-tag">The Shift</div>
+                    </div>
+
+                    <!-- Card 03: The Arrival (Highlighted B&W Wireframe) -->
+                    <div class="progression-card">
+                        <div>
+                            <div class="progression-step-num">03</div>
+                            <h3 class="progression-title">You trust yourself as a parent</h3>
+                            <p class="progression-desc">Not because it got easy. Because you stopped needing it to be.</p>
+                        </div>
+                        <div class="progression-stage-tag">The Arrival</div>
+                    </div>
+
+                </div>
+
+                <!-- Section Footer CTA -->
+                <div class="progression-footer-cta">
+                    <div class="progression-footer-tagline">The challenges change. Your approach doesn&rsquo;t.</div>
+                    <a href="#quiz" class="btn-wf btn-wf-primary" style="padding: 16px 40px; font-size: 14px;">GET STARTED</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 8. REAL REVIEWS & CLINICAL PROOF -->
+        <section class="testimonials-section">
+            <div class="container">
+                
+                <div class="section-header">
+                    <span class="section-tag">Parent Transformations</span>
+                    <h2 class="section-h2">It actually works</h2>
+                    <p class="section-p">Over 100,000+ parents have replaced shouting with sturdy, connected confidence.</p>
+                </div>
+
+                <div class="reviews-grid">
+                    
+                    <div class="review-box">
+                        <div>
+                            <div class="review-stars-wf">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            </div>
+                            <p class="review-text">&ldquo;The hard moments don't make me spiral anymore. I used to yell when my 4-year-old had a meltdown. Now I know exactly what to say to keep us both calm.&rdquo;</p>
+                        </div>
+                        <div class="review-author">
+                            <div class="author-avatar-wf">S</div>
+                            <div class="author-meta">
+                                <h4>Sarah M.</h4>
+                                <span>Mom of 2 (Ages 4 &amp; 6)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-box">
+                        <div>
+                            <div class="review-stars-wf">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            </div>
+                            <p class="review-text">&ldquo;My partner was totally skeptical. But once he saw how logical and sturdy this framework is, our entire home dynamic transformed.&rdquo;</p>
+                        </div>
+                        <div class="review-author">
+                            <div class="author-avatar-wf">D</div>
+                            <div class="author-meta">
+                                <h4>David &amp; Jessica R.</h4>
+                                <span>Parents of 8-year-old</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-box">
+                        <div>
+                            <div class="review-stars-wf">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            </div>
+                            <p class="review-text">&ldquo;I finally trust myself as a parent. No more second-guessing every choice or going to sleep drowning in parent guilt.&rdquo;</p>
+                        </div>
+                        <div class="review-author">
+                            <div class="author-avatar-wf">M</div>
+                            <div class="author-meta">
+                                <h4>Maya T.</h4>
+                                <span>Mom of 3-year-old</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 9. FAQ ACCORDION -->
+        <section class="faq-section" id="faq">
+            <div class="container">
+                
+                <div class="section-header">
+                    <span class="section-tag">Got Questions?</span>
+                    <h2 class="section-h2">Common Questions</h2>
+                    <p class="section-p">Everything you need to know before getting started.</p>
+                </div>
+
+                <div class="faq-accordion">
+                    
+                    <div class="faq-item active">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            <span>Is this gentle parenting?</span>
+                            <span class="faq-toggle-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Nope, this is not gentle parenting. Good Inside parenting is sturdy parenting &mdash; we show parents how to effectively set boundaries while staying connected to their kid. Yes, both are possible and no, it's not magic, we'll show you exactly how.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            <span>How quickly does Good Inside work?</span>
+                            <span class="faq-toggle-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>From the moment you subscribe, you will start to see and understand the problems in your home in a totally new way. In 5 minutes a day, we deliver you the exact scripts and strategies you need to tackle any issue you're facing.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            <span>Will this take a lot of time?</span>
+                            <span class="faq-toggle-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Rest assured, this app was made for busy parents, by busy parents. Tell our chatbot what's on your mind and gain instant access to exactly what you need in the moment. Most of our content takes less than 5 minutes.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            <span>What if my partner isn't on board?</span>
+                            <span class="faq-toggle-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>You're not alone &mdash; this is very common in new members. Many parents tell us that Good Inside has helped them communicate in more effective ways with their partner, and partners really respond to the sturdy parenting approach.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="toggleFaq(this)">
+                            <span>I worry that it's just too late…</span>
+                            <span class="faq-toggle-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>If there's one thing we know for certain it's this: It's not too late. When things feel hard, it's easy to feel stuck and lose hope. We are holding hope for you &mdash; we know we can help you make the change you're looking for.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 10. FINAL BOTTOM CTA -->
+        <section class="final-cta-section">
+            <div class="container">
+                <h2>And in case you're wondering, no, it's not too late.</h2>
+                <p>Start your 3-minute orientation quiz and get personalized parenting support right now.</p>
+                <a href="#quiz" class="btn-wf btn-wf-primary" style="background: var(--wf-white); color: var(--wf-black); border-color: var(--wf-white); padding: 16px 40px; font-size: 15px;">GET STARTED TODAY</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 11. FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            
+            <div class="footer-grid">
+                
+                <!-- Brand Summary -->
+                <div>
+                    <div class="brand-logo-wf" style="margin-bottom: 16px;">
+                        <div class="brand-logo-icon">G</div>
+                        <span>Good Inside</span>
+                    </div>
+                    <p style="font-size: 14px; color: var(--wf-slate); max-width: 320px; line-height: 1.6; margin-bottom: 20px;">
+                        Clinical parenting strategies robust enough to tackle your biggest challenges, but simple enough to remember.
+                    </p>
+                    <div style="font-size: 12px; color: var(--wf-muted); font-weight: 600;">#1 New York Times Bestseller</div>
+                </div>
+
+                <!-- Column 1: Explore -->
+                <div class="footer-col">
+                    <h4>Explore Stages</h4>
+                    <ul class="footer-links">
+                        <li><a href="#baby">Baby &amp; Toddler</a></li>
+                        <li><a href="#kid">Kids (2-10)</a></li>
+                        <li><a href="#teen">Teens (8-18)</a></li>
+                        <li><a href="#neurodiversity">Neurodiversity</a></li>
+                        <li><a href="#workshops">Workshops</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: Company -->
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Dr. Becky</a></li>
+                        <li><a href="#press">Press &amp; Media</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                        <li><a href="#podcast">Podcast</a></li>
+                        <li><a href="#books">Books</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Support -->
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#faq">Help Center</a></li>
+                        <li><a href="#contact">Contact Support</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#accessibility">Accessibility</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom Strip -->
+            <div class="footer-bottom">
+                <div>&copy; 2026 Good Inside, Inc. All rights reserved. B&amp;W Wireframe Prototype.</div>
+                <div style="display: flex; gap: 24px;">
+                    <a href="#privacy">Privacy</a>
+                    <a href="#terms">Terms</a>
+                    <a href="#cookies">Cookie Preferences</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE ACCORDION SCRIPT -->
+    <script>
+        function toggleFaq(btn) {
+            var item = btn.parentElement;
+            var isActive = item.classList.contains('active');
+            
+            // Close all
+            document.querySelectorAll('.faq-item').forEach(function(i) {
+                i.classList.remove('active');
+            });
+            
+            // Toggle clicked
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        }
+    </script>
+
+
+    <!-- COLOR MODE TOGGLE LOGIC -->
+    <script>
+        function toggleColorMode(mode) {
+            var btnWf = document.getElementById('btnWfMode');
+            var btnBrand = document.getElementById('btnBrandMode');
+            
+            if (mode === 'brand') {
+                document.documentElement.setAttribute('data-color-mode', 'brand');
+                btnBrand.style.background = '#facd06';
+                btnBrand.style.color = '#000000';
+                btnBrand.style.border = 'none';
+                
+                btnWf.style.background = 'transparent';
+                btnWf.style.color = '#ffffff';
+                btnWf.style.border = '1px solid #ffffff';
+            } else {
+                document.documentElement.removeAttribute('data-color-mode');
+                btnWf.style.background = '#ffffff';
+                btnWf.style.color = '#000000';
+                btnWf.style.border = 'none';
+                
+                btnBrand.style.background = 'transparent';
+                btnBrand.style.color = '#ffffff';
+                btnBrand.style.border = '1px solid #ffffff';
+            }
+        }
+    </script>
+</body>
+
+</html>

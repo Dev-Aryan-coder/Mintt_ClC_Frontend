@@ -1,0 +1,2146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLC Design System: 3-Color Trio & Font Pairing Matrix</title>
+    
+    <!-- Google Fonts Imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Arvo:wght@400;700&family=Cormorant+Garamond:wght@600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Fredoka:wght@600;700&family=Inter:wght@400;500;600;700&family=Lato:wght@400;700&family=Manrope:wght@600;700;800&family=Montserrat:wght@400;600;700;800&family=Nunito+Sans:wght@400;600;700&family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* === OFFICIAL CLC BROCHURE PALETTE (Default Active) === */
+            /* Primary: Deep Navy Blue (Authority & Heritage) */
+            --color-primary: #16244f;
+            --color-primary-hover: #0f1a3a;
+            --color-primary-subtle: #eef2f9;
+
+            /* Accent / Action: Warm Carmine Red (From Logo & Brochure CTAs) */
+            --color-accent: #c8232c;
+            --color-accent-hover: #a81921;
+            --color-accent-subtle: #fdf2f2;
+
+            /* Supporting Border & Soft Neutral */
+            --color-border-subtle: #e2e8f0;
+            --color-border-accent: #cbd5e1;
+
+            /* Aliases to keep all components seamless */
+            --color-teal: var(--color-primary);
+            --color-teal-hover: var(--color-primary-hover);
+            --color-teal-subtle: var(--color-primary-subtle);
+
+            --color-yellow: var(--color-accent);
+            --color-yellow-hover: var(--color-accent-hover);
+            --color-yellow-subtle: var(--color-accent-subtle);
+
+            --color-mint: #cbd5e1;
+            --color-mint-light: #f8fafc;
+            --color-mint-border: #94a3b8;
+
+            /* Readability & Contrast Base */
+            --color-heading: #0f1d40;       /* Deepest Navy Obsidian */
+            --color-body: #334155;          /* Deep Slate */
+            --color-muted: #64748b;
+            --color-surface: #ffffff;       /* Pure Crisp Medical White */
+            --color-bg-page: #f8fafc;       /* Clean Porcelain */
+
+            /* Active Typography */
+            --font-active-heading: 'Fredoka', 'Manrope', sans-serif;
+            --font-active-body: 'Inter', sans-serif;
+
+            /* Geometry & Shadows */
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-pill: 9999px;
+            --shadow-card: 0 12px 32px rgba(22, 36, 79, 0.07);
+            --shadow-hover: 0 18px 36px rgba(200, 35, 44, 0.12);
+        }
+
+        /* Mode B: Previous Concept (Teal / Yellow / Mint) for side-by-side verification */
+        [data-palette="teal-yellow"] {
+            --color-primary: #04b5a1;
+            --color-primary-hover: #039383;
+            --color-primary-subtle: #e6f8f5;
+
+            --color-accent: #ffd459;
+            --color-accent-hover: #f5c43d;
+            --color-accent-subtle: #fff9e6;
+
+            --color-border-subtle: #addcc8;
+            --color-border-accent: #8fd0b8;
+
+            --color-teal: #04b5a1;
+            --color-teal-hover: #039383;
+            --color-teal-subtle: #e6f8f5;
+
+            --color-yellow: #ffd459;
+            --color-yellow-hover: #f5c43d;
+            --color-yellow-subtle: #fff9e6;
+
+            --color-mint: #addcc8;
+            --color-mint-light: #f2faf6;
+            --color-mint-border: #8fd0b8;
+
+            --color-heading: #0f172a;
+            --color-bg-page: #f8faf9;
+            --shadow-card: 0 12px 32px rgba(4, 181, 161, 0.08);
+            --shadow-hover: 0 18px 36px rgba(4, 181, 161, 0.16);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-active-body);
+            background-color: var(--color-bg-page);
+            color: var(--color-body);
+            line-height: 1.6;
+            padding: 40px 20px 80px;
+            transition: font-family 0.2s ease;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .preview-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--color-teal-subtle);
+            color: var(--color-teal);
+            padding: 6px 18px;
+            border-radius: var(--radius-pill);
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
+            border: 1px solid var(--color-mint);
+        }
+
+        .preview-header h1 {
+            font-family: var(--font-active-heading);
+            font-size: clamp(28px, 4vw, 44px);
+            font-weight: 700;
+            color: var(--color-heading);
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        .preview-header p {
+            font-size: 18px;
+            color: var(--color-muted);
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .section-header-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .section-title {
+            font-family: var(--font-active-heading);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--color-heading);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* SECTION 1: 3-COLOR SYSTEM SWATCHES */
+        .swatch-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 56px;
+        }
+
+        @media (max-width: 768px) {
+            .swatch-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .swatch-card {
+            background: var(--color-surface);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+            border: 1.5px solid #e7efe9;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .swatch-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px rgba(4, 181, 161, 0.12);
+        }
+
+        .swatch-color {
+            height: 110px;
+            width: 100%;
+            display: flex;
+            align-items: flex-end;
+            padding: 14px;
+        }
+
+        .swatch-badge {
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--color-heading);
+            font-family: monospace;
+            font-weight: 700;
+            font-size: 13px;
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        .swatch-info {
+            padding: 20px;
+        }
+
+        .swatch-role {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--color-muted);
+            letter-spacing: 0.05em;
+        }
+
+        .swatch-name {
+            font-family: var(--font-active-heading);
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--color-heading);
+            margin: 6px 0 6px;
+        }
+
+        .swatch-desc {
+            font-size: 14px;
+            color: var(--color-body);
+            line-height: 1.5;
+        }
+
+        /* SECTION 2: FONT PAIRINGS MATRIX */
+        .fonts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-bottom: 56px;
+        }
+
+        .font-card {
+            background: var(--color-surface);
+            border: 2px solid #e7efe9;
+            border-radius: var(--radius-md);
+            padding: 24px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .font-card:hover {
+            border-color: var(--color-teal);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(4, 181, 161, 0.12);
+        }
+
+        .font-card.active-style {
+            border-color: var(--color-teal);
+            background: #fafefd;
+            box-shadow: 0 0 0 3px rgba(4, 181, 161, 0.2);
+        }
+
+        .font-card-tag {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--color-teal);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .active-indicator {
+            display: none;
+            background: var(--color-teal);
+            color: #ffffff;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: var(--radius-pill);
+        }
+
+        .font-card.active-style .active-indicator {
+            display: inline-block;
+        }
+
+        .font-preview-heading {
+            font-size: 22px;
+            line-height: 1.3;
+            color: var(--color-heading);
+            margin-bottom: 8px;
+        }
+
+        .font-preview-body {
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--color-body);
+            margin-bottom: 20px;
+        }
+
+        .font-meta-bar {
+            border-top: 1px solid #edf2ef;
+            padding-top: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--color-muted);
+        }
+
+        .btn-apply-font {
+            background: var(--color-teal-subtle);
+            color: var(--color-teal);
+            border: 1px solid var(--color-teal);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: var(--radius-pill);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-apply-font:hover, .font-card.active-style .btn-apply-font {
+            background: var(--color-teal);
+            color: #ffffff;
+        }
+
+        /* SECTION 3: LIVE CLC COMPONENTS */
+        .components-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 32px;
+            margin-bottom: 56px;
+        }
+
+        @media (max-width: 900px) {
+            .components-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Hero Banner */
+        .hero-card {
+            background: linear-gradient(135deg, var(--color-mint-light) 0%, #ffffff 100%);
+            border: 1.5px solid var(--color-mint);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            box-shadow: var(--shadow-card);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-card::after {
+            content: "";
+            position: absolute;
+            bottom: -60px;
+            right: -60px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 212, 89, 0.25) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .trust-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #ffffff;
+            border: 1px solid var(--color-teal);
+            color: var(--color-teal);
+            font-size: 13px;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: var(--radius-pill);
+            margin-bottom: 20px;
+        }
+
+        .hero-card h2 {
+            font-family: var(--font-active-heading);
+            font-size: clamp(24px, 3.2vw, 36px);
+            font-weight: 700;
+            color: var(--color-heading);
+            line-height: 1.25;
+            margin-bottom: 16px;
+        }
+
+        /* Aceternity UI: Flip Words (@aceternity/flip-words) */
+        .flip-words-wrapper {
+            display: inline-block;
+            position: relative;
+            color: var(--color-teal);
+            min-width: 110px;
+            height: 1.25em;
+            vertical-align: bottom;
+            overflow: hidden;
+            font-weight: 800;
+        }
+
+        .flip-word {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            transform: translateY(100%) rotateX(-90deg);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+            transform-origin: 50% 50% -20px;
+            white-space: nowrap;
+        }
+
+        .flip-word.active {
+            opacity: 1;
+            transform: translateY(0) rotateX(0deg);
+        }
+
+        .flip-word.exit {
+            opacity: 0;
+            transform: translateY(-100%) rotateX(90deg);
+        }
+
+        /* Aceternity UI: Container Text Flip (@aceternity/container-text-flip) */
+        .container-flip-box {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(4, 181, 161, 0.12) 0%, rgba(255, 212, 89, 0.18) 100%);
+            border: 1.5px solid var(--color-mint);
+            padding: 4px 14px;
+            border-radius: var(--radius-pill);
+            box-shadow: 0 4px 12px rgba(4, 181, 161, 0.1);
+            position: relative;
+            overflow: hidden;
+            vertical-align: middle;
+            margin: 0 4px;
+            transition: width 0.45s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+            height: 42px;
+        }
+
+        .container-flip-inner {
+            display: flex;
+            align-items: center;
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .container-flip-item {
+            position: absolute;
+            left: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-active-heading);
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--color-teal);
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateY(120%) rotateX(-60deg);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+        }
+
+        .container-flip-item.active {
+            opacity: 1;
+            transform: translateY(0) rotateX(0deg);
+            position: relative;
+        }
+
+        .container-flip-item.exit {
+            opacity: 0;
+            transform: translateY(-120%) rotateX(60deg);
+            position: absolute;
+        }
+
+        /* Aceternity UI: Text Generate Effect */
+        .text-generate-box {
+            font-family: var(--font-active-body);
+            color: var(--color-body);
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 24px;
+            max-width: 480px;
+            min-height: 52px;
+        }
+
+        .text-generate-word {
+            display: inline-block;
+            opacity: 0;
+            filter: blur(8px);
+            transition: opacity 0.35s ease, filter 0.35s ease;
+            margin-right: 4px;
+        }
+
+        .text-generate-word.visible {
+            opacity: 1;
+            filter: blur(0px);
+        }
+
+        /* Aceternity UI: Text Hover Effect Container */
+        .text-hover-card {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-radius: var(--radius-md);
+            padding: 32px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #334155;
+            cursor: pointer;
+            margin-top: 24px;
+        }
+
+        .text-hover-card svg text {
+            font-family: var(--font-active-heading);
+            font-size: 52px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            fill: transparent;
+            stroke: rgba(255, 255, 255, 0.25);
+            stroke-width: 1.5;
+            transition: stroke 0.4s ease;
+        }
+
+        .text-hover-card:hover svg text {
+            stroke: var(--color-teal);
+        }
+
+        .text-hover-glow {
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(4, 181, 161, 0.4) 0%, rgba(255, 212, 89, 0.2) 40%, transparent 70%);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            mix-blend-mode: screen;
+        }
+
+        .text-hover-card:hover .text-hover-glow {
+            opacity: 1;
+        }
+
+        .text-hover-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-mint);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary-teal {
+            background: var(--color-teal);
+            color: #ffffff;
+            font-family: var(--font-active-heading);
+            font-size: 15px;
+            font-weight: 700;
+            padding: 14px 28px;
+            border-radius: var(--radius-pill);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(4, 181, 161, 0.28);
+            transition: all 0.25s ease;
+        }
+
+        .btn-primary-teal:hover {
+            background: var(--color-teal-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(4, 181, 161, 0.36);
+        }
+
+        .btn-accent-yellow {
+            background: var(--color-yellow);
+            color: var(--color-heading);
+            font-family: var(--font-active-heading);
+            font-size: 15px;
+            font-weight: 700;
+            padding: 14px 24px;
+            border-radius: var(--radius-pill);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid #f0be3a;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(255, 212, 89, 0.3);
+            transition: all 0.25s ease;
+        }
+
+        .btn-accent-yellow:hover {
+            background: var(--color-yellow-hover);
+            transform: translateY(-2px);
+        }
+
+        /* 1. Aceternity UI: Stateful Button */
+        .btn-stateful {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: var(--color-teal);
+            color: #ffffff;
+            font-family: var(--font-active-heading);
+            font-size: 15px;
+            font-weight: 700;
+            padding: 14px 28px;
+            border-radius: var(--radius-pill);
+            border: none;
+            cursor: pointer;
+            overflow: hidden;
+            min-width: 210px;
+            box-shadow: 0 8px 20px rgba(4, 181, 161, 0.28);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .btn-stateful:hover:not(.is-loading):not(.is-success) {
+            background: var(--color-teal-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(4, 181, 161, 0.36);
+        }
+
+        .btn-stateful.is-loading {
+            background: #028072;
+            cursor: wait;
+        }
+
+        .btn-stateful.is-success {
+            background: #059669;
+            box-shadow: 0 8px 20px rgba(5, 150, 105, 0.3);
+        }
+
+        .spinner-icon {
+            display: none;
+            animation: spin 0.8s linear infinite;
+        }
+
+        .check-icon {
+            display: none;
+        }
+
+        .btn-stateful.is-loading .spinner-icon {
+            display: inline-block;
+        }
+
+        .btn-stateful.is-success .check-icon {
+            display: inline-block;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* 2. Aceternity UI: Hover Border Gradient */
+        .btn-border-gradient {
+            position: relative;
+            padding: 2px;
+            border-radius: var(--radius-pill);
+            background: transparent;
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+        .btn-border-gradient::before {
+            content: "";
+            position: absolute;
+            inset: -150%;
+            background: conic-gradient(from 0deg, transparent 0deg 260deg, var(--color-teal) 310deg, var(--color-yellow) 360deg);
+            animation: rotateConic 3.5s linear infinite;
+            opacity: 0.35;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-border-gradient:hover::before {
+            opacity: 1;
+            animation-duration: 2s;
+        }
+
+        @keyframes rotateConic {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .btn-border-gradient-inner {
+            position: relative;
+            z-index: 1;
+            background: #ffffff;
+            color: var(--color-heading);
+            font-family: var(--font-active-heading);
+            font-size: 15px;
+            font-weight: 700;
+            padding: 12px 26px;
+            border-radius: var(--radius-pill);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.25s ease;
+        }
+
+        .btn-border-gradient:hover .btn-border-gradient-inner {
+            color: var(--color-teal);
+            background: #fafefd;
+        }
+
+        /* 3. Noise Background Surface */
+        .noise-surface-box {
+            position: relative;
+            background-color: #ffffff;
+            border-radius: var(--radius-lg);
+            border: 1.5px solid var(--color-mint);
+            padding: 32px;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            margin-bottom: 24px;
+        }
+
+        .noise-surface-box::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .noise-surface-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 4. Tailwind CSS: Sketch Button */
+        .btn-sketch {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--color-yellow);
+            color: var(--color-heading);
+            font-family: var(--font-active-heading);
+            font-size: 15px;
+            font-weight: 800;
+            padding: 13px 26px;
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            border: 2.5px solid #0f172a;
+            box-shadow: 3px 4px 0px #0f172a;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.15s ease-out;
+        }
+
+        .btn-sketch:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 6px 0px #0f172a;
+            background: #ffdf75;
+        }
+
+        .btn-sketch:active {
+            transform: translate(2px, 2px);
+            box-shadow: 1px 1px 0px #0f172a;
+        }
+
+        /* 5. Aceternity UI: Animated Testimonials Component */
+        .animated-testimonials-box {
+            background: var(--color-surface);
+            border: 1.5px solid var(--color-mint);
+            border-radius: var(--radius-lg);
+            padding: 44px;
+            box-shadow: var(--shadow-card);
+            display: grid;
+            grid-template-columns: 340px 1fr;
+            gap: 48px;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+
+        @media (max-width: 900px) {
+            .animated-testimonials-box {
+                grid-template-columns: 1fr;
+                padding: 24px;
+                gap: 32px;
+            }
+        }
+
+        .testimonials-deck {
+            position: relative;
+            height: 340px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1000px;
+        }
+
+        .deck-card {
+            position: absolute;
+            width: 100%;
+            max-width: 300px;
+            height: 310px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: #ffffff;
+            border: 2px solid var(--color-mint);
+            box-shadow: 0 16px 36px rgba(4, 181, 161, 0.12);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+            transform-origin: center bottom;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .deck-card-top-accent {
+            height: 180px;
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .deck-card-tag {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            color: var(--color-teal);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 4px 10px;
+            border-radius: var(--radius-pill);
+            border: 1px solid var(--color-mint);
+        }
+
+        .deck-card-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid #ffffff;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-active-heading);
+            font-size: 28px;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .deck-card-bottom {
+            padding: 20px;
+            background: #ffffff;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-top: 1px solid #edf2ef;
+        }
+
+        .deck-card-bottom h4 {
+            font-family: var(--font-active-heading);
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--color-heading);
+        }
+
+        .deck-card-bottom span {
+            font-size: 13px;
+            color: var(--color-muted);
+        }
+
+        .deck-card.pos-0 {
+            z-index: 3;
+            opacity: 1;
+            transform: translateY(0) scale(1) rotate(0deg);
+        }
+
+        .deck-card.pos-1 {
+            z-index: 2;
+            opacity: 0.85;
+            transform: translateY(-16px) scale(0.92) rotate(-4deg);
+        }
+
+        .deck-card.pos-2 {
+            z-index: 1;
+            opacity: 0.65;
+            transform: translateY(-30px) scale(0.85) rotate(4deg);
+        }
+
+        .deck-card.pos-exit {
+            z-index: 4;
+            opacity: 0;
+            transform: translateY(-60px) scale(1.05) rotate(-12deg);
+        }
+
+        .testimonial-content-side {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .testimonial-stars {
+            display: flex;
+            gap: 4px;
+            color: #eab308;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-quote-box {
+            font-family: var(--font-active-heading);
+            font-size: clamp(17px, 2.2vw, 22px);
+            font-weight: 600;
+            line-height: 1.5;
+            color: var(--color-heading);
+            margin-bottom: 24px;
+            min-height: 90px;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .testimonial-author-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid #edf2ef;
+            padding-top: 20px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .author-details h3 {
+            font-family: var(--font-active-heading);
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--color-heading);
+            margin-bottom: 2px;
+        }
+
+        .author-details p {
+            font-size: 13px;
+            color: var(--color-muted);
+        }
+
+        .testimonial-nav-arrows {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-nav-round {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--color-teal-subtle);
+            color: var(--color-teal);
+            border: 1.5px solid var(--color-mint);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .btn-nav-round:hover {
+            background: var(--color-teal);
+            color: #ffffff;
+            transform: scale(1.08);
+            box-shadow: 0 6px 16px rgba(4, 181, 161, 0.28);
+        }
+
+        /* Right Column */
+        .cards-column {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .service-card {
+            background: var(--color-surface);
+            border: 1.5px solid #e7efe9;
+            border-radius: var(--radius-md);
+            padding: 28px;
+            box-shadow: var(--shadow-card);
+            transition: all 0.25s ease;
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--color-teal);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .service-badge {
+            display: inline-block;
+            background: var(--color-yellow-subtle);
+            color: #875d00;
+            border: 1px solid var(--color-yellow);
+            padding: 4px 10px;
+            border-radius: var(--radius-pill);
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .service-icon-box {
+            width: 48px;
+            height: 48px;
+            background: var(--color-teal-subtle);
+            color: var(--color-teal);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 14px;
+        }
+
+        .service-card h3 {
+            font-family: var(--font-active-heading);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--color-heading);
+            margin-bottom: 8px;
+        }
+
+        .service-card p {
+            font-family: var(--font-active-body);
+            font-size: 14px;
+            color: var(--color-body);
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .service-link {
+            font-family: var(--font-active-heading);
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--color-teal);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .service-link:hover {
+            color: var(--color-teal-hover);
+            gap: 10px;
+        }
+
+        /* Review Card */
+        .review-card {
+            background: #ffffff;
+            border: 1.5px solid var(--color-mint);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .stars {
+            color: #eab308;
+            margin-bottom: 10px;
+            display: flex;
+            gap: 4px;
+        }
+
+        .review-quote {
+            font-family: var(--font-active-body);
+            font-style: italic;
+            font-size: 14px;
+            color: var(--color-body);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .reviewer {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-top: 1px solid var(--color-mint-light);
+            padding-top: 12px;
+        }
+
+        .reviewer-avatar {
+            width: 38px;
+            height: 38px;
+            background: var(--color-teal);
+            color: #ffffff;
+            font-family: var(--font-active-heading);
+            font-weight: 700;
+            font-size: 15px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .reviewer-info h4 {
+            font-family: var(--font-active-heading);
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--color-heading);
+        }
+
+        .reviewer-info span {
+            font-size: 12px;
+            color: var(--color-muted);
+        }
+
+        /* SECTION 4: STATS STRIP */
+        .stats-strip {
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            border: 1.5px solid var(--color-mint);
+            padding: 32px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+            box-shadow: var(--shadow-card);
+        }
+
+        @media (max-width: 768px) {
+            .stats-strip {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .stat-item h3 {
+            font-family: var(--font-active-heading);
+            font-size: clamp(28px, 3.5vw, 40px);
+            font-weight: 800;
+            color: var(--color-teal);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .stat-item p {
+            font-family: var(--font-active-body);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-body);
+        }
+        /* ==============================================================
+           ACETERNITY UI: SIMPLE NAVBAR WITH HOVER EFFECTS (FLOATING PILL)
+           ============================================================== */
+        .floating-navbar-wrapper {
+            position: sticky;
+            top: 20px;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            padding: 0 16px;
+        }
+
+        .floating-navbar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1.5px solid rgba(173, 220, 200, 0.6);
+            border-radius: var(--radius-pill);
+            padding: 8px 12px 8px 18px;
+            box-shadow: 0 12px 36px rgba(15, 23, 42, 0.08), 0 2px 6px rgba(4, 181, 161, 0.08);
+            position: relative;
+            max-width: 100%;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            padding-right: 14px;
+            border-right: 1.5px solid #edf2ef;
+        }
+
+        .brand-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-teal) 0%, var(--color-mint) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+        }
+
+        .brand-title {
+            font-family: var(--font-active-heading);
+            font-weight: 800;
+            font-size: 15px;
+            color: var(--color-heading);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .brand-sub {
+            font-size: 10px;
+            color: var(--color-teal);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        /* Nav links container with sliding highlight */
+        .nav-links-track {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Sliding hover pill indicator */
+        .nav-hover-pill {
+            position: absolute;
+            background: var(--color-teal-subtle);
+            border: 1px solid var(--color-mint);
+            border-radius: var(--radius-pill);
+            pointer-events: none;
+            opacity: 0;
+            transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), width 0.28s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+            z-index: 0;
+            height: 36px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .nav-hover-pill.is-active-tab {
+            opacity: 1;
+        }
+
+        .nav-item {
+            position: relative;
+            z-index: 1;
+        }
+
+        .nav-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-active-heading);
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--color-body);
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: var(--radius-pill);
+            transition: color 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .nav-link:hover {
+            color: var(--color-teal);
+        }
+
+        .nav-link.active-item {
+            color: var(--color-teal);
+        }
+
+        .navbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-left: 8px;
+        }
+
+        .nav-call-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--color-heading);
+            background: #ffffff;
+            border: 1px solid var(--color-mint);
+            padding: 8px 14px;
+            border-radius: var(--radius-pill);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .nav-call-btn:hover {
+            border-color: var(--color-teal);
+            color: var(--color-teal);
+            transform: translateY(-1px);
+        }
+
+        .nav-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-active-heading);
+            font-size: 13px;
+            font-weight: 700;
+            color: #ffffff;
+            background: var(--color-teal);
+            padding: 9px 18px;
+            border-radius: var(--radius-pill);
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(4, 181, 161, 0.3);
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .nav-cta-btn:hover {
+            background: var(--color-teal-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(4, 181, 161, 0.4);
+        }
+
+        @media (max-width: 992px) {
+            .nav-links-track {
+                display: none;
+            }
+            .floating-navbar {
+                width: 100%;
+                justify-content: space-between;
+            }
+            .navbar-brand {
+                border-right: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ACETERNITY UI: SIMPLE NAVBAR WITH HOVER EFFECTS (FLOATING PILL) -->
+    <div class="floating-navbar-wrapper">
+        <nav class="floating-navbar" id="aceternityNavbar">
+            <!-- Brand -->
+            <a href="#" class="navbar-brand">
+                <div class="brand-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                </div>
+                <div>
+                    <div class="brand-title">Child Learning Centre</div>
+                    <div class="brand-sub">Est. 2013 &bull; 7 Centres</div>
+                </div>
+            </a>
+
+            <!-- Nav Links with Sliding Hover Pill Track -->
+            <ul class="nav-links-track" id="navLinksTrack">
+                <!-- Gliding pill indicator -->
+                <div class="nav-hover-pill" id="navHoverPill"></div>
+
+                <li class="nav-item">
+                    <a href="#services" class="nav-link active-item" data-index="0">
+                        <span>Therapies</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#conditions" class="nav-link" data-index="1">Conditions</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#centres" class="nav-link" data-index="2">Centres (7)</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#assessment" class="nav-link" data-index="3">Assessment</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#reviews" class="nav-link" data-index="4">Reviews</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link" data-index="5">About Us</a>
+                </li>
+            </ul>
+
+            <!-- Fast Parent Actions (2-Click Rule) -->
+            <div class="navbar-actions">
+                <a href="tel:+919820000000" class="nav-call-btn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span>Emergency Call</span>
+                </a>
+                <button class="nav-cta-btn" onclick="triggerStatefulBtn()">
+                    <span>Book Consultation</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container">
+        
+        <!-- HEADER -->
+        <header class="preview-header">
+            <div class="badge-pill">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                <span>Mintt Design Lab • CLC Visual Experience</span>
+            </div>
+            <h1>Brand Color System &amp; Typography Pairing Studio</h1>
+            <p>Live parent-centric healthcare design system matched directly to the official Child Learning Centre brochure. 100% Vector SVGs &bull; Zero Emojis.</p>
+
+            <!-- LIVE PALETTE TOGGLE (Instant A/B Testing) -->
+            <div style="margin-top: 24px; display: inline-flex; align-items: center; gap: 12px; background: #ffffff; border: 1.5px solid var(--color-mint); padding: 8px 16px; border-radius: var(--radius-pill); box-shadow: var(--shadow-card);">
+                <span style="font-size: 13px; font-weight: 700; color: var(--color-heading);">Select Color Palette:</span>
+                <button id="btnPaletteBrochure" onclick="setPalette('brochure')" style="font-family: var(--font-active-heading); font-size: 13px; font-weight: 800; padding: 8px 18px; border-radius: var(--radius-pill); border: none; cursor: pointer; background: var(--color-primary); color: #ffffff; transition: all 0.2s ease;">
+                    Official Brochure (Navy, Red, White) [ACTIVE]
+                </button>
+                <button id="btnPaletteTeal" onclick="setPalette('teal')" style="font-family: var(--font-active-heading); font-size: 13px; font-weight: 700; padding: 8px 18px; border-radius: var(--radius-pill); border: 1px solid var(--color-mint); cursor: pointer; background: transparent; color: var(--color-body); transition: all 0.2s ease;">
+                    Concept (Teal, Yellow, Mint)
+                </button>
+            </div>
+        </header>
+
+        <!-- SECTION 1: THE 3-COLOR SYSTEM -->
+        <div class="section-header-box">
+            <h2 class="section-title">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                <span>1. The 3-Color Trio System</span>
+            </h2>
+        </div>
+        
+        <div class="swatch-grid" id="swatchGridContainer">
+            <!-- 1. NAVY BLUE -->
+            <div class="swatch-card">
+                <div class="swatch-color" style="background-color: #16244f;">
+                    <span class="swatch-badge">#16244F</span>
+                </div>
+                <div class="swatch-info">
+                    <span class="swatch-role">Color 1 &bull; Clinical Authority &amp; Trust (Brochure Header)</span>
+                    <h3 class="swatch-name">Deep Navy Blue</h3>
+                    <p class="swatch-desc">Primary headings, floating pill navigation base, authority badges, and institutional medical trust (15:1 WCAG AAA Contrast).</p>
+                </div>
+            </div>
+
+            <!-- 2. CARMINE RED -->
+            <div class="swatch-card">
+                <div class="swatch-color" style="background-color: #c8232c;">
+                    <span class="swatch-badge" style="color: #ffffff; background: rgba(0,0,0,0.4);">#C8232C</span>
+                </div>
+                <div class="swatch-info">
+                    <span class="swatch-role">Color 2 &bull; Brand Identity &amp; Primary Action (Official Logo)</span>
+                    <h3 class="swatch-name">Warm Carmine Red</h3>
+                    <p class="swatch-desc">Primary action CTAs ('Book Consultation', 'Call Us'), urgent milestones, and logo brain icon identity (6.5:1 WCAG AA Contrast).</p>
+                </div>
+            </div>
+
+            <!-- 3. CRISP MEDICAL WHITE -->
+            <div class="swatch-card">
+                <div class="swatch-color" style="background-color: #ffffff; border-bottom: 1.5px solid #e2e8f0;">
+                    <span class="swatch-badge" style="border: 1px solid #cbd5e1;">#FFFFFF</span>
+                </div>
+                <div class="swatch-info">
+                    <span class="swatch-role">Color 3 &bull; Sensory Calming &amp; Breathing Room</span>
+                    <h3 class="swatch-name">Crisp Medical White</h3>
+                    <p class="swatch-desc">High-contrast, clean card surfaces, generous whitespace comforting anxious parents, and shadcn/ui micro-borders.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 2: 6 FONT PAIRINGS MATRIX -->
+        <div class="section-header-box">
+            <h2 class="section-title">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" x2="15" y1="20" y2="20"/><line x1="12" x2="12" y1="4" y2="20"/></svg>
+                <span>2. Font Pairing Matrix (Click Any Card to Apply)</span>
+            </h2>
+            <span style="font-size: 13px; color: var(--color-muted);">Currently Active: <strong id="current-pairing-name" style="color: var(--color-teal);">Playful &amp; Bold</strong></span>
+        </div>
+
+        <div class="fonts-grid">
+            
+            <!-- 1. Playful / Bold -->
+            <div class="font-card active-style" onclick="setPairing('Fredoka', 'Inter', 'Playful & Bold (Fredoka + Inter)', this)">
+                <div class="font-card-tag">
+                    <span>Top-Left &bull; Playful / Bold</span>
+                    <span class="active-indicator">ACTIVE</span>
+                </div>
+                <h3 class="font-preview-heading" style="font-family: 'Fredoka', sans-serif;">Nurturing Every Child</h3>
+                <p class="font-preview-body" style="font-family: 'Inter', sans-serif;">Chunky, rounded, friendly heavy-display font paired with ultra-clean, legible Inter sans-serif.</p>
+                <div class="font-meta-bar">
+                    <span>Fredoka + Inter</span>
+                    <button class="btn-apply-font">Active</button>
+                </div>
+            </div>
+
+            <!-- 2. Classic Editorial -->
+            <div class="font-card" onclick="setPairing('Fraunces', 'Inter', 'Classic Editorial (Fraunces + Inter)', this)">
+                <div class="font-card-tag">
+                    <span>Top-Right &bull; Classic Editorial</span>
+                    <span class="active-indicator">ACTIVE</span>
+                </div>
+                <h3 class="font-preview-heading" style="font-family: 'Fraunces', serif;">Nurturing Every Child</h3>
+                <p class="font-preview-body" style="font-family: 'Inter', sans-serif;">Modern, expressive editorial serif with warm, unique details balanced by minimalist geometric body text.</p>
+                <div class="font-meta-bar">
+                    <span>Fraunces + Inter</span>
+                    <button class="btn-apply-font">Preview</button>
+                </div>
+            </div>
+
+            <!-- 3. Modern / Tech -->
+            <div class="font-card" onclick="setPairing('Montserrat', 'Montserrat', 'Modern / Tech (Montserrat Bold + Regular)', this)">
+                <div class="font-card-tag">
+                    <span>Middle-Left &bull; Modern / Tech</span>
+                    <span class="active-indicator">ACTIVE</span>
+                </div>
+                <h3 class="font-preview-heading" style="font-family: 'Montserrat', sans-serif; font-weight: 800;">Nurturing Every Child</h3>
+                <p class="font-preview-body" style="font-family: 'Montserrat', sans-serif; font-weight: 400;">Punchy, clean geometric sans-serif delivering high modern impact and confident clinical structure.</p>
+                <div class="font-meta-bar">
+                    <span>Montserrat Bold + Reg</span>
+                    <button class="btn-apply-font">Preview</button>
+                </div>
+            </div>
+
+            <!-- 4. Elegant / Fashion -->
+            <div class="font-card" onclick="setPairing('Cormorant Garamond', 'Lato', 'Elegant & Caring (Cormorant Garamond + Lato)', this)">
+                <div class="font-card-tag">
+                    <span>Middle-Right &bull; Elegant / Caring</span>
+                    <span class="active-indicator">ACTIVE</span>
+                </div>
+                <h3 class="font-preview-heading" style="font-family: 'Cormorant Garamond', serif; font-size: 26px;">Nurturing Every Child</h3>
+                <p class="font-preview-body" style="font-family: 'Lato', sans-serif;">Sophisticated, high-contrast graceful serif balanced by a warm, stable, friendly sans-serif body.</p>
+                <div class="font-meta-bar">
+                    <span>Cormorant + Lato</span>
+                    <button class="btn-apply-font">Preview</button>
+                </div>
+            </div>
+
+            <!-- 5. Corporate / Structured -->
+            <div class="font-card" onclick="setPairing('Arvo', 'Open Sans', 'Corporate & Structured (Arvo Slab + Open Sans)', this)">
+                <div class="font-card-tag">
+                    <span>Bottom-Left &bull; Structured Trust</span>
+                    <span class="active-indicator">ACTIVE</span>
+                </div>
+                <h3 class="font-preview-heading" style="font-family: 'Arvo', serif;">Nurturing Every Child</h3>
+                <p class="font-preview-body" style="font-family: 'Open Sans', sans-serif;">Robust geometric slab-serif conveying 13 years of academic authority, paired with friendly Open Sans.</p>
+                <div class="font-meta-bar">
+                    <span>Arvo + Open Sans</span>
+                    <button class="btn-apply-font">Preview</button>
+                </div>
+            </div>
+
+            <!-- 6. Premium / Luxury -->
+            <div class="font-card" onclick="setPairing('Playfair Display', 'Roboto', 'Premium / Dignity (Playfair Display + Roboto)', this)">
+                <div class="font-card-tag">
+                    <span>Bottom-Right &bull; Premium / Dignity</span>
+                    <span class="active-indicator">ACTIVE</span>
+                </div>
+                <h3 class="font-preview-heading" style="font-family: 'Playfair Display', serif; font-style: italic;">Nurturing Every Child</h3>
+                <p class="font-preview-body" style="font-family: 'Roboto', sans-serif;">Classic, high-contrast display serif with sharp lines, anchored by dependable neo-grotesque Roboto body.</p>
+                <div class="font-meta-bar">
+                    <span>Playfair + Roboto</span>
+                    <button class="btn-apply-font">Preview</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SECTION 3: LIVE COMPONENTS UNDER THE SELECTED FONT & 3-COLOR SYSTEM -->
+        <div class="section-header-box">
+            <h2 class="section-title">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+                <span>3. Live Components (Dynamic Typography Preview)</span>
+            </h2>
+        </div>
+        
+        <div class="components-grid">
+            
+            <!-- Left: Hero Action Block with Aceternity Text Effects -->
+            <div class="hero-card">
+                <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 16px;">
+                    <div class="trust-tag" style="margin-bottom: 0;">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                        <span>Verified Pediatric Center &bull; Est. 2013</span>
+                    </div>
+
+                    <!-- Aceternity UI: Container Text Flip Showcase -->
+                    <div class="container-flip-box" id="containerFlipBox">
+                        <div class="container-flip-inner" id="containerFlipInner">
+                            <span class="container-flip-item active">Speech Therapy</span>
+                            <span class="container-flip-item">Occupational Growth</span>
+                            <span class="container-flip-item">Remedial Education</span>
+                            <span class="container-flip-item">Autism Spectrum Support</span>
+                            <span class="container-flip-item">ADHD Focus Program</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 1. Aceternity UI: Flip Words -->
+                <h2>Empowering Every Child to <span class="flip-words-wrapper" id="flipWordsWrapper"><span class="flip-word active">Speak</span><span class="flip-word">Focus</span><span class="flip-word">Thrive</span><span class="flip-word">Connect</span></span> with Confidence</h2>
+
+                <!-- 2. Text Generate Effect -->
+                <div class="text-generate-box" id="heroTextGenerate">Specialized Speech, Occupational, and Remedial Therapy tailored to your child's pace in a sensory-friendly, nurturing environment.</div>
+                
+                <div class="btn-group">
+                    <button class="btn-primary-teal">
+                        <span>Book Consultation</span>
+                        <span>&rarr;</span>
+                    </button>
+                    <button class="btn-accent-yellow">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <span>Request Callback</span>
+                    </button>
+                    <button class="btn-apply-font" onclick="replayTextGenerate()" style="margin-left: auto;">Replay Text Generate</button>
+                </div>
+
+                <!-- 3. Text Hover Effect Demo -->
+                <div class="text-hover-card" id="textHoverDemo">
+                    <div class="text-hover-glow" id="textHoverGlow"></div>
+                    <div class="text-hover-label">Aceternity UI &bull; Text Hover Effect (Hover to Draw &amp; Glow)</div>
+                    <svg width="100%" height="70" viewBox="0 0 680 70">
+                        <text x="50%" y="55%" text-anchor="middle" dominant-baseline="middle">CHILD LEARNING CENTRE</text>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="cards-column">
+                
+                <!-- Service Card -->
+                <div class="service-card">
+                    <span class="service-badge">Evidence-Based Care</span>
+                    <div class="service-icon-box">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h.01"/><path d="M12 10h.01"/><path d="M16 10h.01"/></svg>
+                    </div>
+                    <h3>Speech &amp; Language Therapy</h3>
+                    <p>Evidence-based interventions for speech clarity, expressive language, and social communication milestones.</p>
+                    <a href="#" class="service-link">View Therapy Details <span>&rarr;</span></a>
+                </div>
+
+                <!-- Testimonial Card -->
+                <div class="review-card">
+                    <div class="stars">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <p class="review-quote">"Within 4 months at the Nerul branch, my 4-year-old started expressing sentences clearly. The therapists are exceptionally gentle."</p>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">P</div>
+                        <div class="reviewer-info">
+                            <h4>Pooja M.</h4>
+                            <span>Mother of Reyansh &bull; Google 5-Star Review</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- SECTION 4: ADVANCED BUTTONS & SURFACE EFFECTS -->
+        <div class="section-header-box" style="margin-top: 48px;">
+            <h2 class="section-title">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-2 2.5V15l2 2 2-2V4.5L13 2Z"/><path d="M11 7H7.5a2.5 2.5 0 0 0 0 5H11"/><path d="M15 7h3.5a2.5 2.5 0 0 1 0 5H15"/></svg>
+                <span>4. Advanced Buttons &amp; Surface Studio</span>
+            </h2>
+        </div>
+
+        <!-- 3. Noise Background Surface Container -->
+        <div class="noise-surface-box">
+            <div class="noise-surface-content">
+                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 20px;">
+                    <div>
+                        <span class="service-badge">Aceternity &bull; Noise Background (Active on this card)</span>
+                        <h3 style="font-family: var(--font-active-heading); font-size: 20px; color: var(--color-heading); margin-top: 4px;">Tactile Micro-Noise Surface &amp; Advanced Button Showcase</h3>
+                    </div>
+                    <span style="font-size: 13px; color: var(--color-muted);">Notice the soft, organic tactile grain eliminating flat digital harshness</span>
+                </div>
+
+                <div style="display: flex; gap: 20px; flex-wrap: wrap; align-items: center; padding: 12px 0;">
+                    
+                    <!-- 1. Stateful Button Demo -->
+                    <div>
+                        <button class="btn-stateful" id="demoStatefulBtn" onclick="triggerStatefulBtn()">
+                            <svg class="spinner-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
+                            <svg class="check-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                            <span id="statefulBtnText">Book Consultation</span>
+                        </button>
+                        <div style="font-size: 11px; color: var(--color-muted); text-align: center; margin-top: 6px;">Stateful Button (Click to test)</div>
+                    </div>
+
+                    <!-- 2. Hover Border Gradient Demo -->
+                    <div>
+                        <div class="btn-border-gradient">
+                            <div class="btn-border-gradient-inner">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                <span>Hover Border Gradient</span>
+                            </div>
+                        </div>
+                        <div style="font-size: 11px; color: var(--color-muted); text-align: center; margin-top: 6px;">Hover Border Gradient (Hover over)</div>
+                    </div>
+
+                    <!-- 4. Tailwind Sketch Button Demo -->
+                    <div>
+                        <button class="btn-sketch">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                            <span>Tailwind Sketch Button</span>
+                        </button>
+                        <div style="font-size: 11px; color: var(--color-muted); text-align: center; margin-top: 6px;">Tailwind Sketch Button (Playful)</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 5: ACETERNITY ANIMATED TESTIMONIALS -->
+        <div class="section-header-box" style="margin-top: 48px;">
+            <h2 class="section-title">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                <span>5. Aceternity UI &bull; Animated Testimonials Carousel</span>
+            </h2>
+            <span style="font-size: 13px; color: var(--color-muted);">Stacked rotational card deck with 3D depth transitions</span>
+        </div>
+
+        <div class="animated-testimonials-box">
+            
+            <!-- Left: 3D Stacked Deck -->
+            <div class="testimonials-deck" id="testimonialsDeck">
+                <!-- Card 0 (Active) -->
+                <div class="deck-card pos-0" id="deckCard0">
+                    <div class="deck-card-top-accent" style="background: linear-gradient(135deg, #04b5a1 0%, #0d9488 100%);">
+                        <span class="deck-card-tag">Nerul Centre</span>
+                        <div class="deck-card-avatar" style="background: rgba(255,255,255,0.25);">P</div>
+                    </div>
+                    <div class="deck-card-bottom">
+                        <h4>Pooja M.</h4>
+                        <span>Mother of Reyansh (4 yrs) &bull; Speech Therapy</span>
+                    </div>
+                </div>
+
+                <!-- Card 1 (Behind Left) -->
+                <div class="deck-card pos-1" id="deckCard1">
+                    <div class="deck-card-top-accent" style="background: linear-gradient(135deg, #ffd459 0%, #f59e0b 100%);">
+                        <span class="deck-card-tag" style="color: #875d00; border-color: #ffd459;">Thane Centre</span>
+                        <div class="deck-card-avatar" style="background: rgba(0,0,0,0.15); color: #0f172a;">R</div>
+                    </div>
+                    <div class="deck-card-bottom">
+                        <h4>Rahul &amp; Sneha K.</h4>
+                        <span>Parents of Aarav (6 yrs) &bull; Occupational Therapy</span>
+                    </div>
+                </div>
+
+                <!-- Card 2 (Behind Right) -->
+                <div class="deck-card pos-2" id="deckCard2">
+                    <div class="deck-card-top-accent" style="background: linear-gradient(135deg, #addcc8 0%, #04b5a1 100%);">
+                        <span class="deck-card-tag">Chembur Centre</span>
+                        <div class="deck-card-avatar" style="background: rgba(255,255,255,0.3);">A</div>
+                    </div>
+                    <div class="deck-card-bottom">
+                        <h4>Ananya S.</h4>
+                        <span>Mother of Kabir (7 yrs) &bull; Remedial Education</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Content & Controls -->
+            <div class="testimonial-content-side">
+                <div class="testimonial-stars">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+
+                <div class="testimonial-quote-box" id="activeTestimonialQuote">
+                    "Within 4 months at the Nerul branch, my 4-year-old started expressing full sentences clearly. The therapists are exceptionally gentle, patient, and clinical."
+                </div>
+
+                <div class="testimonial-author-meta">
+                    <div class="author-details">
+                        <h3 id="activeTestimonialAuthor">Pooja M.</h3>
+                        <p id="activeTestimonialSub">Mother of Reyansh (4 yrs) &bull; Verified Google 5-Star Review</p>
+                    </div>
+
+                    <!-- Navigation Arrows -->
+                    <div class="testimonial-nav-arrows">
+                        <button class="btn-nav-round" onclick="prevTestimonial()" aria-label="Previous Testimonial">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                        </button>
+                        <button class="btn-nav-round" onclick="nextTestimonial()" aria-label="Next Testimonial">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SECTION 6: TRUST METRICS -->
+        <div class="section-header-box" style="margin-top: 36px;">
+            <h2 class="section-title">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg>
+                <span>6. Credibility Trust Metrics</span>
+            </h2>
+        </div>
+        <div class="stats-strip">
+            <div class="stat-item">
+                <h3>13+</h3>
+                <p>Years of Pediatric Care</p>
+            </div>
+            <div class="stat-item">
+                <h3>25+</h3>
+                <p>Clinical Specialists</p>
+            </div>
+            <div class="stat-item">
+                <h3>6,000+</h3>
+                <p>Children Guided</p>
+            </div>
+            <div class="stat-item">
+                <h3>98%</h3>
+                <p>Parent Satisfaction</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- DYNAMIC FONT SWITCHER & ACETERNITY TEXT SCRIPT -->
+    <script>
+        // 0. Live Palette Switcher (Official Brochure Navy/Red/White vs Concept Teal/Yellow)
+        function setPalette(mode) {
+            var btnBrochure = document.getElementById('btnPaletteBrochure');
+            var btnTeal = document.getElementById('btnPaletteTeal');
+
+            if (mode === 'brochure') {
+                document.documentElement.removeAttribute('data-palette');
+                btnBrochure.style.background = 'var(--color-primary)';
+                btnBrochure.style.color = '#ffffff';
+                btnBrochure.textContent = 'Official Brochure (Navy, Red, White) [ACTIVE]';
+
+                btnTeal.style.background = 'transparent';
+                btnTeal.style.color = 'var(--color-body)';
+                btnTeal.textContent = 'Concept (Teal, Yellow, Mint)';
+            } else {
+                document.documentElement.setAttribute('data-palette', 'teal-yellow');
+                btnTeal.style.background = '#04b5a1';
+                btnTeal.style.color = '#ffffff';
+                btnTeal.textContent = 'Concept (Teal, Yellow, Mint) [ACTIVE]';
+
+                btnBrochure.style.background = 'transparent';
+                btnBrochure.style.color = 'var(--color-body)';
+                btnBrochure.textContent = 'Official Brochure (Navy, Red, White)';
+            }
+        }
+
+        // 1. Font Pairing Switcher
+        function setPairing(headingFont, bodyFont, name, cardElem) {
+            document.documentElement.style.setProperty('--font-active-heading', "'" + headingFont + "', sans-serif");
+            document.documentElement.style.setProperty('--font-active-body', "'" + bodyFont + "', sans-serif");
+            document.getElementById('current-pairing-name').textContent = name;
+
+            document.querySelectorAll('.font-card').forEach(function(card) {
+                card.classList.remove('active-style');
+                card.querySelector('.btn-apply-font').textContent = 'Preview';
+            });
+            cardElem.classList.add('active-style');
+            cardElem.querySelector('.btn-apply-font').textContent = 'Active';
+        }
+
+        // 2. Aceternity UI: Layout Text Flip (Flip Words)
+        function initFlipWords() {
+            var words = document.querySelectorAll('#flipWordsWrapper .flip-word');
+            if (!words.length) return;
+            var currentIndex = 0;
+
+            setInterval(function() {
+                var prevWord = words[currentIndex];
+                currentIndex = (currentIndex + 1) % words.length;
+                var nextWord = words[currentIndex];
+
+                prevWord.classList.remove('active');
+                prevWord.classList.add('exit');
+
+                setTimeout(function() {
+                    prevWord.classList.remove('exit');
+                }, 600);
+
+                nextWord.classList.add('active');
+            }, 2200);
+        }
+
+        // 3. Aceternity UI: Text Generate Effect
+        var originalText = "Specialized Speech, Occupational, and Remedial Therapy tailored to your child's pace in a sensory-friendly, nurturing environment.";
+        function replayTextGenerate() {
+            var container = document.getElementById('heroTextGenerate');
+            if (!container) return;
+            container.innerHTML = '';
+            var words = originalText.split(' ');
+            
+            words.forEach(function(word, idx) {
+                var span = document.createElement('span');
+                span.className = 'text-generate-word';
+                span.textContent = word;
+                container.appendChild(span);
+
+                setTimeout(function() {
+                    span.classList.add('visible');
+                }, idx * 60);
+            });
+        }
+
+        // 4. Aceternity UI: Text Hover Effect Glow Tracker
+        function initTextHoverEffect() {
+            var card = document.getElementById('textHoverDemo');
+            var glow = document.getElementById('textHoverGlow');
+            if (!card || !glow) return;
+
+            card.addEventListener('mousemove', function(e) {
+                var rect = card.getBoundingClientRect();
+                var x = e.clientX - rect.left;
+                var y = e.clientY - rect.top;
+                glow.style.left = x + 'px';
+                glow.style.top = y + 'px';
+            });
+        }
+
+        // 5. Aceternity UI: Stateful Button Logic
+        function triggerStatefulBtn() {
+            var btn = document.getElementById('demoStatefulBtn');
+            var txt = document.getElementById('statefulBtnText');
+            if (!btn || btn.classList.contains('is-loading')) return;
+
+            // Step 1: Loading
+            btn.classList.add('is-loading');
+            txt.textContent = 'Reserving Slot...';
+
+            // Step 2: Success after 1.5s
+            setTimeout(function() {
+                btn.classList.remove('is-loading');
+                btn.classList.add('is-success');
+                txt.textContent = 'Confirmed!';
+
+                // Step 3: Reset back to Idle after 2.5s
+                setTimeout(function() {
+                    btn.classList.remove('is-success');
+                    txt.textContent = 'Book Consultation';
+                }, 2500);
+            }, 1400);
+        }
+
+        // 6. Aceternity UI: Animated Testimonials Stacked Logic
+        var testimonialData = [
+            {
+                quote: "\"Within 4 months at the Nerul branch, my 4-year-old started expressing full sentences clearly. The therapists are exceptionally gentle, patient, and clinical.\"",
+                author: "Pooja M.",
+                sub: "Mother of Reyansh (4 yrs) &bull; Verified Google 5-Star Review"
+            },
+            {
+                quote: "\"The sensory integration room in Thane completely transformed Aarav's school focus. He went from crying before class to happily making friends.\"",
+                author: "Rahul & Sneha K.",
+                sub: "Parents of Aarav (6 yrs) &bull; Occupational Therapy"
+            },
+            {
+                quote: "\"Remedial teaching at Chembur helped Kabir overcome severe dyslexia hurdles. His reading speed doubled, and his self-esteem is back.\"",
+                author: "Ananya S.",
+                sub: "Mother of Kabir (7 yrs) &bull; Remedial Education"
+            }
+        ];
+
+        var activeTestimonialIdx = 0;
+        var isAnimatingTestimonial = false;
+
+        function updateTestimonialUI(newIdx, direction) {
+            if (isAnimatingTestimonial) return;
+            isAnimatingTestimonial = true;
+
+            var cards = [document.getElementById('deckCard0'), document.getElementById('deckCard1'), document.getElementById('deckCard2')];
+            var quoteBox = document.getElementById('activeTestimonialQuote');
+            var authorEl = document.getElementById('activeTestimonialAuthor');
+            var subEl = document.getElementById('activeTestimonialSub');
+
+            // Fade quote out
+            quoteBox.style.opacity = '0';
+            quoteBox.style.transform = direction === 'next' ? 'translateY(8px)' : 'translateY(-8px)';
+
+            // Rotate cards in deck
+            cards.forEach(function(card, i) {
+                var pos = (i - newIdx + 3) % 3;
+                card.className = 'deck-card pos-' + pos;
+            });
+
+            setTimeout(function() {
+                var data = testimonialData[newIdx];
+                quoteBox.textContent = data.quote;
+                authorEl.textContent = data.author;
+                subEl.innerHTML = data.sub;
+
+                quoteBox.style.opacity = '1';
+                quoteBox.style.transform = 'translateY(0)';
+                isAnimatingTestimonial = false;
+            }, 300);
+
+            activeTestimonialIdx = newIdx;
+        }
+
+        function nextTestimonial() {
+            var nextIdx = (activeTestimonialIdx + 1) % testimonialData.length;
+            updateTestimonialUI(nextIdx, 'next');
+        }
+
+        function prevTestimonial() {
+            var prevIdx = (activeTestimonialIdx - 1 + testimonialData.length) % testimonialData.length;
+            updateTestimonialUI(prevIdx, 'prev');
+        }
+
+        // 7. Aceternity UI: Simple Navbar with Hover Effects (Sliding Pill)
+        function initSlidingNavbar() {
+            var track = document.getElementById('navLinksTrack');
+            var pill = document.getElementById('navHoverPill');
+            if (!track || !pill) return;
+
+            var links = track.querySelectorAll('.nav-link');
+            var activeLink = track.querySelector('.nav-link.active-item');
+
+            function positionPill(targetLink) {
+                if (!targetLink) {
+                    pill.classList.remove('is-active-tab');
+                    return;
+                }
+                var trackRect = track.getBoundingClientRect();
+                var linkRect = targetLink.getBoundingClientRect();
+                var leftOffset = linkRect.left - trackRect.left;
+                var width = linkRect.width;
+
+                pill.style.transform = 'translate(' + leftOffset + 'px, -50%)';
+                pill.style.width = width + 'px';
+                pill.classList.add('is-active-tab');
+            }
+
+            // Set initial position on active link
+            if (activeLink) {
+                positionPill(activeLink);
+            }
+
+            // Bind mouse events to glide pill on hover
+            links.forEach(function(link) {
+                link.addEventListener('mouseenter', function() {
+                    positionPill(link);
+                });
+
+                link.addEventListener('click', function(e) {
+                    links.forEach(function(l) { l.classList.remove('active-item'); });
+                    link.classList.add('active-item');
+                    activeLink = link;
+                });
+            });
+
+            // Return to active item on track mouse leave
+            track.addEventListener('mouseleave', function() {
+                if (activeLink) {
+                    positionPill(activeLink);
+                } else {
+                    pill.classList.remove('is-active-tab');
+                }
+            });
+        }
+
+        // 8. Aceternity UI: Container Text Flip Logic (Dynamic width auto-resizing container)
+        function initContainerTextFlip() {
+            var box = document.getElementById('containerFlipBox');
+            var inner = document.getElementById('containerFlipInner');
+            if (!box || !inner) return;
+
+            var items = inner.querySelectorAll('.container-flip-item');
+            if (!items.length) return;
+            var currentIdx = 0;
+
+            function syncWidth(elem) {
+                var width = elem.getBoundingClientRect().width;
+                if (width > 0) {
+                    box.style.width = (width + 32) + 'px';
+                }
+            }
+
+            syncWidth(items[0]);
+
+            setInterval(function() {
+                var prevItem = items[currentIdx];
+                currentIdx = (currentIdx + 1) % items.length;
+                var nextItem = items[currentIdx];
+
+                prevItem.classList.remove('active');
+                prevItem.classList.add('exit');
+
+                nextItem.classList.remove('exit');
+                nextItem.classList.add('active');
+
+                syncWidth(nextItem);
+
+                setTimeout(function() {
+                    prevItem.classList.remove('exit');
+                }, 550);
+            }, 2600);
+        }
+
+        // Run on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initFlipWords();
+            initContainerTextFlip();
+            replayTextGenerate();
+            initTextHoverEffect();
+            initSlidingNavbar();
+        });
+        // Run immediately if already loaded
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            initFlipWords();
+            initContainerTextFlip();
+            replayTextGenerate();
+            initTextHoverEffect();
+            initSlidingNavbar();
+        }
+    </script>
+
+</body>
+</html>

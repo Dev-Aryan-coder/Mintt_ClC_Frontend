@@ -1,0 +1,206 @@
+================================================================================
+CHILD LEARNING CENTRE (CLC) - OFFICIAL HOMEPAGE SCRAPED CONTENT REPOSITORY
+Source URL: https://childlearningcentre.in/
+Extracted: 2026-10-27
+Purpose: Content master reference for integration into index.html redesign
+================================================================================
+
+1. SITE IDENTITY & META INFORMATION
+--------------------------------------------------------------------------------
+- Website Title: Child Learning Center
+- Tagline / Hero Statement: "THE CENTER for comprehensive Assessment & Treatment of Academics, Learning & Behavioral issues."
+- Meta Description: "Child Learning Centre offers tailored educational and therapeutic services for children's development, enhancing their academic and behavioral skills."
+- Official Brand Color in Head: #e50909 (Vivid Carmine Red)
+- Official Theme: Child Development, Pediatric Clinical Therapy, Academic Remediation, Behavioral Healthcare
+
+--------------------------------------------------------------------------------
+2. NAVIGATION STRUCTURE & ALL INTERNAL/EXTERNAL LINKS
+--------------------------------------------------------------------------------
+* Main Header Links:
+  - Home: https://childlearningcentre.in/
+  - About Us: https://childlearningcentre.in/about-us
+  - Services: https://childlearningcentre.in/services
+  - Testimonials: https://childlearningcentre.in/testimonials
+  - Contact Us: https://childlearningcentre.in/contact-us
+
+* Clinic Branch Pages:
+  - Nerul (Main Centre / HQ): https://childlearningcentre.in/nerul
+  - Thane: https://childlearningcentre.in/thane
+  - Chembur: https://childlearningcentre.in/chembur
+  - Sion: https://childlearningcentre.in/sion
+  - Ulwe: https://childlearningcentre.in/ulwe
+  - Nagpur: https://childlearningcentre.in/nagpur-1
+  - Nashik: https://childlearningcentre.in/nashik
+  (Additional historical branches mentioned in content: Vashi, Dombivali)
+
+* External Ventures & Sister Foundations:
+  - Child Development Center (CDC): https://childdevelopmentcenter.in/
+  - Child React Foundation: https://childreactfoundation.com/
+
+* Official Media & Downloadable Assets:
+  - Official Brochure PDF: https://img1.wsimg.com/blobby/go/f5a4990e-90af-4131-b158-16600f3903fa/CLC%20Brochure-69d4e88.pdf
+  - YouTube Channel (Team CLC Knowledge): https://youtube.com/@teamclc-knowledge?si=nnp3Oto-yf13fRnO
+  - YouTube Playlists: https://www.youtube.com/@TeamCLC-knowledge/playlists
+
+* Contact Channels:
+  - Official Email: generalmanager.crc@gmail.com
+  - Official Primary Phone: +91 92215 33715 (tel:9221533715)
+
+--------------------------------------------------------------------------------
+3. HERO BANNER & PRIMARY CALL TO ACTIONS
+--------------------------------------------------------------------------------
+- Primary Headline: CHILD LEARNING CENTER
+- Mission Subtitle: “THE CENTER for comprehensive Assessment & Treatment of Academics, Learning & Behavioral issues.”
+- Primary CTAs:
+  - "Explore Now" (Anchors down to services & approaches)
+  - "Learn More" (Directs to About Us / Consultation booking)
+  - "Book Consultation" / "Call Us"
+
+--------------------------------------------------------------------------------
+4. UNIQUE CLINICAL APPROACH - THE 3 CORE PILLARS
+   Section Heading: "Unique Approach To Enhance Overall Learning Abilities"
+   Subheading: "Discover Your Success"
+--------------------------------------------------------------------------------
+* PILLAR 1: Intellectual Abilities
+  - Thinking & Imagination
+  - Memory & Learning
+  - Language & Communication
+  - Problem Solving Abilities
+
+* PILLAR 2: Academic Skills
+  - Attention & Concentration
+  - Handwriting & Spelling
+  - Reading & Comprehension
+  - Develop Interest in Studies
+
+* PILLAR 3: Behaviour Management
+  - Self Management
+  - Emotional Development
+  - Social Skills Development
+  - Self Confidence & Motivation
+
+--------------------------------------------------------------------------------
+5. CLINICAL HERITAGE & HISTORICAL MILESTONES (13+ YEARS OF EXCELLENCE)
+--------------------------------------------------------------------------------
+* 2013 - Foundation of Child Learning Centre:
+  - CRC launched the Child Learning Centre specifically to address academic skill development.
+  - Context: Many school-going children with good cognitive abilities faced hidden challenges in reading, writing, mathematical calculations, and social skills.
+  - The centre was established to deliver personalized, ability-based interventions to help children overcome academic hurdles and achieve life-long confidence.
+
+* 2014 - Psychological Counselling & Environmental Assessments:
+  - Psychological counselling integrated into core clinical services to support families by addressing emotional and psychological needs.
+  - Launched Home and School site assessments to ensure children receive consistent therapeutic support across all their real-world environments.
+
+* 2015 - Father-Child Bonding & Parental Play Programs:
+  - Launched a specialized "Father-Child Bonding" series to highlight and empower the father's active role in child neurodevelopment.
+  - Introduced "Play and Communication" programs empowering parents with evidence-based developmental techniques to practice at home.
+
+* 2016 - Parenting Workshops & Remedial Education:
+  - Initiated Home Program Parenting Workshops teaching strategies for speech, communication, and emotional regulation across all childhood stages.
+  - Introduced structured Remedial Education sessions to help children with learning challenges excel in school examinations.
+
+* November 2017 - LD Rehab Centre (Sion):
+  - Established at D.S. High School in Sion, inaugurated by Dr. Rukhshana Shonapurwala.
+  - Dedicated to providing rehabilitation and academic support to underprivileged school-going children.
+
+* March 2018 - Vashi Centre Launch:
+  - Inaugurated by MLA Shri Sandeepji Naik and Dr. Shashi Oberai (Vice President of AIOTA).
+  - Expanded child development services across Navi Mumbai.
+
+* September 2018 - Nerul Facility Expansion:
+  - Nerul centre relocated to a significantly larger, modern clinical facility to accommodate growing demand and multi-disciplinary therapies.
+
+* May 2019 - Nagpur Regional Centre:
+  - CRC expanded 800 km away from Mumbai headquarters into Nagpur.
+  - Successfully introduced the ability-based therapeutic model, catering to over 60+ families.
+
+* Subsequent Expansions:
+  - Established dedicated centres in Thane, Chembur, Ulwe, Nashik, and Dombivali.
+
+--------------------------------------------------------------------------------
+6. MULTIDISCIPLINARY CLINICAL TEAM STRUCTURE
+   Heading: "List of Multi-Disciplinary Professionals Working with Team CLC"
+--------------------------------------------------------------------------------
+- Occupational Therapists (OT)
+- Physiotherapists (PT)
+- Clinical & Child Psychologists
+- Psychological Counselors
+- Play Therapists
+- Special Educators
+- Remedial Educators
+- Academic Skill Developers
+- Scale & Authority: Team CLC consists of more than 25 clinical professionals and 12 non-clinical support professionals.
+
+--------------------------------------------------------------------------------
+7. COMPREHENSIVE CLINICAL SERVICES LIST
+   Heading: "Services Provided By CLC"
+--------------------------------------------------------------------------------
+* Group Therapies:
+  - Outdoor Group Therapy (Sensory and physical adaptation)
+  - Communication Group Therapy (Speech, articulation, social conversational skills)
+
+* Clinical Psychological Services:
+  - Child Counseling
+  - Parental & Family Counseling
+  - Psychological Testing & IQ Assessments
+  - Aptitude Testing & Career Guidance
+  - Projective Personality Testing
+
+* Progress Monitoring & Reviews:
+  - Comprehensive Initial Evaluation & Consultation
+  - Mid-Term Progress Reviews
+  - Formal Developmental Reviews
+
+* Parent Empowerment & Community Outreach:
+  - Parenting Lectures & Masterclasses
+  - Parent-Child Bonding Lectures
+  - Parents Recreation & Stress-Relief Programs
+  - School Site Visits & Classroom Assessments
+  - Public Awareness Drives & Community Lectures
+
+* Seasonal Programs:
+  - Child Learning Center Vacation Batches & Intensive Skill Camps
+
+--------------------------------------------------------------------------------
+8. OUR VENTURES & BROCHURES SECTION
+--------------------------------------------------------------------------------
+- Sister Organization 1: Child Development Center (CDC) - https://childdevelopmentcenter.in/
+- Sister Organization 2: Child React Foundation - https://childreactfoundation.com/
+- Downloadable Brochure: "CLC Brochure" PDF link for parents
+- Knowledge Base: Team CLC YouTube Channel educational videos
+
+--------------------------------------------------------------------------------
+9. VALUE PROPOSITION STATEMENT
+--------------------------------------------------------------------------------
+"Unlock Your Potential with Child Learning Center!
+At Child Learning Center, we believe that everyone has the potential to achieve great things. Our educational services are designed to help you unlock that potential and reach your goals. Whether you're looking to advance your child's academic skills, foster emotional regulation, or build self-confidence, our expert clinical instructors are here to guide and support you every step of the way."
+
+--------------------------------------------------------------------------------
+10. FREQUENTLY ASKED QUESTIONS (FAQ)
+--------------------------------------------------------------------------------
+Q1: What kind of educational and therapeutic services does Child Learning Center offer?
+A1: Child Learning Center offers comprehensive tailored services including intellectual skill enhancement, remedial education, tutoring, test preparation, behavioral therapy, occupational therapy, and academic coaching.
+
+Q2: How are Child Learning Center's tutors and therapists selected?
+A2: All tutors, therapists, and clinicians undergo a rigorous selection process that includes thorough background checks, subject matter and clinical expertise evaluations, and multiple clinical interview rounds.
+
+Q3: What is the pricing for Child Learning Center's services?
+A3: Pricing varies depending on the specific type of service (assessment vs. ongoing therapy), the customized treatment plan, and session length. Parents can contact the centre directly or schedule a consultation.
+
+Support Email: generalmanager.crc@gmail.com
+
+--------------------------------------------------------------------------------
+11. MAIN CENTRE CONTACT & LOCATION DETAILS
+--------------------------------------------------------------------------------
+- Center Name: Child Learning Center (Head Office / Nerul Centre)
+- Full Physical Address:
+  F-1 C-1, Shanti Apartment, First Floor, Sector-11,
+  Near Bus Depot, Above Deepali Saree Centre,
+  Nerul, Navi Mumbai, Maharashtra - 400706
+- Direct Contact Phone: +91 92215 33715 / 9221533715
+- Operating Hours:
+  Monday to Saturday: 10:00 AM – 08:30 PM
+  Sunday: By appointment / Closed
+- Map & Directions Link: Available via Google Maps (Nerul Bus Depot Landmark)
+- Copyright Notice: Copyright © 2026 Child Learning Center - All Rights Reserved.
+================================================================================

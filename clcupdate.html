@@ -1,0 +1,2849 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Child Learning Centre | Learn, Grow &amp; Thrive</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700;6..12,800&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        :root {
+            --primary-color: #e05244;
+            /* Friendly warm coral-red / poppy terracotta */
+            --primary-light: #eb5757;
+            --primary-deep: #c93d30;
+            --secondary-color: #fff6f5;
+            /* Delicate warm blush tint */
+            --accent-color: #e05244;
+            /* Warm coral-red */
+            --accent-hover: #c93d30;
+            --accent-subtle: #fef0ee;
+            /* Soft coral-tinted highlight */
+            --text-color: #475569;
+            /* Deep readable slate */
+            --heading-color: #1e293b;
+            /* Dark slate / charcoal */
+            --heading-title: #0f172a;
+            /* Deep obsidian charcoal */
+            --white-color: #ffffff;
+            --surface-light: #fbf9f8;
+            /* Clean linen / light cream */
+            --border-color: #f1dedc;
+            --card-shadow: 0 10px 30px rgba(224, 82, 68, 0.05);
+            --accent-font: "Manrope", sans-serif;
+            --default-font: "Nunito Sans", sans-serif;
+        }
+
+        body {
+            font-family: var(--default-font);
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--white-color);
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--accent-font);
+            font-weight: 700;
+            color: var(--heading-color);
+            letter-spacing: -0.02em;
+        }
+
+        a {
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+
+        /* ==================== BUTTONS ==================== */
+        .btn-primary-custom {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-family: var(--accent-font);
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--white-color);
+            background-color: var(--accent-color);
+            padding: 14px 28px;
+            border-radius: 999px;
+            border: none;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 8px 20px rgba(224, 82, 68, 0.22);
+        }
+
+        .btn-primary-custom:hover {
+            background-color: var(--accent-hover);
+            color: var(--white-color);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(224, 82, 68, 0.3);
+        }
+
+        .btn-primary-custom .btn-icon-circle {
+            width: 28px;
+            height: 28px;
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-secondary-custom {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--accent-font);
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--heading-color);
+            background-color: var(--white-color);
+            border: 1.5px solid #e2e8f0;
+            padding: 13px 26px;
+            border-radius: 999px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary-custom:hover {
+            background-color: var(--surface-light);
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        /* ==================== TOPBAR ==================== */
+        .topbar {
+            background-color: #1e2430;
+            padding: 10px 0;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.85);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .topbar a {
+            color: rgba(255, 255, 255, 0.85);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .topbar a:hover {
+            color: #ffb8b0;
+        }
+
+        .topbar-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .social-icons-bar {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 12px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .social-icons-bar a {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.8);
+            transition: all 0.2s ease;
+        }
+
+        .social-icons-bar a:hover {
+            background: var(--accent-color);
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        /* ==================== NAVBAR ==================== */
+        .main-header {
+            background: #fff;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+            position: sticky;
+            top: 0;
+            z-index: 1020;
+        }
+
+        .brand-logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-mark {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(224, 82, 68, 0.25);
+        }
+
+        .brand-text h2 {
+            font-size: 20px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin: 0;
+            color: var(--heading-title);
+        }
+
+        .brand-text span {
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .nav-link-item {
+            font-family: var(--accent-font);
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--heading-color) !important;
+            padding: 24px 16px !important;
+            position: relative;
+        }
+
+        .nav-link-item:hover,
+        .nav-link-item.active {
+            color: var(--accent-color) !important;
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            background: radial-gradient(circle at 85% 20%, rgba(224, 82, 68, 0.07) 0%, transparent 40%),
+                linear-gradient(180deg, #fffaf9 0%, #ffffff 100%);
+            padding: 80px 0 90px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            color: var(--accent-color);
+            font-size: 13px;
+            font-weight: 700;
+            padding: 8px 18px;
+            border-radius: 999px;
+            margin-bottom: 22px;
+            box-shadow: 0 4px 14px rgba(224, 82, 68, 0.05);
+        }
+
+        .hero-badge-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-color);
+        }
+
+        .hero-title {
+            font-size: 54px;
+            line-height: 1.15;
+            font-weight: 800;
+            color: var(--heading-title);
+            margin-bottom: 22px;
+        }
+
+        .hero-title span {
+            color: var(--accent-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            line-height: 1.65;
+            color: #475569;
+            margin-bottom: 34px;
+            max-width: 530px;
+        }
+
+        .hero-stats-row {
+            display: flex;
+            gap: 36px;
+            padding-top: 36px;
+            border-top: 1px solid #f1dedc;
+            margin-top: 40px;
+        }
+
+        .stat-num {
+            font-family: var(--accent-font);
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--accent-color);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: #64748b;
+            margin: 0;
+        }
+
+        .hero-visual-card {
+            background: #ffffff;
+            border-radius: 36px;
+            padding: 40px 36px;
+            color: var(--heading-color);
+            position: relative;
+            box-shadow: 0 20px 40px -15px rgba(224, 82, 68, 0.08);
+            border: 1px solid #fed7d2;
+        }
+
+        .hero-illustration {
+            background: #fff8f7;
+            border-radius: 28px;
+            padding: 30px;
+            text-align: center;
+            border: 1px dashed #f6cec8;
+            margin-bottom: 24px;
+        }
+
+        .floating-mini-card {
+            background: #ffffff;
+            color: var(--heading-color);
+            padding: 16px 20px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            border: 1px solid #f1dedc;
+            box-shadow: 0 10px 24px rgba(224, 82, 68, 0.06);
+        }
+
+        .floating-mini-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: #feebe8;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* ==================== TRI-FEATURE BAR ==================== */
+        .feature-strip {
+            background: #fffaf9;
+            padding: 40px 0;
+            position: relative;
+            z-index: 2;
+            border-top: 1px solid #f1dedc;
+            border-bottom: 1px solid #f1dedc;
+        }
+
+        .feature-card {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 12px 20px;
+            border-right: 1px solid #edd5d3;
+        }
+
+        .feature-card:last-child {
+            border-right: none;
+        }
+
+        .feature-icon-box {
+            width: 58px;
+            height: 58px;
+            border-radius: 16px;
+            background: #feebe8;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon-box {
+            background: var(--accent-color);
+            color: #ffffff;
+            transform: scale(1.05);
+        }
+
+        .feature-text h4 {
+            color: #1e293b;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .feature-text p {
+            color: #475569;
+            font-size: 14px;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* ==================== SECTION HEADERS ==================== */
+        .section-tag {
+            display: inline-block;
+            font-family: var(--accent-font);
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 6px 16px;
+            border-radius: 999px;
+            background: #feebe8;
+            color: var(--accent-color);
+            margin-bottom: 14px;
+            border: 1px solid #fcd5cf;
+        }
+
+        .section-tag.tag-accent {
+            background: #feebe8;
+            color: var(--accent-color);
+            border-color: #fcd5cf;
+        }
+
+        .section-heading {
+            font-size: 40px;
+            font-weight: 800;
+            line-height: 1.22;
+            color: var(--heading-title);
+            margin-bottom: 16px;
+        }
+
+        /* ==================== ABOUT US ==================== */
+        .about-section {
+            padding: 100px 0;
+            background: #ffffff;
+        }
+
+        .about-card-left {
+            background: #fff8f7;
+            border-radius: 32px;
+            padding: 44px;
+            height: 100%;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-pill-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .about-pill-item {
+            background: #ffffff;
+            padding: 16px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            border: 1px solid #f1dedc;
+            box-shadow: 0 4px 12px rgba(224, 82, 68, 0.03);
+        }
+
+        .about-pill-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: #feebe8;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* ==================== SERVICES SECTION ==================== */
+        .services-section {
+            padding: 100px 0;
+            background: #fbf9f8;
+        }
+
+        .service-card-item {
+            background: #ffffff;
+            border: 1px solid #f1dedc;
+            border-radius: 28px;
+            padding: 34px 28px;
+            height: 100%;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            box-shadow: 0 6px 20px rgba(15, 23, 42, 0.03);
+        }
+
+        .service-card-item:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent-color);
+            box-shadow: 0 20px 36px rgba(224, 82, 68, 0.1);
+        }
+
+        .service-card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 18px;
+            background: #feebe8;
+            color: var(--accent-color);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .service-card-item:hover .service-card-icon {
+            background: var(--accent-color);
+            color: #ffffff;
+        }
+
+        .service-card-item h3 {
+            font-size: 21px;
+            font-weight: 700;
+            color: var(--heading-color);
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .service-card-item p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #475569;
+            margin: 0;
+        }
+
+        .service-cta-card {
+            background: linear-gradient(135deg, #eb5757 0%, #e05244 100%);
+            border-radius: 28px;
+            padding: 38px 32px;
+            color: #ffffff;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 16px 36px rgba(224, 82, 68, 0.22);
+        }
+
+        .service-cta-card h3 {
+            color: #ffffff;
+            font-size: 24px;
+            margin-bottom: 14px;
+        }
+
+        .service-cta-card p {
+            color: rgba(255, 255, 255, 0.92);
+            margin-bottom: 24px;
+        }
+
+        /* ==================== SOLUTION & QUALITY PLAN ==================== */
+        .solution-section {
+            padding: 100px 0;
+            background: #fff8f7;
+        }
+
+        .solution-checklist {
+            list-style: none;
+            padding: 0;
+            margin: 28px 0 34px;
+        }
+
+        .solution-checklist li {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 16px;
+            font-weight: 600;
+            color: var(--heading-color);
+        }
+
+        .check-badge {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .solution-metric-card {
+            background: #ffffff;
+            padding: 22px;
+            border-radius: 20px;
+            border: 1px solid #f1dedc;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            box-shadow: 0 4px 14px rgba(224, 82, 68, 0.04);
+        }
+
+        .solution-metric-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: #feebe8;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* ==================== WHY CHOOSE US ==================== */
+        .why-us-section {
+            padding: 100px 0;
+            background: #ffffff;
+        }
+
+        .why-item-box {
+            display: flex;
+            gap: 18px;
+            padding: 24px;
+            border-radius: 22px;
+            border: 1px solid #f1dedc;
+            background: #ffffff;
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .why-item-box:hover {
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 24px rgba(224, 82, 68, 0.08);
+            transform: translateY(-3px);
+        }
+
+        .why-icon-bubble {
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            background: #feebe8;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.25s ease;
+        }
+
+        .why-item-box:hover .why-icon-bubble {
+            background: var(--accent-color);
+            color: #ffffff;
+        }
+
+        /* ==================== AREAS OF SUPPORT ==================== */
+        .areas-section {
+            padding: 90px 0 100px;
+            background: #fff8f7;
+            border-top: 1px solid #f1dedc;
+            border-bottom: 1px solid #f1dedc;
+        }
+
+        .area-tile {
+            background: #ffffff;
+            border: 1px solid #f0e0de;
+            border-radius: 20px;
+            padding: 22px 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: all 0.25s ease;
+            height: 100%;
+            box-shadow: 0 4px 14px rgba(224, 82, 68, 0.03);
+        }
+
+        .area-tile:hover {
+            background: #ffffff;
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(224, 82, 68, 0.08);
+        }
+
+        .area-icon-holder {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            background: #fff0ee;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .area-tile h4 {
+            color: #1e293b;
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        /* ==================== TICKER ==================== */
+        .ticker-wrap {
+            background: #feebe8;
+            color: var(--accent-color);
+            border-top: 1px solid #fcd5cf;
+            border-bottom: 1px solid #fcd5cf;
+            padding: 16px 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .ticker-content {
+            display: inline-flex;
+            gap: 40px;
+            font-family: var(--accent-font);
+            font-weight: 700;
+            font-size: 15px;
+            animation: tickerMove 30s linear infinite;
+        }
+
+        @keyframes tickerMove {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* ==================== FOOTER ==================== */
+        .main-footer {
+            background: #1e2430;
+            color: rgba(255, 255, 255, 0.75);
+            padding: 80px 0 30px;
+            font-size: 15px;
+        }
+
+        .main-footer h4 {
+            color: #ffffff;
+            font-size: 18px;
+            margin-bottom: 22px;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .footer-contact-icon {
+            width: 20px;
+            height: 20px;
+            color: #ff9f94;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 26px;
+            margin-top: 50px;
+            font-size: 14px;
+        }
+
+        /* ==================== ROTATING HOME BANNER ==================== */
+        .home-banner-section {
+            padding: 22px 0 0;
+            background: #fff;
+        }
+
+        .home-banner-carousel {
+            position: relative;
+        }
+
+        .home-banner-carousel .carousel-item {
+            padding: 0 12px;
+        }
+
+        .home-banner-carousel .carousel-item .home-banner {
+            width: 100%;
+        }
+
+        .home-banner {
+            position: relative;
+            display: block;
+            height: clamp(280px, 32vw, 440px);
+            overflow: hidden;
+            border-radius: 22px;
+            isolation: isolate;
+            background: #f7e9e6;
+            color: #fff;
+        }
+
+        .home-banner img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .7s cubic-bezier(.2, .7, .2, 1);
+        }
+
+        .home-banner:hover img {
+            transform: scale(1.045);
+        }
+
+        .banner-shade {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(24, 31, 42, .72) 0%, rgba(24, 31, 42, .35) 52%, rgba(24, 31, 42, .04) 100%);
+        }
+
+        .banner-copy {
+            position: absolute;
+            left: clamp(22px, 4vw, 54px);
+            bottom: clamp(24px, 4vw, 48px);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 13px;
+            max-width: 85%;
+        }
+
+        .banner-copy small {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .16em;
+            color: #fff;
+        }
+
+        .banner-copy strong {
+            font-family: var(--accent-font);
+            font-size: clamp(27px, 3vw, 43px);
+            line-height: 1.12;
+            letter-spacing: -.03em;
+            color: #fff;
+        }
+
+        .banner-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            padding: 10px 16px;
+            border-radius: 999px;
+            color: #263142;
+            background: #fff;
+            font-size: 13px;
+            font-weight: 700;
+            transition: gap .25s ease, background .25s ease;
+        }
+
+        .banner-link b {
+            color: var(--accent-color);
+            font-size: 17px;
+        }
+
+        .home-banner:hover .banner-link {
+            gap: 20px;
+            background: #fff7f5;
+        }
+
+        .banner-control {
+            width: 48px;
+            height: 48px;
+            top: 50%;
+            transform: translateY(-50%);
+            bottom: auto;
+            margin: 0 26px;
+            border: 1px solid rgba(255, 255, 255, .75);
+            border-radius: 50%;
+            background: rgba(24, 31, 42, .38);
+            opacity: .9;
+            transition: background .2s ease;
+        }
+
+        .banner-control:hover {
+            background: rgba(224, 82, 68, .88);
+            opacity: 1;
+        }
+
+        .banner-indicators {
+            margin-bottom: 15px;
+        }
+
+        .banner-indicators [data-bs-target] {
+            width: 8px;
+            height: 8px;
+            border: 0;
+            border-radius: 50%;
+            margin: 0 5px;
+        }
+
+        .banner-indicators .active {
+            width: 24px;
+            border-radius: 10px;
+            background-color: #e05244;
+        }
+
+        .centre-stats {
+            padding: 34px 0 38px;
+            background: #fff;
+        }
+
+        .stat-block {
+            text-align: center;
+            padding: 12px 18px;
+        }
+
+        .stat-block+.stat-block {
+            border-left: 1px solid #f1dedc;
+        }
+
+        .stat-number span {
+            font-family: var(--accent-font);
+            font-size: clamp(32px, 4vw, 45px);
+            line-height: 1;
+            font-weight: 800;
+            letter-spacing: -.04em;
+            color: var(--accent-color);
+        }
+
+        .stat-block p {
+            margin: 9px 0 0;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: #64748b;
+        }
+
+        @media (max-width: 767.98px) {
+            .home-banner-section {
+                padding-top: 12px;
+            }
+
+            .home-banner-carousel .carousel-item {
+                padding: 0 8px;
+            }
+
+            .home-banner {
+                height: 300px;
+                border-radius: 17px;
+            }
+
+            .banner-copy strong {
+                font-size: 30px;
+            }
+
+            .banner-control {
+                width: 36px;
+                height: 36px;
+                margin: 0 12px;
+            }
+
+            .banner-indicators {
+                margin-bottom: 10px;
+            }
+
+            .centre-stats {
+                padding: 25px 0 28px;
+            }
+
+            .stat-block {
+                padding: 10px 8px;
+            }
+
+            .stat-block p {
+                font-size: 10px;
+                letter-spacing: .08em;
+            }
+        }
+
+
+        /* ==================== SUBTLE INTERACTION LAYER (UI UNCHANGED) ==================== */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .main-header {
+            transition: box-shadow .25s ease, background-color .25s ease;
+        }
+
+        .main-header:hover {
+            box-shadow: 0 8px 26px rgba(15, 23, 42, .08);
+        }
+
+        .nav-link-item::after {
+            content: "";
+            position: absolute;
+            left: 16px;
+            right: 16px;
+            bottom: 14px;
+            height: 2px;
+            background: var(--accent-color);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .25s ease;
+        }
+
+        .nav-link-item:hover::after,
+        .nav-link-item.active::after {
+            transform: scaleX(1);
+        }
+
+        .btn-primary-custom,
+        .btn-secondary-custom,
+        .service-card-item,
+        .why-item-box,
+        .area-tile,
+        .about-pill-item,
+        .feature-card,
+        .solution-metric-card {
+            will-change: transform;
+        }
+
+        .btn-primary-custom:active,
+        .btn-secondary-custom:active {
+            transform: translateY(1px) scale(.985);
+        }
+
+        .service-card-item,
+        .why-item-box,
+        .area-tile,
+        .about-pill-item,
+        .solution-metric-card {
+            transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+        }
+
+        .feature-card {
+            transition: transform .28s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .stat-block {
+            transition: background-color .25s ease, transform .25s ease;
+            border-radius: 14px;
+        }
+
+        .stat-block:hover {
+            background: #fff8f7;
+            transform: translateY(-4px);
+        }
+
+        .home-banner-carousel .carousel-item .banner-copy>* {
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity .55s ease, transform .55s ease;
+        }
+
+        .home-banner-carousel .carousel-item.active .banner-copy>* {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .home-banner-carousel .carousel-item.active .banner-copy>*:nth-child(2) {
+            transition-delay: .1s;
+        }
+
+        .home-banner-carousel .carousel-item.active .banner-copy>*:nth-child(3) {
+            transition-delay: .2s;
+        }
+
+        .js-reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity .65s ease, transform .65s cubic-bezier(.2, .7, .2, 1);
+        }
+
+        .js-reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .js-reveal[data-reveal-delay="1"] {
+            transition-delay: .08s;
+        }
+
+        .js-reveal[data-reveal-delay="2"] {
+            transition-delay: .16s;
+        }
+
+        .js-reveal[data-reveal-delay="3"] {
+            transition-delay: .24s;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+
+            .js-reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+
+        /* Refined trust-section heading: visual polish only; cards and section layout stay unchanged */
+        .trust-section-heading {
+            max-width: 800px;
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .trust-heading-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 8px 15px;
+            border: 1px solid #f3d8d4;
+            border-radius: 999px;
+            background: #fff9f8;
+            color: #c93d30;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: .09em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .trust-eyebrow-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #e05244;
+            box-shadow: 0 0 0 4px rgba(224, 82, 68, .10);
+        }
+
+        .trust-main-heading {
+            max-width: 760px;
+            margin: 0 auto 18px;
+            font-size: clamp(30px, 4vw, 44px);
+            line-height: 1.16;
+            letter-spacing: -.035em;
+        }
+
+        .trust-main-heading span {
+            color: #e05244;
+        }
+
+        .trust-heading-copy {
+            max-width: 610px;
+            margin: 0 auto;
+            color: #64748b;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .trust-heading-rule {
+            width: 68px;
+            height: 4px;
+            background: #f8d7d3;
+            border-radius: 999px;
+            margin: 25px auto 0;
+            overflow: hidden;
+        }
+
+        .trust-heading-rule span {
+            display: block;
+            width: 34px;
+            height: 100%;
+            border-radius: 999px;
+            background: #e05244;
+            animation: trustRulePulse 2.8s ease-in-out infinite;
+        }
+
+        @keyframes trustRulePulse {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(34px);
+            }
+        }
+
+        @media (max-width:575px) {
+            .trust-heading-eyebrow {
+                margin-bottom: 15px;
+            }
+
+            .trust-main-heading {
+                font-size: 30px;
+            }
+
+            .trust-heading-copy {
+                font-size: 15px;
+                padding: 0 8px;
+            }
+        }
+
+
+        /* Infinite left-to-right image carousel for the trust section */
+        .trust-image-gallery {
+            display: block;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            max-width: 1120px;
+            margin: 0 auto 42px;
+            padding: 8px 0 14px;
+            -webkit-mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+        }
+
+        .trust-image-track {
+            display: flex;
+            width: max-content;
+            gap: 18px;
+            animation: trustGalleryScroll 42s linear infinite;
+            will-change: transform;
+        }
+
+        .trust-image-gallery:hover .trust-image-track,
+        .trust-image-gallery:focus-within .trust-image-track {
+            animation-play-state: paused;
+        }
+
+        .trust-image-card {
+            position: relative;
+            overflow: hidden;
+            flex: 0 0 300px;
+            width: 300px;
+            height: 220px;
+            border-radius: 22px;
+            background: #fff5f3;
+            border: 1px solid #f1dedc;
+            box-shadow: 0 10px 24px rgba(15, 23, 42, .07);
+            isolation: isolate;
+        }
+
+        .trust-image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .7s cubic-bezier(.2, .7, .2, 1);
+        }
+
+        .trust-image-card:hover img {
+            transform: scale(1.06);
+        }
+
+        .trust-image-card:after {
+            content: "";
+            position: absolute;
+            inset: 35% 0 0;
+            background: linear-gradient(180deg, transparent, rgba(20, 26, 38, .74));
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .trust-image-caption {
+            position: absolute;
+            z-index: 2;
+            left: 18px;
+            right: 16px;
+            bottom: 16px;
+            color: #fff;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 1.3;
+            text-shadow: 0 1px 8px rgba(0, 0, 0, .2);
+        }
+
+        .trust-image-caption small {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            opacity: .94;
+            margin-bottom: 5px;
+        }
+
+        @keyframes trustGalleryScroll {
+            from {
+                transform: translateX(-50%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @media(max-width:767px) {
+            .trust-image-gallery {
+                margin-bottom: 30px;
+            }
+
+            .trust-image-track {
+                gap: 12px;
+                animation-duration: 34s;
+            }
+
+            .trust-image-card {
+                flex-basis: 245px;
+                width: 245px;
+                height: 185px;
+                border-radius: 18px;
+            }
+
+            .trust-image-caption {
+                left: 13px;
+                bottom: 13px;
+                font-size: 14px;
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            .trust-image-track {
+                animation: none;
+                transform: none;
+            }
+
+            .trust-image-gallery {
+                overflow-x: auto;
+                -webkit-mask-image: none;
+                mask-image: none;
+            }
+        }
+
+        /* ==================== INLINE SVG RESETS ==================== */
+        svg {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .custom-svg-icon {
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+            stroke: currentColor;
+        }
+
+        /* Compact section spacing: preserve each section's design while bringing content closer together. */
+        @media (min-width: 768px) {
+
+            .about-section,
+            .services-section,
+            .solution-section,
+            .why-us-section {
+                padding-top: 64px;
+                padding-bottom: 64px;
+            }
+
+            .areas-section {
+                padding-top: 58px;
+                padding-bottom: 64px;
+            }
+
+            .feature-strip {
+                padding-top: 28px;
+                padding-bottom: 28px;
+            }
+
+            .main-footer {
+                padding-top: 58px;
+            }
+
+            .footer-bottom {
+                margin-top: 34px;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+
+            .about-section,
+            .services-section,
+            .solution-section,
+            .why-us-section {
+                padding-top: 46px;
+                padding-bottom: 46px;
+            }
+
+            .areas-section {
+                padding-top: 42px;
+                padding-bottom: 46px;
+            }
+
+            .feature-strip {
+                padding-top: 22px;
+                padding-bottom: 22px;
+            }
+
+            .main-footer {
+                padding-top: 44px;
+            }
+
+            .footer-bottom {
+                margin-top: 28px;
+            }
+        }
+
+        /* Reduce oversized gaps between section headings and their content. */
+        .services-section .row.align-items-end.mb-5 {
+            margin-bottom: 2rem !important;
+        }
+
+        .areas-section .text-center.mb-5 {
+            margin-bottom: 2rem !important;
+        }
+
+
+        /* Brighter, warmer colour treatment: preserve the existing layout and component structure. */
+        :root {
+            --primary-color: #e05244;
+            --primary-light: #f16d5d;
+            --primary-deep: #c93d30;
+            --accent-color: #e05244;
+            --accent-hover: #c93d30;
+            --secondary-color: #fff7ed;
+            --accent-subtle: #fff0e8;
+            --border-color: #f2ded6;
+            --surface-light: #fffaf4;
+        }
+
+        /* Give large sections gentle colour contrast instead of one long white page. */
+        .feature-strip {
+            background: linear-gradient(110deg, #fff4e8 0%, #fff8f2 48%, #eef8ff 100%) !important;
+            border-color: #f3e0d1 !important;
+        }
+
+        .about-section {
+            background: linear-gradient(180deg, #ffffff 0%, #fffaf4 100%) !important;
+        }
+
+        .services-section {
+            background: linear-gradient(135deg, #fff8f3 0%, #fffdf9 55%, #f2f9ff 100%) !important;
+        }
+
+        .solution-section {
+            background: linear-gradient(120deg, #fff4ef 0%, #fff8ed 100%) !important;
+        }
+
+        .why-us-section {
+            background: linear-gradient(180deg, #ffffff 0%, #f4faff 100%) !important;
+        }
+
+        .areas-section {
+            background: linear-gradient(120deg, #f2faff 0%, #f9f5ff 55%, #fff7ef 100%) !important;
+            border-color: #e3eaf4 !important;
+        }
+
+        .ticker-wrap {
+            background: linear-gradient(90deg, #fff0e5, #fff7db, #eaf7ff, #f3edff) !important;
+            color: #b94c3f !important;
+            border-color: #f1dfd3 !important;
+        }
+
+        /* Keep cards familiar but introduce soft, child-friendly colour accents. */
+        .service-card-item:nth-child(3n+1) {
+            border-top: 4px solid #f4a261;
+            background: linear-gradient(180deg, #fffaf2, #ffffff 38%) !important;
+        }
+
+        .service-card-item:nth-child(3n+2) {
+            border-top: 4px solid #69b7d8;
+            background: linear-gradient(180deg, #f1faff, #ffffff 38%) !important;
+        }
+
+        .service-card-item:nth-child(3n) {
+            border-top: 4px solid #a99be8;
+            background: linear-gradient(180deg, #f7f4ff, #ffffff 38%) !important;
+        }
+
+        .service-card-icon {
+            background: #fff0d9 !important;
+            color: #c66a24 !important;
+        }
+
+        .service-card-item:nth-child(3n+2) .service-card-icon {
+            background: #e1f5ff !important;
+            color: #267da5 !important;
+        }
+
+        .service-card-item:nth-child(3n) .service-card-icon {
+            background: #eee8ff !important;
+            color: #7560c4 !important;
+        }
+
+        .area-tile:nth-child(4n+1) {
+            background: #fffaf0 !important;
+            border-color: #f5e4bd !important;
+        }
+
+        .area-tile:nth-child(4n+2) {
+            background: #f1faff !important;
+            border-color: #d5eaf5 !important;
+        }
+
+        .area-tile:nth-child(4n+3) {
+            background: #f7f3ff !important;
+            border-color: #e5dcfa !important;
+        }
+
+        .area-tile:nth-child(4n) {
+            background: #f0fbf5 !important;
+            border-color: #d8eee1 !important;
+        }
+
+        .area-tile:nth-child(4n+1) .area-icon-holder {
+            background: #ffedc7 !important;
+            color: #b97619 !important;
+        }
+
+        .area-tile:nth-child(4n+2) .area-icon-holder {
+            background: #dff3ff !important;
+            color: #277ba5 !important;
+        }
+
+        .area-tile:nth-child(4n+3) .area-icon-holder {
+            background: #eae2ff !important;
+            color: #7055b9 !important;
+        }
+
+        .area-tile:nth-child(4n) .area-icon-holder {
+            background: #dff6e8 !important;
+            color: #2d8a58 !important;
+        }
+
+        .about-pill-item:nth-child(4n+1) .about-pill-icon,
+        .feature-card:nth-child(3n+1) .feature-icon-box {
+            background: #ffedcf !important;
+            color: #b86b1e !important;
+        }
+
+        .about-pill-item:nth-child(4n+2) .about-pill-icon,
+        .feature-card:nth-child(3n+2) .feature-icon-box {
+            background: #dff3ff !important;
+            color: #287fa5 !important;
+        }
+
+        .about-pill-item:nth-child(4n+3) .about-pill-icon,
+        .feature-card:nth-child(3n) .feature-icon-box {
+            background: #eee6ff !important;
+            color: #775fbd !important;
+        }
+
+        .about-pill-item:nth-child(4n) .about-pill-icon {
+            background: #def6e7 !important;
+            color: #2d8a58 !important;
+        }
+
+        .why-item-box:nth-child(4n+1) .why-icon-bubble {
+            background: #ffedcf !important;
+            color: #b86b1e !important;
+        }
+
+        .why-item-box:nth-child(4n+2) .why-icon-bubble {
+            background: #dff3ff !important;
+            color: #287fa5 !important;
+        }
+
+        .why-item-box:nth-child(4n+3) .why-icon-bubble {
+            background: #eee6ff !important;
+            color: #775fbd !important;
+        }
+
+        .why-item-box:nth-child(4n) .why-icon-bubble {
+            background: #def6e7 !important;
+            color: #2d8a58 !important;
+        }
+
+        .btn-primary-custom {
+            background: linear-gradient(135deg, #ef6a55, #d94a3e) !important;
+            box-shadow: 0 8px 20px rgba(217, 74, 62, .22) !important;
+        }
+
+        .btn-primary-custom:hover {
+            background: linear-gradient(135deg, #d94a3e, #bd382f) !important;
+        }
+
+        .hero {
+            background: radial-gradient(circle at 8% 15%, rgba(255, 190, 105, .17), transparent 30%), radial-gradient(circle at 88% 20%, rgba(105, 183, 216, .15), transparent 34%), linear-gradient(180deg, #fffaf4 0%, #ffffff 100%) !important;
+        }
+
+        .trust-image-card:nth-child(2) {
+            border-color: #cde9f5 !important;
+        }
+
+        .trust-image-card:nth-child(3) {
+            border-color: #e0d7fb !important;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+
+            .service-card-item,
+            .area-tile,
+            .why-item-box,
+            .about-pill-item,
+            .feature-card {
+                transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+            }
+
+            .service-card-item:hover,
+            .area-tile:hover,
+            .why-item-box:hover,
+            .about-pill-item:hover {
+                box-shadow: 0 14px 28px rgba(48, 71, 94, .10) !important;
+            }
+        }
+
+
+        /* Multicolour SVG illustrations for the five therapy service cards */
+        .service-card-icon .service-svg {
+            overflow: visible;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .service-card-icon .service-svg path,
+        .service-card-icon .service-svg line,
+        .service-card-icon .service-svg polyline,
+        .service-card-icon .service-svg polygon,
+        .service-card-icon .service-svg circle {
+            vector-effect: non-scaling-stroke;
+        }
+
+        .service-card-item:hover .service-card-icon .service-svg {
+            transform: scale(1.06) rotate(-2deg);
+            transition: transform .25s ease;
+        }
+
+        /* Typography refresh: friendly, modern and highly readable */
+        body {
+            font-family: var(--default-font);
+            letter-spacing: .005em;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .stat-num,
+        .stat-number span {
+            font-family: var(--accent-font);
+        }
+
+        .nav-link-item,
+        .btn-primary-custom,
+        .btn-secondary-custom {
+            font-family: var(--accent-font);
+        }
+
+        /* Visibility fix for the Schedule Evaluation call-to-action */
+        .service-cta-card>div {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            position: relative;
+            z-index: 2;
+            margin-top: 8px;
+        }
+
+        .service-cta-card a.btn-primary-custom {
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            visibility: visible !important;
+            opacity: 1 !important;
+            position: relative;
+            z-index: 3;
+            min-height: 48px;
+            padding: 12px 22px !important;
+            color: #e05244 !important;
+            background: #ffffff !important;
+            border: 2px solid #ffffff !important;
+            box-shadow: 0 5px 16px rgba(90, 35, 25, 0.16) !important;
+            line-height: 1.3;
+            white-space: normal;
+        }
+
+        .service-cta-card a.btn-primary-custom span {
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+
+        .service-cta-card a.btn-primary-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 9px 22px rgba(90, 35, 25, 0.22) !important;
+        }
+
+
+        /* Colourful inline illustrations for the two main section headings */
+        .section-heading-with-icon {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .heading-art-icon {
+            display: inline-flex;
+            width: 58px;
+            height: 58px;
+            flex: 0 0 58px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 18px;
+            transition: transform .3s ease;
+        }
+
+        .heading-art-icon svg {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .heading-art-therapy {
+            background: linear-gradient(135deg, #fff0df, #e8f7ff);
+            box-shadow: 0 8px 18px rgba(14, 116, 144, .09);
+        }
+
+        .heading-art-support {
+            background: linear-gradient(135deg, #e5f9eb, #fff0f2);
+            box-shadow: 0 8px 18px rgba(16, 185, 129, .09);
+        }
+
+        .section-heading-with-icon:hover .heading-art-icon {
+            transform: translateY(-3px) rotate(-3deg);
+        }
+
+        @media(max-width:575px) {
+            .heading-art-icon {
+                width: 46px;
+                height: 46px;
+                flex-basis: 46px;
+                border-radius: 14px;
+            }
+
+            .section-heading-with-icon {
+                gap: 10px;
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            .heading-art-icon {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- TOPBAR -->
+    <div class="topbar" style="background-color: #ffffff; border-bottom: 1px solid #fee2e2; color: #475569;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <ul class="topbar-list">
+                        <li>
+                            <a href="tel:+919221533715" style="color: #334155; font-weight: 500;">
+                                <svg class="custom-svg-icon" height="16" style="color: #e05244;" viewbox="0 0 24 24"
+                                    width="16">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                    </path>
+                                </svg>
+                                +91 92215 33715
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:care@childlearningcentre.org" style="color: #334155; font-weight: 500;">
+                                <svg class="custom-svg-icon" height="16" style="color: #e05244;" viewbox="0 0 24 24"
+                                    width="16">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                    </path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                                care@childlearningcentre.org
+                            </a>
+                        </li>
+                        <li class="d-none d-lg-inline-flex">
+                            <span class="d-inline-flex align-items-center gap-1"
+                                style="color: #64748b; font-weight: 500;">
+                                <svg class="custom-svg-icon" height="16" style="color: #e05244;" viewbox="0 0 24 24"
+                                    width="16">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                Mumbai &amp; Suburban Clinics
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="social-icons-bar">
+                        <li><a aria-label="Facebook" href="#"
+                                style="background:#fff0ee; color:#e05244; border:1px solid #fed7d2;"><svg
+                                    class="custom-svg-icon" height="15" viewbox="0 0 24 24" width="15">
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                                </svg></a></li>
+                        <li><a aria-label="Instagram" href="#"
+                                style="background:#fff0ee; color:#e05244; border:1px solid #fed7d2;"><svg
+                                    class="custom-svg-icon" height="15" viewbox="0 0 24 24" width="15">
+                                    <rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                                </svg></a></li>
+                        <li><a aria-label="LinkedIn" href="#"
+                                style="background:#fff0ee; color:#e05244; border:1px solid #fed7d2;"><svg
+                                    class="custom-svg-icon" height="15" viewbox="0 0 24 24" width="15">
+                                    <path
+                                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                    </path>
+                                    <rect height="12" width="4" x="2" y="9"></rect>
+                                    <circle cx="4" cy="4" r="2"></circle>
+                                </svg></a></li>
+                        <li><a aria-label="YouTube" href="#"
+                                style="background:#fff0ee; color:#e05244; border:1px solid #fed7d2;"><svg
+                                    class="custom-svg-icon" height="15" viewbox="0 0 24 24" width="15">
+                                    <path
+                                        d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z">
+                                    </path>
+                                    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                                </svg></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- MAIN NAVBAR -->
+    <header class="main-header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg p-0">
+                <a class="navbar-brand py-3" href="#">
+                    <div class="brand-logo-wrap">
+                        <img src="img/clclogo.png" alt="CLC LOGO" style="width:80px;height:auto;" />
+                    </div>
+                </a>
+                <button class="navbar-toggler border-0 shadow-none" data-bs-target="#navContent"
+                    data-bs-toggle="collapse" type="button">
+                    <svg class="custom-svg-icon" height="28" viewbox="0 0 24 24" width="28">
+                        <line x1="3" x2="21" y1="12" y2="12"></line>
+                        <line x1="3" x2="21" y1="6" y2="6"></line>
+                        <line x1="3" x2="21" y1="18" y2="18"></line>
+                    </svg>
+                </button>
+                <div class="collapse navbar-collapse" id="navContent">
+                    <ul class="navbar-nav justify-content-center align-items-lg-center">
+                        <li class="nav-item"><a class="nav-link nav-link-item active" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link nav-link-item" href="#about">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link nav-link-item" href="#services">Services</a></li>
+                        <li class="nav-item"><a class="nav-link nav-link-item" href="#support">Branches</a></li>
+                        <li class="nav-item"><a class="nav-link nav-link-item" href="#support">Tet</a></li>
+                        <li class="nav-item"><a class="nav-link nav-link-item" href="#support">Areas of Support</a></li>
+                        <li class="nav-item"><a class="nav-link nav-link-item" href="#contact">Contact</a></li>
+                        <li class="nav-item ms-lg-3 my-2 my-lg-0">
+                            <a class="btn-primary-custom" href="#appointment">
+                                <span>Book Appointment</span>
+                                <span class="btn-icon-circle">
+                                    <svg class="custom-svg-icon" height="14" viewbox="0 0 24 24" width="14">
+                                        <line x1="5" x2="19" y1="12" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- HOME BANNER SLIDER: one banner visible at a time -->
+    <section class="home-banner-section" aria-label="Child Learning Centre banners">
+        <div class="container-fluid px-0">
+            <div id="homeBannerCarousel" class="carousel slide home-banner-carousel" data-bs-ride="carousel"
+                data-bs-interval="5000" data-bs-pause="hover">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <a class="home-banner home-banner-one" href="#services"
+                            aria-label="Explore child development services">
+                            <img src="img/banner.webp" alt="Child enjoying a learning activity" loading="eager">
+                            <span class="banner-shade"></span>
+                            <span class="banner-copy"><small>CHILD LEARNING CENTRE</small><strong>Every little
+                                    step<br>means a lot.</strong><span class="banner-link">Explore our services
+                                    <b>↗</b></span></span>
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a class="home-banner home-banner-two" href="#about"
+                            aria-label="Learn about our child-centred approach">
+                            <img src="https://images.unsplash.com/photo-1472162072942-cd5147eb3902?auto=format&fit=crop&w=1800&q=85"
+                                alt="Children learning and playing together" loading="lazy">
+                            <span class="banner-shade"></span>
+                            <span class="banner-copy"><small>CARE THAT GROWS WITH THEM</small><strong>Confidence
+                                    today.<br>Possibilities tomorrow.</strong><span class="banner-link">Get to know us
+                                    <b>↗</b></span></span>
+                        </a>
+                    </div>
+                </div>
+                <button class="carousel-control-prev banner-control" type="button" data-bs-target="#homeBannerCarousel"
+                    data-bs-slide="prev" aria-label="Previous banner"><span class="carousel-control-prev-icon"
+                        aria-hidden="true"></span></button>
+                <button class="carousel-control-next banner-control" type="button" data-bs-target="#homeBannerCarousel"
+                    data-bs-slide="next" aria-label="Next banner"><span class="carousel-control-next-icon"
+                        aria-hidden="true"></span></button>
+                <div class="carousel-indicators banner-indicators">
+                    <button type="button" data-bs-target="#homeBannerCarousel" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Banner 1"></button>
+                    <button type="button" data-bs-target="#homeBannerCarousel" data-bs-slide-to="1"
+                        aria-label="Banner 2"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- CENTRE HIGHLIGHTS -->
+    <section class="centre-stats" aria-label="Centre highlights">
+        <div class="container">
+            <div class="row justify-content-center align-items-center g-0">
+                <div class="col-6 col-md-3 stat-block">
+                    <div class="stat-number"><span>12+</span></div>
+                    <p>Years of Care</p>
+                </div>
+                <div class="col-6 col-md-3 stat-block">
+                    <div class="stat-number"><span>25+</span></div>
+                    <p>Certified Experts</p>
+                </div>
+                <div class="col-6 col-md-3 stat-block">
+                    <div class="stat-number"><span>3,500+</span></div>
+                    <p>Children Guided</p>
+                </div>
+                <div class="col-6 col-md-3 stat-block">
+                    <div class="stat-number"><span>98%</span></div>
+                    <p>Parent Satisfaction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ABOUT US SECTION -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5">
+                    <div class="position-relative">
+                        <div class="overflow-hidden shadow-sm" style="border-radius:28px; border:1px solid #fed7d2;">
+                            <img alt="Speech therapist pointing to flash cards smiling with child in clinic"
+                                class="w-100" src="img/c1.jpeg"
+                                style="display:block; object-fit:cover; aspect-ratio:4/3;" />
+                        </div>
+                        <div class="position-absolute bottom-0 start-0 m-3 p-3 bg-white shadow-sm border"
+                            style="border-radius:20px; border-color:#f1dedc !important; max-width:270px;">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="feature-icon-box shadow-none"
+                                    style="width:42px; height:42px; border-radius:12px; background:#feebe8; color:var(--accent-color);">
+                                    <svg class="custom-svg-icon" height="20" viewbox="0 0 24 24" width="20">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                                        <line x1="9" x2="9.01" y1="9" y2="9"></line>
+                                        <line x1="15" x2="15.01" y1="9" y2="9"></line>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="fw-bold text-dark fs-6">Joyful Learning</div>
+                                    <small class="text-muted">Engaging, child-friendly methods</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="ps-lg-3">
+                        <span class="section-tag tag-accent">About CLC</span>
+                        <h2 class="section-heading mb-3">About Child Learning Centre</h2>
+                        <p class="lead" style="color: var(--heading-color); font-size:1.15rem;">Child Learning Centre
+                            (CLC) is dedicated to supporting children through personalized learning, developmental
+                            therapies, and compassionate care.</p>
+                        <p class="text-muted mb-4">Established in 2013 under CRC, CLC brings together specialists in
+                            speech and language therapy, occupational therapy, special education, and child counseling.
+                            We work closely with parents and schools to understand each child's needs, build essential
+                            skills, and support meaningful progress.</p>
+                        <div class="about-pill-list mt-0 mb-4">
+                            <div class="about-pill-item">
+                                <div class="about-pill-icon">
+                                    <svg class="custom-svg-icon" height="20" viewbox="0 0 24 24" width="20">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                                        <line x1="9" x2="9.01" y1="9" y2="9"></line>
+                                        <line x1="15" x2="15.01" y1="9" y2="9"></line>
+                                    </svg>
+                                </div>
+                                <span class="fw-semibold text-dark">Behavior &amp; Emotion</span>
+                            </div>
+                            <div class="about-pill-item">
+                                <div class="about-pill-icon">
+                                    <svg class="custom-svg-icon" height="20" viewbox="0 0 24 24" width="20">
+                                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                                    </svg>
+                                </div>
+                                <span class="fw-semibold text-dark">Academic Catch-up</span>
+                            </div>
+                            <div class="about-pill-item">
+                                <div class="about-pill-icon">
+                                    <svg class="custom-svg-icon" height="20" viewbox="0 0 24 24" width="20">
+                                        <path
+                                            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <span class="fw-semibold text-dark">Family Counseling</span>
+                            </div>
+                            <div class="about-pill-item">
+                                <div class="about-pill-icon">
+                                    <svg class="custom-svg-icon" height="20" viewbox="0 0 24 24" width="20">
+                                        <circle cx="12" cy="12" r="10">
+                                            <polyline points="12 6 12 12 14 14"></polyline>
+                                        </circle>
+                                    </svg>
+                                </div>
+                                <span class="fw-semibold text-dark">Early Milestone Track</span>
+                            </div>
+                        </div>
+                        <div class="p-3 p-md-4 rounded-4 bg-white border"
+                            style="border-color: #f1dedc !important; box-shadow: 0 4px 14px rgba(224, 82, 68, 0.04);">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="feature-icon-box shadow-sm"
+                                    style="background:#feebe8; color: var(--accent-color) !important; border: 1px solid #fed7d2;">
+                                    <svg class="custom-svg-icon" height="24" viewbox="0 0 24 24" width="24">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h5 class="mb-1 fw-bold text-dark"><a
+                                            href="https://wa.me/919221533715?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20with%20Child%20Learning%20Centre."
+                                            target="_blank" rel="noopener noreferrer"
+                                            style="color:inherit; text-decoration:none;">Book Your Consultation Now</a>
+                                    </h5>
+                                    <p class="small text-muted mb-0"><a
+                                            href="https://wa.me/919221533715?text=Hello%2C%20I%20would%20like%20to%20book%20a%20consultation%20with%20Child%20Learning%20Centre."
+                                            target="_blank" rel="noopener noreferrer"
+                                            style="color:inherit; text-decoration:underline; text-decoration-color:#e05244;">Chat
+                                            with our team on WhatsApp to get started.</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- COMPREHENSIVE SERVICES -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="row align-items-end mb-5">
+                <div class="col-lg-8">
+                    <span class="section-tag">Clinical &amp; Educational Services</span>
+                    <h2 class="section-heading m-0 section-heading-with-icon"><span
+                            class="heading-art-icon heading-art-therapy" aria-hidden="true"><svg viewBox="0 0 64 64"
+                                role="img">
+                                <circle cx="31" cy="31" r="27" fill="#e0f2fe" />
+                                <path d="M18 34c0-8 6-14 14-14s14 6 14 14" fill="none" stroke="#0284c7" stroke-width="4"
+                                    stroke-linecap="round" />
+                                <path d="M22 35v8m20-8v8" stroke="#0f766e" stroke-width="4" stroke-linecap="round" />
+                                <path d="M25 43c2 4 12 4 14 0" fill="none" stroke="#f97316" stroke-width="3"
+                                    stroke-linecap="round" />
+                                <circle cx="22" cy="16" r="4" fill="#fb923c" />
+                                <path d="M43 12l3 5 6 1-4 4 1 6-6-3-5 3 1-6-4-4 6-1z" fill="#a78bfa" />
+                            </svg></span><span>Specialized Therapies for Real Progress</span></h2>
+                </div>
+                <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+                    <a class="btn-secondary-custom" href="#appointment">View All Programs</a>
+                </div>
+            </div>
+            <div class="row g-4">
+                <!-- Service 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card-item">
+                        <div class="service-card-icon">
+                            <svg class="custom-svg-icon service-svg service-svg-speech" height="28" viewbox="0 0 24 24"
+                                width="28" aria-hidden="true">
+                                <path d="M12 2a5 5 0 0 0-5 5v3a5 5 0 0 0 10 0V7a5 5 0 0 0-5-5z" stroke="#d97706"
+                                    fill="#ffedd5"></path>
+                                <path d="M19 10v2a7 7 0 0 1-14 0v-2" stroke="#ea580c"></path>
+                                <line x1="12" x2="12" y1="19" y2="23" stroke="#0f766e"></line>
+                                <line x1="8" x2="16" y1="23" y2="23" stroke="#0f766e"></line>
+                                <circle cx="17.5" cy="5" r="1.5" fill="#f59e0b" stroke="#f59e0b"></circle>
+                            </svg>
+                        </div>
+                        <h3>Speech &amp; Language Therapy</h3>
+                        <p>Overcoming articulation barriers, stuttering, language delays, and communicative anxiety with
+                            engaging, interactive techniques.</p>
+                    </div>
+                </div>
+                <!-- Service 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card-item">
+                        <div class="service-card-icon">
+                            <svg class="custom-svg-icon service-svg service-svg-occupational" height="28"
+                                viewbox="0 0 24 24" width="28" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9.5" stroke="#0284c7" fill="#e0f2fe"></circle>
+                                <path d="M18 6L6 18M6 6l12 12" stroke="#0f766e"></path>
+                                <circle cx="12" cy="12" r="3" stroke="#7c3aed" fill="#ede9fe"></circle>
+                            </svg>
+                        </div>
+                        <h3>Occupational Therapy</h3>
+                        <p>Enhancing fine and gross motor coordination, sensory balance, attention regulation, and
+                            everyday functional independence.</p>
+                    </div>
+                </div>
+                <!-- Service 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card-item">
+                        <div class="service-card-icon">
+                            <svg class="custom-svg-icon service-svg service-svg-education" height="28"
+                                viewbox="0 0 24 24" width="28" aria-hidden="true">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke="#7c3aed"></path>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+                                    stroke="#6d28d9" fill="#ede9fe"></path>
+                                <path d="M8 7h8M8 11h8" stroke="#db2777"></path>
+                            </svg>
+                        </div>
+                        <h3>Remedial &amp; Special Education</h3>
+                        <p>Targeted reading, writing, spelling, and dyscalculia interventions formulated around
+                            individual learning pace and school curricula.</p>
+                    </div>
+                </div>
+                <!-- Service 4 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card-item">
+                        <div class="service-card-icon">
+                            <svg class="custom-svg-icon service-svg service-svg-counseling" height="28"
+                                viewbox="0 0 24 24" width="28" aria-hidden="true">
+                                <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3z"
+                                    stroke="#16a34a" fill="#dcfce7"></path>
+                                <path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" stroke="#0f766e"></path>
+                                <path d="m10 12 2 2 4-4" stroke="#15803d"></path>
+                            </svg>
+                        </div>
+                        <h3>Child &amp; Adolescent Counseling</h3>
+                        <p>Constructive emotional coping mechanisms for anxiety, behavioral challenges, peer relations,
+                            and school transition pressures.</p>
+                    </div>
+                </div>
+                <!-- Service 5 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card-item">
+                        <div class="service-card-icon">
+                            <svg class="custom-svg-icon service-svg service-svg-ld" height="28" viewbox="0 0 24 24"
+                                width="28" aria-hidden="true">
+                                <polygon points="12 2 2 7 12 12 22 7 12 2" stroke="#2563eb" fill="#dbeafe"></polygon>
+                                <polyline points="2 17 12 22 22 17" stroke="#0891b2"></polyline>
+                                <polyline points="2 12 12 17 22 12" stroke="#7c3aed"></polyline>
+                                <circle cx="12" cy="7" r="1.5" stroke="#2563eb" fill="#ffffff"></circle>
+                            </svg>
+                        </div>
+                        <h3>Learning Disability (LD) Rehab</h3>
+                        <p>Certified clinical remediation for Dyslexia, Dysgraphia, and Dyscalculia with school-board
+                            certified accommodations.</p>
+                    </div>
+                </div>
+                <!-- Service 6 - CTA Card -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-cta-card">
+                        <h3>Need guidance on where to start?</h3>
+                        <p>Our specialists review your child's developmental timeline and propose a non-invasive initial
+                            roadmap.</p>
+                        <div>
+                            <a class="btn-primary-custom" href="#appointment"
+                                style="background:#ffffff; color:var(--accent-color);">
+                                <span>Schedule Evaluation</span>
+                                <span class="btn-icon-circle" style="background:#feebe8; color:var(--accent-color);">
+                                    <svg class="custom-svg-icon" height="14" viewbox="0 0 24 24" width="14">
+                                        <polyline points="9 18 15 12 9 6"></polyline>
+                                    </svg>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- AREAS OF SUPPORT (Fresh, Airy & Friendly Blush Section) -->
+    <section class="areas-section" id="support">
+        <div class="container">
+            <div class="text-center max-w-700 mx-auto mb-5">
+                <span class="section-tag">Areas of Expertise</span>
+                <h2 class="section-heading section-heading-with-icon"><span class="heading-art-icon heading-art-support"
+                        aria-hidden="true"><svg viewBox="0 0 64 64" role="img">
+                            <circle cx="32" cy="32" r="27" fill="#dcfce7" />
+                            <path d="M32 48S14 38 14 25c0-7 9-11 15-4l3 4 3-4c6-7 15-3 15 4 0 13-18 23-18 23z"
+                                fill="#fb7185" />
+                            <path d="M20 31l7 7 17-18" fill="none" stroke="#0f766e" stroke-width="4"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <circle cx="14" cy="15" r="4" fill="#fbbf24" />
+                            <circle cx="50" cy="46" r="4" fill="#60a5fa" />
+                        </svg></span><span>How Can We Support Your Child?</span></h2>
+                <p class="text-muted">Every child develops in their own rhythm. We provide evidence-supported therapy
+                    across behavioral, communicative, cognitive, and sensory areas.</p>
+            </div>
+            <div class="row g-3">
+                <div class="col-lg-4 col-md-6">
+                    <div class="area-tile">
+                        <div class="area-icon-holder">
+                            <!-- Behavior Icon -->
+                            <svg class="custom-svg-icon" height="22" viewbox="0 0 24 24" width="22">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                                <line x1="9" x2="9.01" y1="9" y2="9"></line>
+                                <line x1="15" x2="15.01" y1="9" y2="9"></line>
+                            </svg>
+                        </div>
+                        <h4>Behavior &amp; Emotional Regulation</h4>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="area-tile">
+                        <div class="area-icon-holder">
+                            <!-- Academic Icon -->
+                            <svg class="custom-svg-icon" height="22" viewbox="0 0 24 24" width="22">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                            </svg>
+                        </div>
+                        <h4>Academic Catch-up &amp; Literacy</h4>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="area-tile">
+                        <div class="area-icon-holder">
+                            <!-- ADHD Support Icon -->
+                            <svg class="custom-svg-icon" height="22" viewbox="0 0 24 24" width="22">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" x2="12" y1="2" y2="6"></line>
+                                <line x1="12" x2="12" y1="18" y2="22"></line>
+                                <line x1="4.93" x2="7.76" y1="4.93" y2="7.76"></line>
+                                <line x1="16.24" x2="19.07" y1="16.24" y2="19.07"></line>
+                            </svg>
+                        </div>
+                        <h4>ADHD &amp; Attention Focus Support</h4>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="area-tile">
+                        <div class="area-icon-holder">
+                            <!-- Speech Issues Icon -->
+                            <svg class="custom-svg-icon" height="22" viewbox="0 0 24 24" width="22">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                            </svg>
+                        </div>
+                        <h4>Speech Delay &amp; Articulation</h4>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="area-tile">
+                        <div class="area-icon-holder">
+                            <!-- Autism Support Icon -->
+                            <svg class="custom-svg-icon" height="22" viewbox="0 0 24 24" width="22">
+                                <path d="M12 21a9 9 0 0 0 9-9c0-4.97-4.03-9-9-9s-9 4.03-9 9a9 9 0 0 0 9 9z"></path>
+                                <path d="M12 7v5l3 3"></path>
+                            </svg>
+                        </div>
+                        <h4>Autism Spectrum &amp; Social Communication</h4>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="area-tile">
+                        <div class="area-icon-holder">
+                            <!-- Anxiety Support Icon -->
+                            <svg class="custom-svg-icon" height="22" viewbox="0 0 24 24" width="22">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h4>School &amp; Separation Anxiety</h4>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="area-tile">
+                        <div class="area-icon-holder">
+                            <!-- Learning Disabilities Icon -->
+                            <svg class="custom-svg-icon" height="22" viewbox="0 0 24 24" width="22">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" x2="8" y1="13" y2="13"></line>
+                                <line x1="16" x2="8" y1="17" y2="17"></line>
+                            </svg>
+                        </div>
+                        <h4>Dyslexia &amp; Learning Difficulties</h4>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="area-tile">
+                        <div class="area-icon-holder">
+                            <!-- Social Skills Icon -->
+                            <svg class="custom-svg-icon" height="22" viewbox="0 0 24 24" width="22">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <h4>Social Skills &amp; Peer Integration</h4>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="area-tile">
+                        <div class="area-icon-holder">
+                            <!-- Sensory Processing Icon -->
+                            <svg class="custom-svg-icon" height="22" viewbox="0 0 24 24" width="22">
+                                <circle cx="12" cy="12" r="3"></circle>
+                                <path
+                                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h4>Sensory Integration &amp; Processing</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- WHY CHOOSE US -->
+    <section class="why-us-section">
+        <div class="container">
+            <div class="trust-section-heading text-center max-w-700 mx-auto mb-5">
+                <div class="trust-heading-eyebrow"><span class="trust-eyebrow-dot"></span> Why Families Trust CLC</div>
+                <h2 class="section-heading trust-main-heading">Excellence in Child Care <span>&amp; Clinical
+                        Rehabilitation</span></h2>
+                <p class="trust-heading-copy">Care built around your child — with thoughtful guidance, structured
+                    progress, and clear communication with families at every step.</p>
+                <div class="trust-heading-rule" aria-hidden="true"><span></span></div>
+            </div>
+            <div class="trust-image-gallery" aria-label="A continuously scrolling gallery of CLC child development care"
+                tabindex="0">
+                <div class="trust-image-track">
+                    <div class="trust-image-card"><img
+                            src="https://images.unsplash.com/photo-1503454537195-1dc818e072e8?auto=format&fit=crop&w=900&q=85"
+                            alt="Child enjoying a playful learning activity" loading="lazy">
+                        <div class="trust-image-caption"><small>Child-first care</small>Learning through play</div>
+                    </div>
+                    <div class="trust-image-card"><img
+                            src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=900&q=85"
+                            alt="Colourful toys and learning materials for children" loading="lazy">
+                        <div class="trust-image-caption"><small>Thoughtful spaces</small>Explore with confidence</div>
+                    </div>
+                    <div class="trust-image-card"><img
+                            src="https://images.unsplash.com/photo-1544776193-352d25ca82cd?auto=format&fit=crop&w=900&q=85"
+                            alt="Adult supporting a child during a learning activity" loading="lazy">
+                        <div class="trust-image-caption"><small>Family partnership</small>Progress together</div>
+                    </div>
+                    <div class="trust-image-card"><img
+                            src="https://images.unsplash.com/photo-1472162072942-cd5147eb3902?auto=format&fit=crop&w=900&q=85"
+                            alt="Children exploring and learning together" loading="lazy"
+                            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1503454537195-1dc818e072e8?auto=format&fit=crop&w=900&q=85'">
+                        <div class="trust-image-caption"><small>Growing together</small>Every small step counts</div>
+                    </div>
+                    <div class="trust-image-card"><img
+                            src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=85"
+                            alt="Children engaged in a learning environment" loading="lazy">
+                        <div class="trust-image-caption"><small>Curiosity encouraged</small>Discover new skills</div>
+                    </div>
+                    <div class="trust-image-card"><img src="img/c3.jpeg" loading="lazy">
+                        <div class="trust-image-caption"><small>Positive progress</small>Celebrate every milestone</div>
+                    </div>
+                    <!-- Duplicate cards create a seamless, continuous loop -->
+                    <div class="trust-image-card" aria-hidden="true"><img src="img/c4.jpeg" alt="" loading="lazy">
+                        <div class="trust-image-caption"><small>Child-first care</small>Learning through play</div>
+                    </div>
+                    <div class="trust-image-card" aria-hidden="true"><img src="img/c4.jpeg" alt="" loading="lazy">
+                        <div class="trust-image-caption"><small>Thoughtful spaces</small>Explore with confidence</div>
+                    </div>
+                    <div class="trust-image-card" aria-hidden="true"><img src="img/c3.jpeg" alt="" loading="lazy">
+                        <div class="trust-image-caption"><small>Family partnership</small>Progress together</div>
+                    </div>
+                    <div class="trust-image-card" aria-hidden="true"><img src="img/c1.jpeg" alt="" loading="lazy">
+                        <div class="trust-image-caption"><small>Growing together</small>Every small step counts</div>
+                    </div>
+                    <div class="trust-image-card" aria-hidden="true"><img src="img/c4.jpeg alt="" loading=" lazy">
+                        <div class="trust-image-caption"><small>Curiosity encouraged</small>Discover new skills</div>
+                    </div>
+                    <div class="trust-image-card" aria-hidden="true"><img src="img/c4.jpeg" alt="" loading="lazy">
+                        <div class="trust-image-caption"><small>Positive progress</small>Celebrate every milestone</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="why-item-box">
+                        <div class="why-icon-bubble">
+                            <svg class="custom-svg-icon" height="24" viewbox="0 0 24 24" width="24">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="fs-5 fw-bold mb-2">Licensed &amp; Experienced Team</h4>
+                            <p class="small text-muted mb-0">Our therapists possess clinical certifications in pediatric
+                                therapy, neuro-rehab, and specialized teaching.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="why-item-box">
+                        <div class="why-icon-bubble">
+                            <svg class="custom-svg-icon" height="24" viewbox="0 0 24 24" width="24">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                </path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="fs-5 fw-bold mb-2">Child-Centered Methodology</h4>
+                            <p class="small text-muted mb-0">Every program is customized to match the unique learning
+                                rhythm, strengths, and temperament of the child.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="why-item-box">
+                        <div class="why-icon-bubble">
+                            <svg class="custom-svg-icon" height="24" viewbox="0 0 24 24" width="24">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="fs-5 fw-bold mb-2">Evidence-Based Interventions</h4>
+                            <p class="small text-muted mb-0">We use internationally benchmarked screening tools and
+                                documented developmental frameworks.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="why-item-box">
+                        <div class="why-icon-bubble">
+                            <svg class="custom-svg-icon" height="24" viewbox="0 0 24 24" width="24">
+                                <rect height="14" rx="2" ry="2" width="20" x="2" y="3"></rect>
+                                <line x1="8" x2="16" y1="21" y2="21"></line>
+                                <line x1="12" x2="12" y1="17" y2="21"></line>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="fs-5 fw-bold mb-2">Sensory-Equipped Clinics</h4>
+                            <p class="small text-muted mb-0">Child-friendly, sensory-safe therapy suites designed to
+                                inspire confidence, comfort, and curiosity.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="why-item-box">
+                        <div class="why-icon-bubble">
+                            <svg class="custom-svg-icon" height="24" viewbox="0 0 24 24" width="24">
+                                <circle cx="12" cy="12" r="10">
+                                    <polyline points="12 6 12 12 14 14"></polyline>
+                                </circle>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="fs-5 fw-bold mb-2">Flexible Scheduling</h4>
+                            <p class="small text-muted mb-0">Weekday afternoon and weekend morning sessions structured
+                                to prevent interference with regular schooling.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="why-item-box">
+                        <div class="why-icon-bubble">
+                            <svg class="custom-svg-icon" height="24" viewbox="0 0 24 24" width="24">
+                                <path
+                                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                                </path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="fs-5 fw-bold mb-2">Dedicated School Liaison</h4>
+                            <p class="small text-muted mb-0">We collaborate directly with your child's teachers to
+                                implement practical classroom accommodations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- LIVE ROLLING TICKER -->
+    <div class="ticker-wrap">
+        <div class="ticker-content">
+            <span>• Direct Helpline: +91 92215 33715</span>
+            <span>• Confidential Child Assessments Available Mon-Sat</span>
+            <span>• Speech Therapy • Occupational Therapy • Remedial Education</span>
+            <span>• Direct Helpline: +91 92215 33715</span>
+            <span>• Confidential Child Assessments Available Mon-Sat</span>
+            <span>• Speech Therapy • Occupational Therapy • Remedial Education</span>
+        </div>
+    </div>
+    <!-- APPOINTMENT & CONTACT FORM -->
+    <section class="py-5" style="background:#ffffff;">
+        <div class="container">
+            <div class="p-4 p-md-5 rounded-4 position-relative overflow-hidden"
+                style="background: linear-gradient(180deg, #fffaf9 0%, #ffffff 100%); border:1px solid #f1dedc; box-shadow:0 10px 30px rgba(224,82,68,0.04);">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-5">
+                        <span class="section-tag">Sensory-Equipped Environment</span>
+                        <h2 class="section-heading mb-3" style="font-size:32px;">A Safe, Play-Based Space Built for
+                            Progress</h2>
+                        <p class="text-muted mb-4">Our clinical facilities in Mumbai are purposefully crafted with
+                            sensory swings, padded soft-landing zones, vestibular equipment, and gentle lighting to make
+                            every child feel secure, calm, and eager to learn.</p>
+                        <div class="d-flex flex-column gap-2 mb-2">
+                            <div class="d-flex align-items-center gap-2 small fw-semibold text-dark">
+                                <span class="check-badge" style="width:20px; height:20px;"><svg class="custom-svg-icon"
+                                        height="12" viewbox="0 0 24 24" width="12">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg></span>
+                                <span>Sensory-safe and sanitize-certified suites</span>
+                            </div>
+                            <div class="d-flex align-items-center gap-2 small fw-semibold text-dark">
+                                <span class="check-badge" style="width:20px; height:20px;"><svg class="custom-svg-icon"
+                                        height="12" viewbox="0 0 24 24" width="12">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg></span>
+                                <span>Equipped for sensory regulation &amp; motor coordination</span>
+                            </div>
+                            <div class="d-flex align-items-center gap-2 small fw-semibold text-dark">
+                                <span class="check-badge" style="width:20px; height:20px;"><svg class="custom-svg-icon"
+                                        height="12" viewbox="0 0 24 24" width="12">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg></span>
+                                <span>Comfortable observation spaces for parents</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="position-relative overflow-hidden"
+                            style="border-radius:24px; border:1px solid #fed7d2; box-shadow:0 12px 28px rgba(224,82,68,0.08);">
+                            <img alt="Modern pediatric sensory play and therapy room with soft padded mats, sensory swings, and caring therapists with children"
+                                class="w-100" src="img/c1.jpeg"
+                                style="display:block; object-fit:cover; max-height:380px;" />
+                            <div class="position-absolute bottom-0 end-0 m-3">
+                                <span
+                                    class="badge bg-white px-3 py-2 rounded-pill fw-bold shadow-sm d-inline-flex align-items-center gap-2"
+                                    style="color:#e05244; font-size:12px; border:1px solid #fed7d2;">
+                                    <span class="hero-badge-dot" style="width:7px; height:7px;"></span> Sensory
+                                    Integration Suite
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="solution-section" id="appointment">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <span class="section-tag">Book A Consultation</span>
+                    <h2 class="section-heading">Take the First Confident Step Today</h2>
+                    <p>Early identification and timely therapeutic guidance make an extraordinary difference in a
+                        child’s long-term academic and emotional well-being.</p>
+                    <ul class="solution-checklist">
+                        <li>
+                            <span class="check-badge"><svg class="custom-svg-icon" height="14" viewbox="0 0 24 24"
+                                    width="14">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg></span>
+                            <span>Comprehensive developmental &amp; academic evaluation</span>
+                        </li>
+                        <li>
+                            <span class="check-badge"><svg class="custom-svg-icon" height="14" viewbox="0 0 24 24"
+                                    width="14">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg></span>
+                            <span>One-on-one parent feedback &amp; individualized plan</span>
+                        </li>
+                        <li>
+                            <span class="check-badge"><svg class="custom-svg-icon" height="14" viewbox="0 0 24 24"
+                                    width="14">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg></span>
+                            <span>Multi-disciplinary team alignment under one roof</span>
+                        </li>
+                    </ul>
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <div class="solution-metric-card">
+                                <div class="solution-metric-icon">
+                                    <svg class="custom-svg-icon" height="22" viewbox="0 0 24 24" width="22">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="M12 6v6l4 2"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="stat-num fs-4 mb-0">60 Mins</h4>
+                                    <small class="text-muted">In-depth Evaluation</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="solution-metric-card">
+                                <div class="solution-metric-icon">
+                                    <svg class="custom-svg-icon" height="22" viewbox="0 0 24 24" width="22">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="stat-num fs-4 mb-0">100%</h4>
+                                    <small class="text-muted">Confidential Care</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" id="contact">
+                    <div class="bg-white p-4 p-md-5 rounded-4 shadow-sm border"
+                        style="border-color: #f1dedc !important;">
+                        <h3 class="fs-4 fw-bold mb-3" style="color:var(--heading-title);">Request an Assessment</h3>
+                        <p class="text-muted small mb-4">Please fill in your details and our coordinator will reach out
+                            within 24 hours.</p>
+                        <form action="#" method="POST"
+                            onsubmit="event.preventDefault(); alert('Thank you! Your assessment inquiry has been received. Our clinical coordinator will call you shortly.');">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold text-dark">Parent / Guardian Name</label>
+                                    <input class="form-control rounded-3 py-2" placeholder="e.g. Priya Sharma"
+                                        required="" type="text" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold text-dark">Contact Number</label>
+                                    <input class="form-control rounded-3 py-2" placeholder="+91 98765 43210" required=""
+                                        type="tel" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold text-dark">Child's Age</label>
+                                    <select class="form-select rounded-3 py-2" required="">
+                                        <option value="">Select Age</option>
+                                        <option>2 - 4 Years (Early Intervention)</option>
+                                        <option>5 - 7 Years (Primary Prep)</option>
+                                        <option>8 - 12 Years (Academic Skill)</option>
+                                        <option>13+ Years (Adolescent Care)</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold text-dark">Primary Concern</label>
+                                    <select class="form-select rounded-3 py-2" required="">
+                                        <option value="">Select Service</option>
+                                        <option>Speech Delay / Language</option>
+                                        <option>Academic Difficulties / Dyslexia</option>
+                                        <option>ADHD / Focus / Hyperactivity</option>
+                                        <option>Occupational / Sensory Needs</option>
+                                        <option>Behavioral / Child Counseling</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label small fw-semibold text-dark">Additional Details
+                                        (Optional)</label>
+                                    <textarea class="form-control rounded-3"
+                                        placeholder="Briefly share any observations or teacher feedback..."
+                                        rows="3"></textarea>
+                                </div>
+                                <div class="col-12 mt-4">
+                                    <button class="btn-primary-custom w-100 justify-content-center" type="submit">
+                                        <span>Submit Consultation Request</span>
+                                        <span class="btn-icon-circle">
+                                            <svg class="custom-svg-icon" height="14" viewbox="0 0 24 24" width="14">
+                                                <polyline points="9 18 15 12 9 6"></polyline>
+                                            </svg>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FOOTER -->
+    <footer class="main-footer" style="background: #ffffff; color: #475569; border-top: 2px solid #fee2e2;">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4 col-md-6">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <img src="img/clclogo.png" alt="CLC LOGO" style="width:40px;height:auto;" />
+                        <h4 class="m-0 fs-5 fw-bold" style="color:#0f172a;">Child Learning Centre</h4>
+                    </div>
+                    <p class="small mb-4" style="color: #475569; line-height: 1.7;">Established in 2013 under CRC, our
+                        mission is to empower children with unique learning and developmental profiles through
+                        compassionate, evidence-based pediatric therapy.</p>
+                    <div class="d-flex gap-2"><a href="#"
+                            style="width:36px; height:36px; border-radius:50%; background:#fff0ee; border:1px solid #fcd5cf; display:inline-flex; align-items:center; justify-content:center; color:#e05244;"><svg
+                                class="custom-svg-icon" height="16" viewbox="0 0 24 24" width="16">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg></a><a href="#"
+                            style="width:36px; height:36px; border-radius:50%; background:#fff0ee; border:1px solid #fcd5cf; display:inline-flex; align-items:center; justify-content:center; color:#e05244;"><svg
+                                class="custom-svg-icon" height="16" viewbox="0 0 24 24" width="16">
+                                <rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            </svg></a><a href="#"
+                            style="width:36px; height:36px; border-radius:50%; background:#fff0ee; border:1px solid #fcd5cf; display:inline-flex; align-items:center; justify-content:center; color:#e05244;"><svg
+                                class="custom-svg-icon" height="16" viewbox="0 0 24 24" width="16">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                </path>
+                                <rect height="12" width="4" x="2" y="9"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg></a></div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h4 class="fw-bold" style="color:#0f172a;">Quick Links</h4>
+                    <ul class="list-unstyled small" style="color: #475569;">
+                        <li class="mb-2"><a class="text-decoration-none" href="#about" style="color: #475569;">About
+                                Centre</a></li>
+                        <li class="mb-2"><a class="text-decoration-none" href="#services" style="color: #475569;">Speech
+                                Therapy</a></li>
+                        <li class="mb-2"><a class="text-decoration-none" href="#services"
+                                style="color: #475569;">Occupational Therapy</a></li>
+                        <li class="mb-2"><a class="text-decoration-none" href="#services"
+                                style="color: #475569;">Special Education</a></li>
+                        <li class="mb-2"><a class="text-decoration-none" href="#support" style="color: #475569;">Sensory
+                                Integration</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="fw-bold" style="color:#0f172a;">Clinical Hours</h4>
+                    <ul class="list-unstyled small" style="color: #475569;">
+                        <li class="mb-2"><strong style="color:#1e293b;">Mon – Fri:</strong> 9:00 AM – 7:00 PM</li>
+                        <li class="mb-2"><strong style="color:#1e293b;">Saturday:</strong> 9:00 AM – 4:00 PM</li>
+                        <li class="mb-2"><strong style="color:#1e293b;">Sunday:</strong> Closed (Emergency by Appt)</li>
+                        <li class="mt-3 fw-semibold" style="color:#e05244;">School visits by prior booking.</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="fw-bold" style="color:#0f172a;">Direct Contact</h4>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon" style="color:#e05244;"><svg class="custom-svg-icon" height="18"
+                                viewbox="0 0 24 24" width="18">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
+                            </svg></div><span class="small" style="color: #334155; font-weight: 500;">+91 92215
+                            33715</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon" style="color:#e05244;"><svg class="custom-svg-icon" height="18"
+                                viewbox="0 0 24 24" width="18">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg></div><span class="small"
+                            style="color: #334155; font-weight: 500;">care@childlearningcentre.org</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="footer-contact-icon" style="color:#e05244;"><svg class="custom-svg-icon" height="18"
+                                viewbox="0 0 24 24" width="18">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg></div><span class="small" style="color: #334155; font-weight: 500;">Child
+                            Rehabilitation Centre (CRC), Mumbai, India</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom d-flex flex-wrap justify-content-between align-items-center"
+                style="border-top:1px solid #fee2e2;">
+                <p class="m-0" style="color: #64748b;">© 2025 Child Learning Centre. All Rights Reserved. Pediatric
+                    Excellence with Compassion.</p>
+                <div class="d-flex gap-3 mt-2 mt-md-0" style="color: #64748b;"><a class="text-decoration-none" href="#"
+                        style="color: #64748b;">Privacy Policy</a><span>•</span><a class="text-decoration-none" href="#"
+                        style="color: #64748b;">Terms of Care</a><span>•</span><a class="text-decoration-none" href="#"
+                        style="color: #64748b;">Patient Confidentiality</a></div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        (function () {
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            // Reveal existing sections/cards as they enter view; no layout or content changes.
+            const revealTargets = document.querySelectorAll('.about-section .row.align-items-center, .services-section .row, .areas-section .text-center, .area-tile, .service-card-item, .why-item-box, .about-pill-item, .solution-metric-card, .feature-card, .ticker-wrap, .main-footer');
+            revealTargets.forEach((el, i) => {
+                el.classList.add('js-reveal');
+                if (i % 4 === 1) el.dataset.revealDelay = '1';
+                if (i % 4 === 2) el.dataset.revealDelay = '2';
+                if (i % 4 === 3) el.dataset.revealDelay = '3';
+            });
+            if (!reduceMotion && 'IntersectionObserver' in window) {
+                const observer = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -35px 0px' });
+                revealTargets.forEach(el => observer.observe(el));
+            } else {
+                revealTargets.forEach(el => el.classList.add('is-visible'));
+            }
+            // Pause the rotating banner when the browser tab is hidden.
+            document.addEventListener('visibilitychange', () => {
+                const carouselEl = document.getElementById('homeBannerCarousel');
+                if (!carouselEl || !window.bootstrap) return;
+                const carousel = bootstrap.Carousel.getInstance(carouselEl);
+                if (!carousel) return;
+                if (document.hidden) carousel.pause(); else carousel.cycle();
+            });
+        })();
+    </script>
+
+</body>
+
+</html>
