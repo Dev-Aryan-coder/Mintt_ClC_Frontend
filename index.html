@@ -355,7 +355,7 @@
         </header>
 
         <!-- HERO BANNER (Responsive across all mobile, tablet, laptop, and desktop viewports) -->
-        <div class="relative w-full bg-[#FAF9F6] lg:min-h-[860px] xl:min-h-[920px] 2xl:min-h-[960px] overflow-hidden flex flex-col lg:block">
+        <div class="relative w-full bg-[#FAF9F6] lg:min-h-[960px] xl:min-h-[1000px] 2xl:min-h-[1040px] overflow-hidden flex flex-col lg:block">
             
             <!-- Hero Image: Responsive Flow on Mobile/Tablet (<lg), Anchored Left Background on Laptop/Desktop (lg+) -->
             <img src="pics/hero.avif" alt="Parent and child coaching - Child Learning Centre Hero Banner"
@@ -376,8 +376,8 @@
 
             <!-- HERO CONTENT & INFINITE CARDS CONTAINER -->
             <!-- Mobile/Tablet: Natural vertical flow below image, 100% width, zero clipping -->
-            <!-- Desktop/Laptop: Right-side absolute overlay, beside the father, 100% height with cards at bottom -->
-            <div class="relative lg:absolute lg:inset-y-0 lg:right-0 w-full lg:w-[56%] xl:w-[54%] 2xl:w-[52%] z-20 flex flex-col justify-start lg:justify-between pt-5 sm:pt-7 lg:pt-24 xl:pt-28 pb-6 sm:pb-8 lg:pb-8 px-4 sm:px-8 lg:pr-10 xl:pr-16 lg:pl-2 pointer-events-auto">
+            <!-- Desktop/Laptop: Right-side flow via ml-auto beside the father, 100% height auto-fit, zero card cutoff -->
+            <div class="relative lg:ml-auto w-full lg:w-[56%] xl:w-[54%] 2xl:w-[52%] z-20 flex flex-col justify-start pt-5 sm:pt-7 lg:pt-16 xl:pt-20 pb-8 sm:pb-10 lg:pb-12 xl:pb-14 px-4 sm:px-8 lg:pr-10 xl:pr-16 lg:pl-2 pointer-events-auto">
                 
                 <!-- TOP CONTENT BLOCK: Eyebrow, Main Headline, Subheadline, CTA Button, Micro Trust -->
                 <div class="max-w-2xl space-y-2.5 sm:space-y-3.5 lg:space-y-4">
@@ -422,7 +422,7 @@
                 <!-- BOTTOM CONTENT BLOCK: ACETERNITY INFINITE MOVING CARDS -->
                 <!-- Mobile/Tablet: 100% full screen width edge-to-edge carousel -->
                 <!-- Laptop/Desktop: Right-side marquee below hero text, beside the father -->
-                <div class="pt-5 sm:pt-6 lg:pt-4 w-full">
+                <div class="pt-6 sm:pt-8 lg:pt-8 w-full">
                         <div class="flex items-center justify-between mb-2 sm:mb-2.5">
                             <span class="text-[11px] sm:text-xs md:text-sm font-extrabold uppercase tracking-wider text-stone-700 font-mono-nav flex items-center gap-2">
                                 <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
@@ -436,7 +436,7 @@
                         </div>
                         
                         <!-- Infinite Marquee Viewport with Aceternity Edge Fade Mask -->
-                        <div class="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_3%,white_97%,transparent)] py-1">
+                        <div class="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_3%,white_97%,transparent)] py-2 pb-4">
                             <div id="infiniteCardsTrack" class="animate-infinite-cards flex gap-3.5 sm:gap-4 md:gap-5 py-1.5">
                                 
                                 <!-- ==============================================================
@@ -445,7 +445,7 @@
                                 <!-- Card 1: Sensory Integration & Tactile Therapy -->
                                 <div onclick="toggleInfiniteCardsPause(event)"
                                     class="w-[240px] sm:w-[280px] md:w-[310px] lg:w-[330px] xl:w-[360px] shrink-0 bg-white hover:border-[#C8232C]/60 border border-stone-200 rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 lg:p-4 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer text-left select-none">
-                                    <div class="overflow-hidden rounded-xl sm:rounded-2xl h-36 sm:h-42 md:h-46 lg:h-48 xl:h-52 w-full mb-2 sm:mb-3 bg-stone-100 relative">
+                                    <div class="overflow-hidden rounded-xl sm:rounded-2xl h-32 sm:h-38 md:h-40 lg:h-42 xl:h-44 w-full mb-2 sm:mb-3 bg-stone-100 relative">
                                         <img src="pics/activities/activity-1.jpg" alt="Child Learning Centre Sensory Integration and Tactile Therapy Session"
                                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                                         <span class="absolute top-2.5 left-2.5 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-[#C8232C] bg-white shadow-xs px-2.5 py-1 rounded-lg font-mono-nav shadow-xs border border-stone-200">
@@ -478,7 +478,7 @@
                                 <!-- Card 2: Fine Motor Skills & Pencil Grip -->
                                 <div onclick="toggleInfiniteCardsPause(event)"
                                     class="w-[240px] sm:w-[280px] md:w-[310px] lg:w-[330px] xl:w-[360px] shrink-0 bg-white hover:border-[#C8232C]/60 border border-stone-200 rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 lg:p-4 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer text-left select-none">
-                                    <div class="overflow-hidden rounded-xl sm:rounded-2xl h-36 sm:h-42 md:h-46 lg:h-48 xl:h-52 w-full mb-2 sm:mb-3 bg-stone-100 relative">
+                                    <div class="overflow-hidden rounded-xl sm:rounded-2xl h-32 sm:h-38 md:h-40 lg:h-42 xl:h-44 w-full mb-2 sm:mb-3 bg-stone-100 relative">
                                         <img src="pics/activities/activity-2.jpg" alt="Child Learning Centre Fine Motor Skills and Hand Coordination Activity"
                                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                                         <span class="absolute top-2.5 left-2.5 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-[#C8232C] bg-white shadow-xs px-2.5 py-1 rounded-lg font-mono-nav shadow-xs border border-stone-200">
@@ -511,7 +511,7 @@
                                 <!-- Card 3: Cognitive Development & Problem Solving -->
                                 <div onclick="toggleInfiniteCardsPause(event)"
                                     class="w-[240px] sm:w-[280px] md:w-[310px] lg:w-[330px] xl:w-[360px] shrink-0 bg-white hover:border-[#C8232C]/60 border border-stone-200 rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 lg:p-4 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer text-left select-none">
-                                    <div class="overflow-hidden rounded-xl sm:rounded-2xl h-36 sm:h-42 md:h-46 lg:h-48 xl:h-52 w-full mb-2 sm:mb-3 bg-stone-100 relative">
+                                    <div class="overflow-hidden rounded-xl sm:rounded-2xl h-32 sm:h-38 md:h-40 lg:h-42 xl:h-44 w-full mb-2 sm:mb-3 bg-stone-100 relative">
                                         <img src="pics/activities/activity-3.jpg" alt="Child Learning Centre Cognitive Puzzle and Focus Training Activity"
                                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                                         <span class="absolute top-2.5 left-2.5 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-[#C8232C] bg-white shadow-xs px-2.5 py-1 rounded-lg font-mono-nav shadow-xs border border-stone-200">
@@ -544,7 +544,7 @@
                                 <!-- Card 4: Speech & Language Communication -->
                                 <div onclick="toggleInfiniteCardsPause(event)"
                                     class="w-[240px] sm:w-[280px] md:w-[310px] lg:w-[330px] xl:w-[360px] shrink-0 bg-white hover:border-[#C8232C]/60 border border-stone-200 rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 lg:p-4 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer text-left select-none">
-                                    <div class="overflow-hidden rounded-xl sm:rounded-2xl h-36 sm:h-42 md:h-46 lg:h-48 xl:h-52 w-full mb-2 sm:mb-3 bg-stone-100 relative">
+                                    <div class="overflow-hidden rounded-xl sm:rounded-2xl h-32 sm:h-38 md:h-40 lg:h-42 xl:h-44 w-full mb-2 sm:mb-3 bg-stone-100 relative">
                                         <img src="pics/activities/activity-4.jpg" alt="Child Learning Centre Speech and Expressive Language Therapy Session"
                                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                                         <span class="absolute top-2.5 left-2.5 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-[#C8232C] bg-white shadow-xs px-2.5 py-1 rounded-lg font-mono-nav shadow-xs border border-stone-200">
@@ -577,7 +577,7 @@
                                 <!-- Card 5: Gross Motor & Balance Coordination -->
                                 <div onclick="toggleInfiniteCardsPause(event)"
                                     class="w-[240px] sm:w-[280px] md:w-[310px] lg:w-[330px] xl:w-[360px] shrink-0 bg-white hover:border-[#C8232C]/60 border border-stone-200 rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 lg:p-4 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer text-left select-none">
-                                    <div class="overflow-hidden rounded-xl sm:rounded-2xl h-36 sm:h-42 md:h-46 lg:h-48 xl:h-52 w-full mb-2 sm:mb-3 bg-stone-100 relative">
+                                    <div class="overflow-hidden rounded-xl sm:rounded-2xl h-32 sm:h-38 md:h-40 lg:h-42 xl:h-44 w-full mb-2 sm:mb-3 bg-stone-100 relative">
                                         <img src="pics/activities/activity-5.jpg" alt="Child Learning Centre Balance and Gross Motor Coordination Activity"
                                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                                         <span class="absolute top-2.5 left-2.5 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-[#C8232C] bg-white shadow-xs px-2.5 py-1 rounded-lg font-mono-nav shadow-xs border border-stone-200">
@@ -610,7 +610,7 @@
                                 <!-- Card 6: Remedial Education & Academic Stamina -->
                                 <div onclick="toggleInfiniteCardsPause(event)"
                                     class="w-[240px] sm:w-[280px] md:w-[310px] lg:w-[330px] xl:w-[360px] shrink-0 bg-white hover:border-[#C8232C]/60 border border-stone-200 rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 lg:p-4 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer text-left select-none">
-                                    <div class="overflow-hidden rounded-xl sm:rounded-2xl h-36 sm:h-42 md:h-46 lg:h-48 xl:h-52 w-full mb-2 sm:mb-3 bg-stone-100 relative">
+                                    <div class="overflow-hidden rounded-xl sm:rounded-2xl h-32 sm:h-38 md:h-40 lg:h-42 xl:h-44 w-full mb-2 sm:mb-3 bg-stone-100 relative">
                                         <img src="pics/activities/activity-6.jpg" alt="Child Learning Centre Remedial Learning and Phonics Mastery Activity"
                                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                                         <span class="absolute top-2.5 left-2.5 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-[#C8232C] bg-white shadow-xs px-2.5 py-1 rounded-lg font-mono-nav shadow-xs border border-stone-200">
@@ -646,7 +646,7 @@
                                 <!-- Card 1 Duplicate -->
                                 <div onclick="toggleInfiniteCardsPause(event)"
                                     class="w-[240px] sm:w-[280px] md:w-[310px] lg:w-[330px] xl:w-[360px] shrink-0 bg-white hover:border-[#C8232C]/60 border border-stone-200 rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 lg:p-4 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer text-left select-none">
-                                    <div class="overflow-hidden rounded-xl sm:rounded-2xl h-36 sm:h-42 md:h-46 lg:h-48 xl:h-52 w-full mb-2 sm:mb-3 bg-stone-100 relative">
+                                    <div class="overflow-hidden rounded-xl sm:rounded-2xl h-32 sm:h-38 md:h-40 lg:h-42 xl:h-44 w-full mb-2 sm:mb-3 bg-stone-100 relative">
                                         <img src="pics/activities/activity-1.jpg" alt="Child Learning Centre Sensory Integration and Tactile Therapy Session"
                                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                                         <span class="absolute top-2.5 left-2.5 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-[#C8232C] bg-white shadow-xs px-2.5 py-1 rounded-lg font-mono-nav shadow-xs border border-stone-200">
@@ -679,7 +679,7 @@
                                 <!-- Card 2 Duplicate -->
                                 <div onclick="toggleInfiniteCardsPause(event)"
                                     class="w-[240px] sm:w-[280px] md:w-[310px] lg:w-[330px] xl:w-[360px] shrink-0 bg-white hover:border-[#C8232C]/60 border border-stone-200 rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 lg:p-4 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer text-left select-none">
-                                    <div class="overflow-hidden rounded-xl sm:rounded-2xl h-36 sm:h-42 md:h-46 lg:h-48 xl:h-52 w-full mb-2 sm:mb-3 bg-stone-100 relative">
+                                    <div class="overflow-hidden rounded-xl sm:rounded-2xl h-32 sm:h-38 md:h-40 lg:h-42 xl:h-44 w-full mb-2 sm:mb-3 bg-stone-100 relative">
                                         <img src="pics/activities/activity-2.jpg" alt="Child Learning Centre Fine Motor Skills and Hand Coordination Activity"
                                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                                         <span class="absolute top-2.5 left-2.5 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-[#C8232C] bg-white shadow-xs px-2.5 py-1 rounded-lg font-mono-nav shadow-xs border border-stone-200">
@@ -712,7 +712,7 @@
                                 <!-- Card 3 Duplicate -->
                                 <div onclick="toggleInfiniteCardsPause(event)"
                                     class="w-[240px] sm:w-[280px] md:w-[310px] lg:w-[330px] xl:w-[360px] shrink-0 bg-white hover:border-[#C8232C]/60 border border-stone-200 rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 lg:p-4 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer text-left select-none">
-                                    <div class="overflow-hidden rounded-xl sm:rounded-2xl h-36 sm:h-42 md:h-46 lg:h-48 xl:h-52 w-full mb-2 sm:mb-3 bg-stone-100 relative">
+                                    <div class="overflow-hidden rounded-xl sm:rounded-2xl h-32 sm:h-38 md:h-40 lg:h-42 xl:h-44 w-full mb-2 sm:mb-3 bg-stone-100 relative">
                                         <img src="pics/activities/activity-3.jpg" alt="Child Learning Centre Cognitive Puzzle and Focus Training Activity"
                                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                                         <span class="absolute top-2.5 left-2.5 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-[#C8232C] bg-white shadow-xs px-2.5 py-1 rounded-lg font-mono-nav shadow-xs border border-stone-200">
@@ -745,7 +745,7 @@
                                 <!-- Card 4 Duplicate -->
                                 <div onclick="toggleInfiniteCardsPause(event)"
                                     class="w-[240px] sm:w-[280px] md:w-[310px] lg:w-[330px] xl:w-[360px] shrink-0 bg-white hover:border-[#C8232C]/60 border border-stone-200 rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 lg:p-4 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer text-left select-none">
-                                    <div class="overflow-hidden rounded-xl sm:rounded-2xl h-36 sm:h-42 md:h-46 lg:h-48 xl:h-52 w-full mb-2 sm:mb-3 bg-stone-100 relative">
+                                    <div class="overflow-hidden rounded-xl sm:rounded-2xl h-32 sm:h-38 md:h-40 lg:h-42 xl:h-44 w-full mb-2 sm:mb-3 bg-stone-100 relative">
                                         <img src="pics/activities/activity-4.jpg" alt="Child Learning Centre Speech and Expressive Language Therapy Session"
                                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                                         <span class="absolute top-2.5 left-2.5 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-[#C8232C] bg-white shadow-xs px-2.5 py-1 rounded-lg font-mono-nav shadow-xs border border-stone-200">
@@ -778,7 +778,7 @@
                                 <!-- Card 5 Duplicate -->
                                 <div onclick="toggleInfiniteCardsPause(event)"
                                     class="w-[240px] sm:w-[280px] md:w-[310px] lg:w-[330px] xl:w-[360px] shrink-0 bg-white hover:border-[#C8232C]/60 border border-stone-200 rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 lg:p-4 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer text-left select-none">
-                                    <div class="overflow-hidden rounded-xl sm:rounded-2xl h-36 sm:h-42 md:h-46 lg:h-48 xl:h-52 w-full mb-2 sm:mb-3 bg-stone-100 relative">
+                                    <div class="overflow-hidden rounded-xl sm:rounded-2xl h-32 sm:h-38 md:h-40 lg:h-42 xl:h-44 w-full mb-2 sm:mb-3 bg-stone-100 relative">
                                         <img src="pics/activities/activity-5.jpg" alt="Child Learning Centre Balance and Gross Motor Coordination Activity"
                                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                                         <span class="absolute top-2.5 left-2.5 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-[#C8232C] bg-white shadow-xs px-2.5 py-1 rounded-lg font-mono-nav shadow-xs border border-stone-200">
@@ -811,7 +811,7 @@
                                 <!-- Card 6 Duplicate -->
                                 <div onclick="toggleInfiniteCardsPause(event)"
                                     class="w-[240px] sm:w-[280px] md:w-[310px] lg:w-[330px] xl:w-[360px] shrink-0 bg-white hover:border-[#C8232C]/60 border border-stone-200 rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 lg:p-4 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer text-left select-none">
-                                    <div class="overflow-hidden rounded-xl sm:rounded-2xl h-36 sm:h-42 md:h-46 lg:h-48 xl:h-52 w-full mb-2 sm:mb-3 bg-stone-100 relative">
+                                    <div class="overflow-hidden rounded-xl sm:rounded-2xl h-32 sm:h-38 md:h-40 lg:h-42 xl:h-44 w-full mb-2 sm:mb-3 bg-stone-100 relative">
                                         <img src="pics/activities/activity-6.jpg" alt="Child Learning Centre Remedial Learning and Phonics Mastery Activity"
                                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                                         <span class="absolute top-2.5 left-2.5 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-[#C8232C] bg-white shadow-xs px-2.5 py-1 rounded-lg font-mono-nav shadow-xs border border-stone-200">
@@ -851,59 +851,59 @@
 
     <!-- ==============================================================
          BIG EDITORIAL SLOGAN & CLINICAL TRUST SECTION
-         Continuous clean flow with matching canvas tone and zero harsh borders
+         Compact, parent-friendly layout with horizontal line and single-row tags
          ============================================================== -->
-    <section class="relative w-full bg-[#FAF9F6] pt-10 sm:pt-14 md:pt-16 pb-16 sm:pb-24 md:pb-28 px-4 sm:px-8 overflow-hidden">
+    <section class="relative w-full bg-[#FAF9F6] pt-8 sm:pt-10 md:pt-12 pb-10 sm:pb-12 md:pb-16 px-4 sm:px-8 overflow-hidden">
         
-        <!-- Subtle Ambient Warm Radial Depth (Clean & Soft, Zero Blurring over Cards) -->
+        <!-- Subtle Ambient Warm Radial Depth -->
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-50/50 via-transparent to-transparent pointer-events-none"></div>
 
         <div class="relative max-w-6xl mx-auto flex flex-col items-center text-center">
             
             <!-- Kicker / Eyebrow Pill -->
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-stone-300/80 text-[11px] sm:text-xs font-bold uppercase tracking-widest text-stone-600 font-mono-nav mb-6 sm:mb-8 md:mb-10 shadow-2xs">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-stone-300/80 text-[11px] sm:text-xs font-bold uppercase tracking-widest text-stone-600 font-mono-nav mb-4 sm:mb-6 shadow-2xs">
                 <span class="w-2 h-2 rounded-full bg-[#C8232C]"></span>
                 <span>Our Guiding Clinical Philosophy</span>
             </div>
 
             <!-- Big Slogan (Black Italic Serif Font) -->
             <blockquote class="w-full">
-                <h2 class="font-slogan-italic text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5rem] text-black font-normal sm:font-medium tracking-tight leading-[1.22] sm:leading-[1.16] max-w-5xl mx-auto">
+                <h2 class="font-slogan-italic text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-[4.25rem] text-black font-normal sm:font-medium tracking-tight leading-[1.22] sm:leading-[1.18] max-w-5xl mx-auto">
                     &ldquo;Every child learns differently. With the right guidance at the right time, every child thrives.&rdquo;
                 </h2>
             </blockquote>
 
             <!-- Supporting Clinical Stature Attribution -->
-            <p class="mt-6 sm:mt-8 md:mt-10 text-xs sm:text-sm md:text-base text-stone-600 font-medium tracking-wide font-mono-nav max-w-2xl">
+            <p class="mt-4 sm:mt-5 text-xs sm:text-sm md:text-base text-stone-600 font-medium tracking-wide font-mono-nav max-w-2xl">
                 &mdash; 13+ Years of Neuro-Affirming Pediatric Therapy &bull; Mumbai &bull; Pune &bull; Online
             </p>
 
-            <!-- Media / Clinical Trust Recognition Bar (Styled matching user reference image) -->
-            <div class="mt-12 sm:mt-16 md:mt-20 pt-10 sm:pt-12 border-t border-stone-300/60 w-full max-w-4xl">
-                <span class="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-stone-500 font-mono-nav block mb-5 sm:mb-6">
-                    Featured In Major Publications &amp; Recognized Clinical Networks
+            <!-- Horizontal Divider Line directly below attribution -->
+            <div class="w-full max-w-4xl border-t border-stone-300/70 my-5 sm:my-6"></div>
+
+            <!-- Media & Clinical Trust Tags in a Single Horizontal Manner -->
+            <div class="w-full max-w-5xl flex items-center justify-center flex-wrap gap-2 sm:gap-2.5">
+                <span class="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-stone-500 font-mono-nav mr-1 sm:mr-2">
+                    Recognitions &amp; Affiliations:
                 </span>
-                
-                <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5">
-                    <span class="px-4 py-2 rounded-xl bg-white text-stone-800 text-xs sm:text-sm font-bold border border-stone-200/90 shadow-2xs hover:shadow-xs transition-shadow">
-                        The Times of India
-                    </span>
-                    <span class="px-4 py-2 rounded-xl bg-white text-stone-800 text-xs sm:text-sm font-bold border border-stone-200/90 shadow-2xs hover:shadow-xs transition-shadow">
-                        Indian Pediatrics Journal
-                    </span>
-                    <span class="px-4 py-2 rounded-xl bg-white text-stone-800 text-xs sm:text-sm font-bold border border-stone-200/90 shadow-2xs hover:shadow-xs transition-shadow">
-                        Hindustan Times
-                    </span>
-                    <span class="px-4 py-2 rounded-xl bg-white text-stone-800 text-xs sm:text-sm font-bold border border-stone-200/90 shadow-2xs hover:shadow-xs transition-shadow">
-                        AIOTA Clinical Network
-                    </span>
-                    <span class="px-4 py-2 rounded-xl bg-white text-stone-800 text-xs sm:text-sm font-bold border border-stone-200/90 shadow-2xs hover:shadow-xs transition-shadow">
-                        Mid-Day Health Excellence
-                    </span>
-                    <span class="px-4 py-2 rounded-xl bg-white text-stone-800 text-xs sm:text-sm font-bold border border-stone-200/90 shadow-2xs hover:shadow-xs transition-shadow">
-                        RCI Recognized Standards
-                    </span>
-                </div>
+                <span class="px-3 sm:px-3.5 py-1.5 rounded-xl bg-white text-stone-800 text-xs sm:text-[13px] font-bold border border-stone-200/90 shadow-2xs hover:border-[#C8232C]/40 hover:shadow-xs transition-all whitespace-nowrap">
+                    RCI Recognized Standards
+                </span>
+                <span class="px-3 sm:px-3.5 py-1.5 rounded-xl bg-white text-stone-800 text-xs sm:text-[13px] font-bold border border-stone-200/90 shadow-2xs hover:border-[#C8232C]/40 hover:shadow-xs transition-all whitespace-nowrap">
+                    AIOTA Clinical Network
+                </span>
+                <span class="px-3 sm:px-3.5 py-1.5 rounded-xl bg-white text-stone-800 text-xs sm:text-[13px] font-bold border border-stone-200/90 shadow-2xs hover:border-[#C8232C]/40 hover:shadow-xs transition-all whitespace-nowrap">
+                    The Times of India
+                </span>
+                <span class="px-3 sm:px-3.5 py-1.5 rounded-xl bg-white text-stone-800 text-xs sm:text-[13px] font-bold border border-stone-200/90 shadow-2xs hover:border-[#C8232C]/40 hover:shadow-xs transition-all whitespace-nowrap">
+                    Indian Pediatrics Journal
+                </span>
+                <span class="px-3 sm:px-3.5 py-1.5 rounded-xl bg-white text-stone-800 text-xs sm:text-[13px] font-bold border border-stone-200/90 shadow-2xs hover:border-[#C8232C]/40 hover:shadow-xs transition-all whitespace-nowrap">
+                    Hindustan Times
+                </span>
+                <span class="px-3 sm:px-3.5 py-1.5 rounded-xl bg-white text-stone-800 text-xs sm:text-[13px] font-bold border border-stone-200/90 shadow-2xs hover:border-[#C8232C]/40 hover:shadow-xs transition-all whitespace-nowrap">
+                    Mid-Day Health Excellence
+                </span>
             </div>
 
         </div>
