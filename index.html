@@ -216,12 +216,6 @@
             -webkit-animation: infiniteCardsScroll 32s linear infinite;
             animation: infiniteCardsScroll 32s linear infinite;
         }
-
-        /* Pauses only when clicked / toggled (no hover freeze) */
-        .animate-infinite-cards.is-paused {
-            -webkit-animation-play-state: paused !important;
-            animation-play-state: paused !important;
-        }
     </style>
 </head>
 
@@ -423,16 +417,11 @@
                 <!-- Mobile/Tablet: 100% full screen width edge-to-edge carousel -->
                 <!-- Laptop/Desktop: Right-side marquee below hero text, beside the father -->
                 <div class="pt-6 sm:pt-8 lg:pt-8 w-full">
-                        <div class="flex items-center justify-between mb-2 sm:mb-2.5">
+                        <div class="flex items-center mb-2 sm:mb-2.5">
                             <span class="text-[11px] sm:text-xs md:text-sm font-extrabold uppercase tracking-wider text-stone-700 font-mono-nav flex items-center gap-2">
                                 <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                                 Real CLC Therapy Activities &bull; 6 Centres
                             </span>
-                            <button type="button" onclick="toggleInfiniteCardsPause(event)" aria-label="Toggle marquee pause"
-                                class="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-white/95 hover:bg-white border border-stone-300 text-stone-700 hover:text-stone-900 text-[10px] sm:text-xs font-mono-nav font-bold shadow-2xs transition-all cursor-pointer select-none">
-                                <i id="infiniteCardsStatusIcon" class="fa-solid fa-pause text-[10px] text-[#C8232C]"></i>
-                                <span id="infiniteCardsStatus">Click card to pause</span>
-                            </button>
                         </div>
                         
                         <!-- Infinite Marquee Viewport with Aceternity Edge Fade Mask -->
@@ -443,7 +432,7 @@
                                      SET 1: 6 Real CLC Activities Cards (Large Format)
                                      ============================================================== -->
                                 <!-- Card 1: Sensory Integration & Tactile Therapy -->
-                                <div onclick="toggleInfiniteCardsPause(event)"
+                                <div 
                                     class="w-[240px] sm:w-[280px] md:w-[310px] lg:w-[330px] xl:w-[360px] shrink-0 bg-white hover:border-[#C8232C]/60 border border-stone-200 rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 lg:p-4 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer text-left select-none">
                                     <div class="overflow-hidden rounded-xl sm:rounded-2xl h-32 sm:h-38 md:h-40 lg:h-42 xl:h-44 w-full mb-2 sm:mb-3 bg-stone-100 relative">
                                         <img src="pics/activities/activity-1.jpg" alt="Child Learning Centre Sensory Integration and Tactile Therapy Session"
@@ -469,14 +458,12 @@
                                     </p>
                                     <div class="flex items-center justify-between pt-2.5 mt-2.5 border-t border-stone-200/80 text-[10px] sm:text-xs text-stone-500 font-mono-nav">
                                         <span class="font-semibold text-stone-600">Real CLC Session</span>
-                                        <span class="text-[#C8232C] group-hover:underline flex items-center gap-1 font-bold">
-                                            <i class="fa-solid fa-hand-pointer text-[10px]"></i> Click to pause
-                                        </span>
+                                        <span class="text-stone-500 flex items-center gap-1 font-medium"><i class="fa-solid fa-circle-check text-emerald-600 text-[10px]"></i> Verified Session</span>
                                     </div>
                                 </div>
 
                                 <!-- Card 2: Fine Motor Skills & Pencil Grip -->
-                                <div onclick="toggleInfiniteCardsPause(event)"
+                                <div 
                                     class="w-[240px] sm:w-[280px] md:w-[310px] lg:w-[330px] xl:w-[360px] shrink-0 bg-white hover:border-[#C8232C]/60 border border-stone-200 rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 lg:p-4 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer text-left select-none">
                                     <div class="overflow-hidden rounded-xl sm:rounded-2xl h-32 sm:h-38 md:h-40 lg:h-42 xl:h-44 w-full mb-2 sm:mb-3 bg-stone-100 relative">
                                         <img src="pics/activities/activity-2.jpg" alt="Child Learning Centre Fine Motor Skills and Hand Coordination Activity"
@@ -502,14 +489,12 @@
                                     </p>
                                     <div class="flex items-center justify-between pt-2.5 mt-2.5 border-t border-stone-200/80 text-[10px] sm:text-xs text-stone-500 font-mono-nav">
                                         <span class="font-semibold text-stone-600">1:1 Clinical Guidance</span>
-                                        <span class="text-[#C8232C] group-hover:underline flex items-center gap-1 font-bold">
-                                            <i class="fa-solid fa-hand-pointer text-[10px]"></i> Click to pause
-                                        </span>
+                                        <span class="text-stone-500 flex items-center gap-1 font-medium"><i class="fa-solid fa-circle-check text-emerald-600 text-[10px]"></i> Verified Session</span>
                                     </div>
                                 </div>
 
                                 <!-- Card 3: Cognitive Development & Problem Solving -->
-                                <div onclick="toggleInfiniteCardsPause(event)"
+                                <div 
                                     class="w-[240px] sm:w-[280px] md:w-[310px] lg:w-[330px] xl:w-[360px] shrink-0 bg-white hover:border-[#C8232C]/60 border border-stone-200 rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 lg:p-4 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer text-left select-none">
                                     <div class="overflow-hidden rounded-xl sm:rounded-2xl h-32 sm:h-38 md:h-40 lg:h-42 xl:h-44 w-full mb-2 sm:mb-3 bg-stone-100 relative">
                                         <img src="pics/activities/activity-3.jpg" alt="Child Learning Centre Cognitive Puzzle and Focus Training Activity"
@@ -535,14 +520,12 @@
                                     </p>
                                     <div class="flex items-center justify-between pt-2.5 mt-2.5 border-t border-stone-200/80 text-[10px] sm:text-xs text-stone-500 font-mono-nav">
                                         <span class="font-semibold text-stone-600">Goal-Oriented Progress</span>
-                                        <span class="text-[#C8232C] group-hover:underline flex items-center gap-1 font-bold">
-                                            <i class="fa-solid fa-hand-pointer text-[10px]"></i> Click to pause
-                                        </span>
+                                        <span class="text-stone-500 flex items-center gap-1 font-medium"><i class="fa-solid fa-circle-check text-emerald-600 text-[10px]"></i> Verified Session</span>
                                     </div>
                                 </div>
 
                                 <!-- Card 4: Speech & Language Communication -->
-                                <div onclick="toggleInfiniteCardsPause(event)"
+                                <div 
                                     class="w-[240px] sm:w-[280px] md:w-[310px] lg:w-[330px] xl:w-[360px] shrink-0 bg-white hover:border-[#C8232C]/60 border border-stone-200 rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 lg:p-4 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer text-left select-none">
                                     <div class="overflow-hidden rounded-xl sm:rounded-2xl h-32 sm:h-38 md:h-40 lg:h-42 xl:h-44 w-full mb-2 sm:mb-3 bg-stone-100 relative">
                                         <img src="pics/activities/activity-4.jpg" alt="Child Learning Centre Speech and Expressive Language Therapy Session"
@@ -568,14 +551,12 @@
                                     </p>
                                     <div class="flex items-center justify-between pt-2.5 mt-2.5 border-t border-stone-200/80 text-[10px] sm:text-xs text-stone-500 font-mono-nav">
                                         <span class="font-semibold text-stone-600">Senior Pathologists</span>
-                                        <span class="text-[#C8232C] group-hover:underline flex items-center gap-1 font-bold">
-                                            <i class="fa-solid fa-hand-pointer text-[10px]"></i> Click to pause
-                                        </span>
+                                        <span class="text-stone-500 flex items-center gap-1 font-medium"><i class="fa-solid fa-circle-check text-emerald-600 text-[10px]"></i> Verified Session</span>
                                     </div>
                                 </div>
 
                                 <!-- Card 5: Gross Motor & Balance Coordination -->
-                                <div onclick="toggleInfiniteCardsPause(event)"
+                                <div 
                                     class="w-[240px] sm:w-[280px] md:w-[310px] lg:w-[330px] xl:w-[360px] shrink-0 bg-white hover:border-[#C8232C]/60 border border-stone-200 rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 lg:p-4 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer text-left select-none">
                                     <div class="overflow-hidden rounded-xl sm:rounded-2xl h-32 sm:h-38 md:h-40 lg:h-42 xl:h-44 w-full mb-2 sm:mb-3 bg-stone-100 relative">
                                         <img src="pics/activities/activity-5.jpg" alt="Child Learning Centre Balance and Gross Motor Coordination Activity"
@@ -601,14 +582,12 @@
                                     </p>
                                     <div class="flex items-center justify-between pt-2.5 mt-2.5 border-t border-stone-200/80 text-[10px] sm:text-xs text-stone-500 font-mono-nav">
                                         <span class="font-semibold text-stone-600">Sensory Safe Space</span>
-                                        <span class="text-[#C8232C] group-hover:underline flex items-center gap-1 font-bold">
-                                            <i class="fa-solid fa-hand-pointer text-[10px]"></i> Click to pause
-                                        </span>
+                                        <span class="text-stone-500 flex items-center gap-1 font-medium"><i class="fa-solid fa-circle-check text-emerald-600 text-[10px]"></i> Verified Session</span>
                                     </div>
                                 </div>
 
                                 <!-- Card 6: Remedial Education & Academic Stamina -->
-                                <div onclick="toggleInfiniteCardsPause(event)"
+                                <div 
                                     class="w-[240px] sm:w-[280px] md:w-[310px] lg:w-[330px] xl:w-[360px] shrink-0 bg-white hover:border-[#C8232C]/60 border border-stone-200 rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 lg:p-4 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer text-left select-none">
                                     <div class="overflow-hidden rounded-xl sm:rounded-2xl h-32 sm:h-38 md:h-40 lg:h-42 xl:h-44 w-full mb-2 sm:mb-3 bg-stone-100 relative">
                                         <img src="pics/activities/activity-6.jpg" alt="Child Learning Centre Remedial Learning and Phonics Mastery Activity"
@@ -634,9 +613,7 @@
                                     </p>
                                     <div class="flex items-center justify-between pt-2.5 mt-2.5 border-t border-stone-200/80 text-[10px] sm:text-xs text-stone-500 font-mono-nav">
                                         <span class="font-semibold text-stone-600">Personalized Pace</span>
-                                        <span class="text-[#C8232C] group-hover:underline flex items-center gap-1 font-bold">
-                                            <i class="fa-solid fa-hand-pointer text-[10px]"></i> Click to pause
-                                        </span>
+                                        <span class="text-stone-500 flex items-center gap-1 font-medium"><i class="fa-solid fa-circle-check text-emerald-600 text-[10px]"></i> Verified Session</span>
                                     </div>
                                 </div>
 
@@ -644,7 +621,7 @@
                                      SET 2: Exact Duplicate for 100% Seamless Infinite Marquee Loop
                                      ============================================================== -->
                                 <!-- Card 1 Duplicate -->
-                                <div onclick="toggleInfiniteCardsPause(event)"
+                                <div 
                                     class="w-[240px] sm:w-[280px] md:w-[310px] lg:w-[330px] xl:w-[360px] shrink-0 bg-white hover:border-[#C8232C]/60 border border-stone-200 rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 lg:p-4 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer text-left select-none">
                                     <div class="overflow-hidden rounded-xl sm:rounded-2xl h-32 sm:h-38 md:h-40 lg:h-42 xl:h-44 w-full mb-2 sm:mb-3 bg-stone-100 relative">
                                         <img src="pics/activities/activity-1.jpg" alt="Child Learning Centre Sensory Integration and Tactile Therapy Session"
@@ -670,14 +647,12 @@
                                     </p>
                                     <div class="flex items-center justify-between pt-2.5 mt-2.5 border-t border-stone-200/80 text-[10px] sm:text-xs text-stone-500 font-mono-nav">
                                         <span class="font-semibold text-stone-600">Real CLC Session</span>
-                                        <span class="text-[#C8232C] group-hover:underline flex items-center gap-1 font-bold">
-                                            <i class="fa-solid fa-hand-pointer text-[10px]"></i> Click to pause
-                                        </span>
+                                        <span class="text-stone-500 flex items-center gap-1 font-medium"><i class="fa-solid fa-circle-check text-emerald-600 text-[10px]"></i> Verified Session</span>
                                     </div>
                                 </div>
 
                                 <!-- Card 2 Duplicate -->
-                                <div onclick="toggleInfiniteCardsPause(event)"
+                                <div 
                                     class="w-[240px] sm:w-[280px] md:w-[310px] lg:w-[330px] xl:w-[360px] shrink-0 bg-white hover:border-[#C8232C]/60 border border-stone-200 rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 lg:p-4 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer text-left select-none">
                                     <div class="overflow-hidden rounded-xl sm:rounded-2xl h-32 sm:h-38 md:h-40 lg:h-42 xl:h-44 w-full mb-2 sm:mb-3 bg-stone-100 relative">
                                         <img src="pics/activities/activity-2.jpg" alt="Child Learning Centre Fine Motor Skills and Hand Coordination Activity"
@@ -703,14 +678,12 @@
                                     </p>
                                     <div class="flex items-center justify-between pt-2.5 mt-2.5 border-t border-stone-200/80 text-[10px] sm:text-xs text-stone-500 font-mono-nav">
                                         <span class="font-semibold text-stone-600">1:1 Clinical Guidance</span>
-                                        <span class="text-[#C8232C] group-hover:underline flex items-center gap-1 font-bold">
-                                            <i class="fa-solid fa-hand-pointer text-[10px]"></i> Click to pause
-                                        </span>
+                                        <span class="text-stone-500 flex items-center gap-1 font-medium"><i class="fa-solid fa-circle-check text-emerald-600 text-[10px]"></i> Verified Session</span>
                                     </div>
                                 </div>
 
                                 <!-- Card 3 Duplicate -->
-                                <div onclick="toggleInfiniteCardsPause(event)"
+                                <div 
                                     class="w-[240px] sm:w-[280px] md:w-[310px] lg:w-[330px] xl:w-[360px] shrink-0 bg-white hover:border-[#C8232C]/60 border border-stone-200 rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 lg:p-4 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer text-left select-none">
                                     <div class="overflow-hidden rounded-xl sm:rounded-2xl h-32 sm:h-38 md:h-40 lg:h-42 xl:h-44 w-full mb-2 sm:mb-3 bg-stone-100 relative">
                                         <img src="pics/activities/activity-3.jpg" alt="Child Learning Centre Cognitive Puzzle and Focus Training Activity"
@@ -736,14 +709,12 @@
                                     </p>
                                     <div class="flex items-center justify-between pt-2.5 mt-2.5 border-t border-stone-200/80 text-[10px] sm:text-xs text-stone-500 font-mono-nav">
                                         <span class="font-semibold text-stone-600">Goal-Oriented Progress</span>
-                                        <span class="text-[#C8232C] group-hover:underline flex items-center gap-1 font-bold">
-                                            <i class="fa-solid fa-hand-pointer text-[10px]"></i> Click to pause
-                                        </span>
+                                        <span class="text-stone-500 flex items-center gap-1 font-medium"><i class="fa-solid fa-circle-check text-emerald-600 text-[10px]"></i> Verified Session</span>
                                     </div>
                                 </div>
 
                                 <!-- Card 4 Duplicate -->
-                                <div onclick="toggleInfiniteCardsPause(event)"
+                                <div 
                                     class="w-[240px] sm:w-[280px] md:w-[310px] lg:w-[330px] xl:w-[360px] shrink-0 bg-white hover:border-[#C8232C]/60 border border-stone-200 rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 lg:p-4 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer text-left select-none">
                                     <div class="overflow-hidden rounded-xl sm:rounded-2xl h-32 sm:h-38 md:h-40 lg:h-42 xl:h-44 w-full mb-2 sm:mb-3 bg-stone-100 relative">
                                         <img src="pics/activities/activity-4.jpg" alt="Child Learning Centre Speech and Expressive Language Therapy Session"
@@ -769,14 +740,12 @@
                                     </p>
                                     <div class="flex items-center justify-between pt-2.5 mt-2.5 border-t border-stone-200/80 text-[10px] sm:text-xs text-stone-500 font-mono-nav">
                                         <span class="font-semibold text-stone-600">Senior Pathologists</span>
-                                        <span class="text-[#C8232C] group-hover:underline flex items-center gap-1 font-bold">
-                                            <i class="fa-solid fa-hand-pointer text-[10px]"></i> Click to pause
-                                        </span>
+                                        <span class="text-stone-500 flex items-center gap-1 font-medium"><i class="fa-solid fa-circle-check text-emerald-600 text-[10px]"></i> Verified Session</span>
                                     </div>
                                 </div>
 
                                 <!-- Card 5 Duplicate -->
-                                <div onclick="toggleInfiniteCardsPause(event)"
+                                <div 
                                     class="w-[240px] sm:w-[280px] md:w-[310px] lg:w-[330px] xl:w-[360px] shrink-0 bg-white hover:border-[#C8232C]/60 border border-stone-200 rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 lg:p-4 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer text-left select-none">
                                     <div class="overflow-hidden rounded-xl sm:rounded-2xl h-32 sm:h-38 md:h-40 lg:h-42 xl:h-44 w-full mb-2 sm:mb-3 bg-stone-100 relative">
                                         <img src="pics/activities/activity-5.jpg" alt="Child Learning Centre Balance and Gross Motor Coordination Activity"
@@ -802,14 +771,12 @@
                                     </p>
                                     <div class="flex items-center justify-between pt-2.5 mt-2.5 border-t border-stone-200/80 text-[10px] sm:text-xs text-stone-500 font-mono-nav">
                                         <span class="font-semibold text-stone-600">Sensory Safe Space</span>
-                                        <span class="text-[#C8232C] group-hover:underline flex items-center gap-1 font-bold">
-                                            <i class="fa-solid fa-hand-pointer text-[10px]"></i> Click to pause
-                                        </span>
+                                        <span class="text-stone-500 flex items-center gap-1 font-medium"><i class="fa-solid fa-circle-check text-emerald-600 text-[10px]"></i> Verified Session</span>
                                     </div>
                                 </div>
 
                                 <!-- Card 6 Duplicate -->
-                                <div onclick="toggleInfiniteCardsPause(event)"
+                                <div 
                                     class="w-[240px] sm:w-[280px] md:w-[310px] lg:w-[330px] xl:w-[360px] shrink-0 bg-white hover:border-[#C8232C]/60 border border-stone-200 rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 lg:p-4 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer text-left select-none">
                                     <div class="overflow-hidden rounded-xl sm:rounded-2xl h-32 sm:h-38 md:h-40 lg:h-42 xl:h-44 w-full mb-2 sm:mb-3 bg-stone-100 relative">
                                         <img src="pics/activities/activity-6.jpg" alt="Child Learning Centre Remedial Learning and Phonics Mastery Activity"
@@ -835,9 +802,7 @@
                                     </p>
                                     <div class="flex items-center justify-between pt-2.5 mt-2.5 border-t border-stone-200/80 text-[10px] sm:text-xs text-stone-500 font-mono-nav">
                                         <span class="font-semibold text-stone-600">Personalized Pace</span>
-                                        <span class="text-[#C8232C] group-hover:underline flex items-center gap-1 font-bold">
-                                            <i class="fa-solid fa-hand-pointer text-[10px]"></i> Click to pause
-                                        </span>
+                                        <span class="text-stone-500 flex items-center gap-1 font-medium"><i class="fa-solid fa-circle-check text-emerald-600 text-[10px]"></i> Verified Session</span>
                                     </div>
                                 </div>
 
@@ -1379,36 +1344,6 @@
                     btn.disabled = false;
                 }, 3200);
             }, 1100);
-        }
-
-        // Toggle Infinite Moving Cards Pause/Resume on Click (Parent-friendly inspection without opening modal)
-        let isInfiniteCardsPaused = false;
-        function toggleInfiniteCardsPause(e) {
-            if (e) {
-                e.preventDefault();
-                e.stopPropagation();
-            }
-            const track = document.getElementById('infiniteCardsTrack');
-            const statusText = document.getElementById('infiniteCardsStatus');
-            const statusIcon = document.getElementById('infiniteCardsStatusIcon');
-            if (!track) return;
-
-            isInfiniteCardsPaused = !isInfiniteCardsPaused;
-            if (isInfiniteCardsPaused) {
-                track.classList.add('is-paused');
-                if (statusText) statusText.textContent = 'Paused (Click to Resume)';
-                if (statusIcon) {
-                    statusIcon.classList.remove('fa-pause');
-                    statusIcon.classList.add('fa-play');
-                }
-            } else {
-                track.classList.remove('is-paused');
-                if (statusText) statusText.textContent = 'Auto-Playing (Click to Pause)';
-                if (statusIcon) {
-                    statusIcon.classList.remove('fa-play');
-                    statusIcon.classList.add('fa-pause');
-                }
-            }
         }
     </script>
 </body>
