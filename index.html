@@ -53,13 +53,8 @@
             letter-spacing: 0.04em;
         }
 
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
+        .no-scrollbar, .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .no-scrollbar::-webkit-scrollbar, .hide-scrollbar::-webkit-scrollbar { display: none; }
 
         /* Smooth Modal transitions */
         .modal-overlay {
@@ -217,9 +212,7 @@
             animation: infiniteCardsScroll 32s linear infinite;
         }
 
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none;
-        }
+        
     </style>
 </head>
 
@@ -622,199 +615,6 @@
                                         <span class="text-stone-500 flex items-center gap-1 font-medium"><i class="fa-solid fa-circle-check text-emerald-600 text-[10px]"></i> Verified Session</span>
                                     </div>
                                 </div>
-
-                                <!-- ==============================================================
-                                     SET 2: Exact Duplicate for 100% Seamless Infinite Marquee Loop
-                                     ============================================================== -->
-                                <!-- Card 1 Duplicate -->
-                                <div 
-                                    class="w-[240px] sm:w-[280px] md:w-[310px] lg:w-[330px] xl:w-[360px] shrink-0 bg-white hover:border-[#C8232C]/60 border border-stone-200 rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 lg:p-4 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer text-left select-none">
-                                    <div class="overflow-hidden rounded-xl sm:rounded-2xl h-32 sm:h-38 md:h-40 lg:h-42 xl:h-44 w-full mb-2 sm:mb-3 bg-stone-100 relative">
-                                        <img src="pics/activities/activity-1.jpg" alt="Child Learning Centre Sensory Integration and Tactile Therapy Session"
-                                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                                        <span class="absolute top-2.5 left-2.5 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-[#C8232C] bg-white shadow-xs px-2.5 py-1 rounded-lg font-mono-nav shadow-xs border border-stone-200">
-                                            Sensory &amp; Tactile
-                                        </span>
-                                    </div>
-                                    <div class="flex items-center justify-between mb-1.5">
-                                        <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#C8232C] font-mono-nav">
-                                            Clinical Therapy
-                                        </span>
-                                        <span class="text-[10px] sm:text-xs text-stone-500 font-mono-nav flex items-center gap-1">
-                                            <i class="fa-solid fa-location-dot text-[#C8232C] text-[10px]"></i>
-                                            All Centres
-                                        </span>
-                                    </div>
-                                    <h4 class="text-sm sm:text-base md:text-lg font-black text-stone-900 line-clamp-1 group-hover:text-[#C8232C] transition-colors">
-                                        Sensory Integration &amp; Tactile Play
-                                    </h4>
-                                    <p class="text-xs sm:text-[13px] text-stone-600 line-clamp-2 mt-1 leading-snug">
-                                        Therapist-guided tactile tools and sensory regulation calming sensory overload and building bodily awareness.
-                                    </p>
-                                    <div class="flex items-center justify-between pt-2.5 mt-2.5 border-t border-stone-200/80 text-[10px] sm:text-xs text-stone-500 font-mono-nav">
-                                        <span class="font-semibold text-stone-600">Real CLC Session</span>
-                                        <span class="text-stone-500 flex items-center gap-1 font-medium"><i class="fa-solid fa-circle-check text-emerald-600 text-[10px]"></i> Verified Session</span>
-                                    </div>
-                                </div>
-
-                                <!-- Card 2 Duplicate -->
-                                <div 
-                                    class="w-[240px] sm:w-[280px] md:w-[310px] lg:w-[330px] xl:w-[360px] shrink-0 bg-white hover:border-[#C8232C]/60 border border-stone-200 rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 lg:p-4 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer text-left select-none">
-                                    <div class="overflow-hidden rounded-xl sm:rounded-2xl h-32 sm:h-38 md:h-40 lg:h-42 xl:h-44 w-full mb-2 sm:mb-3 bg-stone-100 relative">
-                                        <img src="pics/activities/activity-2.jpg" alt="Child Learning Centre Fine Motor Skills and Hand Coordination Activity"
-                                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                                        <span class="absolute top-2.5 left-2.5 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-[#C8232C] bg-white shadow-xs px-2.5 py-1 rounded-lg font-mono-nav shadow-xs border border-stone-200">
-                                            Fine Motor Skills
-                                        </span>
-                                    </div>
-                                    <div class="flex items-center justify-between mb-1.5">
-                                        <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#C8232C] font-mono-nav">
-                                            Hand Coordination
-                                        </span>
-                                        <span class="text-[10px] sm:text-xs text-stone-500 font-mono-nav flex items-center gap-1">
-                                            <i class="fa-solid fa-location-dot text-[#C8232C] text-[10px]"></i>
-                                            Dadar &amp; Borivali
-                                        </span>
-                                    </div>
-                                    <h4 class="text-sm sm:text-base md:text-lg font-black text-stone-900 line-clamp-1 group-hover:text-[#C8232C] transition-colors">
-                                        Pencil Grip &amp; Dexterity Studio
-                                    </h4>
-                                    <p class="text-xs sm:text-[13px] text-stone-600 line-clamp-2 mt-1 leading-snug">
-                                        Pincer-grasp games and finger-strengthening apparatus preparing young children for confident, fatigue-free classroom writing.
-                                    </p>
-                                    <div class="flex items-center justify-between pt-2.5 mt-2.5 border-t border-stone-200/80 text-[10px] sm:text-xs text-stone-500 font-mono-nav">
-                                        <span class="font-semibold text-stone-600">1:1 Clinical Guidance</span>
-                                        <span class="text-stone-500 flex items-center gap-1 font-medium"><i class="fa-solid fa-circle-check text-emerald-600 text-[10px]"></i> Verified Session</span>
-                                    </div>
-                                </div>
-
-                                <!-- Card 3 Duplicate -->
-                                <div 
-                                    class="w-[240px] sm:w-[280px] md:w-[310px] lg:w-[330px] xl:w-[360px] shrink-0 bg-white hover:border-[#C8232C]/60 border border-stone-200 rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 lg:p-4 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer text-left select-none">
-                                    <div class="overflow-hidden rounded-xl sm:rounded-2xl h-32 sm:h-38 md:h-40 lg:h-42 xl:h-44 w-full mb-2 sm:mb-3 bg-stone-100 relative">
-                                        <img src="pics/activities/activity-3.jpg" alt="Child Learning Centre Cognitive Puzzle and Focus Training Activity"
-                                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                                        <span class="absolute top-2.5 left-2.5 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-[#C8232C] bg-white shadow-xs px-2.5 py-1 rounded-lg font-mono-nav shadow-xs border border-stone-200">
-                                            Cognitive Focus
-                                        </span>
-                                    </div>
-                                    <div class="flex items-center justify-between mb-1.5">
-                                        <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#C8232C] font-mono-nav">
-                                            Attention Stamina
-                                        </span>
-                                        <span class="text-[10px] sm:text-xs text-stone-500 font-mono-nav flex items-center gap-1">
-                                            <i class="fa-solid fa-location-dot text-[#C8232C] text-[10px]"></i>
-                                            Vashi &amp; Thane
-                                        </span>
-                                    </div>
-                                    <h4 class="text-sm sm:text-base md:text-lg font-black text-stone-900 line-clamp-1 group-hover:text-[#C8232C] transition-colors">
-                                        Problem Solving &amp; Logic Lab
-                                    </h4>
-                                    <p class="text-xs sm:text-[13px] text-stone-600 line-clamp-2 mt-1 leading-snug">
-                                        Pattern matching, sequencing games, and structured thinking exercises designed to build long-term academic stamina.
-                                    </p>
-                                    <div class="flex items-center justify-between pt-2.5 mt-2.5 border-t border-stone-200/80 text-[10px] sm:text-xs text-stone-500 font-mono-nav">
-                                        <span class="font-semibold text-stone-600">Goal-Oriented Progress</span>
-                                        <span class="text-stone-500 flex items-center gap-1 font-medium"><i class="fa-solid fa-circle-check text-emerald-600 text-[10px]"></i> Verified Session</span>
-                                    </div>
-                                </div>
-
-                                <!-- Card 4 Duplicate -->
-                                <div 
-                                    class="w-[240px] sm:w-[280px] md:w-[310px] lg:w-[330px] xl:w-[360px] shrink-0 bg-white hover:border-[#C8232C]/60 border border-stone-200 rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 lg:p-4 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer text-left select-none">
-                                    <div class="overflow-hidden rounded-xl sm:rounded-2xl h-32 sm:h-38 md:h-40 lg:h-42 xl:h-44 w-full mb-2 sm:mb-3 bg-stone-100 relative">
-                                        <img src="pics/activities/activity-4.jpg" alt="Child Learning Centre Speech and Expressive Language Therapy Session"
-                                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                                        <span class="absolute top-2.5 left-2.5 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-[#C8232C] bg-white shadow-xs px-2.5 py-1 rounded-lg font-mono-nav shadow-xs border border-stone-200">
-                                            Speech &amp; Language
-                                        </span>
-                                    </div>
-                                    <div class="flex items-center justify-between mb-1.5">
-                                        <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#C8232C] font-mono-nav">
-                                            Communication
-                                        </span>
-                                        <span class="text-[10px] sm:text-xs text-stone-500 font-mono-nav flex items-center gap-1">
-                                            <i class="fa-solid fa-location-dot text-[#C8232C] text-[10px]"></i>
-                                            All Centres &amp; Online
-                                        </span>
-                                    </div>
-                                    <h4 class="text-sm sm:text-base md:text-lg font-black text-stone-900 line-clamp-1 group-hover:text-[#C8232C] transition-colors">
-                                        1:1 Expressive Language Cabin
-                                    </h4>
-                                    <p class="text-xs sm:text-[13px] text-stone-600 line-clamp-2 mt-1 leading-snug">
-                                        Phonetics clarity, conversational turn-taking, and articulation exercises guided by licensed pediatric speech therapists.
-                                    </p>
-                                    <div class="flex items-center justify-between pt-2.5 mt-2.5 border-t border-stone-200/80 text-[10px] sm:text-xs text-stone-500 font-mono-nav">
-                                        <span class="font-semibold text-stone-600">Senior Pathologists</span>
-                                        <span class="text-stone-500 flex items-center gap-1 font-medium"><i class="fa-solid fa-circle-check text-emerald-600 text-[10px]"></i> Verified Session</span>
-                                    </div>
-                                </div>
-
-                                <!-- Card 5 Duplicate -->
-                                <div 
-                                    class="w-[240px] sm:w-[280px] md:w-[310px] lg:w-[330px] xl:w-[360px] shrink-0 bg-white hover:border-[#C8232C]/60 border border-stone-200 rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 lg:p-4 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer text-left select-none">
-                                    <div class="overflow-hidden rounded-xl sm:rounded-2xl h-32 sm:h-38 md:h-40 lg:h-42 xl:h-44 w-full mb-2 sm:mb-3 bg-stone-100 relative">
-                                        <img src="pics/activities/activity-5.jpg" alt="Child Learning Centre Balance and Gross Motor Coordination Activity"
-                                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                                        <span class="absolute top-2.5 left-2.5 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-[#C8232C] bg-white shadow-xs px-2.5 py-1 rounded-lg font-mono-nav shadow-xs border border-stone-200">
-                                            Gross Motor
-                                        </span>
-                                    </div>
-                                    <div class="flex items-center justify-between mb-1.5">
-                                        <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#C8232C] font-mono-nav">
-                                            Body Balance
-                                        </span>
-                                        <span class="text-[10px] sm:text-xs text-stone-500 font-mono-nav flex items-center gap-1">
-                                            <i class="fa-solid fa-location-dot text-[#C8232C] text-[10px]"></i>
-                                            Pune &amp; Dadar HQ
-                                        </span>
-                                    </div>
-                                    <h4 class="text-sm sm:text-base md:text-lg font-black text-stone-900 line-clamp-1 group-hover:text-[#C8232C] transition-colors">
-                                        Vestibular &amp; Balance Gym
-                                    </h4>
-                                    <p class="text-xs sm:text-[13px] text-stone-600 line-clamp-2 mt-1 leading-snug">
-                                        Dynamic balance beams, obstacle courses, and vestibular swings developing postural stability and self-confidence.
-                                    </p>
-                                    <div class="flex items-center justify-between pt-2.5 mt-2.5 border-t border-stone-200/80 text-[10px] sm:text-xs text-stone-500 font-mono-nav">
-                                        <span class="font-semibold text-stone-600">Sensory Safe Space</span>
-                                        <span class="text-stone-500 flex items-center gap-1 font-medium"><i class="fa-solid fa-circle-check text-emerald-600 text-[10px]"></i> Verified Session</span>
-                                    </div>
-                                </div>
-
-                                <!-- Card 6 Duplicate -->
-                                <div 
-                                    class="w-[240px] sm:w-[280px] md:w-[310px] lg:w-[330px] xl:w-[360px] shrink-0 bg-white hover:border-[#C8232C]/60 border border-stone-200 rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 lg:p-4 shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer text-left select-none">
-                                    <div class="overflow-hidden rounded-xl sm:rounded-2xl h-32 sm:h-38 md:h-40 lg:h-42 xl:h-44 w-full mb-2 sm:mb-3 bg-stone-100 relative">
-                                        <img src="pics/activities/activity-6.jpg" alt="Child Learning Centre Remedial Learning and Phonics Mastery Activity"
-                                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                                        <span class="absolute top-2.5 left-2.5 text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-[#C8232C] bg-white shadow-xs px-2.5 py-1 rounded-lg font-mono-nav shadow-xs border border-stone-200">
-                                            Remedial Learning
-                                        </span>
-                                    </div>
-                                    <div class="flex items-center justify-between mb-1.5">
-                                        <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[#C8232C] font-mono-nav">
-                                            Academic Stamina
-                                        </span>
-                                        <span class="text-[10px] sm:text-xs text-stone-500 font-mono-nav flex items-center gap-1">
-                                            <i class="fa-solid fa-location-dot text-[#C8232C] text-[10px]"></i>
-                                            All 6 Centres
-                                        </span>
-                                    </div>
-                                    <h4 class="text-sm sm:text-base md:text-lg font-black text-stone-900 line-clamp-1 group-hover:text-[#C8232C] transition-colors">
-                                        Hands-on Math &amp; Phonics Mastery
-                                    </h4>
-                                    <p class="text-xs sm:text-[13px] text-stone-600 line-clamp-2 mt-1 leading-snug">
-                                        Multi-sensory manipulatives transforming abstract concepts and reading hurdles into tangible, joyous breakthroughs.
-                                    </p>
-                                    <div class="flex items-center justify-between pt-2.5 mt-2.5 border-t border-stone-200/80 text-[10px] sm:text-xs text-stone-500 font-mono-nav">
-                                        <span class="font-semibold text-stone-600">Personalized Pace</span>
-                                        <span class="text-stone-500 flex items-center gap-1 font-medium"><i class="fa-solid fa-circle-check text-emerald-600 text-[10px]"></i> Verified Session</span>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
 
             </div>
         </div>
@@ -1336,16 +1136,11 @@
                             <!-- Phone Screen Inner Surface -->
                             <div class="w-full rounded-[2.25rem] bg-white overflow-hidden border border-stone-800/20 flex flex-col text-left">
                                 
-                                <!-- Top Status Bar -->
+                                <!-- Phone Status Bar -->
                                 <div class="h-7 px-4 pt-1.5 flex items-center justify-between bg-stone-50 text-[10px] font-mono-nav font-bold text-stone-900 select-none border-b border-stone-100">
                                     <span>9:41</span>
-                                    <div class="w-16 h-3.5 bg-stone-950 rounded-full flex items-center justify-end px-1.5">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-stone-800"></span>
-                                    </div>
-                                    <div class="flex items-center gap-1.5 text-stone-800">
-                                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 18c-.8 0-1.5.7-1.5 1.5S11.2 21 12 21s1.5-.7 1.5-1.5S12.8 18 12 18zm-4.9-3.4c2.7-2.7 7.1-2.7 9.8 0l1.4-1.4c-3.5-3.5-9.2-3.5-12.7 0l1.5 1.4zm-2.8-2.8c4.3-4.3 11.2-4.3 15.4 0l1.4-1.4c-5.1-5.1-13.3-5.1-18.3 0l1.5 1.4z"/></svg>
-                                        <div class="w-4 h-2 rounded-[2px] border border-stone-900 p-[1px] flex items-center"><div class="w-full h-full bg-stone-900 rounded-[1px]"></div></div>
-                                    </div>
+                                    <div class="w-16 h-3.5 bg-stone-950 rounded-full flex items-center justify-end px-1.5"><span class="w-1.5 h-1.5 rounded-full bg-stone-800"></span></div>
+                                    <div class="flex items-center gap-1.5 text-stone-800"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 18c-.8 0-1.5.7-1.5 1.5S11.2 21 12 21s1.5-.7 1.5-1.5S12.8 18 12 18zm-4.9-3.4c2.7-2.7 7.1-2.7 9.8 0l1.4-1.4c-3.5-3.5-9.2-3.5-12.7 0l1.5 1.4zm-2.8-2.8c4.3-4.3 11.2-4.3 15.4 0l1.4-1.4c-5.1-5.1-13.3-5.1-18.3 0l1.5 1.4z"/></svg><div class="w-4 h-2 rounded-[2px] border border-stone-900 p-[1px] flex items-center"><div class="w-full h-full bg-stone-900 rounded-[1px]"></div></div></div>
                                 </div>
 
                                 <!-- In-App Top Header Bar -->
@@ -1431,16 +1226,11 @@
                             <!-- Phone Screen Inner Surface -->
                             <div class="w-full rounded-[2.25rem] bg-white overflow-hidden border border-stone-800/20 flex flex-col text-left">
                                 
-                                <!-- Top Status Bar -->
+                                <!-- Phone Status Bar -->
                                 <div class="h-7 px-4 pt-1.5 flex items-center justify-between bg-stone-50 text-[10px] font-mono-nav font-bold text-stone-900 select-none border-b border-stone-100">
                                     <span>10:15</span>
-                                    <div class="w-16 h-3.5 bg-stone-950 rounded-full flex items-center justify-end px-1.5">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-stone-800"></span>
-                                    </div>
-                                    <div class="flex items-center gap-1.5 text-stone-800">
-                                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 18c-.8 0-1.5.7-1.5 1.5S11.2 21 12 21s1.5-.7 1.5-1.5S12.8 18 12 18zm-4.9-3.4c2.7-2.7 7.1-2.7 9.8 0l1.4-1.4c-3.5-3.5-9.2-3.5-12.7 0l1.5 1.4zm-2.8-2.8c4.3-4.3 11.2-4.3 15.4 0l1.4-1.4c-5.1-5.1-13.3-5.1-18.3 0l1.5 1.4z"/></svg>
-                                        <div class="w-4 h-2 rounded-[2px] border border-stone-900 p-[1px] flex items-center"><div class="w-full h-full bg-stone-900 rounded-[1px]"></div></div>
-                                    </div>
+                                    <div class="w-16 h-3.5 bg-stone-950 rounded-full flex items-center justify-end px-1.5"><span class="w-1.5 h-1.5 rounded-full bg-stone-800"></span></div>
+                                    <div class="flex items-center gap-1.5 text-stone-800"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 18c-.8 0-1.5.7-1.5 1.5S11.2 21 12 21s1.5-.7 1.5-1.5S12.8 18 12 18zm-4.9-3.4c2.7-2.7 7.1-2.7 9.8 0l1.4-1.4c-3.5-3.5-9.2-3.5-12.7 0l1.5 1.4zm-2.8-2.8c4.3-4.3 11.2-4.3 15.4 0l1.4-1.4c-5.1-5.1-13.3-5.1-18.3 0l1.5 1.4z"/></svg><div class="w-4 h-2 rounded-[2px] border border-stone-900 p-[1px] flex items-center"><div class="w-full h-full bg-stone-900 rounded-[1px]"></div></div></div>
                                 </div>
 
                                 <!-- In-App Top Header Bar -->
@@ -1525,16 +1315,11 @@
                             <!-- Phone Screen Inner Surface -->
                             <div class="w-full rounded-[2.25rem] bg-white overflow-hidden border border-stone-800/20 flex flex-col text-left">
                                 
-                                <!-- Top Status Bar -->
+                                <!-- Phone Status Bar -->
                                 <div class="h-7 px-4 pt-1.5 flex items-center justify-between bg-stone-50 text-[10px] font-mono-nav font-bold text-stone-900 select-none border-b border-stone-100">
                                     <span>11:29</span>
-                                    <div class="w-16 h-3.5 bg-stone-950 rounded-full flex items-center justify-end px-1.5">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-stone-800"></span>
-                                    </div>
-                                    <div class="flex items-center gap-1.5 text-stone-800">
-                                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 18c-.8 0-1.5.7-1.5 1.5S11.2 21 12 21s1.5-.7 1.5-1.5S12.8 18 12 18zm-4.9-3.4c2.7-2.7 7.1-2.7 9.8 0l1.4-1.4c-3.5-3.5-9.2-3.5-12.7 0l1.5 1.4zm-2.8-2.8c4.3-4.3 11.2-4.3 15.4 0l1.4-1.4c-5.1-5.1-13.3-5.1-18.3 0l1.5 1.4z"/></svg>
-                                        <div class="w-4 h-2 rounded-[2px] border border-stone-900 p-[1px] flex items-center"><div class="w-full h-full bg-stone-900 rounded-[1px]"></div></div>
-                                    </div>
+                                    <div class="w-16 h-3.5 bg-stone-950 rounded-full flex items-center justify-end px-1.5"><span class="w-1.5 h-1.5 rounded-full bg-stone-800"></span></div>
+                                    <div class="flex items-center gap-1.5 text-stone-800"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 18c-.8 0-1.5.7-1.5 1.5S11.2 21 12 21s1.5-.7 1.5-1.5S12.8 18 12 18zm-4.9-3.4c2.7-2.7 7.1-2.7 9.8 0l1.4-1.4c-3.5-3.5-9.2-3.5-12.7 0l1.5 1.4zm-2.8-2.8c4.3-4.3 11.2-4.3 15.4 0l1.4-1.4c-5.1-5.1-13.3-5.1-18.3 0l1.5 1.4z"/></svg><div class="w-4 h-2 rounded-[2px] border border-stone-900 p-[1px] flex items-center"><div class="w-full h-full bg-stone-900 rounded-[1px]"></div></div></div>
                                 </div>
 
                                 <!-- In-App Top Header Bar -->
@@ -1616,16 +1401,11 @@
                             <!-- Phone Screen Inner Surface -->
                             <div class="w-full rounded-[2.25rem] bg-white overflow-hidden border border-stone-800/20 flex flex-col text-left">
                                 
-                                <!-- Top Status Bar -->
+                                <!-- Phone Status Bar -->
                                 <div class="h-7 px-4 pt-1.5 flex items-center justify-between bg-stone-50 text-[10px] font-mono-nav font-bold text-stone-900 select-none border-b border-stone-100">
                                     <span>12:45</span>
-                                    <div class="w-16 h-3.5 bg-stone-950 rounded-full flex items-center justify-end px-1.5">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-stone-800"></span>
-                                    </div>
-                                    <div class="flex items-center gap-1.5 text-stone-800">
-                                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 18c-.8 0-1.5.7-1.5 1.5S11.2 21 12 21s1.5-.7 1.5-1.5S12.8 18 12 18zm-4.9-3.4c2.7-2.7 7.1-2.7 9.8 0l1.4-1.4c-3.5-3.5-9.2-3.5-12.7 0l1.5 1.4zm-2.8-2.8c4.3-4.3 11.2-4.3 15.4 0l1.4-1.4c-5.1-5.1-13.3-5.1-18.3 0l1.5 1.4z"/></svg>
-                                        <div class="w-4 h-2 rounded-[2px] border border-stone-900 p-[1px] flex items-center"><div class="w-full h-full bg-stone-900 rounded-[1px]"></div></div>
-                                    </div>
+                                    <div class="w-16 h-3.5 bg-stone-950 rounded-full flex items-center justify-end px-1.5"><span class="w-1.5 h-1.5 rounded-full bg-stone-800"></span></div>
+                                    <div class="flex items-center gap-1.5 text-stone-800"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 18c-.8 0-1.5.7-1.5 1.5S11.2 21 12 21s1.5-.7 1.5-1.5S12.8 18 12 18zm-4.9-3.4c2.7-2.7 7.1-2.7 9.8 0l1.4-1.4c-3.5-3.5-9.2-3.5-12.7 0l1.5 1.4zm-2.8-2.8c4.3-4.3 11.2-4.3 15.4 0l1.4-1.4c-5.1-5.1-13.3-5.1-18.3 0l1.5 1.4z"/></svg><div class="w-4 h-2 rounded-[2px] border border-stone-900 p-[1px] flex items-center"><div class="w-full h-full bg-stone-900 rounded-[1px]"></div></div></div>
                                 </div>
 
                                 <!-- In-App Top Header Bar -->
@@ -1710,16 +1490,11 @@
                             <!-- Phone Screen Inner Surface -->
                             <div class="w-full rounded-[2.25rem] bg-white overflow-hidden border border-stone-800/20 flex flex-col text-left">
                                 
-                                <!-- Top Status Bar -->
+                                <!-- Phone Status Bar -->
                                 <div class="h-7 px-4 pt-1.5 flex items-center justify-between bg-stone-50 text-[10px] font-mono-nav font-bold text-stone-900 select-none border-b border-stone-100">
                                     <span>1:30</span>
-                                    <div class="w-16 h-3.5 bg-stone-950 rounded-full flex items-center justify-end px-1.5">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-stone-800"></span>
-                                    </div>
-                                    <div class="flex items-center gap-1.5 text-stone-800">
-                                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 18c-.8 0-1.5.7-1.5 1.5S11.2 21 12 21s1.5-.7 1.5-1.5S12.8 18 12 18zm-4.9-3.4c2.7-2.7 7.1-2.7 9.8 0l1.4-1.4c-3.5-3.5-9.2-3.5-12.7 0l1.5 1.4zm-2.8-2.8c4.3-4.3 11.2-4.3 15.4 0l1.4-1.4c-5.1-5.1-13.3-5.1-18.3 0l1.5 1.4z"/></svg>
-                                        <div class="w-4 h-2 rounded-[2px] border border-stone-900 p-[1px] flex items-center"><div class="w-full h-full bg-stone-900 rounded-[1px]"></div></div>
-                                    </div>
+                                    <div class="w-16 h-3.5 bg-stone-950 rounded-full flex items-center justify-end px-1.5"><span class="w-1.5 h-1.5 rounded-full bg-stone-800"></span></div>
+                                    <div class="flex items-center gap-1.5 text-stone-800"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 18c-.8 0-1.5.7-1.5 1.5S11.2 21 12 21s1.5-.7 1.5-1.5S12.8 18 12 18zm-4.9-3.4c2.7-2.7 7.1-2.7 9.8 0l1.4-1.4c-3.5-3.5-9.2-3.5-12.7 0l1.5 1.4zm-2.8-2.8c4.3-4.3 11.2-4.3 15.4 0l1.4-1.4c-5.1-5.1-13.3-5.1-18.3 0l1.5 1.4z"/></svg><div class="w-4 h-2 rounded-[2px] border border-stone-900 p-[1px] flex items-center"><div class="w-full h-full bg-stone-900 rounded-[1px]"></div></div></div>
                                 </div>
 
                                 <!-- In-App Top Header Bar -->
@@ -1803,16 +1578,11 @@
                             <!-- Phone Screen Inner Surface -->
                             <div class="w-full rounded-[2.25rem] bg-white overflow-hidden border border-stone-800/20 flex flex-col text-left">
                                 
-                                <!-- Top Status Bar -->
+                                <!-- Phone Status Bar -->
                                 <div class="h-7 px-4 pt-1.5 flex items-center justify-between bg-stone-50 text-[10px] font-mono-nav font-bold text-stone-900 select-none border-b border-stone-100">
                                     <span>2:15</span>
-                                    <div class="w-16 h-3.5 bg-stone-950 rounded-full flex items-center justify-end px-1.5">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-stone-800"></span>
-                                    </div>
-                                    <div class="flex items-center gap-1.5 text-stone-800">
-                                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 18c-.8 0-1.5.7-1.5 1.5S11.2 21 12 21s1.5-.7 1.5-1.5S12.8 18 12 18zm-4.9-3.4c2.7-2.7 7.1-2.7 9.8 0l1.4-1.4c-3.5-3.5-9.2-3.5-12.7 0l1.5 1.4zm-2.8-2.8c4.3-4.3 11.2-4.3 15.4 0l1.4-1.4c-5.1-5.1-13.3-5.1-18.3 0l1.5 1.4z"/></svg>
-                                        <div class="w-4 h-2 rounded-[2px] border border-stone-900 p-[1px] flex items-center"><div class="w-full h-full bg-stone-900 rounded-[1px]"></div></div>
-                                    </div>
+                                    <div class="w-16 h-3.5 bg-stone-950 rounded-full flex items-center justify-end px-1.5"><span class="w-1.5 h-1.5 rounded-full bg-stone-800"></span></div>
+                                    <div class="flex items-center gap-1.5 text-stone-800"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 18c-.8 0-1.5.7-1.5 1.5S11.2 21 12 21s1.5-.7 1.5-1.5S12.8 18 12 18zm-4.9-3.4c2.7-2.7 7.1-2.7 9.8 0l1.4-1.4c-3.5-3.5-9.2-3.5-12.7 0l1.5 1.4zm-2.8-2.8c4.3-4.3 11.2-4.3 15.4 0l1.4-1.4c-5.1-5.1-13.3-5.1-18.3 0l1.5 1.4z"/></svg><div class="w-4 h-2 rounded-[2px] border border-stone-900 p-[1px] flex items-center"><div class="w-full h-full bg-stone-900 rounded-[1px]"></div></div></div>
                                 </div>
 
                                 <!-- In-App Top Header Bar -->
@@ -1928,7 +1698,6 @@
 
         </div>
     </section>
-
 
     <!-- MOBILE FULL-HEIGHT DRAWER (Exact 1:1 Session Form Wireframe Aesthetic + Aceternity Gliding Pill Physics) -->
     <div id="mobileMenu"
@@ -2402,7 +2171,14 @@
             }, 1100);
         }
     
-        // ==================== SERVICES CAROUSEL CONTROLLER ====================
+        // ==================== ACTIVITY MARQUEE & SERVICES CONTROLLER ====================
+        function initActivityMarquee() {
+            const marqueeTrack = document.getElementById('infiniteCardsTrack');
+            if (marqueeTrack && marqueeTrack.children.length === 6) {
+                marqueeTrack.innerHTML += marqueeTrack.innerHTML;
+            }
+        }
+
         function scrollServices(direction) {
             const track = document.getElementById('servicesCarouselTrack');
             if (!track) return;
@@ -2450,9 +2226,9 @@
         }
 
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initServicesCarousel);
+            document.addEventListener('DOMContentLoaded', () => { initActivityMarquee(); initServicesCarousel(); });
         } else {
-            initServicesCarousel();
+            initActivityMarquee(); initServicesCarousel();
         }
 </script>
 </body>
