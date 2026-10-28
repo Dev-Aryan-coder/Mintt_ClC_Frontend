@@ -407,7 +407,43 @@
 
         
     
-        /* ==============================================================
+                /* ==============================================================
+           MOBILE HORIZONTAL TESTIMONIALS MARQUEE (SMOOTH VERTICAL PAGE SCROLL)
+           ============================================================== */
+        @keyframes horizontalTestimonialsScroll {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+            100% {
+                transform: translate3d(-50%, 0, 0);
+            }
+        }
+
+        @-webkit-keyframes horizontalTestimonialsScroll {
+            0% {
+                -webkit-transform: translate3d(0, 0, 0);
+            }
+            100% {
+                -webkit-transform: translate3d(-50%, 0, 0);
+            }
+        }
+
+        .animate-infinite-testimonials-mobile {
+            display: flex;
+            width: max-content;
+            flex-wrap: nowrap;
+            will-change: transform;
+            -webkit-animation: horizontalTestimonialsScroll 32s linear infinite;
+            animation: horizontalTestimonialsScroll 32s linear infinite;
+        }
+
+        .animate-infinite-testimonials-mobile:hover,
+        .animate-infinite-testimonials-mobile:active {
+            -webkit-animation-play-state: paused;
+            animation-play-state: paused;
+        }
+
+/* ==============================================================
            ACETERNITY VERTICAL TESTIMONIALS INFINITE MARQUEE (GPU-ACCELERATED)
            ============================================================== */
         @keyframes verticalMarqueeDown {
@@ -3004,8 +3040,173 @@
                 </p>
             </div>
 
-            <!-- Aceternity Vertical Masonry Viewport Container with Soft Top/Bottom Vignette Masks -->
-            <div class="relative h-[680px] sm:h-[740px] w-full overflow-hidden rounded-3xl border border-stone-200/80 bg-white/60 p-3 sm:p-5 shadow-[inset_0_2px_12px_rgba(0,0,0,0.03)]">
+            <!-- ========================================================================= -->
+            <!-- MOBILE VIEW (< md): HORIZONTAL MOVING MARQUEE (Zero Page Scroll Interference) -->
+            <!-- ========================================================================= -->
+            <div class="block md:hidden w-full overflow-hidden relative mb-6 py-2">
+                <!-- Soft horizontal gradient edge masks -->
+                <div class="pointer-events-none absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-[#FAF9F6] to-transparent z-10"></div>
+                <div class="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-[#FAF9F6] to-transparent z-10"></div>
+
+                <div id="mobileTestimonialsTrack" class="animate-infinite-testimonials-mobile flex gap-4 py-2">
+                    
+                    <!-- Card 1: Pooja Deshmukh -->
+                    <div class="w-[84vw] max-w-[310px] shrink-0 bg-white rounded-3xl p-5 border border-stone-200/90 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 text-[10px] font-bold border border-emerald-200/80">
+                                    <svg class="w-3 h-3 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Google Review &bull; 5.0</span>
+                                </span>
+                                <svg class="w-6 h-6 text-stone-200" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"></path></svg>
+                            </div>
+                            <p class="text-stone-800 text-xs sm:text-sm leading-relaxed font-normal mb-4">
+                                &ldquo;Dr. Sumit Shinde and his team are exceptionally dedicated. Within 6 months of sensory integration therapy, our son&apos;s sitting tolerance and classroom focus improved tremendously.&rdquo;
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2.5 pt-2.5 border-t border-stone-100">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#16244F] to-[#2a458f] text-white font-black text-[11px] flex items-center justify-center shrink-0">
+                                PD
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold text-stone-900 leading-tight">Pooja Deshmukh</h4>
+                                <p class="text-[11px] text-stone-500 font-medium">Parent &bull; Vashi Centre</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Rajesh Nair -->
+                    <div class="w-[84vw] max-w-[310px] shrink-0 bg-white rounded-3xl p-5 border border-stone-200/90 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 text-[10px] font-bold border border-emerald-200/80">
+                                    <svg class="w-3 h-3 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Google Review &bull; 5.0</span>
+                                </span>
+                                <svg class="w-6 h-6 text-stone-200" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"></path></svg>
+                            </div>
+                            <p class="text-stone-800 text-xs sm:text-sm leading-relaxed font-normal mb-4">
+                                &ldquo;We were deeply concerned about our daughter&apos;s speech delay. The speech team at Nerul gave us clear weekly goals. Today she speaks in complete sentences and asks questions with joy!&rdquo;
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2.5 pt-2.5 border-t border-stone-100">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#16244F] to-[#1e3a8a] text-white font-black text-[11px] flex items-center justify-center shrink-0">
+                                RN
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold text-stone-900 leading-tight">Rajesh Nair</h4>
+                                <p class="text-[11px] text-stone-500 font-medium">Parent &bull; Nerul (HQ)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Sneha Kulkarni -->
+                    <div class="w-[84vw] max-w-[310px] shrink-0 bg-white rounded-3xl p-5 border border-stone-200/90 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 text-[10px] font-bold border border-emerald-200/80">
+                                    <svg class="w-3 h-3 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Google Review &bull; 5.0</span>
+                                </span>
+                                <svg class="w-6 h-6 text-stone-200" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"></path></svg>
+                            </div>
+                            <p class="text-stone-800 text-xs sm:text-sm leading-relaxed font-normal mb-4">
+                                &ldquo;Dr. Reena Shinde and the special education team developed a tailored remedial curriculum for our 8-year-old. His teachers recently commended his newfound academic confidence!&rdquo;
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2.5 pt-2.5 border-t border-stone-100">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-rose-800 to-rose-600 text-white font-black text-[11px] flex items-center justify-center shrink-0">
+                                SK
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold text-stone-900 leading-tight">Sneha Kulkarni</h4>
+                                <p class="text-[11px] text-stone-500 font-medium">Parent &bull; Dadar Centre</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Amit & Neha Verma -->
+                    <div class="w-[84vw] max-w-[310px] shrink-0 bg-white rounded-3xl p-5 border border-stone-200/90 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 text-[10px] font-bold border border-emerald-200/80">
+                                    <svg class="w-3 h-3 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Google Review &bull; 5.0</span>
+                                </span>
+                                <svg class="w-6 h-6 text-stone-200" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"></path></svg>
+                            </div>
+                            <p class="text-stone-800 text-xs sm:text-sm leading-relaxed font-normal mb-4">
+                                &ldquo;The Father-Child bonding workshops organized by CLC opened our eyes. They coached us on handling emotional dysregulation at home without anger. Multidisciplinary care is world-class.&rdquo;
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2.5 pt-2.5 border-t border-stone-100">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#C8232C] to-[#e63946] text-white font-black text-[11px] flex items-center justify-center shrink-0">
+                                AV
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold text-stone-900 leading-tight">Amit &amp; Neha Verma</h4>
+                                <p class="text-[11px] text-stone-500 font-medium">Parents &bull; Thane Centre</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: Deepali Joshi -->
+                    <div class="w-[84vw] max-w-[310px] shrink-0 bg-white rounded-3xl p-5 border border-stone-200/90 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 text-[10px] font-bold border border-emerald-200/80">
+                                    <svg class="w-3 h-3 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Google Review &bull; 5.0</span>
+                                </span>
+                                <svg class="w-6 h-6 text-stone-200" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"></path></svg>
+                            </div>
+                            <p class="text-stone-800 text-xs sm:text-sm leading-relaxed font-normal mb-4">
+                                &ldquo;Our son had severe difficulty holding pencils due to low muscle tone. Through targeted pincer grasp exercises and hand-strengthening games, he is writing neatly and independently.&rdquo;
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2.5 pt-2.5 border-t border-stone-100">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-amber-600 to-amber-500 text-white font-black text-[11px] flex items-center justify-center shrink-0">
+                                DJ
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold text-stone-900 leading-tight">Deepali Joshi</h4>
+                                <p class="text-[11px] text-stone-500 font-medium">Parent &bull; Vashi Centre</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6: Dr. Anjali Patil -->
+                    <div class="w-[84vw] max-w-[310px] shrink-0 bg-white rounded-3xl p-5 border border-stone-200/90 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-800 text-[10px] font-bold border border-emerald-200/80">
+                                    <svg class="w-3 h-3 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                                    <span>Doctor &bull; 5.0</span>
+                                </span>
+                                <svg class="w-6 h-6 text-stone-200" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"></path></svg>
+                            </div>
+                            <p class="text-stone-800 text-xs sm:text-sm leading-relaxed font-normal mb-4">
+                                &ldquo;As a pediatrician, I hold rehabilitation to high clinical standards. Dr. Sumit and CLC utilize evidence-based sensory protocols. I confidently refer my young patients with outstanding outcomes.&rdquo;
+                            </p>
+                        </div>
+                        <div class="flex items-center gap-2.5 pt-2.5 border-t border-stone-100">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#16244F] to-[#C8232C] text-white font-black text-[11px] flex items-center justify-center shrink-0">
+                                AP
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold text-stone-900 leading-tight">Dr. Anjali Patil</h4>
+                                <p class="text-[11px] text-stone-500 font-medium">Pediatrician &amp; Parent</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ========================================================================= -->
+            <!-- DESKTOP & TABLET VIEW (md:): VERTICAL 3-COLUMN MARQUEE                    -->
+            <!-- ========================================================================= -->
+            <div class="hidden md:block relative h-[680px] sm:h-[740px] w-full overflow-hidden rounded-3xl border border-stone-200/80 bg-white/60 p-3 sm:p-5 shadow-[inset_0_2px_12px_rgba(0,0,0,0.03)]">
                 
                 <!-- Top Soft Vignette Gradient Fade Mask -->
                 <div class="pointer-events-none absolute inset-x-0 top-0 h-28 sm:h-36 bg-gradient-to-b from-[#FAF9F6] via-[#FAF9F6]/85 to-transparent z-20"></div>
@@ -3841,13 +4042,26 @@
         
         // ==================== ACETERNITY VERTICAL TESTIMONIALS MARQUEE ====================
         function initVerticalTestimonials() {
+            // 1. Mobile horizontal marquee
+            const mobileTrack = document.getElementById('mobileTestimonialsTrack');
+            if (mobileTrack && !mobileTrack.dataset.cloned) {
+                mobileTrack.dataset.cloned = "true";
+                mobileTrack.innerHTML += mobileTrack.innerHTML;
+                mobileTrack.addEventListener('touchstart', () => {
+                    mobileTrack.style.animationPlayState = 'paused';
+                }, { passive: true });
+                mobileTrack.addEventListener('touchend', () => {
+                    mobileTrack.style.animationPlayState = 'running';
+                }, { passive: true });
+            }
+
+            // 2. Desktop vertical tracks
             const tracks = document.querySelectorAll('.animate-vertical-down, .animate-vertical-up, .animate-vertical-down-alt');
             tracks.forEach(track => {
                 if (!track.dataset.cloned) {
                     track.dataset.cloned = "true";
                     track.innerHTML += track.innerHTML;
                 }
-                // Pause on mobile touch
                 track.addEventListener('touchstart', () => {
                     track.style.animationPlayState = 'paused';
                 }, { passive: true });
