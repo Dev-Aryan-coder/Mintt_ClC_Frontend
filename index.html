@@ -2174,7 +2174,8 @@
         // ==================== ACTIVITY MARQUEE & SERVICES CONTROLLER ====================
         function initActivityMarquee() {
             const marqueeTrack = document.getElementById('infiniteCardsTrack');
-            if (marqueeTrack && marqueeTrack.children.length === 6) {
+            if (marqueeTrack && !marqueeTrack.dataset.cloned) {
+                marqueeTrack.dataset.cloned = "true";
                 marqueeTrack.innerHTML += marqueeTrack.innerHTML;
             }
         }
