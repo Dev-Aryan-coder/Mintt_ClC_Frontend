@@ -216,6 +216,10 @@
             -webkit-animation: infiniteCardsScroll 32s linear infinite;
             animation: infiniteCardsScroll 32s linear infinite;
         }
+
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none;
+        }
     </style>
 </head>
 
@@ -1252,6 +1256,680 @@
         </div>
     </section>
 
+    <!-- ==========================================================================
+         SERVICES PROVIDED BY CLC (Good Inside 1:1 Device Mockup Architecture)
+         ========================================================================== -->
+    <section id="services" class="relative w-full bg-[#FAF9F6] py-16 sm:py-20 md:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden border-t border-stone-200">
+        
+        <div class="max-w-7xl mx-auto">
+            
+            <!-- SECTION HEADER: Category Eyebrow, Main Headline & Authentic Subtitle -->
+            <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-14 lg:mb-16">
+                
+                <!-- Category Eyebrow -->
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#ef2531]/30 shadow-2xs mb-3 sm:mb-4">
+                    <span class="w-2 h-2 rounded-full bg-[#ef2531]"></span>
+                    <span class="text-[11px] sm:text-xs font-extrabold uppercase tracking-widest text-[#ef2531] font-mono-nav">
+                        COMPREHENSIVE PEDIATRIC SERVICES
+                    </span>
+                </div>
+                
+                <!-- Main H2 Headline -->
+                <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-black text-stone-950 tracking-tight leading-[1.14] mb-3 sm:mb-4">
+                    Services Provided By CLC
+                </h2>
+                
+                <!-- Authentic Subtitle (From Official Scraped CLC Data) -->
+                <p class="text-xs sm:text-sm md:text-base text-stone-600 leading-relaxed font-normal max-w-2xl mx-auto">
+                    Evidence-based therapeutic, psychological, and remedial care formulated around your child&rsquo;s individual developmental pace &mdash; delivered by licensed pediatric clinicians across 6 centres in Mumbai, Navi Mumbai, and Pune.
+                </p>
+
+            </div>
+
+            <!-- CAROUSEL WRAPPER WITH SIDE ARROWS -->
+            <div class="relative max-w-6xl mx-auto">
+                
+                <!-- Left Circular Arrow Button (Desktop & Tablet) -->
+                <button type="button" onclick="scrollServices(-1)" aria-label="Previous service"
+                    class="hidden md:flex absolute -left-5 lg:-left-7 top-[55%] -translate-y-1/2 z-20 w-11 h-11 lg:w-12 lg:h-12 rounded-full bg-white border border-stone-300 shadow-md hover:shadow-lg text-stone-800 hover:text-[#ef2531] items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+
+                <!-- Right Circular Arrow Button (Desktop & Tablet) -->
+                <button type="button" onclick="scrollServices(1)" aria-label="Next service"
+                    class="hidden md:flex absolute -right-5 lg:-right-7 top-[55%] -translate-y-1/2 z-20 w-11 h-11 lg:w-12 lg:h-12 rounded-full bg-white border border-stone-300 shadow-md hover:shadow-lg text-stone-800 hover:text-[#ef2531] items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+
+                <!-- HORIZONTAL SCROLLABLE TRACK (Good Inside 1:1 Responsive Device Frame Architecture) -->
+                <div id="servicesCarouselTrack"
+                    class="flex items-start gap-6 sm:gap-8 overflow-x-auto pb-6 pt-2 px-1 snap-x snap-mandatory scroll-smooth hide-scrollbar">
+                    
+                    <!-- 1. SERVICE CARD: Speech & Language Therapy -->
+                    <div class="service-phone-card flex flex-col items-center shrink-0 w-[285px] sm:w-[320px] md:w-[335px] lg:w-[350px] snap-center">
+                        
+                        <!-- Top Circle Icon -->
+                        <div class="w-12 h-12 rounded-full border border-stone-300 bg-white shadow-2xs flex items-center justify-center mb-3 text-stone-800">
+                            <svg class="w-6 h-6 text-stone-800" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 2a5 5 0 0 0-5 5v3a5 5 0 0 0 10 0V7a5 5 0 0 0-5-5z"></path>
+                                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                                <line x1="12" y1="19" x2="12" y2="23"></line>
+                                <line x1="8" y1="23" x2="16" y2="23"></line>
+                            </svg>
+                        </div>
+                        
+                        <!-- Title & Description -->
+                        <h3 class="text-base sm:text-lg lg:text-xl font-black text-stone-900 tracking-tight text-center leading-snug mb-1">
+                            Speech &amp; Language Therapy
+                        </h3>
+                        <p class="text-xs sm:text-[13px] text-stone-600 text-center leading-relaxed max-w-[270px] mx-auto mb-5 sm:mb-6 min-h-[38px]">
+                            Articulation, stuttering, vocabulary building, and conversational confidence.
+                        </p>
+
+                        <!-- Sleek Smartphone Frame Mockup -->
+                        <div class="w-full bg-stone-900 rounded-[2.85rem] p-2.5 sm:p-3 border-[4px] border-stone-800 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.18)] flex flex-col transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                            
+                            <!-- Phone Screen Inner Surface -->
+                            <div class="w-full rounded-[2.25rem] bg-white overflow-hidden border border-stone-800/20 flex flex-col text-left">
+                                
+                                <!-- Top Status Bar -->
+                                <div class="h-7 px-4 pt-1.5 flex items-center justify-between bg-stone-50 text-[10px] font-mono-nav font-bold text-stone-900 select-none border-b border-stone-100">
+                                    <span>9:41</span>
+                                    <div class="w-16 h-3.5 bg-stone-950 rounded-full flex items-center justify-end px-1.5">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-stone-800"></span>
+                                    </div>
+                                    <div class="flex items-center gap-1.5 text-stone-800">
+                                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 18c-.8 0-1.5.7-1.5 1.5S11.2 21 12 21s1.5-.7 1.5-1.5S12.8 18 12 18zm-4.9-3.4c2.7-2.7 7.1-2.7 9.8 0l1.4-1.4c-3.5-3.5-9.2-3.5-12.7 0l1.5 1.4zm-2.8-2.8c4.3-4.3 11.2-4.3 15.4 0l1.4-1.4c-5.1-5.1-13.3-5.1-18.3 0l1.5 1.4z"/></svg>
+                                        <div class="w-4 h-2 rounded-[2px] border border-stone-900 p-[1px] flex items-center"><div class="w-full h-full bg-stone-900 rounded-[1px]"></div></div>
+                                    </div>
+                                </div>
+
+                                <!-- In-App Top Header Bar -->
+                                <div class="px-3 py-2 bg-stone-50/80 border-b border-stone-200/70 flex items-center justify-between">
+                                    <span class="text-[10px] font-extrabold uppercase tracking-wider text-[#ef2531] font-mono-nav flex items-center gap-1">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-[#ef2531]"></span> Speech Clinic
+                                    </span>
+                                    <span class="text-[9px] font-bold text-stone-500 font-mono-nav bg-white px-2 py-0.5 rounded-full border border-stone-200">
+                                        1:1 Guided
+                                    </span>
+                                </div>
+
+                                <!-- Real Session Photo Card -->
+                                <div class="relative aspect-[16/10] overflow-hidden rounded-xl bg-stone-100 m-2.5 shadow-2xs">
+                                    <img src="pics/activities/activity-4.jpg" alt="Child Learning Centre Speech & Language Session"
+                                        class="w-full h-full object-cover" />
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                                    <div class="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between text-white text-[10px] font-bold font-mono-nav">
+                                        <span class="bg-black/60 backdrop-blur-xs px-2 py-0.5 rounded-md flex items-center gap-1">
+                                            <svg class="w-2.5 h-2.5 fill-current text-white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                                            Clinical Lab
+                                        </span>
+                                        <span class="text-stone-200 text-[9px]">Mumbai &bull; Pune</span>
+                                    </div>
+                                </div>
+
+                                <!-- Card Content Details -->
+                                <div class="px-3 pb-3 pt-0.5 space-y-2">
+                                    <div>
+                                        <h4 class="text-xs sm:text-sm font-black text-stone-900 leading-tight">
+                                            Articulation &amp; Fluency Studio
+                                        </h4>
+                                        <p class="text-[11px] text-stone-500 leading-snug mt-0.5">
+                                            Interactive play &amp; acoustic feedback overcoming speech blocks.
+                                        </p>
+                                    </div>
+
+                                    <!-- Tag Chips -->
+                                    <div class="flex flex-wrap gap-1 pt-0.5">
+                                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-stone-100 text-stone-700 border border-stone-200">Sound Blending</span>
+                                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-stone-100 text-stone-700 border border-stone-200">Vocabulary</span>
+                                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-stone-100 text-stone-700 border border-stone-200">Clarity</span>
+                                    </div>
+
+                                    <!-- Action Button inside Phone -->
+                                    <button type="button" onclick="openBookingModal()"
+                                        class="w-full mt-2 py-2 px-3 rounded-xl bg-stone-900 hover:bg-[#ef2531] text-white font-mono-nav text-[10px] font-bold uppercase tracking-wider flex items-center justify-between transition-colors shadow-2xs cursor-pointer">
+                                        <span>Schedule Evaluation</span>
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- 2. SERVICE CARD: Occupational Therapy & Sensory Integration -->
+                    <div class="service-phone-card flex flex-col items-center shrink-0 w-[285px] sm:w-[320px] md:w-[335px] lg:w-[350px] snap-center">
+                        
+                        <!-- Top Circle Icon -->
+                        <div class="w-12 h-12 rounded-full border border-stone-300 bg-white shadow-2xs flex items-center justify-center mb-3 text-stone-800">
+                            <svg class="w-6 h-6 text-stone-800" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                                <path d="m9 16 2 2 4-4"></path>
+                            </svg>
+                        </div>
+                        
+                        <!-- Title & Description -->
+                        <h3 class="text-base sm:text-lg lg:text-xl font-black text-stone-900 tracking-tight text-center leading-snug mb-1">
+                            Occupational Therapy
+                        </h3>
+                        <p class="text-xs sm:text-[13px] text-stone-600 text-center leading-relaxed max-w-[270px] mx-auto mb-5 sm:mb-6 min-h-[38px]">
+                            Sensory calming, fine motor dexterity, and everyday functional independence.
+                        </p>
+
+                        <!-- Sleek Smartphone Frame Mockup -->
+                        <div class="w-full bg-stone-900 rounded-[2.85rem] p-2.5 sm:p-3 border-[4px] border-stone-800 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.18)] flex flex-col transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                            
+                            <!-- Phone Screen Inner Surface -->
+                            <div class="w-full rounded-[2.25rem] bg-white overflow-hidden border border-stone-800/20 flex flex-col text-left">
+                                
+                                <!-- Top Status Bar -->
+                                <div class="h-7 px-4 pt-1.5 flex items-center justify-between bg-stone-50 text-[10px] font-mono-nav font-bold text-stone-900 select-none border-b border-stone-100">
+                                    <span>10:15</span>
+                                    <div class="w-16 h-3.5 bg-stone-950 rounded-full flex items-center justify-end px-1.5">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-stone-800"></span>
+                                    </div>
+                                    <div class="flex items-center gap-1.5 text-stone-800">
+                                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 18c-.8 0-1.5.7-1.5 1.5S11.2 21 12 21s1.5-.7 1.5-1.5S12.8 18 12 18zm-4.9-3.4c2.7-2.7 7.1-2.7 9.8 0l1.4-1.4c-3.5-3.5-9.2-3.5-12.7 0l1.5 1.4zm-2.8-2.8c4.3-4.3 11.2-4.3 15.4 0l1.4-1.4c-5.1-5.1-13.3-5.1-18.3 0l1.5 1.4z"/></svg>
+                                        <div class="w-4 h-2 rounded-[2px] border border-stone-900 p-[1px] flex items-center"><div class="w-full h-full bg-stone-900 rounded-[1px]"></div></div>
+                                    </div>
+                                </div>
+
+                                <!-- In-App Top Header Bar -->
+                                <div class="px-3 py-2 bg-stone-50/80 border-b border-stone-200/70 flex items-center justify-between">
+                                    <span class="text-[10px] font-extrabold uppercase tracking-wider text-emerald-700 font-mono-nav flex items-center gap-1">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> Sensory Gym
+                                    </span>
+                                    <span class="text-[9px] font-bold text-stone-500 font-mono-nav bg-white px-2 py-0.5 rounded-full border border-stone-200">
+                                        Licensed OTs
+                                    </span>
+                                </div>
+
+                                <!-- Real Session Photo Card -->
+                                <div class="relative aspect-[16/10] overflow-hidden rounded-xl bg-stone-100 m-2.5 shadow-2xs">
+                                    <img src="pics/activities/activity-2.jpg" alt="Child Learning Centre Fine Motor and Occupational Therapy"
+                                        class="w-full h-full object-cover" />
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                                    <div class="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between text-white text-[10px] font-bold font-mono-nav">
+                                        <span class="bg-black/60 backdrop-blur-xs px-2 py-0.5 rounded-md flex items-center gap-1">
+                                            <svg class="w-2.5 h-2.5 fill-current text-white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                                            Sensory Lab
+                                        </span>
+                                        <span class="text-stone-200 text-[9px]">Sensory Integration</span>
+                                    </div>
+                                </div>
+
+                                <!-- Card Content Details -->
+                                <div class="px-3 pb-3 pt-0.5 space-y-2">
+                                    <div>
+                                        <h4 class="text-xs sm:text-sm font-black text-stone-900 leading-tight">
+                                            Sensory Diet &amp; Motor Planning
+                                        </h4>
+                                        <p class="text-[11px] text-stone-500 leading-snug mt-0.5">
+                                            Pincer-grasp tools, balance boards &amp; postural stamina apparatus.
+                                        </p>
+                                    </div>
+
+                                    <!-- Tag Chips -->
+                                    <div class="flex flex-wrap gap-1 pt-0.5">
+                                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-stone-100 text-stone-700 border border-stone-200">Sensory Calming</span>
+                                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-stone-100 text-stone-700 border border-stone-200">Pencil Grip</span>
+                                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-stone-100 text-stone-700 border border-stone-200">Coordination</span>
+                                    </div>
+
+                                    <!-- Action Button inside Phone -->
+                                    <button type="button" onclick="openBookingModal()"
+                                        class="w-full mt-2 py-2 px-3 rounded-xl bg-stone-900 hover:bg-[#ef2531] text-white font-mono-nav text-[10px] font-bold uppercase tracking-wider flex items-center justify-between transition-colors shadow-2xs cursor-pointer">
+                                        <span>Explore OT Roadmap</span>
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- 3. SERVICE CARD: Remedial Education & LD Rehab -->
+                    <div class="service-phone-card flex flex-col items-center shrink-0 w-[285px] sm:w-[320px] md:w-[335px] lg:w-[350px] snap-center">
+                        
+                        <!-- Top Circle Icon -->
+                        <div class="w-12 h-12 rounded-full border border-stone-300 bg-white shadow-2xs flex items-center justify-center mb-3 text-stone-800">
+                            <svg class="w-6 h-6 text-stone-800" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                <line x1="8" y1="7" x2="16" y2="7"></line>
+                                <line x1="8" y1="11" x2="16" y2="11"></line>
+                            </svg>
+                        </div>
+                        
+                        <!-- Title & Description -->
+                        <h3 class="text-base sm:text-lg lg:text-xl font-black text-stone-900 tracking-tight text-center leading-snug mb-1">
+                            Remedial Education &amp; LD
+                        </h3>
+                        <p class="text-xs sm:text-[13px] text-stone-600 text-center leading-relaxed max-w-[270px] mx-auto mb-5 sm:mb-6 min-h-[38px]">
+                            Certified interventions for Dyslexia, Dysgraphia, and school board accommodations.
+                        </p>
+
+                        <!-- Sleek Smartphone Frame Mockup -->
+                        <div class="w-full bg-stone-900 rounded-[2.85rem] p-2.5 sm:p-3 border-[4px] border-stone-800 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.18)] flex flex-col transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                            
+                            <!-- Phone Screen Inner Surface -->
+                            <div class="w-full rounded-[2.25rem] bg-white overflow-hidden border border-stone-800/20 flex flex-col text-left">
+                                
+                                <!-- Top Status Bar -->
+                                <div class="h-7 px-4 pt-1.5 flex items-center justify-between bg-stone-50 text-[10px] font-mono-nav font-bold text-stone-900 select-none border-b border-stone-100">
+                                    <span>11:29</span>
+                                    <div class="w-16 h-3.5 bg-stone-950 rounded-full flex items-center justify-end px-1.5">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-stone-800"></span>
+                                    </div>
+                                    <div class="flex items-center gap-1.5 text-stone-800">
+                                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 18c-.8 0-1.5.7-1.5 1.5S11.2 21 12 21s1.5-.7 1.5-1.5S12.8 18 12 18zm-4.9-3.4c2.7-2.7 7.1-2.7 9.8 0l1.4-1.4c-3.5-3.5-9.2-3.5-12.7 0l1.5 1.4zm-2.8-2.8c4.3-4.3 11.2-4.3 15.4 0l1.4-1.4c-5.1-5.1-13.3-5.1-18.3 0l1.5 1.4z"/></svg>
+                                        <div class="w-4 h-2 rounded-[2px] border border-stone-900 p-[1px] flex items-center"><div class="w-full h-full bg-stone-900 rounded-[1px]"></div></div>
+                                    </div>
+                                </div>
+
+                                <!-- In-App Top Header Bar -->
+                                <div class="px-3 py-2 bg-stone-50/80 border-b border-stone-200/70 flex items-center justify-between">
+                                    <span class="text-[10px] font-extrabold uppercase tracking-wider text-indigo-700 font-mono-nav flex items-center gap-1">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-indigo-600"></span> Learning Studio
+                                    </span>
+                                    <span class="text-[9px] font-bold text-stone-500 font-mono-nav bg-white px-2 py-0.5 rounded-full border border-stone-200">
+                                        Special Ed
+                                    </span>
+                                </div>
+
+                                <!-- Real Session Photo Card -->
+                                <div class="relative aspect-[16/10] overflow-hidden rounded-xl bg-stone-100 m-2.5 shadow-2xs">
+                                    <img src="pics/activities/activity-3.jpg" alt="Child Learning Centre Remedial Education and Dyslexia Session"
+                                        class="w-full h-full object-cover" />
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                                    <div class="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between text-white text-[10px] font-bold font-mono-nav">
+                                        <span class="bg-black/60 backdrop-blur-xs px-2 py-0.5 rounded-md flex items-center gap-1">
+                                            <svg class="w-2.5 h-2.5 fill-current text-white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                                            Academic Rehab
+                                        </span>
+                                        <span class="text-stone-200 text-[9px]">Board Certified</span>
+                                    </div>
+                                </div>
+
+                                <!-- Card Content Details -->
+                                <div class="px-3 pb-3 pt-0.5 space-y-2">
+                                    <div>
+                                        <h4 class="text-xs sm:text-sm font-black text-stone-900 leading-tight">
+                                            Dyslexia &amp; Academic Stamina
+                                        </h4>
+                                        <p class="text-[11px] text-stone-500 leading-snug mt-0.5">
+                                            Multisensory phonics, reading fluency, and math comprehension.
+                                        </p>
+                                    </div>
+
+                                    <!-- Tag Chips -->
+                                    <div class="flex flex-wrap gap-1 pt-0.5">
+                                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-stone-100 text-stone-700 border border-stone-200">Dyslexia</span>
+                                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-stone-100 text-stone-700 border border-stone-200">Dyscalculia</span>
+                                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-stone-100 text-stone-700 border border-stone-200">Exam Prep</span>
+                                    </div>
+
+                                    <!-- Action Button inside Phone -->
+                                    <button type="button" onclick="openBookingModal()"
+                                        class="w-full mt-2 py-2 px-3 rounded-xl bg-stone-900 hover:bg-[#ef2531] text-white font-mono-nav text-[10px] font-bold uppercase tracking-wider flex items-center justify-between transition-colors shadow-2xs cursor-pointer">
+                                        <span>Start Academic Plan</span>
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- 4. SERVICE CARD: Child & Adolescent Counseling -->
+                    <div class="service-phone-card flex flex-col items-center shrink-0 w-[285px] sm:w-[320px] md:w-[335px] lg:w-[350px] snap-center">
+                        
+                        <!-- Top Circle Icon -->
+                        <div class="w-12 h-12 rounded-full border border-stone-300 bg-white shadow-2xs flex items-center justify-center mb-3 text-stone-800">
+                            <svg class="w-6 h-6 text-stone-800" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                            </svg>
+                        </div>
+                        
+                        <!-- Title & Description -->
+                        <h3 class="text-base sm:text-lg lg:text-xl font-black text-stone-900 tracking-tight text-center leading-snug mb-1">
+                            Child &amp; Adolescent Counseling
+                        </h3>
+                        <p class="text-xs sm:text-[13px] text-stone-600 text-center leading-relaxed max-w-[270px] mx-auto mb-5 sm:mb-6 min-h-[38px]">
+                            Constructive coping mechanisms for anxiety, emotional regulation, and self-confidence.
+                        </p>
+
+                        <!-- Sleek Smartphone Frame Mockup -->
+                        <div class="w-full bg-stone-900 rounded-[2.85rem] p-2.5 sm:p-3 border-[4px] border-stone-800 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.18)] flex flex-col transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                            
+                            <!-- Phone Screen Inner Surface -->
+                            <div class="w-full rounded-[2.25rem] bg-white overflow-hidden border border-stone-800/20 flex flex-col text-left">
+                                
+                                <!-- Top Status Bar -->
+                                <div class="h-7 px-4 pt-1.5 flex items-center justify-between bg-stone-50 text-[10px] font-mono-nav font-bold text-stone-900 select-none border-b border-stone-100">
+                                    <span>12:45</span>
+                                    <div class="w-16 h-3.5 bg-stone-950 rounded-full flex items-center justify-end px-1.5">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-stone-800"></span>
+                                    </div>
+                                    <div class="flex items-center gap-1.5 text-stone-800">
+                                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 18c-.8 0-1.5.7-1.5 1.5S11.2 21 12 21s1.5-.7 1.5-1.5S12.8 18 12 18zm-4.9-3.4c2.7-2.7 7.1-2.7 9.8 0l1.4-1.4c-3.5-3.5-9.2-3.5-12.7 0l1.5 1.4zm-2.8-2.8c4.3-4.3 11.2-4.3 15.4 0l1.4-1.4c-5.1-5.1-13.3-5.1-18.3 0l1.5 1.4z"/></svg>
+                                        <div class="w-4 h-2 rounded-[2px] border border-stone-900 p-[1px] flex items-center"><div class="w-full h-full bg-stone-900 rounded-[1px]"></div></div>
+                                    </div>
+                                </div>
+
+                                <!-- In-App Top Header Bar -->
+                                <div class="px-3 py-2 bg-stone-50/80 border-b border-stone-200/70 flex items-center justify-between">
+                                    <span class="text-[10px] font-extrabold uppercase tracking-wider text-rose-700 font-mono-nav flex items-center gap-1">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-rose-600"></span> Counseling Suite
+                                    </span>
+                                    <span class="text-[9px] font-bold text-stone-500 font-mono-nav bg-white px-2 py-0.5 rounded-full border border-stone-200">
+                                        Psychologists
+                                    </span>
+                                </div>
+
+                                <!-- Real Session Photo Card -->
+                                <div class="relative aspect-[16/10] overflow-hidden rounded-xl bg-stone-100 m-2.5 shadow-2xs">
+                                    <img src="pics/activities/activity-1.jpg" alt="Child Learning Centre Child Counseling and Psychological Assessment"
+                                        class="w-full h-full object-cover" />
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                                    <div class="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between text-white text-[10px] font-bold font-mono-nav">
+                                        <span class="bg-black/60 backdrop-blur-xs px-2 py-0.5 rounded-md flex items-center gap-1">
+                                            <svg class="w-2.5 h-2.5 fill-current text-white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                                            Emotional Lab
+                                        </span>
+                                        <span class="text-stone-200 text-[9px]">Confidential Space</span>
+                                    </div>
+                                </div>
+
+                                <!-- Card Content Details -->
+                                <div class="px-3 pb-3 pt-0.5 space-y-2">
+                                    <div>
+                                        <h4 class="text-xs sm:text-sm font-black text-stone-900 leading-tight">
+                                            Emotional Balance &amp; Behavior
+                                        </h4>
+                                        <p class="text-[11px] text-stone-500 leading-snug mt-0.5">
+                                            Helping children navigate peer stress, anxiety, and school transitions.
+                                        </p>
+                                    </div>
+
+                                    <!-- Tag Chips -->
+                                    <div class="flex flex-wrap gap-1 pt-0.5">
+                                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-stone-100 text-stone-700 border border-stone-200">School Anxiety</span>
+                                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-stone-100 text-stone-700 border border-stone-200">Self-Esteem</span>
+                                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-stone-100 text-stone-700 border border-stone-200">Co-Regulation</span>
+                                    </div>
+
+                                    <!-- Action Button inside Phone -->
+                                    <button type="button" onclick="openBookingModal()"
+                                        class="w-full mt-2 py-2 px-3 rounded-xl bg-stone-900 hover:bg-[#ef2531] text-white font-mono-nav text-[10px] font-bold uppercase tracking-wider flex items-center justify-between transition-colors shadow-2xs cursor-pointer">
+                                        <span>Consult Child Psychologist</span>
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- 5. SERVICE CARD: Parent Workshops & Father-Child Bonding -->
+                    <div class="service-phone-card flex flex-col items-center shrink-0 w-[285px] sm:w-[320px] md:w-[335px] lg:w-[350px] snap-center">
+                        
+                        <!-- Top Circle Icon -->
+                        <div class="w-12 h-12 rounded-full border border-stone-300 bg-white shadow-2xs flex items-center justify-center mb-3 text-stone-800">
+                            <svg class="w-6 h-6 text-stone-800" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        
+                        <!-- Title & Description -->
+                        <h3 class="text-base sm:text-lg lg:text-xl font-black text-stone-900 tracking-tight text-center leading-snug mb-1">
+                            Parent Empowerment
+                        </h3>
+                        <p class="text-xs sm:text-[13px] text-stone-600 text-center leading-relaxed max-w-[270px] mx-auto mb-5 sm:mb-6 min-h-[38px]">
+                            Groundbreaking 2015 series empowering fathers and parents with home routines.
+                        </p>
+
+                        <!-- Sleek Smartphone Frame Mockup -->
+                        <div class="w-full bg-stone-900 rounded-[2.85rem] p-2.5 sm:p-3 border-[4px] border-stone-800 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.18)] flex flex-col transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                            
+                            <!-- Phone Screen Inner Surface -->
+                            <div class="w-full rounded-[2.25rem] bg-white overflow-hidden border border-stone-800/20 flex flex-col text-left">
+                                
+                                <!-- Top Status Bar -->
+                                <div class="h-7 px-4 pt-1.5 flex items-center justify-between bg-stone-50 text-[10px] font-mono-nav font-bold text-stone-900 select-none border-b border-stone-100">
+                                    <span>1:30</span>
+                                    <div class="w-16 h-3.5 bg-stone-950 rounded-full flex items-center justify-end px-1.5">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-stone-800"></span>
+                                    </div>
+                                    <div class="flex items-center gap-1.5 text-stone-800">
+                                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 18c-.8 0-1.5.7-1.5 1.5S11.2 21 12 21s1.5-.7 1.5-1.5S12.8 18 12 18zm-4.9-3.4c2.7-2.7 7.1-2.7 9.8 0l1.4-1.4c-3.5-3.5-9.2-3.5-12.7 0l1.5 1.4zm-2.8-2.8c4.3-4.3 11.2-4.3 15.4 0l1.4-1.4c-5.1-5.1-13.3-5.1-18.3 0l1.5 1.4z"/></svg>
+                                        <div class="w-4 h-2 rounded-[2px] border border-stone-900 p-[1px] flex items-center"><div class="w-full h-full bg-stone-900 rounded-[1px]"></div></div>
+                                    </div>
+                                </div>
+
+                                <!-- In-App Top Header Bar -->
+                                <div class="px-3 py-2 bg-stone-50/80 border-b border-stone-200/70 flex items-center justify-between">
+                                    <span class="text-[10px] font-extrabold uppercase tracking-wider text-amber-700 font-mono-nav flex items-center gap-1">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span> Parent Network
+                                    </span>
+                                    <span class="text-[9px] font-bold text-stone-500 font-mono-nav bg-white px-2 py-0.5 rounded-full border border-stone-200">
+                                        Est. 2015
+                                    </span>
+                                </div>
+
+                                <!-- Real Session Photo Card -->
+                                <div class="relative aspect-[16/10] overflow-hidden rounded-xl bg-stone-100 m-2.5 shadow-2xs">
+                                    <img src="pics/activities/activity-5.jpg" alt="Child Learning Centre Father-Child Bonding and Parental Coaching"
+                                        class="w-full h-full object-cover" />
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                                    <div class="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between text-white text-[10px] font-bold font-mono-nav">
+                                        <span class="bg-black/60 backdrop-blur-xs px-2 py-0.5 rounded-md flex items-center gap-1">
+                                            <svg class="w-2.5 h-2.5 fill-current text-white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                                            Parent Workshop
+                                        </span>
+                                        <span class="text-stone-200 text-[9px]">All Centres</span>
+                                    </div>
+                                </div>
+
+                                <!-- Card Content Details -->
+                                <div class="px-3 pb-3 pt-0.5 space-y-2">
+                                    <div>
+                                        <h4 class="text-xs sm:text-sm font-black text-stone-900 leading-tight">
+                                            Father-Child &amp; Home Routines
+                                        </h4>
+                                        <p class="text-[11px] text-stone-500 leading-snug mt-0.5">
+                                            Evidence-based developmental play techniques to continue therapy at home.
+                                        </p>
+                                    </div>
+
+                                    <!-- Tag Chips -->
+                                    <div class="flex flex-wrap gap-1 pt-0.5">
+                                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-stone-100 text-stone-700 border border-stone-200">Father Bonding</span>
+                                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-stone-100 text-stone-700 border border-stone-200">Home Routine</span>
+                                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-stone-100 text-stone-700 border border-stone-200">Play Therapy</span>
+                                    </div>
+
+                                    <!-- Action Button inside Phone -->
+                                    <button type="button" onclick="openBookingModal()"
+                                        class="w-full mt-2 py-2 px-3 rounded-xl bg-stone-900 hover:bg-[#ef2531] text-white font-mono-nav text-[10px] font-bold uppercase tracking-wider flex items-center justify-between transition-colors shadow-2xs cursor-pointer">
+                                        <span>Join Parent Masterclass</span>
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- 6. SERVICE CARD: Outdoor & Group Communication Therapy -->
+                    <div class="service-phone-card flex flex-col items-center shrink-0 w-[285px] sm:w-[320px] md:w-[335px] lg:w-[350px] snap-center">
+                        
+                        <!-- Top Circle Icon -->
+                        <div class="w-12 h-12 rounded-full border border-stone-300 bg-white shadow-2xs flex items-center justify-center mb-3 text-stone-800">
+                            <svg class="w-6 h-6 text-stone-800" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                                <path d="M2 12h20"></path>
+                            </svg>
+                        </div>
+                        
+                        <!-- Title & Description -->
+                        <h3 class="text-base sm:text-lg lg:text-xl font-black text-stone-900 tracking-tight text-center leading-snug mb-1">
+                            Outdoor &amp; Group Therapy
+                        </h3>
+                        <p class="text-xs sm:text-[13px] text-stone-600 text-center leading-relaxed max-w-[270px] mx-auto mb-5 sm:mb-6 min-h-[38px]">
+                            Real-world sensory adaptation, peer cooperation, and playground communication.
+                        </p>
+
+                        <!-- Sleek Smartphone Frame Mockup -->
+                        <div class="w-full bg-stone-900 rounded-[2.85rem] p-2.5 sm:p-3 border-[4px] border-stone-800 shadow-[0_20px_45px_-12px_rgba(0,0,0,0.18)] flex flex-col transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+                            
+                            <!-- Phone Screen Inner Surface -->
+                            <div class="w-full rounded-[2.25rem] bg-white overflow-hidden border border-stone-800/20 flex flex-col text-left">
+                                
+                                <!-- Top Status Bar -->
+                                <div class="h-7 px-4 pt-1.5 flex items-center justify-between bg-stone-50 text-[10px] font-mono-nav font-bold text-stone-900 select-none border-b border-stone-100">
+                                    <span>2:15</span>
+                                    <div class="w-16 h-3.5 bg-stone-950 rounded-full flex items-center justify-end px-1.5">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-stone-800"></span>
+                                    </div>
+                                    <div class="flex items-center gap-1.5 text-stone-800">
+                                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 18c-.8 0-1.5.7-1.5 1.5S11.2 21 12 21s1.5-.7 1.5-1.5S12.8 18 12 18zm-4.9-3.4c2.7-2.7 7.1-2.7 9.8 0l1.4-1.4c-3.5-3.5-9.2-3.5-12.7 0l1.5 1.4zm-2.8-2.8c4.3-4.3 11.2-4.3 15.4 0l1.4-1.4c-5.1-5.1-13.3-5.1-18.3 0l1.5 1.4z"/></svg>
+                                        <div class="w-4 h-2 rounded-[2px] border border-stone-900 p-[1px] flex items-center"><div class="w-full h-full bg-stone-900 rounded-[1px]"></div></div>
+                                    </div>
+                                </div>
+
+                                <!-- In-App Top Header Bar -->
+                                <div class="px-3 py-2 bg-stone-50/80 border-b border-stone-200/70 flex items-center justify-between">
+                                    <span class="text-[10px] font-extrabold uppercase tracking-wider text-teal-700 font-mono-nav flex items-center gap-1">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-teal-600"></span> Group Circle
+                                    </span>
+                                    <span class="text-[9px] font-bold text-stone-500 font-mono-nav bg-white px-2 py-0.5 rounded-full border border-stone-200">
+                                        Socialization
+                                    </span>
+                                </div>
+
+                                <!-- Real Session Photo Card -->
+                                <div class="relative aspect-[16/10] overflow-hidden rounded-xl bg-stone-100 m-2.5 shadow-2xs">
+                                    <img src="pics/showcase/therapy-1.jpg" alt="Child Learning Centre Outdoor Group Therapy Session"
+                                        class="w-full h-full object-cover" />
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                                    <div class="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between text-white text-[10px] font-bold font-mono-nav">
+                                        <span class="bg-black/60 backdrop-blur-xs px-2 py-0.5 rounded-md flex items-center gap-1">
+                                            <svg class="w-2.5 h-2.5 fill-current text-white" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                                            Outdoor Camp
+                                        </span>
+                                        <span class="text-stone-200 text-[9px]">Sensory Park</span>
+                                    </div>
+                                </div>
+
+                                <!-- Card Content Details -->
+                                <div class="px-3 pb-3 pt-0.5 space-y-2">
+                                    <div>
+                                        <h4 class="text-xs sm:text-sm font-black text-stone-900 leading-tight">
+                                            Social Dynamics &amp; Group Play
+                                        </h4>
+                                        <p class="text-[11px] text-stone-500 leading-snug mt-0.5">
+                                            Structured group challenges fostering peer empathy and team cooperation.
+                                        </p>
+                                    </div>
+
+                                    <!-- Tag Chips -->
+                                    <div class="flex flex-wrap gap-1 pt-0.5">
+                                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-stone-100 text-stone-700 border border-stone-200">Peer Play</span>
+                                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-stone-100 text-stone-700 border border-stone-200">Outdoor Park</span>
+                                        <span class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-stone-100 text-stone-700 border border-stone-200">Team Bonding</span>
+                                    </div>
+
+                                    <!-- Action Button inside Phone -->
+                                    <button type="button" onclick="openBookingModal()"
+                                        class="w-full mt-2 py-2 px-3 rounded-xl bg-stone-900 hover:bg-[#ef2531] text-white font-mono-nav text-[10px] font-bold uppercase tracking-wider flex items-center justify-between transition-colors shadow-2xs cursor-pointer">
+                                        <span>Enroll in Group Batch</span>
+                                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- BOTTOM CAROUSEL CONTROLS & DOTS -->
+                <div class="flex items-center justify-center gap-4 mt-6 sm:mt-8">
+                    
+                    <!-- Mobile Prev Arrow Button -->
+                    <button type="button" onclick="scrollServices(-1)" aria-label="Previous service"
+                        class="md:hidden flex w-9 h-9 rounded-full bg-white border border-stone-300 shadow-xs text-stone-700 items-center justify-center active:scale-95 cursor-pointer">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+
+                    <!-- Dot Indicators (Dynamically Synced via JS) -->
+                    <div id="servicesDotsContainer" class="flex items-center gap-2"></div>
+
+                    <!-- Mobile Next Arrow Button -->
+                    <button type="button" onclick="scrollServices(1)" aria-label="Next service"
+                        class="md:hidden flex w-9 h-9 rounded-full bg-white border border-stone-300 shadow-xs text-stone-700 items-center justify-center active:scale-95 cursor-pointer">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+
+                </div>
+
+                <!-- BOTTOM CONSULTATION CTA BANNER (Sensory-Friendly Warm Card) -->
+                <div class="mt-12 sm:mt-16 p-6 sm:p-8 bg-white rounded-3xl border border-stone-200/90 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+                    <div class="max-w-xl">
+                        <div class="inline-flex items-center gap-2 text-[10px] sm:text-xs font-bold text-[#ef2531] uppercase tracking-wider font-mono-nav mb-1.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#ef2531]"></span>
+                            Clinical Guidance Available
+                        </div>
+                        <h4 class="text-lg sm:text-xl md:text-2xl font-black text-stone-900 tracking-tight">
+                            Not sure which therapeutic program fits your child?
+                        </h4>
+                        <p class="text-xs sm:text-sm text-stone-600 mt-1 leading-relaxed">
+                            Our senior clinical team conducts comprehensive developmental screenings to map out a clear, step-by-step roadmap.
+                        </p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto shrink-0">
+                        <button type="button" onclick="openBookingModal()"
+                            class="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 rounded-full bg-[#ef2531] hover:bg-[#d61e29] text-white font-mono-nav text-xs sm:text-sm font-extrabold uppercase tracking-wider transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer active:scale-98">
+                            <span>Book Clinical Consultation</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                        </button>
+                        <a href="tel:9221533715"
+                            class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border-2 border-stone-300 hover:border-stone-900 text-stone-800 font-mono-nav text-xs sm:text-sm font-extrabold uppercase tracking-wider transition-all duration-300 bg-white hover:bg-stone-50 cursor-pointer">
+                            <svg class="w-4 h-4 text-stone-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            <span>+91 92215 33715</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
     <!-- MOBILE FULL-HEIGHT DRAWER (Exact 1:1 Session Form Wireframe Aesthetic + Aceternity Gliding Pill Physics) -->
     <div id="mobileMenu"
         class="fixed inset-0 z-50 bg-stone-900/60 backdrop-blur-sm hidden flex items-center justify-center p-3 sm:p-6 overflow-y-auto transition-all duration-300"
@@ -1723,7 +2401,60 @@
                 }, 3200);
             }, 1100);
         }
-    </script>
+    
+        // ==================== SERVICES CAROUSEL CONTROLLER ====================
+        function scrollServices(direction) {
+            const track = document.getElementById('servicesCarouselTrack');
+            if (!track) return;
+            const card = track.querySelector('.service-phone-card');
+            const scrollAmount = card ? (card.offsetWidth + 32) : 340;
+            track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+        }
+
+        function initServicesCarousel() {
+            const track = document.getElementById('servicesCarouselTrack');
+            const dotsContainer = document.getElementById('servicesDotsContainer');
+            if (!track || !dotsContainer) return;
+
+            const cards = track.querySelectorAll('.service-phone-card');
+            dotsContainer.innerHTML = '';
+
+            cards.forEach((card, idx) => {
+                const dot = document.createElement('button');
+                dot.type = 'button';
+                dot.setAttribute('aria-label', `Go to service slide ${idx + 1}`);
+                dot.className = `w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+                    idx === 0 ? 'bg-[#ef2531] w-6' : 'bg-stone-300 hover:bg-stone-400'
+                }`;
+                dot.addEventListener('click', () => {
+                    const scrollAmount = (card.offsetWidth + 32) * idx;
+                    track.scrollTo({ left: scrollAmount, behavior: 'smooth' });
+                });
+                dotsContainer.appendChild(dot);
+            });
+
+            track.addEventListener('scroll', () => {
+                const scrollLeft = track.scrollLeft;
+                const cardWidth = cards[0] ? (cards[0].offsetWidth + 32) : 340;
+                const activeIdx = Math.round(scrollLeft / cardWidth);
+
+                const dots = dotsContainer.querySelectorAll('button');
+                dots.forEach((dot, idx) => {
+                    if (idx === activeIdx) {
+                        dot.className = 'w-6 h-2.5 rounded-full bg-[#ef2531] transition-all duration-300 cursor-pointer';
+                    } else {
+                        dot.className = 'w-2.5 h-2.5 rounded-full bg-stone-300 hover:bg-stone-400 transition-all duration-300 cursor-pointer';
+                    }
+                });
+            }, { passive: true });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initServicesCarousel);
+        } else {
+            initServicesCarousel();
+        }
+</script>
 </body>
 
 </html>
