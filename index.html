@@ -407,17 +407,85 @@
 
         
     
-        /* Seamless Hidden Scrollbar for Vertical Testimonials & Columns */
-        .scrollbar-none {
-            -ms-overflow-style: none; /* IE and Edge */
-            scrollbar-width: none; /* Firefox */
+        /* ==============================================================
+           ACETERNITY VERTICAL TESTIMONIALS INFINITE MARQUEE (GPU-ACCELERATED)
+           ============================================================== */
+        @keyframes verticalMarqueeDown {
+            0% {
+                transform: translate3d(0, -50%, 0);
+            }
+            100% {
+                transform: translate3d(0, 0, 0);
+            }
         }
-        .scrollbar-none::-webkit-scrollbar {
-            display: none; /* Chrome, Safari and Opera */
+
+        @-webkit-keyframes verticalMarqueeDown {
+            0% {
+                -webkit-transform: translate3d(0, -50%, 0);
+            }
+            100% {
+                -webkit-transform: translate3d(0, 0, 0);
+            }
         }
+
+        @keyframes verticalMarqueeUp {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+            100% {
+                transform: translate3d(0, -50%, 0);
+            }
+        }
+
+        @-webkit-keyframes verticalMarqueeUp {
+            0% {
+                -webkit-transform: translate3d(0, 0, 0);
+            }
+            100% {
+                -webkit-transform: translate3d(0, -50%, 0);
+            }
+        }
+
+        .animate-vertical-down {
+            display: flex;
+            flex-direction: column;
+            will-change: transform;
+            -webkit-animation: verticalMarqueeDown 30s linear infinite;
+            animation: verticalMarqueeDown 30s linear infinite;
+        }
+
+        .animate-vertical-up {
+            display: flex;
+            flex-direction: column;
+            will-change: transform;
+            -webkit-animation: verticalMarqueeUp 32s linear infinite;
+            animation: verticalMarqueeUp 32s linear infinite;
+        }
+
+        .animate-vertical-down-alt {
+            display: flex;
+            flex-direction: column;
+            will-change: transform;
+            -webkit-animation: verticalMarqueeDown 27s linear infinite;
+            animation: verticalMarqueeDown 27s linear infinite;
+        }
+
+        /* Hover & Touch Pause matching hero .animate-infinite-cards:hover */
+        .animate-vertical-down:hover,
+        .animate-vertical-up:hover,
+        .animate-vertical-down-alt:hover,
+        .vertical-marquee-col:hover .animate-vertical-down,
+        .vertical-marquee-col:hover .animate-vertical-up,
+        .vertical-marquee-col:hover .animate-vertical-down-alt {
+            -webkit-animation-play-state: paused;
+            animation-play-state: paused;
+        }
+
         .vertical-marquee-col {
-            scroll-behavior: auto !important; /* Immediate frame response */
-            -webkit-overflow-scrolling: touch; /* Smooth momentum scrolling on iOS */
+            overflow: hidden;
+            position: relative;
+            user-select: none;
+            -webkit-user-select: none;
         }
 </style>
 </head>
@@ -2951,9 +3019,8 @@
                     <!-- ========================================== -->
                     <!-- COLUMN 1: Moves TOP TO BOTTOM (Downwards)  -->
                     <!-- ========================================== -->
-                    <div class="vertical-marquee-col relative h-full overflow-y-auto scrollbar-none select-none"
-                         data-direction="down" data-speed="0.6" aria-label="Parent Reviews Column 1">
-                        <div class="vertical-marquee-track flex flex-col gap-5 py-2">
+                    <div class="vertical-marquee-col relative h-full overflow-hidden select-none" aria-label="Parent Reviews Column 1">
+                        <div class="animate-vertical-down flex flex-col gap-5 py-2">
                             
                             <!-- Card 1: Pooja Deshmukh -->
                             <div class="bg-white rounded-3xl p-6 sm:p-7 border border-stone-200/90 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-lg transition-all duration-300 hover:border-[#16244F]/30">
@@ -3053,9 +3120,8 @@
                     <!-- ========================================== -->
                     <!-- COLUMN 2: Moves BOTTOM TO TOP (Upwards)    -->
                     <!-- ========================================== -->
-                    <div class="vertical-marquee-col relative h-full overflow-y-auto scrollbar-none select-none"
-                         data-direction="up" data-speed="0.6" aria-label="Parent Reviews Column 2">
-                        <div class="vertical-marquee-track flex flex-col gap-5 py-2">
+                    <div class="vertical-marquee-col relative h-full overflow-hidden select-none" aria-label="Parent Reviews Column 2">
+                        <div class="animate-vertical-up flex flex-col gap-5 py-2">
                             
                             <!-- Card 5: Rajesh Nair -->
                             <div class="bg-white rounded-3xl p-6 sm:p-7 border border-stone-200/90 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-lg transition-all duration-300 hover:border-[#16244F]/30">
@@ -3155,9 +3221,8 @@
                     <!-- ========================================== -->
                     <!-- COLUMN 3: Moves TOP TO BOTTOM (Downwards)  -->
                     <!-- ========================================== -->
-                    <div class="vertical-marquee-col relative h-full overflow-y-auto scrollbar-none select-none hidden md:block"
-                         data-direction="down" data-speed="0.6" aria-label="Parent Reviews Column 3">
-                        <div class="vertical-marquee-track flex flex-col gap-5 py-2">
+                    <div class="vertical-marquee-col relative h-full overflow-hidden select-none hidden md:block" aria-label="Parent Reviews Column 3">
+                        <div class="animate-vertical-down-alt flex flex-col gap-5 py-2">
                             
                             <!-- Card 9: Sneha Kulkarni -->
                             <div class="bg-white rounded-3xl p-6 sm:p-7 border border-stone-200/90 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-lg transition-all duration-300 hover:border-[#16244F]/30">
@@ -3776,78 +3841,19 @@
         
         // ==================== ACETERNITY VERTICAL TESTIMONIALS MARQUEE ====================
         function initVerticalTestimonials() {
-            const cols = document.querySelectorAll('.vertical-marquee-col');
-            if (!cols.length) return;
-
-            cols.forEach(col => {
-                const track = col.querySelector('.vertical-marquee-track');
-                if (!track) return;
-
-                // Auto-duplicate cards for seamless infinite vertical looping
-                if (!col.dataset.cloned) {
-                    col.dataset.cloned = 'true';
+            const tracks = document.querySelectorAll('.animate-vertical-down, .animate-vertical-up, .animate-vertical-down-alt');
+            tracks.forEach(track => {
+                if (!track.dataset.cloned) {
+                    track.dataset.cloned = "true";
                     track.innerHTML += track.innerHTML;
                 }
-
-                const isDown = col.dataset.direction === 'down';
-                const baseSpeed = parseFloat(col.dataset.speed) || 0.65;
-                let isInteracting = false;
-                let resumeTimeout = null;
-
-                // For upward scrolling columns, start halfway down so it can scroll upwards immediately
-                requestAnimationFrame(() => {
-                    const halfHeight = track.scrollHeight / 2;
-                    if (!isDown && col.scrollTop === 0 && halfHeight > 0) {
-                        col.scrollTop = halfHeight;
-                    }
-                });
-
-                // Pause on user hover, touch, or wheel scroll
-                const pauseInteraction = () => {
-                    isInteracting = true;
-                    if (resumeTimeout) clearTimeout(resumeTimeout);
-                };
-
-                const resumeInteraction = (delay = 2000) => {
-                    if (resumeTimeout) clearTimeout(resumeTimeout);
-                    resumeTimeout = setTimeout(() => {
-                        isInteracting = false;
-                    }, delay);
-                };
-
-                col.addEventListener('mouseenter', pauseInteraction);
-                col.addEventListener('mouseleave', () => resumeInteraction(800));
-                col.addEventListener('touchstart', pauseInteraction, { passive: true });
-                col.addEventListener('touchend', () => resumeInteraction(2200), { passive: true });
-                col.addEventListener('wheel', () => {
-                    pauseInteraction();
-                    resumeInteraction(2000);
+                // Pause on mobile touch
+                track.addEventListener('touchstart', () => {
+                    track.style.animationPlayState = 'paused';
                 }, { passive: true });
-
-                // Continuous silky smooth animation loop using requestAnimationFrame
-                function step() {
-                    const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-                    
-                    if (!isInteracting && !prefersReducedMotion) {
-                        const halfHeight = track.scrollHeight / 2;
-                        if (halfHeight > 0) {
-                            if (isDown) {
-                                col.scrollTop += baseSpeed;
-                                if (col.scrollTop >= halfHeight) {
-                                    col.scrollTop -= halfHeight;
-                                }
-                            } else {
-                                col.scrollTop -= baseSpeed;
-                                if (col.scrollTop <= 0) {
-                                    col.scrollTop += halfHeight;
-                                }
-                            }
-                        }
-                    }
-                    requestAnimationFrame(step);
-                }
-
-                requestAnimationFrame(step);
+                track.addEventListener('touchend', () => {
+                    track.style.animationPlayState = 'running';
+                }, { passive: true });
             });
         }
 
