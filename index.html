@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>Child Learning Centre &bull; 1:1 Parent & Children Coaching</title>
     <!-- Primary SEO Meta Tags -->
     <meta name="description" content="Child Learning Centre (CLC) offers tailored pediatric therapy, speech therapy, occupational therapy, and remedial education for school-going children across 6 centres in Mumbai, Navi Mumbai, and Pune.">
@@ -1145,6 +1146,30 @@
                 <span class="px-3 sm:px-3.5 py-1.5 rounded-xl bg-white text-stone-800 text-xs sm:text-[13px] font-bold border border-stone-200/90 shadow-2xs hover:border-[#C8232C]/40 hover:shadow-xs transition-all whitespace-nowrap">
                     Mid-Day Health Excellence
                 </span>
+            </div>
+
+            <!-- Bottom Interactive Tour Banner (Matching Booking Form Tone) -->
+            <div class="mt-14 sm:mt-18 max-w-4xl mx-auto rounded-3xl p-6 sm:p-8 bg-white border-2 border-stone-800/80 shadow-[0_8px_30px_-6px_rgba(0,0,0,0.08)] flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-100 border border-amber-200 flex items-center justify-center shrink-0 text-amber-700">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 class="text-base sm:text-lg font-black text-stone-900 tracking-tight">
+                            Want to experience our clinic facilities in person?
+                        </h4>
+                        <p class="text-xs sm:text-sm text-stone-600 font-medium leading-relaxed">
+                            Book a guided walkthrough across our Dadar, Borivali, Vashi, Thane, Sion, or Pune centres.
+                        </p>
+                    </div>
+                </div>
+
+                <button type="button" onclick="openBookingModal()"
+                    class="px-6 py-3 rounded-full bg-stone-900 hover:bg-[#ef2531] text-white font-mono-nav text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-200 shadow-sm shrink-0 cursor-pointer active:scale-98">
+                    Schedule Centre Tour
+                </button>
             </div>
 
         </div>
@@ -4045,17 +4070,17 @@
                 <!-- Eyebrow Badge (Matching Session Form Styling) -->
                 <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-stone-800/20 shadow-2xs mb-4">
                     <span class="w-2.5 h-2.5 rounded-full bg-[#ef2531] animate-pulse"></span>
-                    <span class="font-mono-nav text-[11px] sm:text-xs font-bold uppercase tracking-wider text-stone-800">Clinical Therapy in Action &bull; Real Sessions</span>
+                    <span class="font-mono-nav text-[11px] sm:text-xs font-bold uppercase tracking-wider text-stone-800">Clinical Authority &bull; Expert Interviews</span>
                 </div>
 
                 <!-- Main Title -->
                 <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-stone-900 tracking-tight leading-tight">
-                    Watch Our <span class="text-[#C8232C]">Therapy in Action</span>
+                    Watch Our <span class="text-[#C8232C]">Clinical Insights</span>
                 </h2>
 
                 <!-- Subtitle -->
                 <p class="mt-4 text-sm sm:text-base lg:text-lg text-stone-600 font-medium leading-relaxed">
-                    Step inside our sensory integration clinics and see how veteran pediatric therapists, joyful play-based exercises, and parent coaching nurture confidence, communication, and milestone mastery.
+                    Watch Dr. Reena Shinde and child development specialists discuss early milestone benchmarks, Dyslexia diagnosis, and proven therapy protocols to empower school-going children.
                 </p>
             </div>
 
@@ -4076,41 +4101,74 @@
                         
                         <div>
                             <!-- Video Embed Container with Rounded Border Frame -->
-                            <div class="relative w-full aspect-video rounded-xl sm:rounded-2xl overflow-hidden border-2 border-stone-800/80 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.15)] bg-stone-900 mb-5">
-                                <iframe class="w-full h-full object-cover" 
-                                        src="https://www.youtube.com/embed/QFg8XLVkHCA?si=V2cFDnWbdJ2wmxpx" 
-                                        title="Child Learning Centre - Pediatric Clinical Sessions in Action" 
-                                        loading="lazy"
+                            <div class="relative w-full aspect-video rounded-xl sm:rounded-2xl overflow-hidden border-2 border-stone-800/80 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.15)] bg-stone-900 mb-5 group/video">
+                                <!-- Clean YouTube Embed (No SI tracking parameter, No lazy-load conflict, strict-origin enabled) -->
+                                <iframe class="yt-iframe w-full h-full object-cover" 
+                                        src="https://www.youtube-nocookie.com/embed/QFg8XLVkHCA?rel=0&amp;showinfo=0&amp;start=0&amp;controls=1" 
+                                        title="Learning Disability Guidance with Dr. Reena Shinde - Mumbai Outlook" 
                                         frameborder="0" 
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                                         referrerpolicy="strict-origin-when-cross-origin" 
                                         allowfullscreen>
                                 </iframe>
+
+                                <!-- Local File Fallback Overlay (Shown when opened via file:// to bypass Error 153) -->
+                                <a href="https://www.youtube.com/watch?v=QFg8XLVkHCA" target="_blank" rel="noopener noreferrer" 
+                                   class="yt-local-fallback hidden absolute inset-0 z-30 group/thumb cursor-pointer overflow-hidden flex flex-col justify-between p-4 bg-stone-900">
+                                    <img src="https://img.youtube.com/vi/QFg8XLVkHCA/maxresdefault.jpg" 
+                                         alt="Learning Disability Guidance with Dr. Reena Shinde" 
+                                         class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover/thumb:scale-105 opacity-90 group-hover/thumb:opacity-100">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-stone-900/20 to-stone-950/40"></div>
+                                    
+                                    <div class="relative z-10 flex items-center justify-between">
+                                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-stone-900/85 backdrop-blur-sm text-white font-mono-nav text-[10px] sm:text-[11px] font-bold uppercase tracking-wider border border-white/10">
+                                            <svg class="w-3.5 h-3.5 text-red-500 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                                            Mumbaii Outlook
+                                        </span>
+                                        <span class="px-2 py-0.5 rounded bg-black/75 text-white font-mono-nav text-[10px] font-semibold">
+                                            Watch on YouTube
+                                        </span>
+                                    </div>
+
+                                    <div class="relative z-10 self-center my-auto">
+                                        <div class="w-16 h-12 sm:w-20 sm:h-14 rounded-2xl bg-[#ef2531] text-white flex items-center justify-center shadow-2xl transition-transform duration-300 group-hover/thumb:scale-110 group-hover/thumb:bg-red-600">
+                                            <svg class="w-7 h-7 sm:w-8 sm:h-8 fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="relative z-10 text-center">
+                                        <p class="text-[11px] sm:text-xs font-mono-nav text-white/90 font-medium bg-black/60 backdrop-blur-sm py-1 px-2.5 rounded-md inline-block">
+                                            Click to Play Video &bull; Opens YouTube
+                                        </p>
+                                    </div>
+                                </a>
                             </div>
 
                             <!-- Category Pill Badge (Matching Form Colors) -->
                             <div class="flex items-center gap-2 mb-3">
                                 <span class="px-3 py-1 rounded-full bg-rose-100 text-rose-800 border border-rose-200/90 font-mono-nav text-[10px] sm:text-[11px] font-bold uppercase tracking-wider">
-                                    Sensory Integration &bull; Occupational Therapy
+                                    Learning Disability &bull; Mumbaii Outlook Interview
                                 </span>
                             </div>
 
                             <!-- Video Title -->
                             <h3 class="text-lg sm:text-xl font-black text-stone-900 tracking-tight leading-snug mb-2 group-hover:text-[#16244F] transition-colors">
-                                Inside CLC: Structured Sensory Integration &amp; Classroom Stamina
+                                Learning Disability: Dr. Reena Shinde on How Parents Can Guide Children
                             </h3>
 
                             <!-- Video Description -->
                             <p class="text-xs sm:text-sm text-stone-600 leading-relaxed font-normal mb-5">
-                                A clinical walkthrough showing how our ability-based sensory gym protocols strengthen vestibular balance, proprioceptive regulation, and sitting tolerance for school-going children.
+                                Exclusive interview on Mumbaii Outlook with Dr. Reena Shinde breaking down early signs of Dyslexia, academic stamina challenges, and compassionate home strategies for parents.
                             </p>
                         </div>
 
-                        <!-- Card Action Button (Session Form Style Button) -->
-                        <div class="pt-3 border-t border-stone-300/60 flex items-center justify-between gap-3">
-                            <span class="text-[11px] font-mono-nav font-semibold text-stone-500 uppercase tracking-wide">
-                                Real Session Recording
-                            </span>
+                        <!-- Card Action Button & YouTube Direct Link -->
+                        <div class="pt-3 border-t border-stone-300/60 flex items-center justify-between gap-3 flex-wrap">
+                            <a href="https://www.youtube.com/watch?v=QFg8XLVkHCA" target="_blank" rel="noopener noreferrer"
+                               class="inline-flex items-center gap-1.5 text-xs font-mono-nav font-bold text-stone-700 hover:text-[#C8232C] transition-colors py-1">
+                                <span>Watch on YouTube</span>
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                            </a>
                             <button type="button" onclick="openBookingModal()"
                                 class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#ef2531] hover:bg-[#d61e29] text-white font-mono-nav text-xs font-extrabold uppercase tracking-wider transition-all duration-200 shadow-sm hover:shadow-md cursor-pointer active:scale-98">
                                 <span>Book Evaluation</span>
@@ -4136,41 +4194,74 @@
                         
                         <div>
                             <!-- Video Embed Container with Rounded Border Frame -->
-                            <div class="relative w-full aspect-video rounded-xl sm:rounded-2xl overflow-hidden border-2 border-stone-800/80 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.15)] bg-stone-900 mb-5">
-                                <iframe class="w-full h-full object-cover" 
-                                        src="https://www.youtube.com/embed/D1gxGckdo4c?si=_cxLAiUgVtu0KdZd" 
-                                        title="Child Learning Centre - Developmental Breakthroughs and Parent Guidance" 
-                                        loading="lazy"
+                            <div class="relative w-full aspect-video rounded-xl sm:rounded-2xl overflow-hidden border-2 border-stone-800/80 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.15)] bg-stone-900 mb-5 group/video">
+                                <!-- Clean YouTube Embed (No SI tracking parameter, No lazy-load conflict, strict-origin enabled) -->
+                                <iframe class="yt-iframe w-full h-full object-cover" 
+                                        src="https://www.youtube-nocookie.com/embed/D1gxGckdo4c?rel=0&amp;showinfo=0&amp;start=0&amp;controls=1" 
+                                        title="Dr. Reena Shinde on Learning Disabilities - Chai Pe Charcha Podcast" 
                                         frameborder="0" 
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                                         referrerpolicy="strict-origin-when-cross-origin" 
                                         allowfullscreen>
                                 </iframe>
+
+                                <!-- Local File Fallback Overlay (Shown when opened via file:// to bypass Error 153) -->
+                                <a href="https://www.youtube.com/watch?v=D1gxGckdo4c" target="_blank" rel="noopener noreferrer" 
+                                   class="yt-local-fallback hidden absolute inset-0 z-30 group/thumb cursor-pointer overflow-hidden flex flex-col justify-between p-4 bg-stone-900">
+                                    <img src="https://img.youtube.com/vi/D1gxGckdo4c/maxresdefault.jpg" 
+                                         alt="Dr. Reena Shinde on Learning Disabilities - Chai Pe Charcha Podcast" 
+                                         class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover/thumb:scale-105 opacity-90 group-hover/thumb:opacity-100">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-stone-900/20 to-stone-950/40"></div>
+                                    
+                                    <div class="relative z-10 flex items-center justify-between">
+                                        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-stone-900/85 backdrop-blur-sm text-white font-mono-nav text-[10px] sm:text-[11px] font-bold uppercase tracking-wider border border-white/10">
+                                            <svg class="w-3.5 h-3.5 text-red-500 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                                            Chai Pe Charcha
+                                        </span>
+                                        <span class="px-2 py-0.5 rounded bg-black/75 text-white font-mono-nav text-[10px] font-semibold">
+                                            Watch on YouTube
+                                        </span>
+                                    </div>
+
+                                    <div class="relative z-10 self-center my-auto">
+                                        <div class="w-16 h-12 sm:w-20 sm:h-14 rounded-2xl bg-[#ef2531] text-white flex items-center justify-center shadow-2xl transition-transform duration-300 group-hover/thumb:scale-110 group-hover/thumb:bg-red-600">
+                                            <svg class="w-7 h-7 sm:w-8 sm:h-8 fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                        </div>
+                                    </div>
+
+                                    <div class="relative z-10 text-center">
+                                        <p class="text-[11px] sm:text-xs font-mono-nav text-white/90 font-medium bg-black/60 backdrop-blur-sm py-1 px-2.5 rounded-md inline-block">
+                                            Click to Play Video &bull; Opens YouTube
+                                        </p>
+                                    </div>
+                                </a>
                             </div>
 
                             <!-- Category Pill Badge (Matching Form Colors) -->
                             <div class="flex items-center gap-2 mb-3">
                                 <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-200/90 font-mono-nav text-[10px] sm:text-[11px] font-bold uppercase tracking-wider">
-                                    Speech &bull; Antariksh Milestones &bull; Coaching
+                                    Chai Pe Charcha &bull; Pediatric Podcast
                                 </span>
                             </div>
 
                             <!-- Video Title -->
                             <h3 class="text-lg sm:text-xl font-black text-stone-900 tracking-tight leading-snug mb-2 group-hover:text-[#16244F] transition-colors">
-                                Expressive Speech, Peer Inclusion &amp; Milestone Celebrations
+                                Dr. Reena Shinde on Learning Disabilities with Khushbu Sheth
                             </h3>
 
                             <!-- Video Description -->
                             <p class="text-xs sm:text-sm text-stone-600 leading-relaxed font-normal mb-5">
-                                Discover how our speech pathologists and pediatric counselors build vocabulary, self-confidence, and social communication, culminating in stage performances at Antariksh.
+                                In-depth discussion on Chai Pe Charcha exploring early milestone benchmarks, overcoming neurodevelopmental barriers, and empowering children to thrive in classroom settings.
                             </p>
                         </div>
 
-                        <!-- Card Action Button (Session Form Style Button) -->
-                        <div class="pt-3 border-t border-stone-300/60 flex items-center justify-between gap-3">
-                            <span class="text-[11px] font-mono-nav font-semibold text-stone-500 uppercase tracking-wide">
-                                Real Session Recording
-                            </span>
+                        <!-- Card Action Button & YouTube Direct Link -->
+                        <div class="pt-3 border-t border-stone-300/60 flex items-center justify-between gap-3 flex-wrap">
+                            <a href="https://www.youtube.com/watch?v=D1gxGckdo4c" target="_blank" rel="noopener noreferrer"
+                               class="inline-flex items-center gap-1.5 text-xs font-mono-nav font-bold text-stone-700 hover:text-[#C8232C] transition-colors py-1">
+                                <span>Watch on YouTube</span>
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                            </a>
                             <button type="button" onclick="openBookingModal()"
                                 class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#FFD000] hover:bg-[#FACC15] text-stone-950 font-mono-nav text-xs font-extrabold uppercase tracking-wider transition-all duration-200 shadow-sm hover:shadow-md cursor-pointer active:scale-98">
                                 <span>Consult Specialist</span>
@@ -4182,30 +4273,6 @@
 
                 </div>
 
-            </div>
-
-            <!-- Bottom Interactive Tour Banner (Matching Booking Form Tone) -->
-            <div class="mt-14 sm:mt-18 max-w-4xl mx-auto rounded-3xl p-6 sm:p-8 bg-white border-2 border-stone-800/80 shadow-[0_8px_30px_-6px_rgba(0,0,0,0.08)] flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-2xl bg-amber-100 border border-amber-200 flex items-center justify-center shrink-0 text-amber-700">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-                        </svg>
-                    </div>
-                    <div>
-                        <h4 class="text-base sm:text-lg font-black text-stone-900 tracking-tight">
-                            Want to experience our clinic facilities in person?
-                        </h4>
-                        <p class="text-xs sm:text-sm text-stone-600 font-medium leading-relaxed">
-                            Book a guided walkthrough across our Dadar, Borivali, Vashi, Thane, Sion, or Pune centres.
-                        </p>
-                    </div>
-                </div>
-
-                <button type="button" onclick="openBookingModal()"
-                    class="px-6 py-3 rounded-full bg-stone-900 hover:bg-[#ef2531] text-white font-mono-nav text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-200 shadow-sm shrink-0 cursor-pointer active:scale-98">
-                    Schedule Centre Tour
-                </button>
             </div>
 
         </div>
@@ -5483,12 +5550,24 @@
         }
 
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => { initAnnouncementScroll(); initActivityMarquee(); initServicesCarousel(); initTimelineBeam(); initVerticalTestimonials(); initFAQAccordion(); initFlipWords(); });
+            document.addEventListener('DOMContentLoaded', () => { initAnnouncementScroll(); initActivityMarquee(); initServicesCarousel(); initTimelineBeam(); initVerticalTestimonials(); initFAQAccordion(); initFlipWords(); initYouTubeEmbeds(); });
         } else {
-            initAnnouncementScroll(); initActivityMarquee(); initServicesCarousel(); initTimelineBeam(); initVerticalTestimonials(); initFAQAccordion(); initFlipWords();
+            initAnnouncementScroll(); initActivityMarquee(); initServicesCarousel(); initTimelineBeam(); initVerticalTestimonials(); initFAQAccordion(); initFlipWords(); initYouTubeEmbeds();
         }
 
         // ==================== ACETERNITY TIMELINE PROGRESS BEAM ====================
+        
+        // ==================== YOUTUBE EMBED HELPER ====================
+        function initYouTubeEmbeds() {
+            // When opened directly as a local file (file:///), browsers suppress HTTP Referer headers
+            // across origin boundaries, triggering YouTube Error 153.
+            // In that case, we reveal the high-resolution poster card with 1-click YouTube launch.
+            // When served via http:// or https:// (localhost, preview, or production), the iframe player loads smoothly.
+            if (window.location.protocol === 'file:') {
+                document.querySelectorAll('.yt-local-fallback').forEach(el => el.classList.remove('hidden'));
+                document.querySelectorAll('.yt-iframe').forEach(el => el.classList.add('hidden'));
+            }
+        }
         function initTimelineBeam() {
             const container = document.getElementById('timelineContainer');
             const beam = document.getElementById('timelineProgressLine');
