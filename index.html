@@ -636,31 +636,51 @@
            ============================================================== */
         .flip-word-container {
             position: relative;
-            display: inline-flex;
-            align-items: baseline;
+            display: inline-block;
+            vertical-align: baseline;
             overflow: hidden;
-            vertical-align: bottom;
+            perspective: 800px;
         }
 
         .flip-word {
             display: inline-block;
-            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.5s ease, filter 0.5s ease;
+            transform-origin: 50% 50%;
             will-change: transform, opacity, filter;
-            transform: translateY(0);
-            opacity: 1;
-            filter: blur(0px);
+            backface-visibility: hidden;
         }
 
-        .flip-word.is-exiting {
-            transform: translateY(-120%) rotateX(45deg);
-            opacity: 0;
-            filter: blur(8px);
+        .flip-word.flip-exit {
+            animation: aceternityFlipExit 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
 
-        .flip-word.is-entering {
-            transform: translateY(120%) rotateX(-45deg);
-            opacity: 0;
-            filter: blur(8px);
+        .flip-word.flip-enter {
+            animation: aceternityFlipEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes aceternityFlipExit {
+            0% {
+                transform: translateY(0%) rotateX(0deg);
+                opacity: 1;
+                filter: blur(0px);
+            }
+            100% {
+                transform: translateY(-110%) rotateX(50deg);
+                opacity: 0;
+                filter: blur(8px);
+            }
+        }
+
+        @keyframes aceternityFlipEnter {
+            0% {
+                transform: translateY(110%) rotateX(-50deg);
+                opacity: 0;
+                filter: blur(8px);
+            }
+            100% {
+                transform: translateY(0%) rotateX(0deg);
+                opacity: 1;
+                filter: blur(0px);
+            }
         }
 
 </style>
@@ -4692,17 +4712,11 @@
                 
                 <!-- Main Animated Slogan with Aceternity Flip Words -->
                 <h2 class="text-2xl sm:text-4xl lg:text-5xl font-black text-stone-900 tracking-tight leading-tight sm:leading-tight mb-2">
-                    <span>Come for</span> 
-                    <span class="flip-word-container h-[1.3em] inline-flex items-baseline px-1">
-                        <span id="flipWords1" class="flip-word font-black text-[#16244F]">parenting guidance</span>
-                    </span>.
+                    <span>Come for </span><span class="flip-word-container inline-flex items-baseline overflow-hidden px-1"><span id="flipWords1" class="flip-word font-black text-[#16244F]">parenting guidance</span></span>.
                 </h2>
                 
                 <h3 class="text-2xl sm:text-4xl lg:text-5xl font-black text-stone-900 tracking-tight leading-tight sm:leading-tight mb-6">
-                    <span>Stay for</span> 
-                    <span class="flip-word-container h-[1.3em] inline-flex items-baseline px-1">
-                        <span id="flipWords2" class="flip-word font-black text-[#C8232C]">something much bigger</span>
-                    </span>.
+                    <span>Stay for </span><span class="flip-word-container inline-flex items-baseline overflow-hidden px-1"><span id="flipWords2" class="flip-word font-black text-[#C8232C]">something much bigger</span></span>.
                 </h3>
 
                 <!-- Subtitle (Good Inside Exact Newsletter Copy) -->
@@ -5392,10 +5406,10 @@
 
             const list2 = [
                 "something much bigger",
-                "lifelong emotional balance",
-                "your child's joyful future",
                 "calm classrooms & homes",
-                "milestones that last"
+                "confident self-expression",
+                "lifelong milestones",
+                "your child's joyful future"
             ];
 
             const el1 = document.getElementById('flipWords1');
@@ -5403,31 +5417,58 @@
             if (!el1 || !el2) return;
 
             let index = 0;
+            let isAnimating = false;
 
-            function flipWord(el, nextText) {
-                el.classList.add('is-exiting');
-                
+            function animateWord(el, nextText) {
+                // If the user has reduced motion enabled in Windows, crossfade smoothly without 3D rotation
+                const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                if (prefersReducedMotion) {
+                    el.style.transition = 'opacity 0.25s ease';
+                    el.style.opacity = '0';
+                    setTimeout(() => {
+                        el.textContent = nextText;
+                        el.style.opacity = '1';
+                    }, 260);
+                    return;
+                }
+
+                // Add exit animation
+                el.classList.remove('flip-enter');
+                el.classList.add('flip-exit');
+
                 setTimeout(() => {
                     el.textContent = nextText;
-                    el.classList.remove('is-exiting');
-                    el.classList.add('is-entering');
-                    
-                    void el.offsetWidth; // Force browser reflow
-                    
-                    el.classList.remove('is-entering');
-                }, 550);
+                    el.classList.remove('flip-exit');
+                    el.classList.add('flip-enter');
+
+                    setTimeout(() => {
+                        el.classList.remove('flip-enter');
+                    }, 520);
+                }, 380);
             }
 
-            setInterval(() => {
-                const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-                if (prefersReducedMotion) return;
+            function triggerNextFlip() {
+                if (isAnimating) return;
+                isAnimating = true;
 
                 index = (index + 1) % list1.length;
-                flipWord(el1, list1[index]);
+                animateWord(el1, list1[index]);
+
+                // Organic stagger: Second word starts flipping 160ms after the first
                 setTimeout(() => {
-                    flipWord(el2, list2[index]);
-                }, 300);
-            }, 3200);
+                    animateWord(el2, list2[index]);
+                }, 160);
+
+                setTimeout(() => {
+                    isAnimating = false;
+                }, 950);
+            }
+
+            // Start first flip quickly after page loads (1.6s) so user sees it in action immediately
+            setTimeout(triggerNextFlip, 1600);
+
+            // Continuous recurring flip every 2.8s
+            setInterval(triggerNextFlip, 2800);
         }
 
         function handleNewsletterSubmit(e) {
