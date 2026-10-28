@@ -218,9 +218,12 @@
 
 <body class="bg-stone-50 min-h-screen pb-16 sm:pb-0 text-stone-800 antialiased selection:bg-rose-100 selection:text-rose-600 overflow-x-hidden">
 
-    <!-- 1. TOP ANNOUNCEMENT BANNER (Mobile-tuned px) -->
-    <aside
-        class="sticky top-0 left-0 w-full bg-[#C2E1FF] text-stone-800 py-2 sm:py-[13px] px-3 sm:px-6 z-40 border-b border-black/8 shadow-sm flex items-center justify-center text-center">
+    <!-- HERO SECTION WRAPPER: Constrains sticky blue banner exclusively to Hero viewport -->
+    <div id="heroSectionWrapper" class="relative w-full">
+
+        <!-- 1. TOP ANNOUNCEMENT BANNER (Sticky exclusively within Hero section) -->
+        <aside id="topAnnouncementBanner"
+            class="sticky top-0 left-0 w-full bg-[#C2E1FF] text-stone-800 py-2 sm:py-[13px] px-3 sm:px-6 z-40 border-b border-black/8 shadow-sm flex items-center justify-center text-center transition-opacity duration-300">
         <div
             class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2.5 text-xs sm:text-base leading-snug">
             <span class="font-medium text-stone-800 tracking-tight">1:1 Parent and Children Coaching is here. Talk to
@@ -618,6 +621,8 @@
 
             </div>
         </div>
+    </div>
+    <!-- END HERO SECTION WRAPPER -->
     </div>
 
     <!-- ==============================================================
@@ -2172,6 +2177,24 @@
         }
     
         // ==================== ACTIVITY MARQUEE & SERVICES CONTROLLER ====================
+                // ==================== TOP ANNOUNCEMENT BANNER VISIBILITY ====================
+        function initAnnouncementScroll() {
+            const banner = document.getElementById('topAnnouncementBanner');
+            const heroWrapper = document.getElementById('heroSectionWrapper');
+            if (!banner || !heroWrapper) return;
+
+            window.addEventListener('scroll', () => {
+                const rect = heroWrapper.getBoundingClientRect();
+                if (rect.bottom <= 50) {
+                    banner.style.opacity = '0';
+                    banner.style.pointerEvents = 'none';
+                } else {
+                    banner.style.opacity = '1';
+                    banner.style.pointerEvents = 'auto';
+                }
+            }, { passive: true });
+        }
+
         function initActivityMarquee() {
             const marqueeTrack = document.getElementById('infiniteCardsTrack');
             if (marqueeTrack && !marqueeTrack.dataset.cloned) {
@@ -2227,9 +2250,9 @@
         }
 
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => { initActivityMarquee(); initServicesCarousel(); });
+            document.addEventListener('DOMContentLoaded', () => { initAnnouncementScroll(); initActivityMarquee(); initServicesCarousel(); });
         } else {
-            initActivityMarquee(); initServicesCarousel();
+            initAnnouncementScroll(); initActivityMarquee(); initServicesCarousel();
         }
 </script>
 </body>
